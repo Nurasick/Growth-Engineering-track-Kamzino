@@ -85,6 +85,134 @@
 
 ---
 
+## How We Actually Got X Data: The Playwright Story
+
+This is the most technically interesting part of the data collection — and the reason most competitive intelligence tools have incomplete X/Twitter data.
+
+### The Problem: x-client-transaction-id
+
+Every Python library for scraping Twitter — twikit, twscrape, snscrape, direct requests — fails in 2025 with a 403 Forbidden response. The reason is a header called `x-client-transaction-id`.
+
+Twitter introduced this header as an anti-bot measure. The value is generated client-side using a proprietary algorithm that:
+1. Takes the current URL, request method, and a rotating key stored in Twitter's JavaScript bundle
+2. Runs a binary XOR/interpolation operation across the key bytes
+3. Produces a token that Twitter's servers validate server-side
+
+The problem: this algorithm runs in JavaScript inside the browser. No Python implementation exists. When `twikit` tries to generate the token server-side:
+
+```
+ClientTransaction.__init__: KeyError: 'Couldn't get KEY_BYTE indices'
+```
+
+The library fails because it can't reproduce the browser's cryptographic environment. Direct `requests` to `twitter.com/i/api/2/search/adaptive.json` returns 403 immediately — the header is missing.
+
+### The Solution: Real Browser, Intercepted Responses
+
+Instead of reverse-engineering the header, we run a real Chromium browser via Playwright. The browser generates `x-client-transaction-id` natively, as part of normal JavaScript execution. We intercept the XHR responses before they reach the page:
+
+```python
+async def handle_response(response: Response):
+    url = response.url
+    # Twitter's internal search API — contains the full tweet JSON
+    if ("search/adaptive" in url or "SearchTimeline" in url) and response.status == 200:
+        body = await response.json()
+        response_queue.append(body)
+
+page.on("response", handle_response)
+
+# domcontentloaded, NOT networkidle — X constantly pings analytics, never goes idle
+await page.goto(search_url, wait_until="domcontentloaded", timeout=60000)
+await asyncio.sleep(5)  # let XHR responses arrive
+```
+
+We inject auth cookies (`auth_token`, `ct0`) from a real logged-in session. The browser navigates to `x.com/search?q=...`, generates all required headers automatically, and we intercept the JSON responses that Twitter sends back — without ever needing to parse the HTML or reverse-engineer the auth.
+
+### Historical Data: Monthly Date Chunks
+
+Twitter's search only returns ~7 days of results on the "Latest" tab. To collect 16 months of data (Jan 2025 → Apr 2026), we used date filters and split into monthly chunks:
+
+```python
+def _monthly_chunks(since: str, until: str) -> list[tuple[str, str]]:
+    """64 searches = 4 queries × 16 months"""
+    ...
+
+# Each search uses Top mode (no &f=live) — surfaces highest-engagement 
+# tweets from the period, not just the most recent
+tab_param = "" if top_mode else "&f=live"
+encoded = full_query.replace(' ', '%20').replace(':', '%3A')
+search_url = f"https://x.com/search?q={encoded}&src=typed_query{tab_param}"
+```
+
+Result: **1,668 tweets across Jan 2025 → Apr 2026**, enriched with author data and engagement metrics via fxtwitter API.
+
+### fxtwitter Enrichment
+
+The Playwright scraper captures tweet IDs and text, but author data is often missing from GraphQL responses. We enrich every tweet via `api.fxtwitter.com/i/status/{tweet_id}` — a public proxy that returns structured JSON including `author.screen_name`, `author.followers`, `likes`, `retweets`, `views`, and `bookmarks`.
+
+```python
+r = session.get(f"https://api.fxtwitter.com/i/status/{tid}", timeout=8)
+if r.status_code == 200:
+    d = r.json().get("tweet", {})
+    row["author_followers"] = d.get("author", {}).get("followers", 0)
+    row["views"]    = d.get("views", 0)
+    row["likes"]    = d.get("likes", 0)
+```
+
+This pipeline is how we confirmed that `@bcherny` (Claude Code engineer) generated 44.3M views from 124 personal tweets — data that required both the Playwright historical scrape and the fxtwitter enrichment to surface.
+
+### Why This Matters for the Growth Intelligence Use Case
+
+Standard X monitoring tools (Brandwatch, Sprout Social, native X API) either require expensive paid tiers or miss historical context. Our Playwright approach:
+- Costs **$0** (uses existing auth cookies from a regular account)
+- Reaches **16 months of history** (not just 7 days)
+- Returns **full engagement metrics** (views, likes, retweets, bookmarks, follower count)
+- Is **self-contained** — no API keys, no paid tiers, no rate limit negotiation
+
+The tradeoff: it requires a headless browser (~500MB RAM) and runs slower than a direct API call (~5 seconds per search query). Acceptable for a weekly intelligence run; not suitable for real-time streaming.
+
+---
+
+## Automated Outreach System
+
+The growth intelligence pipeline now extends beyond monitoring into automated outreach — knowing not just what's happening, but who to contact and what to say.
+
+![Automation System](data/charts/chart_automation_system.png)
+
+### Three New Layers
+
+**Trigger Engine (runs every 30 min)**
+Detects three signal types:
+- Competitor launch: velocity > 0.3, age < 4h, competitor keyword → fire comparison brief
+- Virality spike: velocity > 0.5, age < 6h, Higgsfield mention → fire amplification brief
+- Celebrity use: author_followers > 1M, mentions Higgsfield → fire quote-tweet brief
+
+**Brief Generator (fires on trigger)**
+Auto-populates a content brief from:
+- Creator watchlist (scored weekly by views/follower ratio × topic overlap × posting velocity)
+- Playbook rules engine (comparison frame for competitor trigger, scandal-adjacent for celebrity, personal story for organic spike)
+- Platform priority sequence (X same day → YouTube 24h → Reddit weekend)
+- UTM-tagged Pro access link per creator
+
+**Delivery**
+- Slack webhook: brief lands in team channel, human approves and sends in 15 minutes
+- Weekly dashboard: virality_timeline.html, velocity feed, spike breakdown
+- Creator K-factor report: signups per UTM link at 72h — which creator to double down on
+
+### Creator Scoring Formula
+
+```python
+creator_score = (
+    (median_views / follower_count) * 0.4   # the key signal — @MangoLassC got 415x ratio
+  + (posts_per_week)                * 0.2   # posting velocity (fast reactors matter)
+  + (topic_overlap_score)           * 0.3   # covers AI video / filmmaking
+  + (engagement_rate)               * 0.1   # likes+comments / views
+)
+```
+
+This formula is derived from our data finding that follower count is not the constraint — 8.1% of non-mega-account tweets in our dataset crossed 100K views. @MangoLassC (6.8K followers) got 2.85M views (415x multiplier) on a genuine reaction tweet. The views/follower ratio predicts breakout potential better than raw follower count.
+
+---
+
 ## Automated vs Human-Reviewed Steps
 
 | Step | Automated? | Justification |
