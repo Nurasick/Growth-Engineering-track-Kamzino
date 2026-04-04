@@ -1,8 +1,26 @@
 # Higgsfield Counter-Playbook: Replicating Claude's Viral Growth Mechanics
 ## HackNU 2026 · Growth Engineering Track · Part 4
 
-> **Data provenance:** Every recommendation below cites a specific finding from our 855-post dataset.
+> **Data provenance:** Every recommendation cites a specific finding from our scraped dataset.
+> This playbook was updated after running our pipeline on Higgsfield-specific queries (51 posts across Reddit and HN, April 2026). The Higgsfield data validates and sharpens several recommendations below — those are marked **[validated]**.
 > No vague strategy. No "consider doing X." Each tactic specifies what to do, how to measure it, and why the data supports it.
+
+---
+
+## 0. What We Actually Found When We Ran the Pipeline on Higgsfield
+
+We ran our scraper with Higgsfield-specific queries (r/aivideo, r/filmmakers, r/videography, r/weddingvideography, HN) and collected 51 posts. Here is what the data shows — not theory, actual results:
+
+| Finding | Claude | Higgsfield |
+|---|---|---|
+| HN presence | 1,884 posts (dominant platform) | 0 real posts — does not exist on HN |
+| Top Reddit community | r/ClaudeAI, r/MachineLearning | r/aivideo (2,122 pts top post) |
+| r/filmmakers / r/videography | N/A | Near-zero engagement; skeptical community |
+| Dominant spike type | Breakthrough (50%) | Personal (57%) |
+| Top content | Technical announcements | Meme clips + creator workflows |
+| Highest single post | Fireship 2.59M YouTube views | "Face Punching Iconic Characters" 2,122 Reddit pts |
+
+**The core difference:** Claude's growth is announcement-driven (breakthrough content dominates). Higgsfield's growth is output-driven — people share the video clip, not the press release. Every recommendation in this playbook follows from that structural difference.
 
 ---
 
@@ -12,12 +30,14 @@ Claude's distribution graph is developer-shaped. Higgsfield's must be creator-sh
 
 | Claude's Platform | Role in Claude's Growth | Higgsfield Equivalent | Why |
 |---|---|---|---|
-| Hacker News | Ignition — first-mover spike, 2–6pm ET | **ProductHunt** + **r/filmmakers** | No developer crossover; creator communities use PH and film subreddits |
+| Hacker News | Ignition — first-mover spike, 2–6pm ET | **ProductHunt** | **[validated]** HN search returned 0 real Higgsfield posts. Developer community does not discuss AI video tools here. |
 | YouTube (tech creators) | 29x official channel; Fireship = 2.59M on one video | **YouTube (VFX/film creators)** | Same mechanic, different creator archetype |
-| Reddit r/ClaudeAI, r/MachineLearning | Wave 2 amplification | **r/filmmakers, r/videography, r/weddingvideography, r/indiegaming** | Higgsfield's users live here, not r/MachineLearning |
+| Reddit r/ClaudeAI, r/MachineLearning | Wave 2 amplification | **r/aivideo** (primary), **r/filmmakers**, **r/videography** | **[validated]** r/aivideo posts scored 2,122 and 921 pts. r/filmmakers and r/videography had near-zero engagement on Higgsfield content. |
 | X/Twitter (tech accounts) | Equal to official per tweet | **X + Instagram Reels + TikTok** | Visual product = visual-native platforms; short-form video IS the demo |
 
-**Critical difference:** Claude's "wow moment" is text. Higgsfield's is a video clip. This means every platform that auto-plays video (TikTok, Reels, YouTube Shorts) is a higher-leverage distribution channel than any text-first platform. Use them accordingly.
+**Critical difference:** Claude's "wow moment" is text. Higgsfield's is a video clip. This means every platform that auto-plays video (TikTok, Reels, YouTube Shorts) is a higher-leverage distribution channel than any text-first platform.
+
+**Community finding [validated]:** r/videography sentiment skews skeptical — "Disgusting how many creators sell out to AI" was a top post (102 pts). Do not seed r/videography with promotional content. It backfires. Seed r/aivideo instead — that community celebrates AI video output.
 
 ---
 
@@ -68,15 +88,15 @@ Post: "Higgsfield vs Sora vs Runway: same prompt, blind test. Which one wins?"
 Format: Side-by-side video. Same text prompt, three outputs, viewer votes before reveal.
 Why: "chatgpt" comparison framing drives 15x title lift in our data. The equivalent for Higgsfield is "Sora" — use it in titles. Don't name just Higgsfield. Name the competition. Comparison content is only 7% of posts in our dataset but averages 7,098 engagement — the highest return on effort of any non-meme format. This is the single most underused content type. Run one comparison video per competitor per quarter.
 
-**Personal story (10% of posts, median = 914 — most consistent format)**
+**Personal story (most consistent format)**
 Post: "I used Higgsfield to finish my indie film. Here's what happened."
-Format: Narrative YouTube video or Twitter/X thread. Authentic, not polished.
-Why: Personal stories have the best median-to-average ratio in our dataset. They rarely go massive (mean = 28K) but almost never get zero (median = 914). For Higgsfield, this format drives the conversion pipeline — a wedding videographer sharing "I cut my editing time by 60%" is a trust signal that no ad can buy. Identify 3 real customers in the first month and pay them to tell their story on their own channel.
+Format: Narrative post or short video. Authentic, not polished.
+Why: Personal stories have the best median-to-average ratio in Claude data (median 914 vs breakthrough's 4). **[validated from Higgsfield data]** Personal posts are 57% of all Higgsfield content in our dataset — the dominant format the community already uses. This is the natural language of filmmaker communities. Posts like "HiggsField Introduces Cinema Studio" and creator workflow threads appear consistently. For Higgsfield, this format drives conversion — a wedding videographer sharing "I cut my editing time by 60%" is a trust signal that no ad can buy. Seed 3 real customers in month 1.
 
-**Meme (9% of posts, avg = 588K — highest ceiling)**
-Post: "AI generated [absurd, unexpected, funny thing]" — wedding videos going wrong, game cutscenes with physics errors, dramatic cinematic zoom on a cat.
-Format: Short clip, no explanation needed, post natively to TikTok and Reels.
-Why: 588K average engagement is the highest of any format. This is unpredictable — most meme attempts fail, which is why they're only 9% of posts. Do not force it. Instead: give free access to comedic/creative creators (meme accounts, comedy TikTok) and let them find the angle organically. When one lands, the K-factor from that post will dwarf any planned content.
+**Meme (9% of posts in Claude data, avg = 588K — highest ceiling)**
+Post: "AI generated [absurd, unexpected, funny thing]"
+Format: Short clip, no explanation needed, post natively to TikTok, Reels, and r/aivideo.
+Why: 588K average engagement from Claude data. **[validated from Higgsfield data]** "Face Punching Iconic Characters" scored 2,122 pts on r/aivideo. "Animated some GTA VI Screenshots" scored 886 pts. These are the highest-performing Higgsfield posts in our dataset — both pure meme format, both posted to r/aivideo. This is Higgsfield's Fireship moment equivalent: one absurd, funny clip that spreads because it's entertaining, not because it's informative. Do not force it — give free Pro access to comedic creators and let them find the angle.
 
 ---
 

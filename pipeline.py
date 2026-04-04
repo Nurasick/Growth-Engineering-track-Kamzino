@@ -64,11 +64,11 @@ PRODUCT_CONFIGS = {
     },
     "higgsfield": {
         "label":       "Higgsfield AI",
-        "hn_queries":  "Higgsfield,Higgsfield AI,AI video generation",
-        "reddit_subs": "filmmakers,videography,weddingvideography,artificial,AIvideo",
+        "hn_queries":  "Higgsfield,Higgsfield AI",
+        "reddit_subs": "aivideo,filmmakers,videography,weddingvideography,artificial",
         "reddit_query": "Higgsfield",
         "yt_queries":  ["Higgsfield AI", "Higgsfield vs Runway", "Higgsfield video generator",
-                        "AI video generation 2026", "Higgsfield review"],
+                        "Higgsfield Cinema Studio", "Higgsfield review"],
         "prefix":      "higgsfield",
     },
 }
