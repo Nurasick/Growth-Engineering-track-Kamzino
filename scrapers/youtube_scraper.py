@@ -18,8 +18,10 @@ LOG_PATH       = os.path.join(os.path.dirname(__file__), "..", "..", "data", "er
 SEARCH_QUERIES = ["Claude AI", "Anthropic Claude", "Claude vs GPT", "Claude Sonnet", "Anthropic"]
 RESULTS_PER_QUERY   = 50
 MAX_COMMENTS_PER_VIDEO = 20
-DATE_RANGE_START    = "2026-01-01T00:00:00Z"  # RFC 3339 publishedAfter
 BATCH_SIZE          = 50  # videos.list accepts up to 50 IDs per call
+
+# Dynamic date range for last 7 days (RFC 3339 publishedAfter)
+DATE_RANGE_START = (datetime.now(timezone.utc) - pd.Timedelta(days=7)).isoformat().replace('+00:00', 'Z')
 
 
 # ---------------------------------------------------------------------------

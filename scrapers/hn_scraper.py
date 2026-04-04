@@ -72,12 +72,14 @@ def _get(url, params=None):
 # ---------------------------------------------------------------------------
 def fetch_items(query, tags, pages=3, hits_per_page=100):
     records = []
+    # Filter for items from the last 7 days
+    one_week_ago = int((datetime.now(timezone.utc).timestamp())) - (7 * 24 * 60 * 60)
 
     for page_num in range(pages):
         params = {
             "query":          query,
             "tags":           tags,
-            "numericFilters": "created_at_i>1704067200",
+            "numericFilters": f"created_at_i>{one_week_ago}",
             "hitsPerPage":    hits_per_page,
             "page":           page_num,
         }

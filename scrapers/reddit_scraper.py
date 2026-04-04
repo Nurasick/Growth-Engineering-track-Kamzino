@@ -110,7 +110,7 @@ def scrape_subreddit(
     data = _get(url, params={
         "q":          query,
         "sort":       "top",
-        "t":          "year",
+        "t":          "week",
         "limit":      min(limit, 100),
         "restrict_sr": True,
     })
