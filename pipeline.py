@@ -137,14 +137,14 @@ def print_summary(prefix: str = "") -> None:
     print("  ║  RAW DATA:                                               ║")
     for p, label in raw_files:
         if p.exists():
-            count = sum(1 for _ in p.open()) - 1
+            count = sum(1 for _ in p.open(encoding="utf-8", errors="replace")) - 1
             print(f"  ║    ✅  {label:<28} {count:>6} rows        ║")
         else:
             # Try any matching file for today's dated ones
             pattern = p.name.replace(TODAY, "*")
             matches = list(RAW_DIR.glob(pattern)) if "*" in pattern else []
             if matches:
-                count = sum(1 for _ in matches[0].open()) - 1
+                count = sum(1 for _ in matches[0].open(encoding="utf-8", errors="replace")) - 1
                 print(f"  ║    ✅  {label:<28} {count:>6} rows        ║")
             else:
                 print(f"  ║    ⏭️   {label:<28} {'—':>6}              ║")
@@ -157,7 +157,7 @@ def print_summary(prefix: str = "") -> None:
         (PROCESSED_DIR / "growth_frontpage.csv", "Velocity ranked"),
     ]:
         if p.exists():
-            count = sum(1 for _ in p.open()) - 1
+            count = sum(1 for _ in p.open(encoding="utf-8", errors="replace")) - 1
             print(f"  ║    ✅  {label:<28} {count:>6} rows        ║")
 
     print("  ║                                                          ║")
@@ -201,7 +201,7 @@ def main() -> int:
         hn_prefix = f"{prefix}_" if prefix else ""
         hn_out = RAW_DIR / f"{hn_prefix}hn_items_{TODAY}.csv"
         if hn_out.exists():
-            log(f"HN cached ({sum(1 for _ in hn_out.open())-1} items)", "⏭️")
+            log(f"HN cached ({sum(1 for _ in hn_out.open(encoding='utf-8', errors='replace'))-1} items)", "⏭️")
         else:
             hn_args = ["--queries", cfg["hn_queries"]]
             if prefix:
@@ -215,7 +215,7 @@ def main() -> int:
         rd_prefix = f"{prefix}_" if prefix else ""
         reddit_out = RAW_DIR / f"{rd_prefix}reddit_posts_{TODAY}.csv"
         if reddit_out.exists():
-            log(f"Reddit cached ({sum(1 for _ in reddit_out.open())-1} posts)", "⏭️")
+            log(f"Reddit cached ({sum(1 for _ in reddit_out.open(encoding='utf-8', errors='replace'))-1} posts)", "⏭️")
         else:
             rd_args = [
                 "--subreddits", cfg["reddit_subs"],
@@ -232,7 +232,7 @@ def main() -> int:
         x_filename = f"{prefix}_x_case_raw.csv" if prefix else "x_case_raw.csv"
         x_out      = RAW_DIR / x_filename
         if x_out.exists():
-            count = sum(1 for _ in x_out.open()) - 1
+            count = sum(1 for _ in x_out.open(encoding='utf-8', errors='replace')) - 1
             log(f"X cached ({count} tweets)", "⏭️")
         else:
             x_args = ["--product", args.product, "--verbose"]
@@ -253,7 +253,7 @@ def main() -> int:
         if not yt_key:
             log("No YOUTUBE_API_KEY in .env — skipping (add key to .env to enable)", "⏭️")
         elif yt_out.exists():
-            count = sum(1 for _ in yt_out.open()) - 1
+            count = sum(1 for _ in yt_out.open(encoding='utf-8', errors='replace')) - 1
             log(f"YouTube cached ({count} videos)", "⏭️")
         else:
             # Run inline so we can control output paths directly
