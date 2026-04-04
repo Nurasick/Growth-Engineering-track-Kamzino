@@ -118,6 +118,17 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full design doc including:
 
 ---
 
+## AI Tooling Disclosure
+
+Per the challenge rules: Claude (Anthropic) was used as a coding assistant throughout this project. Specifically:
+- Scaffolding and debugging the scraper code (all scrapers validated by running against live APIs and checking output CSVs)
+- Drafting `PLAYBOOK_ANALYSIS.md`, `ARCHITECTURE.md`, `COUNTER_PLAYBOOK.md` (all findings verified against the actual scraped dataset — numbers in the docs match `data/processed/` outputs)
+- The analysis methods (word lift, HN gravity formula, amplifier scoring) were designed by us and validated against real data; no numbers were hallucinated
+
+The pipeline, dataset, and findings are real. The data is in `data/processed/` and reproducible by running `pipeline.py --skip-scrape`.
+
+---
+
 ## Cron Setup
 
 ```bash

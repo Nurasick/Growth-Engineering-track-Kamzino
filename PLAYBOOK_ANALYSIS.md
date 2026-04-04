@@ -34,6 +34,8 @@
 | Apr 03 16:30 | YouTube | 131,467 views | SAMTIME: "Claude Leaks its Source Code… then Files Copyright Claim" — satire wave |
 | Apr 03 18:00 | YouTube | 89,249 views | Portuguese creators: "Em 48h recriaram o Claude Code de graça" — international wave |
 
+![3-Wave Cascade Timeline](data/charts/chart_cascade_timeline.png)
+
 **Wave structure confirmed from data:**
 - **Wave 1 (0–2h):** HN + immediate YouTube reaction from technical creators
 - **Wave 2 (2–16h):** Tutorial/breakdown videos, Reddit joins, peak reach
@@ -54,6 +56,8 @@
 | **Ratio** | — | **29x** | — |
 
 Fireship alone (2,592,415 views) beat Anthropic's entire YouTube output by **13x** on the same event.
+
+![YouTube Community vs Official](data/charts/chart_youtube_reach.png)
 
 **On X/Twitter:**
 
@@ -82,6 +86,8 @@ On X the gap is much smaller — official and community are roughly **equal per 
 | Personal | 10% | 28,177 | 914 |
 | Meme | 9% | **588,136** | 337 |
 | Comparison | 7% | 7,098 | 32 |
+
+![Spike Type Volume vs Engagement](data/charts/chart_spike_types.png)
 
 **Key observations:**
 1. **Meme content has the highest average engagement** (588K) despite being only 9% of posts. The ceiling is enormous when a meme lands.
@@ -117,6 +123,8 @@ HN's US afternoon window (2–6pm ET / 18–22 UTC) consistently outperforms mor
 
 Weekend Reddit posts average **2.2x more upvotes** than weekday posts.
 
+![Platform Timing Patterns](data/charts/chart_timing.png)
+
 **Caveat:** n is small per bucket (11–29 posts). Direction is consistent but magnitude should not be treated as precise.
 
 ---
@@ -131,6 +139,8 @@ Words significantly overrepresented in **top 20% engagement posts** vs bottom 20
 | chatgpt | 15.5x | Comparison framing outperforms standalone Claude content |
 | tutorial | high | Actionable content signals drive clicks |
 | insane / full / sonnet | high (small n) | Superlatives + model names in titles work |
+
+![Title Word Lift](data/charts/chart_word_lift.png)
 
 Words overrepresented in **low-engagement posts:**
 - "anthropic" as a standalone word (0.35x lift) — brand name alone doesn't convert
@@ -149,6 +159,8 @@ From velocity rankings (HN gravity formula, normalized):
 | HN | 0.033 | ~0 | 0.001 | 0.001 |
 | Reddit | 0.240 | 0.027 | 0.008 | ~0 |
 | YouTube | 0.055 | 0.024 | 0.010 | 0.004 |
+
+![Engagement Decay by Platform](data/charts/chart_decay.png)
 
 **HN has the steepest decay** — a post is effectively dead after 24 hours. **YouTube retains velocity longest** — videos continue gaining views 6+ days later. **Reddit is in between** — weekend posts can survive into Monday.
 
