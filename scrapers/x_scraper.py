@@ -61,6 +61,73 @@ HANDLES = [
     "miramurati",
 ]
 
+# ── Per-product configs ───────────────────────────────────────────────────────
+PRODUCT_CONFIGS = {
+    "claude": {
+        "handles": HANDLES,
+        "dork_queries": [
+            'site:x.com "Claude AI"',
+            'site:x.com "Anthropic Claude"',
+            'site:x.com "Claude Code"',
+            'site:x.com "Claude vs ChatGPT"',
+            'site:x.com "switched to Claude"',
+            'site:x.com "vibe coding"',
+            'site:x.com "Claude refused"',
+            'site:x.com "Claude better than GPT"',
+            'site:x.com "using Claude"',
+            'site:x.com "Claude API"',
+            'site:x.com "claude.ai"',
+            'site:x.com "Claude 3"',
+            'site:x.com "claude sonnet"',
+            'site:x.com "claude opus"',
+            'site:x.com "@AnthropicAI"',
+            'site:x.com "Claude Haiku"',
+            'site:x.com "Claude is better"',
+            'site:x.com "Claude wrote"',
+            'site:x.com "Claude generated"',
+            'site:x.com "Anthropic" AI assistant',
+            'site:x.com "claude coding"',
+            'site:x.com "claude helped"',
+        ],
+        "handle_search_term": "Claude",
+        "official_handles": {"anthropicai", "claudeai"},
+        "output_csv": "x_case_raw.csv",
+        "output_json": "x_case_raw.json",
+    },
+    "higgsfield": {
+        "handles": [
+            "Higgsfield_ai",       # official
+            "corridorcrew",        # Corridor Crew — VFX/film YouTube, 8.8M subs
+            "filmriot",            # Film Riot — indie filmmakers
+            "MattVidPro",          # MattVidPro AI — covers AI tools broadly
+            "therundownai",        # The Rundown AI — AI news, covers video tools
+            "aiexplained_",        # AI Explained
+            "karenxcheng",         # viral video creator
+            "nickfloats",          # AI video content creator
+            "minchoi",             # AI tools content
+            "levelsio",            # indie maker, shares AI tools
+            "rowancheung",         # AI tools creator
+            "heyjasperai",         # adjacent AI creative tools
+        ],
+        "dork_queries": [
+            'site:x.com "Higgsfield"',
+            'site:x.com "Higgsfield AI"',
+            'site:x.com "@Higgsfield_ai"',
+            'site:x.com "Higgsfield vs Runway"',
+            'site:x.com "Higgsfield vs Sora"',
+            'site:x.com "Higgsfield video"',
+            'site:x.com "Cinema Studio" Higgsfield',
+            'site:x.com "Higgsfield review"',
+            'site:x.com "Higgsfield tutorial"',
+            'site:x.com "AI video generation" Higgsfield',
+        ],
+        "handle_search_term": "Higgsfield",
+        "official_handles": {"higgsfield_ai"},
+        "output_csv": "higgsfield_x_case_raw.csv",
+        "output_json": "higgsfield_x_case_raw.json",
+    },
+}
+
 
 _REPO_ROOT = Path(__file__).parent.parent
 _RAW_DIR   = _REPO_ROOT / "data" / "raw"
@@ -188,20 +255,22 @@ def polite_sleep(base_seconds: float) -> None:
         time.sleep(base_seconds + random.uniform(0.05, 0.35))
 
 
-def get_all_handles() -> list[str]:
-    """Merge static HANDLES with auto-discovered watchlist handles (deduped)."""
+def get_all_handles(base_handles: list[str] | None = None) -> list[str]:
+    """Merge base handles with auto-discovered watchlist handles (deduped)."""
+    base = base_handles if base_handles is not None else HANDLES
     watchlist = load_watchlist_handles()
-    merged = list(HANDLES) + [h for h in watchlist if h.lower() not in {x.lower() for x in HANDLES}]
+    base_lower = {h.lower() for h in base}
+    merged = list(base) + [h for h in watchlist if h.lower() not in base_lower]
     if watchlist:
-        new_handles = [h for h in watchlist if h.lower() not in {x.lower() for x in HANDLES}]
+        new_handles = [h for h in watchlist if h.lower() not in base_lower]
         if new_handles:
             print(f'[watchlist] loaded {len(new_handles)} new handles from amplifier_watchlist.csv', file=sys.stderr)
     return merged
 
 
-def handle_queries() -> list[str]:
+def handle_queries(handles: list[str] | None = None) -> list[str]:
     queries: list[str] = []
-    for handle in get_all_handles():
+    for handle in get_all_handles(handles):
         for template in HANDLE_QUERY_TEMPLATES:
             queries.append(template.format(handle=handle))
     return dedupe_preserve_order(queries)
@@ -369,7 +438,7 @@ def fetch_nitter_rss(session: requests.Session, base_url: str, handle: str, limi
     return hits
 
 
-def fetch_fxtwitter_tweet(session: requests.Session, status_url: str, source_query: str) -> CollectedTweet | None:
+def fetch_fxtwitter_tweet(session: requests.Session, status_url: str, source_query: str, official_handles: set[str] | None = None) -> CollectedTweet | None:
     normalized = canonicalize_status_url(status_url)
     if not normalized:
         return None
@@ -413,7 +482,7 @@ def fetch_fxtwitter_tweet(session: requests.Session, status_url: str, source_que
         text=tweet.get('text') or '',
         created_at=tweet.get('created_at') or '',
         url=tweet.get('url') or clean_url,
-        is_official=author_handle.lower() in {'anthropicai', 'claudeai'},
+        is_official=author_handle.lower() in (official_handles or {'anthropicai', 'claudeai'}),
         source_query=source_query,
         has_media=has_media,
         outbound_links=dedupe_preserve_order(outbound_links),
@@ -442,16 +511,28 @@ def write_csv(path: Path, rows: Iterable[CollectedTweet]) -> None:
 
 
 def main() -> int:
+    _raw = _REPO_ROOT / "data" / "raw"
     parser = argparse.ArgumentParser(description='Collect public X data for the hackathon case.')
+    parser.add_argument('--product',  default='claude', choices=list(PRODUCT_CONFIGS.keys()),
+                        help='Which product to track (default: claude).')
     parser.add_argument('--pages', type=int, default=3, help='Search pages per query.')
     parser.add_argument('--limit-per-query', type=int, default=25, help='Max tweet URLs accepted per query.')
     parser.add_argument('--limit-per-handle-rss', type=int, default=50, help='Max RSS items per handle when RSS works.')
-    _raw = _REPO_ROOT / "data" / "raw"
     parser.add_argument('--bootstrap-urls', default=str(_REPO_ROOT / 'scrapers' / 'x_bootstrap_urls.txt'), help='Optional bootstrap URLs file.')
-    parser.add_argument('--output-json', default=str(_raw / 'x_case_raw.json'), help='Output JSON path.')
-    parser.add_argument('--output-csv',  default=str(_raw / 'x_case_raw.csv'),  help='Output CSV path.')
+    parser.add_argument('--output-json', default=None, help='Output JSON path (default: from product config).')
+    parser.add_argument('--output-csv',  default=None, help='Output CSV path (default: from product config).')
     parser.add_argument('--verbose', action='store_true')
     args = parser.parse_args()
+
+    cfg = PRODUCT_CONFIGS[args.product]
+    output_csv  = args.output_csv  or str(_raw / cfg["output_csv"])
+    output_json = args.output_json or str(_raw / cfg["output_json"])
+    prod_handles       = cfg["handles"]
+    prod_dork_queries  = cfg["dork_queries"]
+    prod_official_set  = cfg["official_handles"]
+
+    if args.verbose:
+        print(f'[product] {args.product} — {len(prod_handles)} handles, {len(prod_dork_queries)} dork queries', file=sys.stderr)
 
     session = requests.Session()
     session.headers.update(DEFAULT_HEADERS)
@@ -470,7 +551,7 @@ def main() -> int:
     if args.verbose:
         print(f'[rss-check] {rss_status}', file=sys.stderr)
     if rss_base:
-        for handle in get_all_handles():
+        for handle in get_all_handles(prod_handles):
             try:
                 for hit in fetch_nitter_rss(session, rss_base, handle, args.limit_per_handle_rss):
                     if hit.url in seen_urls:
@@ -481,7 +562,7 @@ def main() -> int:
                 if args.verbose:
                     print(f'[warn] rss fetch failed for {handle}: {exc}', file=sys.stderr)
 
-    for query in handle_queries() + DORK_QUERIES:
+    for query in handle_queries(prod_handles) + prod_dork_queries:
         try:
             hits = discover_hits(session, query, args.pages)
         except Exception as exc:  # noqa: BLE001
@@ -504,7 +585,7 @@ def main() -> int:
     rows: list[CollectedTweet] = []
     seen_tweet_ids: set[str] = set()
     for hit in discovered:
-        tweet = fetch_fxtwitter_tweet(session, hit.url, hit.source_query)
+        tweet = fetch_fxtwitter_tweet(session, hit.url, hit.source_query, official_handles=prod_official_set)
         if not tweet or not tweet.text:
             continue
         if tweet.tweet_id in seen_tweet_ids:
@@ -515,13 +596,14 @@ def main() -> int:
             print(f'[ok] @{tweet.author_handle} {tweet.tweet_id} source={tweet.source_query}', file=sys.stderr)
         polite_sleep(0.15)
 
-    write_json(Path(args.output_json), rows)
-    write_csv(Path(args.output_csv), rows)
+    write_json(Path(output_json), rows)
+    write_csv(Path(output_csv), rows)
     print(json.dumps({
+        'product': args.product,
         'discovered_urls': len(discovered),
         'collected_rows': len(rows),
-        'output_json': args.output_json,
-        'output_csv': args.output_csv,
+        'output_json': output_json,
+        'output_csv': output_csv,
         'rss_status': rss_status,
         'rss_base': rss_base,
     }, ensure_ascii=False))

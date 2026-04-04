@@ -121,17 +121,18 @@ def check_alerts() -> None:
         log("No active alerts", "✅")
 
 
-def print_summary() -> None:
+def print_summary(prefix: str = "") -> None:
     print()
     print("  ╔══════════════════════════════════════════════════════════╗")
     print("  ║          GROWTH INTELLIGENCE — PIPELINE RESULTS         ║")
     print("  ╠══════════════════════════════════════════════════════════╣")
+    p = f"{prefix}_" if prefix else ""
     raw_files = [
-        (RAW_DIR / "x_case_raw.csv",                      "X/Twitter posts"),
-        (RAW_DIR / f"reddit_posts_{TODAY}.csv",            "Reddit posts"),
-        (RAW_DIR / f"reddit_comments_{TODAY}.csv",         "Reddit comments"),
-        (RAW_DIR / f"hn_items_{TODAY}.csv",                "HN items"),
-        (RAW_DIR / f"youtube_videos_{TODAY}.csv",          "YouTube videos"),
+        (RAW_DIR / f"{p}x_case_raw.csv",                  "X/Twitter posts"),
+        (RAW_DIR / f"{p}reddit_posts_{TODAY}.csv",         "Reddit posts"),
+        (RAW_DIR / f"{p}reddit_comments_{TODAY}.csv",      "Reddit comments"),
+        (RAW_DIR / f"{p}hn_items_{TODAY}.csv",             "HN items"),
+        (RAW_DIR / f"{p}youtube_videos_{TODAY}.csv",       "YouTube videos"),
     ]
     print("  ║  RAW DATA:                                               ║")
     for p, label in raw_files:
@@ -228,13 +229,15 @@ def main() -> int:
     if not args.skip_scrape:
         print()
         print("  ── STEP 3: X/Twitter (fxtwitter · public) ───────────────────")
-        x_out = RAW_DIR / "x_case_raw.csv"
+        x_filename = f"{prefix}_x_case_raw.csv" if prefix else "x_case_raw.csv"
+        x_out      = RAW_DIR / x_filename
         if x_out.exists():
             count = sum(1 for _ in x_out.open()) - 1
             log(f"X cached ({count} tweets)", "⏭️")
         else:
-            x_args = ["--pages", "1", "--limit-per-query", "10", "--verbose"] if args.demo else ["--pages", "2", "--limit-per-query", "20", "--verbose"]
-            run_python(SCRAPERS_DIR / "x_scraper.py", x_args, "X scraper (fxtwitter + DDG/Bing/Brave)")
+            x_args = ["--product", args.product, "--verbose"]
+            x_args += ["--pages", "1", "--limit-per-query", "10"] if args.demo else ["--pages", "2", "--limit-per-query", "20"]
+            run_python(SCRAPERS_DIR / "x_scraper.py", x_args, f"X scraper ({cfg['label']})")
 
     # ── STEP 3.5: Amplifier Watchlist ────────────────────────────────────────
     print()
@@ -308,7 +311,7 @@ print(f'Saved {{len(videos)}} videos, {{len(comments)}} comments')
     print("  ── STEP 9: Alert check ──────────────────────────────────────")
     check_alerts()
 
-    print_summary()
+    print_summary(prefix=prefix)
     print()
     html_path = PROCESSED_DIR / "virality_timeline.html"
     print(f"  Open dashboard:  xdg-open {html_path}")
