@@ -1,0 +1,16 @@
+{
+  "posts_total": 769,
+  "comments_total": 1163,
+  "sources_loaded": [
+    "X: 82",
+    "Reddit posts: 125",
+    "Reddit comments: 584",
+    "HN: 1141"
+  ],
+  "posts_by_platform": {
+    "x": 82,
+    "reddit": 125,
+    "youtube": 0,
+    "hn": 562
+  }
+}

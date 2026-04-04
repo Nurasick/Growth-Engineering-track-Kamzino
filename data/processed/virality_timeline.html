@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Virality Intelligence — HackNU 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; padding: 24px; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; color: #fff; }
+  .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 24px; }
+  .card { background: #1a1d27; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #2a2d3a; }
+  .chart-wrap { height: 420px; position: relative; }
+  .stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat { background: #1a1d27; border-radius: 8px; padding: 16px; border: 1px solid #2a2d3a; text-align: center; }
+  .stat-emoji { font-size: 1.5rem; }
+  .stat-label { font-size: 0.75rem; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-val { font-size: 1.4rem; font-weight: 700; color: #fff; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; padding: 10px 12px; border-bottom: 2px solid #2a2d3a; color: #888; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+  td { padding: 10px 12px; border-bottom: 1px solid #1f2232; vertical-align: middle; }
+  tr:hover td { background: #1f2232; }
+  .plat { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
+  .plat-hn { background: #ff6600; color: #fff; }
+  .plat-reddit { background: #ff4500; color: #fff; }
+  .plat-youtube { background: #ff0000; color: #fff; }
+  .plat-x { background: #1d9bf0; color: #fff; }
+  .pipeline { display: flex; align-items: center; gap: 0; margin: 12px 0; flex-wrap: wrap; }
+  .pipe-step { background: #252836; border: 1px solid #3a3d4a; border-radius: 8px; padding: 12px 16px; font-size: 0.85rem; }
+  .pipe-step .name { font-weight: 700; color: #fff; }
+  .pipe-step .desc { color: #888; font-size: 0.75rem; margin-top: 2px; }
+  .pipe-arrow { color: #3a3d4a; font-size: 1.2rem; padding: 0 8px; }
+  .alert-box { background: #2d1b1b; border: 1px solid #e63946; border-radius: 8px; padding: 16px; margin-top: 12px; }
+  .alert-title { color: #e63946; font-weight: 700; margin-bottom: 8px; }
+  h2 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<h1>Claude Virality Intelligence Dashboard</h1>
+<p class="subtitle">HackNU 2026 · Growth Engineering Track · 769 posts · 4 platforms · auto-generated</p>
+
+<div class="stats-row">
+  <div class="stat"><div class="stat-emoji">⚡</div><div class="stat-label">Breakthrough</div><div class="stat-val">49%</div></div>
+  <div class="stat"><div class="stat-emoji">📖</div><div class="stat-label">Tutorial</div><div class="stat-val">22%</div></div>
+  <div class="stat"><div class="stat-emoji">⚔️</div><div class="stat-label">Comparison</div><div class="stat-val">6%</div></div>
+  <div class="stat"><div class="stat-emoji">💬</div><div class="stat-label">Personal</div><div class="stat-val">11%</div></div>
+  <div class="stat"><div class="stat-emoji">😂</div><div class="stat-label">Meme</div><div class="stat-val">10%</div></div>
+</div>
+
+<div class="card">
+  <div class="chart-wrap"><canvas id="timelineChart"></canvas></div>
+</div>
+
+<div class="card">
+  <h2>🔄 Automated Pipeline</h2>
+  <div class="pipeline">
+    <div class="pipe-step"><div class="name">🕷️ Scrapers</div><div class="desc">X · Reddit · YouTube · HN<br>public APIs + fxtwitter</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="name">🎯 Amplifier Watchlist</div><div class="desc">auto-score creators<br>self-expanding weekly</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="name">🗄️ Unified Dataset</div><div class="desc">769 posts normalized<br>deduped across platforms</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="name">🏷️ Spike Classifier</div><div class="desc">5 types: breakthrough<br>tutorial · comparison · personal · meme</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="name">📊 Velocity Ranker</div><div class="desc">HN gravity formula<br>cross-platform normalized</div></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"><div class="name">🚨 Alert Layer</div><div class="desc">velocity &gt; 1.0 AND age &lt; 6h<br>→ flag human review</div></div>
+  </div>
+  <div class="alert-box">
+    <div class="alert-title">🚨 Alert Signal Design</div>
+    Flag when: <strong>velocity &gt; 1.0</strong> (HN gravity) AND <strong>age &lt; 6h</strong> AND spike_type ∈ {personal, meme} = organic content gaining momentum. Runs every Monday 08:00 UTC via cron.
+  </div>
+</div>
+
+<div class="card">
+  <h2>📈 Top Viral Posts (by raw engagement)</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Platform</th><th>Type</th><th>Title</th><th>Score</th></tr></thead>
+    <tbody>
+        <tr>
+          <td>2026-02-23</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">33,637,201</td>
+        </tr>
+        <tr>
+          <td>2025-05-22</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">4,278,734</td>
+        </tr>
+        <tr>
+          <td>2025-08-05</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">4,132,073</td>
+        </tr>
+        <tr>
+          <td>2026-03-06</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">3,207,797</td>
+        </tr>
+        <tr>
+          <td>2025-07-28</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#457b9d">📖 tutorial</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">2,420,333</td>
+        </tr>
+        <tr>
+          <td>2025-11-28</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">2,336,054</td>
+        </tr>
+        <tr>
+          <td>2025-07-28</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">2,325,696</td>
+        </tr>
+        <tr>
+          <td>2025-07-03</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#2a9d8f">💬 personal</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">2,298,639</td>
+        </tr>
+        <tr>
+          <td>2026-02-21</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">1,207,511</td>
+        </tr>
+        <tr>
+          <td>2026-03-06</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">1,074,204</td>
+        </tr>
+        <tr>
+          <td>2025-02-26</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">811,560</td>
+        </tr>
+        <tr>
+          <td>2026-02-17</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">436,771</td>
+        </tr>
+        <tr>
+          <td>2026-01-13</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">206,217</td>
+        </tr>
+        <tr>
+          <td>2025-07-28</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">196,356</td>
+        </tr>
+        <tr>
+          <td>2025-05-22</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">163,947</td>
+        </tr>
+        <tr>
+          <td>2025-02-24</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">61,706</td>
+        </tr>
+        <tr>
+          <td>2025-12-03</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">59,681</td>
+        </tr>
+        <tr>
+          <td>2025-04-02</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">56,146</td>
+        </tr>
+        <tr>
+          <td>2026-01-11</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e63946">⚡ breakthrough</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">53,507</td>
+        </tr>
+        <tr>
+          <td>2026-02-18</td>
+          <td><span class="plat plat-x">X</span></td>
+          <td><span style="color:#e9c46a">😂 meme</span></td>
+          <td></td>
+          <td style="text-align:right;font-weight:bold">30,364</td>
+        </tr></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🎯 The 3-Wave Cascade</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">
+    <div class="pipe-step"><div class="name">Wave 1 · Day 0–7</div><div class="desc">⚡ Breakthrough<br>HN + X<br>Engineers &amp; press pick up</div></div>
+    <div class="pipe-step"><div class="name">Wave 2 · Day 7–21</div><div class="desc">📖 Tutorial + ⚔️ Comparison<br>YouTube<br>Creator economy activates</div></div>
+    <div class="pipe-step"><div class="name">Wave 3 · Day 21+</div><div class="desc">💬 Personal + 😂 Meme<br>Reddit<br>Cultural lock-in</div></div>
+  </div>
+</div>
+
+<script>
+Chart.register(window['chartjs-plugin-annotation']);
+new Chart(document.getElementById('timelineChart').getContext('2d'), {
+  "type": "bar",
+  "data": {
+    "labels": [
+      "2025-02",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04"
+    ],
+    "datasets": [
+      {
+        "label": "Breakthrough \u26a1",
+        "data": [
+          14.5,
+          100.0,
+          200.6,
+          10.3,
+          100.0,
+          100.0,
+          0,
+          0,
+          2.5,
+          100.0,
+          100.7,
+          255.9,
+          661.1,
+          134.7
+        ],
+        "backgroundColor": "#e63946",
+        "borderColor": "#e63946",
+        "borderWidth": 1,
+        "stack": "stack0"
+      },
+      {
+        "label": "Tutorial \ud83d\udcd6",
+        "data": [
+          0,
+          0,
+          4.8,
+          113.2,
+          116.9,
+          1.7,
+          0,
+          0.5,
+          5.6,
+          1.9,
+          29.7,
+          110.8,
+          209.4,
+          16.1
+        ],
+        "backgroundColor": "#457b9d",
+        "borderColor": "#457b9d",
+        "borderWidth": 1,
+        "stack": "stack0"
+      },
+      {
+        "label": "Comparison \u2694\ufe0f",
+        "data": [
+          0,
+          11.7,
+          9.6,
+          10.2,
+          19.3,
+          9.7,
+          0,
+          0,
+          11.3,
+          1.4,
+          0.3,
+          1.7,
+          57.0,
+          2.3
+        ],
+        "backgroundColor": "#f4a261",
+        "borderColor": "#f4a261",
+        "borderWidth": 1,
+        "stack": "stack0"
+      },
+      {
+        "label": "Personal \ud83d\udcac",
+        "data": [
+          0,
+          0,
+          21.0,
+          91.4,
+          142.0,
+          17.2,
+          9.1,
+          19.6,
+          0.9,
+          32.2,
+          28.5,
+          566.0,
+          748.2,
+          152.2
+        ],
+        "backgroundColor": "#2a9d8f",
+        "borderColor": "#2a9d8f",
+        "borderWidth": 1,
+        "stack": "stack0"
+      },
+      {
+        "label": "Meme \ud83d\ude02",
+        "data": [
+          200.0,
+          0,
+          0,
+          0,
+          100.7,
+          23.9,
+          0,
+          0,
+          100.0,
+          19.9,
+          137.9,
+          299.2,
+          250.0,
+          10.6
+        ],
+        "backgroundColor": "#e9c46a",
+        "borderColor": "#e9c46a",
+        "borderWidth": 1,
+        "stack": "stack0"
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": {
+      "legend": {
+        "position": "top"
+      },
+      "title": {
+        "display": true,
+        "text": "Claude Virality Timeline \u2014 Engagement by Spike Type",
+        "font": {
+          "size": 16,
+          "weight": "bold"
+        },
+        "padding": {
+          "bottom": 20
+        }
+      },
+      "annotation": {
+        "annotations": {
+          "event0": {
+            "type": "line",
+            "xMin": 0,
+            "xMax": 0,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "Claude Code<br>launches",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          },
+          "event1": {
+            "type": "line",
+            "xMin": 6,
+            "xMax": 6,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "Sonnet 4.5<br>'thing to beat'",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          },
+          "event2": {
+            "type": "line",
+            "xMin": 8,
+            "xMax": 8,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "China hacking<br>story",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          },
+          "event3": {
+            "type": "line",
+            "xMin": 10,
+            "xMax": 10,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "Boris setup<br>post viral",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          },
+          "event4": {
+            "type": "line",
+            "xMin": 11,
+            "xMax": 11,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "Non-English<br>creators pile in",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          },
+          "event5": {
+            "type": "line",
+            "xMin": 12,
+            "xMax": 12,
+            "borderColor": "rgba(0,0,0,0.5)",
+            "borderWidth": 1.5,
+            "borderDash": [
+              4,
+              4
+            ],
+            "label": {
+              "display": true,
+              "content": "Source code<br>leak + OpenClaw",
+              "position": "start",
+              "backgroundColor": "rgba(0,0,0,0.75)",
+              "color": "#fff",
+              "font": {
+                "size": 10
+              },
+              "padding": 4
+            }
+          }
+        }
+      },
+      "tooltip": {
+        "mode": "index",
+        "intersect": false
+      }
+    },
+    "scales": {
+      "x": {
+        "stacked": true,
+        "title": {
+          "display": true,
+          "text": "Month"
+        },
+        "ticks": {
+          "maxRotation": 45
+        }
+      },
+      "y": {
+        "stacked": true,
+        "beginAtZero": true,
+        "title": {
+          "display": true,
+          "text": "Normalized Engagement (cross-platform)"
+        }
+      }
+    },
+    "interaction": {
+      "mode": "index",
+      "intersect": false
+    }
+  }
+});
+</script>
+</body>
+</html>

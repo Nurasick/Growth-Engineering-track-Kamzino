@@ -1,0 +1,23 @@
+handle,author_name,followers,tweet_count,total_views,total_likes,total_retweets,engagement_rate,amplification_mult,composite_score,tier,sample_tweet,added_at,source
+claire20250311,Claire,702,1,15777,321,82,0.0203,22.47,0.317,tier2_solid,"On February 25, 2026, Anthropic announced it would preserve Claude Opus 3 for pa",2026-04-04,auto_scored
+ilyasut,Ilya Sutskever,638636,12,44693513,78917,8290,0.0018,69.98,0.317,tier2_solid,Ego is the enemy of growth,2026-04-04,auto_scored
+amasad,Amjad Masad,449263,14,2035903,8728,631,0.0043,4.53,0.0526,tier3_reach,StabilityAI just dropped a 3B and 7B open-source language models and say more to,2026-04-04,auto_scored
+altmemy199,التميمي,15921,1,53507,174,8,0.0033,3.36,0.0076,tier4_niche,"في خبرين من Anthropic وواحد منهم بصراحة مؤلم 😬
+والأمانة الاثنين بنفس الاتجاه Ant",2026-04-04,auto_scored
+simonw,Simon Willison,156253,2,233337,894,67,0.0038,1.49,0.0063,tier3_reach,I updated my llm-claude-3 plugin to support attaching PDF files to prompts using,2026-04-04,auto_scored
+kimmonismus,Chubby♨️,108336,1,59681,470,31,0.0079,0.55,0.003,tier3_reach,"Claude goes all being the coding king:
+
+Anthropic has acquired Bun, a hyper-fast",2026-04-04,auto_scored
+bridgemindai,BridgeMind,24832,1,6271,81,1,0.0129,0.25,0.0023,tier4_niche,"Claude Code Security just dropped.
+
+Anthropic used Claude Opus 4.6 to find over ",2026-04-04,auto_scored
+ycombinator,Y Combinator,1579214,1,1207511,1994,231,0.0017,0.76,0.0009,tier3_reach,"With the takeoff of OpenClaw and MoltBook, a new agent-driven economy is taking ",2026-04-04,auto_scored
+aakashgupta,Aakash Gupta,219165,1,28679,123,9,0.0043,0.13,0.0004,tier3_reach,Anthropic has been shipping computer use for 17 months. This is the fourth versi,2026-04-04,auto_scored
+trq212,Thariq,184422,1,61706,92,2,0.0015,0.33,0.0003,tier3_reach,"Wait, 3.7 is the most creative model I've ever seen.
+
+Here it is making a 3d pal",2026-04-04,auto_scored
+sama,sama,0,0,0,0,0,0,0,0,bootstrap,,2026-04-04,manual_bootstrap
+karpathy,karpathy,0,0,0,0,0,0,0,0,bootstrap,,2026-04-04,manual_bootstrap
+swyx,swyx,0,0,0,0,0,0,0,0,bootstrap,,2026-04-04,manual_bootstrap
+goodside,goodside,0,0,0,0,0,0,0,0,bootstrap,,2026-04-04,manual_bootstrap
+notthreadguy,notthreadguy,0,0,0,0,0,0,0,0,bootstrap,,2026-04-04,manual_bootstrap
