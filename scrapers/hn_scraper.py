@@ -128,11 +128,12 @@ def save_to_csv(records, filepath):
 # ---------------------------------------------------------------------------
 # Main — both queries, stories + comments, deduped on object_id
 # ---------------------------------------------------------------------------
-def main(queries=QUERIES, pages=3, days=7, overwrite=False):
+def main(queries=QUERIES, pages=3, days=7, overwrite=False, output_prefix=""):
     today    = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     suffix   = f"_{days}d" if days != 7 else ""
+    prefix   = f"{output_prefix}_" if output_prefix else ""
     filepath = os.path.join(
-        os.path.dirname(__file__), "..", "data", "raw", f"hn_items{suffix}_{today}.csv"
+        os.path.dirname(__file__), "..", "data", "raw", f"{prefix}hn_items{suffix}_{today}.csv"
     )
 
     if os.path.exists(filepath) and not overwrite:
@@ -168,10 +169,12 @@ def main(queries=QUERIES, pages=3, days=7, overwrite=False):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--days",      type=int, default=7,     help="How many days back to fetch (default 7)")
-    parser.add_argument("--pages",     type=int, default=3,     help="Pages per query (default 3)")
-    parser.add_argument("--overwrite", action="store_true",     help="Overwrite existing output file")
-    parser.add_argument("--smoke",     action="store_true",     help="Smoke test only — don't write file")
+    parser.add_argument("--days",          type=int, default=7,  help="How many days back to fetch (default 7)")
+    parser.add_argument("--pages",         type=int, default=3,  help="Pages per query (default 3)")
+    parser.add_argument("--overwrite",     action="store_true",  help="Overwrite existing output file")
+    parser.add_argument("--smoke",         action="store_true",  help="Smoke test only — don't write file")
+    parser.add_argument("--queries",       type=str, default="", help="Comma-separated queries (overrides default)")
+    parser.add_argument("--output-prefix", type=str, default="", help="Prefix for output filename (e.g. 'higgsfield')")
     args = parser.parse_args()
 
     if args.smoke:
@@ -182,4 +185,6 @@ if __name__ == "__main__":
             print("\nFirst row:")
             print(json.dumps(results[0], indent=2, default=str))
     else:
-        main(pages=args.pages, days=args.days, overwrite=args.overwrite)
+        queries = args.queries.split(",") if args.queries else QUERIES
+        main(queries=queries, pages=args.pages, days=args.days, overwrite=args.overwrite,
+             output_prefix=args.output_prefix)

@@ -52,6 +52,27 @@ ANALYSIS_DIR  = REPO_ROOT / "analysis"
 PYTHON        = sys.executable
 TODAY         = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
+# ── Product configurations ────────────────────────────────────────────────────
+PRODUCT_CONFIGS = {
+    "claude": {
+        "label":       "Claude / Anthropic",
+        "hn_queries":  "Claude AI,Anthropic",
+        "reddit_subs": "ClaudeAI,artificial,ChatGPT,MachineLearning,LocalLLaMA",
+        "reddit_query": "Claude",
+        "yt_queries":  ["Claude AI", "Anthropic Claude", "Claude Code", "Claude vs ChatGPT", "Claude Sonnet"],
+        "prefix":      "",
+    },
+    "higgsfield": {
+        "label":       "Higgsfield AI",
+        "hn_queries":  "Higgsfield,Higgsfield AI,AI video generation",
+        "reddit_subs": "filmmakers,videography,weddingvideography,artificial,AIvideo",
+        "reddit_query": "Higgsfield",
+        "yt_queries":  ["Higgsfield AI", "Higgsfield vs Runway", "Higgsfield video generator",
+                        "AI video generation 2026", "Higgsfield review"],
+        "prefix":      "higgsfield",
+    },
+}
+
 
 def log(msg: str, icon: str = "→") -> None:
     ts = datetime.now().strftime("%H:%M:%S")
@@ -151,7 +172,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Unified Growth Intelligence Pipeline")
     parser.add_argument("--skip-scrape", action="store_true", help="Skip scrapers, re-analyze existing data")
     parser.add_argument("--demo",        action="store_true", help="Fast demo mode")
+    parser.add_argument("--product",     type=str, default="claude",
+                        choices=list(PRODUCT_CONFIGS.keys()),
+                        help="Which product to track (default: claude)")
     args = parser.parse_args()
+    cfg = PRODUCT_CONFIGS[args.product]
+    prefix = cfg["prefix"]
 
     # Ensure output dirs exist
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -159,32 +185,44 @@ def main() -> int:
 
     print()
     print("  ╔══════════════════════════════════════════════════════════╗")
-    print("  ║     CLAUDE GROWTH INTELLIGENCE — UNIFIED PIPELINE       ║")
+    print("  ║        GROWTH INTELLIGENCE — UNIFIED PIPELINE           ║")
     print("  ║     HackNU 2026 · 4 platforms · live + historical       ║")
     print("  ╚══════════════════════════════════════════════════════════╝")
     print()
-    print(f"  Date:  {TODAY}")
-    print(f"  Mode:  {'demo (fast)' if args.demo else 'full'}{' [skip-scrape]' if args.skip_scrape else ''}")
+    print(f"  Date:    {TODAY}")
+    print(f"  Product: {cfg['label']}")
+    print(f"  Mode:    {'demo (fast)' if args.demo else 'full'}{' [skip-scrape]' if args.skip_scrape else ''}")
     print()
 
     # ── STEP 1: HN ────────────────────────────────────────────────────────────
     if not args.skip_scrape:
         print("  ── STEP 1: HN (Algolia API · last 7 days) ──────────────────")
-        hn_out = RAW_DIR / f"hn_items_{TODAY}.csv"
+        hn_prefix = f"{prefix}_" if prefix else ""
+        hn_out = RAW_DIR / f"{hn_prefix}hn_items_{TODAY}.csv"
         if hn_out.exists():
             log(f"HN cached ({sum(1 for _ in hn_out.open())-1} items)", "⏭️")
         else:
-            run_python(SCRAPERS_DIR / "hn_scraper.py", [], "HN scraper")
+            hn_args = ["--queries", cfg["hn_queries"]]
+            if prefix:
+                hn_args += ["--output-prefix", prefix]
+            run_python(SCRAPERS_DIR / "hn_scraper.py", hn_args, f"HN scraper ({cfg['label']})")
 
     # ── STEP 2: Reddit ────────────────────────────────────────────────────────
     if not args.skip_scrape:
         print()
-        print("  ── STEP 2: Reddit (public API · 5 subreddits) ───────────────")
-        reddit_out = RAW_DIR / f"reddit_posts_{TODAY}.csv"
+        print("  ── STEP 2: Reddit (public API) ──────────────────────────────")
+        rd_prefix = f"{prefix}_" if prefix else ""
+        reddit_out = RAW_DIR / f"{rd_prefix}reddit_posts_{TODAY}.csv"
         if reddit_out.exists():
             log(f"Reddit cached ({sum(1 for _ in reddit_out.open())-1} posts)", "⏭️")
         else:
-            run_python(SCRAPERS_DIR / "reddit_scraper.py", [], "Reddit scraper")
+            rd_args = [
+                "--subreddits", cfg["reddit_subs"],
+                "--query",      cfg["reddit_query"],
+            ]
+            if prefix:
+                rd_args += ["--output-prefix", prefix]
+            run_python(SCRAPERS_DIR / "reddit_scraper.py", rd_args, f"Reddit scraper ({cfg['label']})")
 
     # ── STEP 3: X ─────────────────────────────────────────────────────────────
     if not args.skip_scrape:
@@ -216,6 +254,8 @@ def main() -> int:
             log(f"YouTube cached ({count} videos)", "⏭️")
         else:
             # Run inline so we can control output paths directly
+            yt_queries_repr = repr(cfg["yt_queries"])
+            yt_out_prefix   = f"{prefix}_" if prefix else ""
             yt_script = f"""
 import sys, os
 sys.path.insert(0, r'{SCRAPERS_DIR}')
@@ -225,7 +265,7 @@ from pathlib import Path
 
 raw_dir = Path(r'{RAW_DIR}')
 raw_dir.mkdir(parents=True, exist_ok=True)
-queries = ['Claude AI', 'Anthropic Claude', 'Claude Code', 'Claude vs ChatGPT', 'Claude Sonnet']
+queries = {yt_queries_repr}
 seen, all_ids = set(), []
 for q in queries:
     for vid_id in search_video_ids(q, max_results=20):
@@ -236,8 +276,8 @@ videos   = fetch_video_stats(all_ids)
 comments = []
 for v in videos[:30]:
     comments.extend(fetch_comments(v['video_id'], max_comments=10))
-save_to_csv(videos,   str(raw_dir / 'youtube_videos_{TODAY}.csv'))
-save_to_csv(comments, str(raw_dir / 'youtube_comments_{TODAY}.csv'))
+save_to_csv(videos,   str(raw_dir / '{yt_out_prefix}youtube_videos_{TODAY}.csv'))
+save_to_csv(comments, str(raw_dir / '{yt_out_prefix}youtube_comments_{TODAY}.csv'))
 print(f'Saved {{len(videos)}} videos, {{len(comments)}} comments')
 """
             run([PYTHON, "-c", yt_script], label="YouTube scraper (Data API v3)")
@@ -245,7 +285,8 @@ print(f'Saved {{len(videos)}} videos, {{len(comments)}} comments')
     # ── STEP 5: Normalize ─────────────────────────────────────────────────────
     print()
     print("  ── STEP 5: Normalize → data/processed/unified_posts.csv ────")
-    run_python(ANALYSIS_DIR / "normalize_sources.py", [], "Normalize all sources → unified_posts.csv")
+    norm_args = ["--prefix", prefix] if prefix else []
+    run_python(ANALYSIS_DIR / "normalize_sources.py", norm_args, "Normalize all sources → unified_posts.csv")
 
     # ── STEP 6: Classify ──────────────────────────────────────────────────────
     print()
