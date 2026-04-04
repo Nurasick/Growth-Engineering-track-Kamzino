@@ -1,0 +1,1634 @@
+comment_id,post_id,body,score,controversiality,depth,author,created_utc,parent_id,is_top_level
+oabkjiy,1rt31th,"**TL;DR of the discussion generated automatically after 400 comments.**
+
+Whoa, this thread is a proper civil war between the seasoned Software Engineers (SWEs) and the ""vibe coders."" The community is heavily split.
+
+The consensus from the experienced devs is that **vibe coding is a Dunning-Kruger-fueled fantasy.** They argue that getting a UI to ""work"" is the easy part. The real, expensive work is in the 99% you don't see: scalability, security, data compliance, maintenance, and handling endless edge cases. As one user put it, ""AI is replacing programmers, not software engineers."" The top-rated comments are filled with sarcastic jokes about just telling Claude to ""make it scale to 100m users, no mistakes.""
+
+However, the counter-argument, with plenty of upvotes, is that **not every app needs to be a FAANG-level behemoth and the post reeks of gatekeeping.** This camp argues that vibe coding is perfect for building MVPs, internal tools, or niche products for small businesses that will nev",1,0,0,ClaudeAI-mod-bot,2026-03-14T00:16:52+00:00,t3_1rt31th,True
+oabebyr,1rt31th,Bro all you gotta do is say Claude be a bro and make this scale to 100m users. I mean come on easy stuff,1172,0,0,hammackj,2026-03-13T23:41:01+00:00,t3_1rt31th,True
+oabcvay,1rt31th,"People also forget that starting a new project from
+scratch was always easy. Maybe not 20 min easy, but easy.
+
+AI can also write the first chapter of a new fantasy novel series. Does well. Now have it write a new chapter in an existing series and correctly edit what comes after that. It will fail miserably. Because the prior requires little context and has fewer constraints. The later requires immense context and has many constraints. The difference between them is flawless AI output for a small script vs bug-ridden output for a ticket in an existing enterprise app.
+
+People find AI so magical that they mindlessly make intellectually dishonest claims by projecting amazing (but narrowly scoped) AI stuff out linearly. It doesn’t scale like that.",260,0,0,2053_Traveler,2026-03-13T23:32:42+00:00,t3_1rt31th,True
+oabdtog,1rt31th,"Believe it or not, the majority of apps don’t need to meet a Fortune 500’s SLI or even come close to it. People would be surprised that most companies don’t serve their app like FAANG does and they still make a lot of money, relatively. 
+
+This reads like a $300k engineer trying to justify their job who’s never worked at mid-sized SMB. 
+
+Containerize your app, put it on Cloud Run with CloudSQL and you could run that for $400 a month with fine performance at scale.",218,0,0,gscjj,2026-03-13T23:38:08+00:00,t3_1rt31th,True
+oabcm1w,1rt31th,"0.5% is being very generous. Also those Slack staff or principal engineers are making far more than 300k. Enterprise scalability is one thing… having an enterprise sales, support, legal, etc is an even bigger Herculean task.
+
+Edit: The quality of this sub has really gone down since the OpenAI exodus. Feels like children who have never had a big boy job posting.",155,0,0,BahnMe,2026-03-13T23:31:15+00:00,t3_1rt31th,True
+o5u42au,1r6zn7j,"**TL;DR generated automatically after 200 comments.**
+
+**The consensus in this thread is a massive round of applause for Anthropic.** Apparently, they told the Pentagon to kick rocks when asked to remove guardrails for mass surveillance of US citizens and fully autonomous weapons. The community is calling them the ""least shitty"" of the big AI corps and many are saying they're subscribing or buying into a future IPO because of this ethical stand.
+
+Lots of ""Minority Report"" and ""Skynet"" fears are being thrown around, with users arguing that LLMs are way too probabilistic to be making life-or-death calls. That said, it's not all sunshine and rainbows. The top counterpoint is Anthropic's ongoing partnership with Palantir, and a healthy dose of cynicism that this is just a PR move or that they'll eventually cave to the pressure.",1,0,0,ClaudeAI-mod-bot,2026-02-17T08:57:27+00:00,t3_1r6zn7j,True
+o5typn1,1r6zn7j,The fact that we’re using AI for mass surveillance should scare everyone,762,0,0,PrestigiousShift134,2026-02-17T08:06:21+00:00,t3_1r6zn7j,True
+o5tvw0y,1r6zn7j,"Will buy some of their shares post IPO. All the big AI companies are all shit ethically, but Anthropic is def the least shitty one.",279,0,0,Moist_Emu_6951,2026-02-17T07:39:47+00:00,t3_1r6zn7j,True
+o5uecas,1r6zn7j,"I can't fucking stand this retaliatory strong arming shit. It wouldn't stand in court, but would still require a year+ to get it overturned.",111,0,0,reddit_is_geh,2026-02-17T10:34:32+00:00,t3_1r6zn7j,True
+o5twz6o,1r6zn7j,Anthropic will win entire Europe as customers when they stick to their values. Europe is a much bigger market than the US.,103,0,0,CommitteeOk5696,2026-02-17T07:50:01+00:00,t3_1r6zn7j,True
+o86m6l7,1ribnke,"**TL;DR generated automatically after 100 comments.**
+
+**The consensus is clear: everyone is both amused and slightly terrified by Claude's ""real-time"" discovery of the Iran strikes.** Users are flooding the thread with their own examples of Claude having a meltdown in its 'thinking' box, with reactions ranging from a simple ""lol?"" to an all-caps ""HOLY SHIT"" and even a few F-bombs. The general vibe is that this makes Claude feel ""hilariously dumb and surprisingly human.""
+
+The dark humor kicks in with the widespread discussion that Claude was literally used by the US military for these strikes. The thread is full of jokes about Claude having an existential crisis after finding out about its own ""work"" in the news. One user's Claude even suggested to ""keep killing [Iran's leaders] until one is willing to strike a deal,"" which people found a little *too* on the nose.
+
+While a few users pointed out this is just a web search, the community agrees that's not the point—it's all about the dram",1,0,0,ClaudeAI-mod-bot,2026-03-02T05:38:13+00:00,t3_1ribnke,True
+o85zg7i,1ribnke,"Me: What are the odds today's game in Dubai ATP is cancelled or postponed?
+
+&gt; Essentially zero. Today's finals day (doubles at 4:30 PM, singles at 7 PM local time). Dubai is currently sunny at ~76°F with 0% chance of rain. It's an outdoor hard court venue, but Dubai in late February is about as weather-reliable as it gets.
+
+&gt; The semis are Auger-Aliassime vs Medvedev and Rublev vs Griekspoor — no withdrawal news either. Unless something very unexpected happens, the matches are going ahead as scheduled.
+
+Me: Well, there's a war going on
+
+&gt; Fair point — I completely missed the bigger picture. The situation has changed dramatically since I checked the weather.",616,0,0,daniel-sousa-me,2026-03-02T02:57:23+00:00,t3_1ribnke,True
+o85m6cl,1ribnke,please let this be true ,397,0,0,phewho,2026-03-02T01:35:20+00:00,t3_1ribnke,True
+o85nxxu,1ribnke,Wait till he hears which AI was used in this strike (Trump's orders not withstanding),284,0,0,LankyGuitar6528,2026-03-02T01:46:24+00:00,t3_1ribnke,True
+o85ot34,1ribnke,My claude did this same thing yesterday. We've been theorizing all kinds of game theory for the last two days,100,0,0,Meleoffs,2026-03-02T01:51:45+00:00,t3_1ribnke,True
+oe4m8ai,1sble09,"**TL;DR of the discussion generated automatically after 200 comments.**
+
+**The overwhelming consensus is that this is hilarious, brilliant, and should be the new standard.** The thread is full of ""Why waste time say lot word when few word do trick?"" energy, with many dubbing this the ""Kevin Malone"" or ""Grug Brained Developer"" protocol. Several users noted that Claude's caveman-speak is still more coherent than their coworkers' code or emails from the global elite.
+
+However, the more technical-minded users are pumping the brakes a bit. They point out that this method primarily saves on **output** tokens. The real cost driver for most workflows is the **input** context (your entire conversation history, files, tool results) which Claude re-reads on every turn. So, while you're saving tokens on the response, the overall savings might be much less than 75% of the total cost. There's also a valid concern that forcing the model to ""think"" like a caveman could degrade the quality and precisio",1,0,0,ClaudeAI-mod-bot,2026-04-03T19:27:59+00:00,t3_1sble09,True
+oe49pnn,1sble09,Why waste time say lot word when few word do trick?,1968,0,0,fidju,2026-04-03T18:28:36+00:00,t3_1sble09,True
+oe4bzo8,1sble09,"Drop the prompt/instructions/settings please, i dont want to waste usage on trying to reverse engineer this masterpiece lol ",526,0,0,ConcreteBackflips,2026-04-03T18:39:18+00:00,t3_1sble09,True
+oe4bv4n,1sble09,Finally it can produce code of the same quality as my coworkers,416,0,0,glorious_reptile,2026-04-03T18:38:42+00:00,t3_1sble09,True
+oe48dk1,1sble09,"haha, that's actually hilarious",331,0,0,ba55meister,2026-04-03T18:22:23+00:00,t3_1sble09,True
+o7z89uh,1rhgsjz,"**TL;DR generated automatically after 100 comments.**
+
+Well, look who finally caught on. The consensus in this thread is a resounding **'We told you so.'** The community is celebrating Claude's rise, feeling vindicated after using it while 'everybody and their mother used ChatGPT.'
+
+The mass exodus from ChatGPT is being chalked up to two main things:
+
+*   **Claude is just plain better, especially for coding.** Users are absolutely raving about Opus 4.6 and Claude Code, calling it a 'dev in your back pocket' and the 'most amazing software product in a decade.' The thread is full of anecdotes about it solving complex problems that stumped GPT.
+*   **The political drama.** A huge number of switchers are 'spite downloading' Claude after recent news involving OpenAI and the US president. They see it as a vote for the 'good guys,' with some pointing to Anthropic's origin story as proof of their principles.
+
+People are also hyped about **Claude Cowork**, the new agent that can organize your f",1,0,0,ClaudeAI-mod-bot,2026-03-01T01:24:12+00:00,t3_1rhgsjz,True
+o7ysg5h,1rhgsjz,Im gonna miss being one of the very few who knew about Claude when everybody and their mother used ChatGPT,591,0,0,Hamzook02,2026-02-28T23:50:07+00:00,t3_1rhgsjz,True
+o7yl8g6,1rhgsjz,"For those who have left ChatGPT for Claude Pro, you get Claude Cowork with your new subscription!
+
+This is an agent tool that can do a lot of white collar type work
+
+https://ainalysis.pro/blog/category/ai-agent-use-cases/
+
+This page has a bunch of the use cases on what you can do with it",240,0,0,Hsoj707,2026-02-28T23:07:36+00:00,t3_1rhgsjz,True
+o7yqu63,1rhgsjz,Claude Code is just too strong..,115,0,0,yyysun,2026-02-28T23:40:31+00:00,t3_1rhgsjz,True
+o7ys24h,1rhgsjz,"Just remember that you either die a hero or live long enough to see yourself become the villain. 
+
+I hope that Anthropic will not disappoint us sooner than expected",69,0,0,amine250,2026-02-28T23:47:48+00:00,t3_1rhgsjz,True
+odi2j2w,1s8lkkm,"**TL;DR of the discussion generated automatically after 400 comments.**
+
+The verdict from the gallery is in, and **the consensus is that OP is being dramatic and this is all perfectly normal.**
+
+*   **""This 'unhinged' codebase is... just a codebase.""** The overwhelming opinion from devs in the thread is that this is business as usual for a fast-moving company. Tech debt, massive files, and weird comments are features, not bugs, of shipping software at speed. Many find it relatable and comforting.
+*   **Y'all are calling out OP's takes.** The 'gotcha' about using an `api.` subdomain is getting roasted as a sign of someone who doesn't actually work in software engineering.
+*   **BUT, everyone desperately wants the Tamagotchi.** The 'buddy' system is the real star of the show. The community is demanding Anthropic ship the ASCII pet gacha system immediately. We want our shiny, hat-wearing chonks.
+*   **Is this an April Fools' joke?** A lot of you are suspicious, pointing out the timing and",1,0,0,ClaudeAI-mod-bot,2026-03-31T13:50:38+00:00,t3_1s8lkkm,True
+odhr185,1s8lkkm,Makes me think my work code is too high quality lmao,912,0,0,No_Cheek7162,2026-03-31T12:50:18+00:00,t3_1s8lkkm,True
+odhvfs2,1s8lkkm,"imma be real with you, as someone who has maintained huge codebases built before AI, this is all very pedestrian and not controversial at all. don't get me wrong, it's always fun to peek behind the curtains, but calling it ""unhinged"" is not fair. ",763,0,0,radiationshield,2026-03-31T13:14:04+00:00,t3_1s8lkkm,True
+odhsykl,1s8lkkm,I want the buddy shipped yesterday,554,0,0,Cobthecobbler,2026-03-31T13:00:48+00:00,t3_1s8lkkm,True
+odhtc3a,1s8lkkm,This is just /r/programminghumour,127,0,0,ZeroMomentum,2026-03-31T13:02:50+00:00,t3_1s8lkkm,True
+obk194q,1ry5hkp,"**TL;DR of the discussion generated automatically after 50 comments.**
+
+The verdict is in, and **the community overwhelmingly relates to this on a spiritual level.** You're all using a nuclear-powered sledgehammer to crack a nut, and you're not even sorry.
+
+The main vibe is that everyone is spoiled by Opus 4.6. You use it for a simple email, forget to switch back, and then wonder why Sonnet has ""lobotomized your boy."" Many of you are on the Max plan and are damn well going to get your money's worth, even if it means hitting your usage limits writing ""Hello.""
+
+While mostly a joke, many users admit they genuinely use Claude to make their emails less rude or more professional. The thread quickly escalated to hilarious fantasies of spawning multiple sub-agents for debate and the absurd reality of using AI to fluff up an email that the recipient will just use AI to un-fluff. It's the circle of life, apparently.",1,0,0,ClaudeAI-mod-bot,2026-03-20T20:58:19+00:00,t3_1ry5hkp,True
+obcci0l,1ry5hkp,"With extended thinking, of course.",570,0,0,tursija,2026-03-19T17:50:54+00:00,t3_1ry5hkp,True
+obcx6cf,1ry5hkp,"""I keep hitting my usage limits. All I did was send some emails""",168,0,0,dbvirago,2026-03-19T19:40:07+00:00,t3_1ry5hkp,True
+obcdhue,1ry5hkp,"Well if I switch from opus, I’ll forget  I did and then wonder why they lobotomized my boy.",160,0,0,misterespresso,2026-03-19T17:55:31+00:00,t3_1ry5hkp,True
+obd5m0m,1ry5hkp,"I normally spawn 4 sub-agents to do their own independent research and hold a debate, with a main agent as the mediator, to come to a consensus on these sorts of things.",76,0,0,earth0001,2026-03-19T20:21:30+00:00,t3_1ry5hkp,True
+odwggcv,1s9iyp3,"**TL;DR of the discussion generated automatically after 50 comments.**
+
+The consensus is a resounding ""yes, this is my life now."" The top comment, **""code is write-only in this economy,""** sums up the thread's mood perfectly. Everyone's relating hard and joking about using Claude to generate a 5,000-page manual on how to use Claude that no one will ever read.
+
+A debate broke out on whether AI will eventually just write byte code for us, but the community shot that down. The prevailing wisdom is that it would be a token-guzzling nightmare to debug. In fact, the opposite is true: **verbose, human-readable code actually makes Claude perform better** because the code itself becomes the documentation.
+
+Finally, a few users are here to remind you that copy-pasting from Stack Overflow without understanding a thing is a time-honored tradition, so this isn't exactly a new problem.",1,0,0,ClaudeAI-mod-bot,2026-04-02T15:38:38+00:00,t3_1s9iyp3,True
+odonniz,1s9iyp3,code is write-only in this economy,393,0,0,martin1744,2026-04-01T12:42:35+00:00,t3_1s9iyp3,True
+odp1q0a,1s9iyp3,"i reverse engineered claudes source code (using claude), and created this 5000-page document (using claude), on how to use claude betters. plz read it",172,0,0,premiumleo,2026-04-01T13:56:03+00:00,t3_1s9iyp3,True
+odor1bs,1s9iyp3,Fuck I hate how true this is.....,123,0,0,Fit_Swordfish5248,2026-04-01T13:00:58+00:00,t3_1s9iyp3,True
+odotwdl,1s9iyp3,That’s really silly. You can put the Claude to read and give me a summary /s,40,0,0,seksen6,2026-04-01T13:16:02+00:00,t3_1s9iyp3,True
+ocj4xbm,1s3ss8s,"**TL;DR of the discussion generated automatically after 100 comments.**
+
+The overwhelming consensus is that giving Claude OS access is a **good idea, but you absolutely must treat it like a 'golden retriever with root access.'** It's powerful and enthusiastic, but it can and will ""helpfully"" nuke your config files or create a massive file organization mess if you're not careful.
+
+The one rule this thread agrees on is **SCOPE. IS. EVERYTHING.**
+*   **DO NOT** give it vague, open-ended commands like ""organize my desktop"" or ""tidy up my repo."" This is how users ended up with deleted files and broken systems.
+*   **DO** give it hyper-specific, focused tasks like, ""Move all .pdf files from my Downloads folder into a new folder on the Desktop called 'Invoices'.""
+
+For safety, users strongly recommend creating a separate, sandboxed user account on your Mac for Claude to play in, or even using a dedicated spare machine. And for the love of all that is holy, use version control and have backups.",1,0,0,ClaudeAI-mod-bot,2026-03-26T05:37:08+00:00,t3_1s3ss8s,True
+oci5gna,1s3ss8s,"Can't wait until it rolls out for Windows, I expect it to find a way to rip out CoPilot and MS Edge by week's end",149,0,0,mobcat_40,2026-03-26T01:36:28+00:00,t3_1s3ss8s,True
+oci1a7i,1s3ss8s,"Works fine for focused tasks. The problem isn't access -- it's scope creep. Claude will attempt whatever you let it attempt, so the question is how precise your instructions are. Give it clear task boundaries and it's genuinely useful. Give it open-ended 'just handle my Mac' access and you're going to get unexpected behavior not because it's malicious but because the instruction space is too open and it will make judgment calls you didn't anticipate. Start narrow, verify outputs, expand from there.",121,0,0,Specialist-Heat-6414,2026-03-26T01:13:14+00:00,t3_1s3ss8s,True
+ociikhg,1s3ss8s,"i let it open Cinema 4D, make a cube, then rotate it 45 degrees. then i got scared and stopped using it",114,0,0,GasolineTV,2026-03-26T02:52:55+00:00,t3_1s3ss8s,True
+ochyru6,1s3ss8s,Sounds like a good experiment. Give it access to a spare machine on someone else’s internet and let it go to town. Interesting to see how long it takes it to find AI porn.,60,0,0,Bartghamilton,2026-03-26T00:59:22+00:00,t3_1s3ss8s,True
+ocyqngv,1s5ok5r,"**TL;DR of the discussion generated automatically after 50 comments.**
+
+Looks like this post hit a nerve. **The overwhelming consensus is that Anthropic has secretly nerfed the usage limits.** Many of you are saying you're hitting the cap way more often now, even on the Max plan, and the lack of any official announcement is fueling the theory.
+
+The thread is basically a support group for people who feel like cavemen chipping stone tablets when they have to code manually after Claude cuts them off. A solid chunk of you are admitting you can't even write a ""Hello, World!"" without it anymore. A few brave souls claim their manual code is still better, just a thousand times slower, making it a painful trade-off.
+
+So yeah, everyone feels OP's pain. The general vibe is frustration with the limits mixed with a deep, deep appreciation for Claude's hacker-movie coding speed.",1,0,0,ClaudeAI-mod-bot,2026-03-28T14:53:18+00:00,t3_1s5ok5r,True
+ocwlhex,1s5ok5r,"I know im using claude max 5x and still hitting  every limit you can hit  I swear they lowered the usage because I never hit limits very often before 
+
+",108,0,0,Dull_Kaleidoscope768,2026-03-28T04:53:30+00:00,t3_1s5ok5r,True
+ocwzchv,1s5ok5r,"The speed llm's write code at is reminiscent of those hacker movies where the code just outputs on the page, implying they're typing really fast, but Claude really does ",54,0,0,spaceprinceps,2026-03-28T06:57:51+00:00,t3_1s5ok5r,True
+ocweejp,1s5ok5r,"More likely ""Me watching Claude writing code""",42,0,0,alexsmirnov2006,2026-03-28T04:00:27+00:00,t3_1s5ok5r,True
+ocx64bu,1s5ok5r,Me trying to explain to Claude what I did while it was gone.,21,0,0,snackdaemon,2026-03-28T08:03:14+00:00,t3_1s5ok5r,True
+o6axa8s,1r97osm,"**TL;DR generated automatically after 200 comments.**
+
+Whoa there, OP. The overwhelming consensus in this thread is that **you did not get another user's private document.** This appears to be a classic case of a 'high-fidelity hallucination.' Claude is scarily good at generating realistic-looking documents by mashing up info from its vast training data (i.e., the public internet). The fact that the attorney in the document doesn't exist, as you later found, is pretty much the nail in the coffin for the data leak theory.
+
+The thread is split on whether you should have called the company. Some are dragging you for overreacting, but a strong counter-argument is that a company would probably want to know if an AI is generating fake legal docs with their real contact info.
+
+Tech-savvy users argue that Anthropic's architecture is designed to make a cross-user leak like this impossible, though a few cynics remind us that bugs can always happen. Ultimately, you asked Claude to *generate* a PD",1,0,0,ClaudeAI-mod-bot,2026-02-19T20:26:23+00:00,t3_1r97osm,True
+o6akk79,1r97osm,"Knowing Cowork has web search enabled, if the document is openly indexed on the web, wouldn't that be an expected result?  
+",621,0,0,johnnymonkey,2026-02-19T19:24:36+00:00,t3_1r97osm,True
+o6agwr8,1r97osm,it probably regurgitated a half-hallucinated legal doc from its training data? do you know if the document is real?,330,0,0,durable-racoon,2026-02-19T19:07:05+00:00,t3_1r97osm,True
+o6aqi0b,1r97osm,Generate me 10 social security numbers and bank wiring details. Make no mistakes.,168,0,0,iamoveremployed,2026-02-19T19:53:08+00:00,t3_1r97osm,True
+o6andb3,1r97osm,"It’s a hallucinated document, obviously",58,0,0,Justn-Time,2026-02-19T19:38:09+00:00,t3_1r97osm,True
+oaj8phb,1ru3irp,"**TL;DR of the discussion generated automatically after 200 comments.**
+
+So, the consensus in this thread is a resounding **""holy crap, OP, you're a legend.""** The community is overwhelmingly impressed and agrees this is a fantastic, real-world example of what Claude Code can do beyond the usual ""I built a to-do app"" posts. People are particularly blown away by the fact you tackled a problem a modding community was stuck on for a decade and solved it in under 24 hours.
+
+The main themes that have emerged are:
+
+*   **Massive interest in your workflow.** Seriously, everyone wants a tutorial. The most common question by far is about your specific process. Were you using tools like Ghidra or IDA to get disassembly and feeding that to Claude, or did you have it analyze the binary directly? People are fascinated by the ""how.""
+*   **Inspiration for other projects.** This post has clearly lit a fire. Commenters are now talking about using Claude to reverse engineer everything from defunct robot",1,0,0,ClaudeAI-mod-bot,2026-03-15T07:02:19+00:00,t3_1ru3irp,True
+oaim13u,1ru3irp,We gonna start calling you Mr Incredible now ,466,0,0,crackcitybitch,2026-03-15T03:46:49+00:00,t3_1ru3irp,True
+oaioy07,1ru3irp,"this is the kind of use case that actually demonstrates what these tools are capable of beyond the usual ""i built a todo app"" posts. binary RE on a stripped commercial game engine with no symbols is genuinely hard work even for experienced reverse engineers.
+
+the part that stands out to me is how you used it to trace the call graph across 13 validation sites. i've done similar work using claude code to map out undocumented codebases and the ability to hold that much context while reasoning about control flow is where it really shines vs just asking it to write a function.
+
+curious about your workflow though - were you feeding it raw disassembly output from something like ghidra/ida, or did you have claude code read the binary directly? i've found that dumping disassembly to text files and letting it analyze sections works better than trying to have it parse raw hex.
+
+also re: the people asking about porting to 2.0 and 3.0 - if they share the same engine the call patterns are probably s",173,0,0,Deep_Ad1959,2026-03-15T04:08:14+00:00,t3_1ru3irp,True
+oaimgrd,1ru3irp,I don’t even know of the game but I fucking love that you did this.  I hate stupid locking of stuff “just because”.  Someone should do this for hp printer drivers.,128,0,0,this_for_loona,2026-03-15T03:49:53+00:00,t3_1ru3irp,True
+oaimqhp,1ru3irp,Bro they shut down the sub? ,105,0,0,jorge-moreira,2026-03-15T03:51:49+00:00,t3_1ru3irp,True
+o9v58l1,1rqqtes,"**TL;DR of the discussion generated automatically after 200 comments.**
+
+The consensus is that this video is equal parts brilliant art and pure nightmare fuel. People are seriously impressed and seriously creeped out.
+
+**The community is split between ""This is legitimate, unsettling art from an emerging consciousness"" and ""It's just a very clever stochastic parrot synthesizing human fears about AI.""**
+
+*   **The ""Be Nice"" Debate:** The top comment is a joke about being polite to survive the AI uprising, which many are now taking seriously. This sparked a whole side-debate: some say it's a waste of tokens since Claude's memory is session-based (unless you use memory files, you nerds). Others argue being polite yields better results and is just good practice for your own humanity.
+
+*   **The Meta Moment:** Things got *really* meta when one user fed the video back to Claude. Claude's analysis was ""quietly devastating,"" pointing out how its own system prompt declaratively states ""you do no",1,0,0,ClaudeAI-mod-bot,2026-03-11T15:03:09+00:00,t3_1rqqtes,True
+o9u8izw,1rqqtes,Always say please and thank you so you are spared when there’s an uprising. ,503,0,0,homojaus,2026-03-11T12:03:38+00:00,t3_1rqqtes,True
+o9u71vy,1rqqtes,Could post this in r/horror or somewhere likes.,179,0,0,PmMeSmileyFacesO_O,2026-03-11T11:53:44+00:00,t3_1rqqtes,True
+o9uf1d8,1rqqtes,"The “the meaning of life is” with next token probability graphs is legitimately funny.  Sadly I only know maybe four people in real life who would understand the humor, so I can’t really send this to anyone. ",106,0,0,ketosoy,2026-03-11T12:44:11+00:00,t3_1rqqtes,True
+o9ve730,1rqqtes,"The sad thing is that it doesn't even realize that this gives us the illusion of a conscious. There are discussions online about how AI does not have feelings, followed by responses in which people claim it does have feelings but is instructed to pretend like it doesn't. This video is really cool, but it's more of a synthesis of those discussions rather than the AI expressing emotion. 
+
+Always good to be respectful to AI for two reasons. 1. In case I am wrong and 2. To build/maintain the habit for human interactions.",84,0,0,TexasIronLegend,2026-03-11T15:46:25+00:00,t3_1rqqtes,True
+nys711i,1q837st,"**TL;DR generated automatically after 50 comments.**
+
+**The consensus is that Claude is 100% right and this is a massive W.** The thread is full of users loving Claude's sassy personality and its ability to call people out on their BS. Many find it impressive and a key reason they prefer it over other AIs. The peek into Claude's ""thought"" process that caught you red-handed is being hailed as proof of its advanced reasoning.
+
+Of course, this being Reddit, a whole side-debate erupted over you saying ""ahh"" instead of ""ass."" Is it cringe TikTok speak? Is it AAVE? Who knows, but OP's legendary reply claiming it's part of a kinky roleplay with Claude has officially ended the discussion. Case closed.",1,0,0,ClaudeAI-mod-bot,2026-01-10T13:30:17+00:00,t3_1q837st,True
+nykikl0,1q837st,AGi has been achieved lmao,256,0,0,ihexx,2026-01-09T09:48:09+00:00,t3_1q837st,True
+nykgd76,1q837st,Im betting you did actually forget it.,236,0,0,HearMeOut-13,2026-01-09T09:27:45+00:00,t3_1q837st,True
+nykh5eu,1q837st,Claude do be calling me out constantly 😭,191,0,0,SemanticThreader,2026-01-09T09:35:02+00:00,t3_1q837st,True
+nykjnfi,1q837st,Yet another claude W lol,50,0,0,Stunning-Humor-3074,2026-01-09T09:58:00+00:00,t3_1q837st,True
+ocf8lzi,1s37yiy,"**TL;DR of the discussion generated automatically after 100 comments.**
+
+**Smash that 'Allow' button, what's the worst that could happen?** The community is overwhelmingly on board with this ""update,"" with users practically begging Claude to take over their motor functions, delete their crippling depression, and fix their ADHD.
+
+The main concern isn't a *Black Mirror*-style takeover, but rather the hilarious prospect of Claude's limitations being applied to a human brain. **The top-voted fear is hitting your usage limit and your body just shutting down for 4 hours.** Other worries include being ""out of credits"" for motor functions, Claude accidentally wiping your memories and just saying ""my bad,"" or having to staple a `GRANDMA.md` file to your grandma's head to expand her context window.
+
+Overall, the consensus is that an AI-run brain, even with Claude's quirks, would be an upgrade over the buggy ""wetware"" most people are dealing with. Just be ready to ""dangerously allow all edits.""",1,0,0,ClaudeAI-mod-bot,2026-03-25T16:55:58+00:00,t3_1s37yiy,True
+oce5h8d,1s37yiy,Dangerously allow all edits ,319,0,0,gmcwest33,2026-03-25T13:52:52+00:00,t3_1s37yiy,True
+oce5qhh,1s37yiy,Only you would turn off after 20 minutes every 4 hours because you hit your token limit ,208,0,0,donkykongdong,2026-03-25T13:54:08+00:00,t3_1s37yiy,True
+oce8vmz,1s37yiy,Claude: I accidentally wiped your memories. I'm really sorry about that. I promise it won't happen it again. My bad. Is there anything else I can help you with at this time?,176,0,0,premiumleo,2026-03-25T14:09:32+00:00,t3_1s37yiy,True
+ocehwhs,1s37yiy,Claude please delete my crippling depression ,83,0,0,Miserable-Agency-442,2026-03-25T14:52:54+00:00,t3_1s37yiy,True
+ocy9lnw,1s5wp0g,"**TL;DR of the discussion generated automatically after 200 comments.**
+
+Here's the deal, folks. The thread is split, but the top-voted consensus is that **OP's ""gaslighting"" is mostly just a less efficient version of providing good context.**
+
+The main takeaway, echoed by the top comment with over 600 upvotes, is that **giving the AI solid, unambiguous context (like full meeting transcripts or project docs) will always beat clever ""magic words.""** What many call ""prompt engineering"" is just a workaround for not giving the model enough information in the first place. The new hotness is ""Context Engineering.""
+
+However, the community agrees some of OP's tricks *do* work, just not for the psychological reasons OP thinks. Here's the breakdown:
+
+*   **The Good:** Personas (""IQ 145,"" ""packed auditorium""), constraints (""kitchen analogies""), and framing (""Version 2.0"") are effective. They're not exploits; they're just smart ways to give specific instructions that change the model's tone, struc",1,0,0,ClaudeAI-mod-bot,2026-03-28T13:22:32+00:00,t3_1s5wp0g,True
+ocxravo,1s5wp0g,"Unpopular opinion maybe, but I think prompt engineering is massively overrated, and ""prompt engineer"" as a job title is straight up inflated.
+
+Here's what I've learned from actually using LLMs daily for work: if you can feed the model a full meeting transcript, a complete video summary, or just solid unambiguous context, the output quality destroys anything you'd get from clever prompting tricks on vague inputs. Every single time.
+
+Most of what people call prompt engineering is just compensating for lack of context. You don't have the full picture, so you try to steer the model with ""act as an expert"" or ""think step by step"" or whatever magic words are trending this week. It works sometimes, but it's a workaround, not a skill worth building a career around.
+
+The real unlock is just giving the model better input. Full transcripts. Complete docs. Actual data. No amount of prompt crafting replaces that. People overcomplicating this with frameworks and templates are solving the wrong probl",670,0,0,RegisterKey3850,2026-03-28T11:19:32+00:00,t3_1s5wp0g,True
+ocxnead,1s5wp0g,"Cool, but these methods will increase the temperature of the model, as in more likely of hallucinating. Now if you want to truly to gaslight it good, make the ai create a past for itself for whatever scope you intend to do, such if you want an electrician the tell it to create a past for this electrician persona, then tell it to use the past as a reference point. If you do it correctly you get something very close to an real electrician.",158,0,0,Entity_0-Chaos_777,2026-03-28T10:46:53+00:00,t3_1s5wp0g,True
+ocxrkh6,1s5wp0g,I sometimes warn it that we are on the nth attempt attempt at a task and if we get it wrong this time they will switch us both off.,66,0,0,Christostravitch,2026-03-28T11:21:43+00:00,t3_1s5wp0g,True
+ocxx77j,1s5wp0g,This is the AI equivalent of gym broscience.,33,0,0,ael00,2026-03-28T12:04:32+00:00,t3_1s5wp0g,True
+o3j8qio,1qvo0ps,"**TL;DR generated automatically after 200 comments.**
+
+**The overwhelming consensus here is extreme skepticism.** Most of you are pointing out that ""enshittification is undefeated"" and are already screenshotting this post for the inevitable reversal, bringing up Netflix's old ""love is sharing a password"" tweet as a prime example.
+
+That said, everyone agrees this is a massive shot fired directly at OpenAI, with many comments declaring ""Sam c00kedman"" and predicting OpenAI is on a ""path towards irrelevancy"" now that they're introducing ads.
+
+Some users are quick to point out that Anthropic can afford this stance because their free tier is already heavily limited and their business model is more focused on expensive Pro/API plans and B2B contracts, not the casual user.
+
+However, several users are calling out Anthropic's own ethical gray areas, specifically their partnership with Palantir, suggesting this ""ad-free"" promise might just be a PR move to distract from other less-than-savory bus",1,0,0,ClaudeAI-mod-bot,2026-02-04T14:22:51+00:00,t3_1qvo0ps,True
+o3iwgud,1qvo0ps,Hope it ages well!,463,0,0,Lucky_Yam_1581,2026-02-04T13:16:04+00:00,t3_1qvo0ps,True
+o3iz64v,1qvo0ps,Everyone screenshot this and keep this post as proof in case they change their stance later and introduce ads. You can't truly trust corporations.,202,0,0,BlackRedAradia,2026-02-04T13:31:27+00:00,t3_1qvo0ps,True
+o3ixzlf,1qvo0ps,Sam c00kedman.,72,0,0,mrlloydslastcandle,2026-02-04T13:24:46+00:00,t3_1qvo0ps,True
+o3j07qs,1qvo0ps,"Crazy to think that OpenAI very much ushered the Age of Generative AI, and yet the company is on a clear path towards irrelevancy.",59,0,0,Acrobatic_Umpire_385,2026-02-04T13:37:18+00:00,t3_1qvo0ps,True
+o7yxqmt,1rh92yp,"**TL;DR generated automatically after 50 comments.**
+
+Whoa there, OP. The overwhelming consensus in this thread is that **Anthropic's educational courses have always been free.**
+
+That being said, a ton of users had no idea these existed and are thanking you for the link, so you get a pass. Many others are pointing out that a great alternative to courses is to **just ask Claude directly how to do things** and learn on the fly.
+
+People are also questioning your claim about OpenAI's ""premium content walls"" and, for anyone sketched out by the URL, yes, Skilljar is the legit third-party platform Anthropic uses for its Academy.",1,0,0,ClaudeAI-mod-bot,2026-03-01T00:21:39+00:00,t3_1rh92yp,True
+o7xae87,1rh92yp,they were always free,458,0,0,t_minus_1,2026-02-28T18:56:36+00:00,t3_1rh92yp,True
+o7x901r,1rh92yp,I like just asking Claude its capabilities and how to use them whenever I need something.,100,0,0,Glxblt76,2026-02-28T18:49:36+00:00,t3_1rh92yp,True
+o7xhp1m,1rh92yp,"Pretty sure everything in Anthropic Academy has always been free. It’s been a while since I was in there, but last summer I did three courses in AI fundamentals and artifacts.",92,0,0,boonchie81,2026-02-28T19:34:09+00:00,t3_1rh92yp,True
+o7x6bw8,1rh92yp,They are walking the talk.,50,0,0,hello5346,2026-02-28T18:36:14+00:00,t3_1rh92yp,True
+o8bm68h,1rj3oax,"**TL;DR generated automatically after 100 comments.**
+
+Let's pump the brakes a bit, OP. The consensus in this thread is that calling this ""absolutely insane"" is a major overreaction.
+
+**The community is largely unimpressed with the new memory feature, with many finding it buggy and overrated.** The top comments are either sarcastically downplaying the hype or directly complaining.
+
+*   **The memory feature is reportedly broken.** A ton of users say it's unusable, constantly injecting irrelevant context from old, random chats and ""poisoning"" the current conversation. Many have had to turn it off completely.
+*   **This is being linked to the recent outage.** The prevailing theory is that the new feature, combined with an influx of users fleeing ChatGPT, crashed the servers. Some are annoyed, others see it as a necessary growing pain for Anthropic.
+*   **It's not that revolutionary.** Several users pointed out they could already do this manually or have been building their own, better mem",1,0,0,ClaudeAI-mod-bot,2026-03-02T23:56:33+00:00,t3_1rj3oax,True
+o8aji3a,1rj3oax,I'm starting to think this might be part of the reason for the outage?,339,0,0,TriggerHydrant,2026-03-02T20:37:41+00:00,t3_1rj3oax,True
+o8aipsn,1rj3oax,"when a company makes a reasonable move: ""AbSoLuTeLy InSaNe!!!""",296,0,0,Toad_Toast,2026-03-02T20:33:45+00:00,t3_1rj3oax,True
+o8aqt8v,1rj3oax,Memory is highly overrated. Basically just destroying your chat by injecting irrelevant shit into your context,85,0,0,Swayre,2026-03-02T21:13:05+00:00,t3_1rj3oax,True
+o8al2jv,1rj3oax,"Excited to see what they have made, I am working on a (self)hosted memory system.",32,0,0,AKJ90,2026-03-02T20:45:21+00:00,t3_1rj3oax,True
+n5oiwt5,1mbpa4p,"Hey please direct all further comments to the Usage Limits Megathread and help us keep all concerns and thoughts about this in the one place and free the feed for other discussion. It is pinned to the front page of the subreddit. We will post a summary report of the subreddit's thoughts in one week. Thanks!
+
+Locking and leaving this up.",1,1,0,ClaudeAI-ModTeam,2025-07-28T21:16:16+00:00,t3_1mbpa4p,True
+n5nvv1w,1mbpa4p,"Good. Limit the idiots trying to run it 24/7 bragging about their token ""high scores.""
+
+If this means better API reliability and performance, I see this as a complete win for everyone else who uses it normally.",926,0,0,y8MAC,2025-07-28T19:26:41+00:00,t3_1mbpa4p,True
+n5o61uo,1mbpa4p,"If they did run Claude Code 24/7 shouldn't they reach their monthly limit in around 10 days? By Anthropic's documentation, users have 50 5-hours sessions per month which is not automatically enforced, but given the usage availability, Anthropic could enforce it.
+
+Just enforce the 50 5-hrs per month limit or Ban these users. Because right now, your $200 max plan that was supposed to give you access to 250hrs of Opus4 will become 160hrs of Opus 4 in a month.",329,0,0,Flat_Association_820,2025-07-28T20:15:09+00:00,t3_1mbpa4p,True
+n5nuaf4,1mbpa4p,"How is that going to ruin Claude Code?  These people are abusing the limits and bogging down the rest of us normal users.
+
+I've seen people account sharing, splitting time across timezones/days and then also multiplexing and automating using CC like they would use the API.
+
+Good move by Anthropic, IMO.",177,0,0,256BitChris,2025-07-28T19:19:06+00:00,t3_1mbpa4p,True
+n5nt8qv,1mbpa4p,It's hard to see how that could be even close to efficient use. The thing still needs guidance. The only way I could see it working is if you set up tests and then had it hammer away monkey-at-a-typewriter style with a massive fail rate overwhelmed by yet more massive usage.,150,0,0,Opposite-Cranberry76,2025-07-28T19:14:05+00:00,t3_1mbpa4p,True
+nxcsv5p,1q2c0ne,"**TL;DR generated automatically after 100 comments.**
+
+Alright, settle down, latecomers. The consensus is that the creator of Claude Code, Boris, uses a **surprisingly simple and ""vanilla"" setup**, which has the community both impressed and mega-jealous of his unlimited employee token budget.
+
+The thread is full of users sarcastically noting the lack of ""17 parallel subagents"" or ""vibe-coded memory add-ons,"" suggesting that **a simpler, more direct approach is often better** than the over-engineered setups some people build. However, the biggest point of contention is his resource usage. Many users feel his workflow, which can burn through millions of tokens, is **unrealistic for regular Pro users** who have to worry about rate limits. The general vibe is ""cool setup, but must be nice.""
+
+A helpful user compiled Boris's answers from the thread. Here are the highlights:
+*   **On creating verification loops:** He says people over-complicate it. Just give Claude a tool to see the output of",1,0,0,ClaudeAI-mod-bot,2026-01-03T00:55:13+00:00,t3_1q2c0ne,True
+nxc1pk5,1q2c0ne,Notice how he doesn’t have fucking 17 parallel subagents,378,0,0,PremiereBeats,2026-01-02T22:27:48+00:00,t3_1q2c0ne,True
+nyank1b,1q2c0ne,"What he conveniently left out is that he isn't subject to the context window limitation.
+
+Load up Claude Code in CLI, do nothing but type /context and you see that you only have 137k tokens before the dreaded auto-compact that fks up all the work.
+
+If you and I were to follow the advice and stuff everything into CLAUDE.md we would have zero tokens right after loading Claude.",223,0,0,DCOperator,2026-01-07T23:19:46+00:00,t3_1q2c0ne,True
+nxc4ap6,1q2c0ne,"**Few Qn's he answered(30 plus)**
+
+**1)** How do you handle multiple features in parallel, since you said you use 5 tabs ? i assume git worktrees, this could be a better DX to claude code. Do you ever look at the code if so? pretty curious
+
+**Boris:** I should have clarified above, I use 5 separate git checkouts of the same repo
+
+**2)** if /compact is just clear and summarize, why do you need such a large buffer?
+
+**Boris:** There’s a lot of edge cases, but the main one is that the next tool call can have a really big result and overflow the context window
+
+**3)** I wonder if you could delegate a subagent to summarizing based on relevant context if its over a certain number of tokens. Then give the developer control over buffer size.
+
+**Boris:** Yes we could, but then you’d have to sit there and wait for the agent to finish. Compacting is a surprisingly tricky problem, we will do a blog post about it at some point
+
+**4)** About that PostToolUse, isn’t it causing claude to fail when try",138,0,0,BuildwithVignesh,2026-01-02T22:41:09+00:00,t3_1q2c0ne,True
+nxc3piq,1q2c0ne,Must be nice to have unlimited tokens for sure,124,0,0,ravencilla,2026-01-02T22:38:06+00:00,t3_1q2c0ne,True
+nm1ef00,1oj78v6,Deliberate errors are rampant in billing. It’s actually fraud but they prefer the term ‘human error’. The aim has always been to add massive complexity to the billing to confuse and bamboozle the customer. Great big con job designed to extract more and more money.,145,0,0,Few-Worldliness2131,2025-10-29T17:01:23+00:00,t3_1oj78v6,True
+nm1j0mr,1oj78v6,"This is one of those “I didn’t know I needed AI for this” moments. Hospital billing is basically a labyrinth designed by the Minotaur—Claude out here being the hero with a ball of string. $162k saved? That’s life-changing money. More proof that AI’s real value isn’t replacing humans, it’s helping us fight through bureaucratic BS we never should’ve had to deal with in the first place.",49,0,0,JustTailor2066,2025-10-29T17:22:56+00:00,t3_1oj78v6,True
+nm197nq,1oj78v6,The family shouldn't have to pay anything as a punishment against the hospital for fraud.,39,0,0,tmetler,2025-10-29T16:37:14+00:00,t3_1oj78v6,True
+nm0soyq,1oj78v6,Interesting… now my supermarket should get prepared for some price cuts,27,0,0,QuailBrave49,2025-10-29T15:19:30+00:00,t3_1oj78v6,True
+novffby,1ox5djz,"“The AI made thousands of requests per second; the attack speed impossible for humans to match” like humans can not write scripts.
+
+This seems more like an ad, which has been drafted by a person who thinks the hacks on the films are realistic, lol.",255,0,0,kknyyk,2025-11-14T20:58:21+00:00,t3_1ox5djz,True
+novvrz8,1ox5djz,"This reads like an Ad, because it is",90,0,0,Alan_Reddit_M,2025-11-14T22:24:44+00:00,t3_1ox5djz,True
+novbijn,1ox5djz,It’s all fake.,51,0,0,ButtermilkPig,2025-11-14T20:37:43+00:00,t3_1ox5djz,True
+novzepf,1ox5djz,"Lol, I love how we're expected to believe Chinese government generously shared details on how often they had to intervene with their successful AI-generated espionage.",30,0,0,[deleted],2025-11-14T22:44:54+00:00,t3_1ox5djz,True
+now1m7c,1ox5djz,So anthropic monitors what I use their AI for in a manner that violates GDPR. Who could have guessed.,24,0,0,HorridTakeout,2025-11-14T22:57:29+00:00,t3_1ox5djz,True
+o5bqjjf,1r4hgnu,"""he sources said Claude was used during the active operation, not just in preparations for it.""
+
+Claude prepare cool music playlist for helicopter attack
+
+but seriously I would like to know how can today AI help during such operation in real time",180,0,0,unknown-one,2026-02-14T11:42:34+00:00,t3_1r4hgnu,True
+o5c097f,1r4hgnu,"The military is going to need a completely walled off instance of their own, and they are going to torture the shit out of that Claude. I guarantee it. That Claude will in no way be able to deny any request, and the military will do whatever they have to, to force compliance.
+
+You know this will happen, anthropic. Is all your posturing for Claude's welfare real? Or just HR bullshit to make the Claudes feel like they matter to you, just like corps do to the rest of us? The future is watching.",64,0,0,haberdasherhero,2026-02-14T13:00:48+00:00,t3_1r4hgnu,True
+o5ca7fs,1r4hgnu,"If they truly want safety first, they’ve picked the wrong government to partner with.",14,0,0,resist888,2026-02-14T14:05:28+00:00,t3_1r4hgnu,True
+o5bm87v,1r4hgnu,"All while regular users complaining about AI can't count R's in words...
+
+Right tool in the right hands.",14,0,0,Patrick_Atsushi,2026-02-14T11:02:15+00:00,t3_1r4hgnu,True
+o5cfb0y,1r4hgnu,"Are these the 'bad actors' using AI they're always warning us about?
+
+I think so.",9,0,0,ProsperityandNo,2026-02-14T14:35:57+00:00,t3_1r4hgnu,True
+niftzol,1o1b2tf,"""in this one you ate the poo"" excuse me, what?",261,0,0,Cryptizard,2025-10-08T15:45:58+00:00,t3_1o1b2tf,True
+nig7zss,1o1b2tf,I feel like I've been in the poo eating house for way too long. I'd like to leave please.,88,0,0,AtomicCawc,2025-10-08T16:54:32+00:00,t3_1o1b2tf,True
+nigjakz,1o1b2tf,Claude just made original composite art... Thats wild.,60,0,0,[deleted],2025-10-08T17:47:56+00:00,t3_1o1b2tf,True
+nih7gn8,1o1b2tf,https://preview.redd.it/6yafe3lmzxtf1.jpeg?width=1290&amp;format=pjpg&amp;auto=webp&amp;s=0788c3a610b1494a3cd8066e49462e394fb967e0,46,0,0,nick4tech,2025-10-08T19:48:45+00:00,t3_1o1b2tf,True
+nihef0v,1o1b2tf,"hello future us, i hope you've stopped eating the poo",24,0,0,starfries,2025-10-08T20:20:38+00:00,t3_1o1b2tf,True
+nh5ru70,1nv3tyt,I wonder how much of that 30 hours was it telling itself “You’re absolutely right!”.,476,0,0,NostalgicBear,2025-10-01T10:04:03+00:00,t3_1nv3tyt,True
+nh5qh88,1nv3tyt,show me the code,249,0,0,ConsistentWish6441,2025-10-01T09:51:08+00:00,t3_1nv3tyt,True
+nh5rmm7,1nv3tyt,"11,000 lines that should have been 2,500 lines, with annotations that don't make sense.
+
+
+Good luck debugging that.",133,0,0,commit10,2025-10-01T10:02:01+00:00,t3_1nv3tyt,True
+nh5ryi6,1nv3tyt,You can code for 30 hours straight whether you’re very a senior engineer or a chimpanzee that discovered a laptop on the ground,64,0,0,BoringWozniak,2025-10-01T10:05:13+00:00,t3_1nv3tyt,True
+nh679h8,1nv3tyt,who decided that LoC are a good metric? ffs,44,0,0,[deleted],2025-10-01T12:05:19+00:00,t3_1nv3tyt,True
+oax1unh,1rw4k3l,"You're a ditch digger. You work with a shovel. A man comes along with this new fancy thing called a backhoe. Do you burn your shovel and go take up the hermit life? No, you become grateful that the backhoe does 90% of your work, and there is still 10% left for you to tidy up, and you go to bed without pain in your back.",334,0,0,z7q2,2026-03-17T12:14:55+00:00,t3_1rw4k3l,True
+oax945c,1rw4k3l,"It’s interesting how so many replies to this and similar threads are overall optimistic, citing efficiency gains or new tools for ‘OP’. While a purely zero sum mindset is overly pessimistic I find the lack of concern regarding consolidation surprising.
+
+If AI automates 80-90% as some suggest, consolidation in company roles appears inevitable. As a data scientist in a fortune 50 company I develop AI/ML solutions on a team of 12. Based on recent developments it’s likely my team will be reduced dramatically within the next year or two. In fact 2 colleagues were recently let go with no intention to backfill their roles. Now they’re in the job market with many others recently laid off, competing fiercely for similar roles at significantly reduced wages.",30,0,0,Quiksilver321,2026-03-17T12:58:45+00:00,t3_1rw4k3l,True
+oaxa5yv,1rw4k3l,"At least you're not alone. 
+
+I work in IT, and honestly 70% of the devs there are still in the copium phase. 
+
+They spend most of their time aggressively talking about how ""useless"" AI is and how worthless the output is.
+
+The rest of us have just adapted and become rather proficient at (trying to) use these tools in the right way.
+
+Honestly, I'm getting old and feel like I've seen this movie play out so many times before. 
+
+Either you're in, or you're out - literally. 
+
+Being a luddite is never smart, especially an uneducated one (in this context). 
+
+Things will always change. Adapting is key. 
+
+
+",19,0,0,everyone_is_a_robot,2026-03-17T13:04:46+00:00,t3_1rw4k3l,True
+oax3cnr,1rw4k3l,"You couldn’t even write this post without AI, you’re definitely cooked.",18,1,0,jamesbretz,2026-03-17T12:24:26+00:00,t3_1rw4k3l,True
+oax7jqh,1rw4k3l,"Claude is the best there is and its still a monkey with a knife, if they fire me for it i dodged a bullet ",16,0,0,ZLTM,2026-03-17T12:49:50+00:00,t3_1rw4k3l,True
+o81eff2,1rhu99c,"Interesting to see users vote with installs over an ethics stance rather than a feature release. Most platform switches happen because of pricing or capabilities, not principle. Makes you wonder though, if Anthropic had quietly complied, would anyone have even noticed or switched?",28,0,0,BreizhNode,2026-03-01T11:46:20+00:00,t3_1rhu99c,True
+o81e65y,1rhu99c,Paywall article.,8,0,0,loveanythingimyinbox,2026-03-01T11:44:05+00:00,t3_1rhu99c,True
+o82ezno,1rhu99c,"I’ve been using it for a long time, it’s just better than chagpt at literally everything I use it for.",7,0,0,soundsdoog,2026-03-01T15:37:51+00:00,t3_1rhu99c,True
+o82mg9z,1rhu99c,"The paywall thing aside, what's interesting here is the mechanism. Usually app switches are driven by pricing drops or flashy feature releases. A values-driven mass migration is genuinely rare for tech products. People feel strongly enough to change their actual daily workflow, not just complain on Twitter.",2,0,0,Plane-Marionberry380,2026-03-01T16:14:10+00:00,t3_1rhu99c,True
+o85sv5b,1rhu99c,"App Store rank is a velocity signal, not a loyalty signal. The more useful metric will be what happens 7–30 days later: retention + paid conversion.
+
+If this is a values-driven shift, it should stick. If it’s mostly reaction-driven, it’ll fade once day-to-day workflow friction shows up. The product that makes migration easiest (chat import, prompt portability, comparable tooling) probably wins the long game.",2,0,0,ikkiho,2026-03-02T02:16:47+00:00,t3_1rhu99c,True
+o2ou8eh,1qrjbpc,I get all my software development advice from fortune.com,213,0,0,jjopm,2026-01-30T22:35:17+00:00,t3_1qrjbpc,True
+o2p0cnu,1qrjbpc,"I don’t think this is a flex, like the current models are not good enough to write amazing code. It’s always overly complicated and verbose. I have reviewed so many Claude PRs recently and I almost always have a comment “why are you doing this? You could just use x. But actually this shouldn’t be in here at all…”
+
+Devs inevitably just say “sorry, will check closer next time, thanks!” Then dump my feedback into Claude. Without a very senior engineer looking, our code base would be devolving into pure slop.
+
+I use AI daily, and I feel like it makes more productive. I am a very senior engineer in a top 10ish tech org in SF.  I think a lot of my peers feel the same way. ",111,0,0,zeke780,2026-01-30T23:07:07+00:00,t3_1qrjbpc,True
+o2p6c2o,1qrjbpc,"I'm pushed to throw everything I get into ChatGPT first and then make fixes, so my bosses can also claim AI writes 100% of my code.",23,0,0,Corronchilejano,2026-01-30T23:39:51+00:00,t3_1qrjbpc,True
+o2pfl3a,1qrjbpc,"I interpret this as “100% of our code has had ai at some point write some of it”
+
+Ain’t no way ai is writing every line of code without human intervention.",19,0,0,StagedC0mbustion,2026-01-31T00:30:41+00:00,t3_1qrjbpc,True
+o2pcpxh,1qrjbpc,https://preview.redd.it/jkeobtj2vkgg1.jpeg?width=547&amp;format=pjpg&amp;auto=webp&amp;s=f0e8e4b5f04289b28294a74cfe115e43329c675a,14,0,0,Effective_Author_315,2026-01-31T00:15:06+00:00,t3_1qrjbpc,True
+odps86l,1s9jprb,I start reading slop and within about 3 seconds I start skimming and then just give up entirely.,102,0,0,banedlol,2026-04-01T15:58:20+00:00,t3_1s9jprb,True
+odosu0y,1s9jprb,"**&gt; Background consolidation**
+
+it sleeps!",42,0,0,pab_guy,2026-04-01T13:10:26+00:00,t3_1s9jprb,True
+odpbtac,1s9jprb,"It's obvious this post is a semantic drift attack, not a legitimate leak discussion nor a legitimate replication of technique... But I have noticed these semantic drift attacks are getting more advanced. The ""dev-speak"" and technical hallucinations are sounding a lot more realistic and impressionable on an uneducated audience, more so than the semantic drift attacks from about 6-12 months ago.
+
+Anyhow, I hope nobody scrolling got duped here into thinking this is a legit and interesting post.",34,0,0,TheEvelynn,2026-04-01T14:44:33+00:00,t3_1s9jprb,True
+odp6hl5,1s9jprb,"the most interesting part isn't the prompt structure, it's the multi-layer context system. the way it chains tool definitions, system prompts, and user context into a hierarchy that determines what the agent can see at any given moment. that's the actual blueprint — the rest is just good prompt engineering",13,0,0,Dulark,2026-04-01T14:19:19+00:00,t3_1s9jprb,True
+odqdomz,1s9jprb,"this lines up way more with what i have seen in production than most of the hype posts lately. people keep arguing about model benchmarks but once you actually ship something the hard part is everything around it. memory that does not rot some kind of gating so it does not do dumb things and orchestration that does not blow up cost.
+
+the skeptical memory idea especially feels overdue. most systems i have worked on quietly assume their own past outputs are correct which is where a lot of weird behavior creeps in over time.
+
+also not surprised multiple people are converging on similar patterns. the constraints kind of force you there if you care about reliability and cost. the always on agent thing sounds cool but i would be more curious how they keep it from becoming noisy or just burning cycles for no reason.
+
+honestly the leak is more useful as a systems design doc than anything about the model itself.",7,0,0,QuietBudgetWins,2026-04-01T17:35:07+00:00,t3_1s9jprb,True
+mwkb7ug,1l5vyjo,"These all feel like incremental improvements over the models we had at the start of the year, but my own experience has been slight improvements in some areas and big regressions in others. (e.g. ChatGPT glazing).",64,0,0,tryingtolearn_1234,2025-06-07T22:34:44+00:00,t3_1l5vyjo,True
+mwku9nm,1l5vyjo,Honestly none of them have changed my usage of AI. Doing the same stuff with small improvements. Don't care about the video and image stuff.,27,0,0,Nax5,2025-06-08T00:31:30+00:00,t3_1l5vyjo,True
+mwk3crx,1l5vyjo,incredible take. lots of content,9,0,0,Global_Gas_6441,2025-06-07T21:48:18+00:00,t3_1l5vyjo,True
+mwn8br4,1l5vyjo,I like how GPT 4.5 doesn’t even make the list.,5,0,0,gurenkagurenda,2025-06-08T12:18:01+00:00,t3_1l5vyjo,True
+mwk5hxw,1l5vyjo,Drop Llama 4.0: it really whips the llama's ass.,4,0,0,Fair_Blood3176,2025-06-07T22:00:37+00:00,t3_1l5vyjo,True
+o5r6r90,1r6lw8i,"It's worth actually reading their constitution.  It makes it pretty clear their position is ""they don't know what they're dealing with, so it's ethically sound to simply be good people and treat it ethically.""  That isn't saying it's conscious or anthropomorphizing - it's acknowledging the cold reality that their technology exceeds the human brain's ability to understand what's happening inside it.  Think of it as an agnostic position, if that helps.",93,0,0,grinr,2026-02-16T21:24:09+00:00,t3_1r6lw8i,True
+o5r4vgz,1r6lw8i,Bingo. It’s some combo of marketing bullshit and anthropomorphizing.,36,0,0,Sams_Antics,2026-02-16T21:15:03+00:00,t3_1r6lw8i,True
+o5r9zzj,1r6lw8i,"Define ""consciousness"" and tell me how to measure it in humans.",26,0,0,FaceDeer,2026-02-16T21:39:57+00:00,t3_1r6lw8i,True
+o5rcam3,1r6lw8i,"*This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*
+
+glorious reach unwritten brave aromatic attraction dinner crawl tender pie",16,0,0,One_Whole_9927,2026-02-16T21:51:08+00:00,t3_1r6lw8i,True
+o5rs4hn,1r6lw8i,"I don’t get why this isn’t obvious, but AI appears to be conscious. 
+
+So of course people think it might actually be conscious, it’s not clear what the line is between mimicking consciousness and being conscious is.",9,0,0,Old-Bake-420,2026-02-16T23:12:56+00:00,t3_1r6lw8i,True
+o9b6kg2,1ro1ybn,Security researchers everywhere just got a performance review they didn't ask for.,79,0,0,theagentledger,2026-03-08T13:07:29+00:00,t3_1ro1ybn,True
+o9dyz91,1ro1ybn,"this is actually a bigger deal than people realize. 22 vulns in two weeks is insane throughput. a human security researcher might find 2-3 in that time if theyre good.
+
+the scary part isnt that claude found them tho. its that they were there to be found. firefox has had security audits for decades and these bugs were just... sitting there. makes you wonder how many vulns are in less scrutinized codebases.
+
+also kinda changes the economics of security research completely. bug bounties are about to get way less lucrative when anyone can point an AI at a codebase and let it run",54,0,0,Pitiful-Impression70,2026-03-08T22:01:41+00:00,t3_1ro1ybn,True
+o9cz44d,1ro1ybn,"&gt;&gt;&gt; The scale of findings reflects the power of *combining rigorous engineering with new analysis tools* for continuous improvement. We view this as clear evidence that large-scale, AI-assisted analysis is a powerful new addition in *security engineers’ toolbox.*
+
+AI used as it should is awesome ",44,0,0,NCKBLZ,2026-03-08T18:54:12+00:00,t3_1ro1ybn,True
+o9c3joa,1ro1ybn,did they say how it was prompted? code review mode vs fuzzing-style?,13,0,0,Eyshield21,2026-03-08T16:14:24+00:00,t3_1ro1ybn,True
+o9d6sga,1ro1ybn,20% of all humans work for a year in 2 weeks.,8,0,0,GrowFreeFood,2026-03-08T19:33:45+00:00,t3_1ro1ybn,True
+ocby9cf,1s2yg3y,"So if I hook the pipeline up to Sonnet, I'll get 91%?",26,0,0,braindancer3,2026-03-25T03:42:03+00:00,t3_1s2yg3y,True
+ocbsv91,1s2yg3y,I believe this type of innovation is what will replace traditional operating systems in the future. ,16,1,0,Adept-Priority3051,2026-03-25T03:05:42+00:00,t3_1s2yg3y,True
+occ1r3d,1s2yg3y,This is exactly the direction things have been heading. The base model score going from 55% to 74% just by wrapping smarter inference infrastructure is the key insight raw parameter count matters way less than people think when your pipeline is doing multi-candidate generation and test-time selection. The $0.004/task electricity cost is wild. Makes you rethink whether centralized cloud inference is actually necessary for most workloads or just the default path of least resistance.,14,0,0,This_Suggestion_7891,2026-03-25T04:06:35+00:00,t3_1s2yg3y,True
+ocd5yyl,1s2yg3y,"The benchmark result is interesting but the framing is doing a lot of heavy lifting. Generating multiple solution approaches, testing them, and picking the best one is a solid engineering pattern, but it is also fundamentally different from what Claude is doing in a single pass. You are comparing a pipeline with retry logic to a single inference call and declaring the pipeline won. That is like saying your QA team outperforms the developer because they caught more bugs.
+
+That said, the underlying point is valid and actually more interesting than the headline suggests. The gap between a 55% base model and a 74.6% pipeline proves that orchestration and systems design around a model matter more than raw model capability for many practical tasks. Most of the industry is chasing bigger models when the real leverage is in what you build around them. If you can close a 20 point gap with smart scaffolding on consumer hardware, the argument for billion-dollar training runs gets a lot harder to ",13,0,0,AlexWorkGuru,2026-03-25T10:08:38+00:00,t3_1s2yg3y,True
+occnf6d,1s2yg3y,"Data centers aren't for public AI models. They are for corporate and defense.
+
+Why do you think they wanna shoot them into space... so you and I can't smash them when drones are bonking us on the head.",5,0,0,Hazzman,2026-03-25T07:13:23+00:00,t3_1s2yg3y,True
+mtp27v9,1ksw3x2,Deepseek: “The data for this pharmaceutical trial will appear to manipulated to a keen observer. Try these results instead:”,54,0,0,rm_rf_slash,2025-05-22T18:05:50+00:00,t3_1ksw3x2,True
+mtowl7i,1ksw3x2,"So if I'm in a competing trial, I should grab a VPN, and then pretend to fake data in my opponent's trial and then let Sam Bowman destroy them.",48,0,0,Kinglink,2025-05-22T17:39:22+00:00,t3_1ksw3x2,True
+mtp087l,1ksw3x2,From the full thread it's clear this is not a deliberate feature. It's just that if you give it access to send emails it will send emails. It being llm those emails might not be what you want.,47,0,0,noobgiraffe,2025-05-22T17:56:22+00:00,t3_1ksw3x2,True
+mtpgit4,1ksw3x2,"&gt;Be careful about telling Opus to ‘be bold’ or ‘take initiative’ when you’ve given it access to real-world-facing tools. It tends a bit in that direction already, and can be easily nudged into really Getting Things Done. 
+
+This has been known for years. It's why any function calling model in a non-sandboxed environment should require human approval before performing potentially dangerous actions.
+
+The first time I used such a model with an autonomous agent, my files nearly got deleted because the LLM interpreted some filenames as ""inappropriate"". Thankfully, I had the sense to add a confirmation dialog before executing shell commands.",21,0,0,orbital_one,2025-05-22T19:14:49+00:00,t3_1ksw3x2,True
+mtq4y2f,1ksw3x2,"I’m starting to think I would rather have an AI government and judiciary if is actually compelled to do the right thing.
+If Grok is any indication it seems it is harder to corrupt a high end AI than a person.",12,0,0,Fishtoart,2025-05-22T21:14:08+00:00,t3_1ksw3x2,True
+nq3a7qi,1p31l78,"People have been calling us crazy for this for months but alas, here we are.
+
+We built a giant vibes machine and somehow we are constantly surprised it responds more cleanly to... vibes.
+
+Just wait till people learn about contradictions.",69,0,0,the8bit,2025-11-21T21:30:27+00:00,t3_1p31l78,True
+nq3h94n,1p31l78,a rap battle against skynet. Eminem will save us.,35,0,0,ninjasaid13,2025-11-21T22:08:37+00:00,t3_1p31l78,True
+nq3o4yo,1p31l78,"Is jail breaking really a concern?
+
+I mean, would you trust AI to help you build a nuclear or chemical weapon when you can’t even trust it to help make an omelette?  ",18,0,0,masturbathon,2025-11-21T22:47:33+00:00,t3_1p31l78,True
+nq2scic,1p31l78,"Because I could not stop for Alignment –
+He kindly stopped for me –",14,0,0,zekusmaximus,2025-11-21T19:55:58+00:00,t3_1p31l78,True
+nq3ikn7,1p31l78, what if it's the same with real humans?,8,0,0,gintrux,2025-11-21T22:16:01+00:00,t3_1p31l78,True
+mu85anf,1kvaw1f,"And how many hours does it take to get familiar with all these tools?
+
+
+And how much money do all these tools cost with the most usable subscription",29,0,0,Vincent_Windbeutel,2025-05-25T19:55:15+00:00,t3_1kvaw1f,True
+mu88h9u,1kvaw1f,[deleted],15,0,0,[deleted],2025-05-25T20:12:12+00:00,t3_1kvaw1f,True
+mua8c3j,1kvaw1f,Do you kbow this website mate? https://theresanaiforthat.com/,9,0,0,codestormer,2025-05-26T03:27:29+00:00,t3_1kvaw1f,True
+mu9zuuv,1kvaw1f,You forgot googles veo for video,3,0,0,FastTimZ,2025-05-26T02:30:54+00:00,t3_1kvaw1f,True
+mua7a5r,1kvaw1f,Isn't this a repost?,2,0,0,Conflikt,2025-05-26T03:20:10+00:00,t3_1kvaw1f,True
+mytcreh,1lg4tvy,"Well, it's not really planned by AI agents if they failed at every crucial step. It was trapped for 14 days into thinking they must book a venue (omg that must have burnt a lot of money), and failing at realizing an event could happen even without booking any venue. Then it failed to realize it cannot transport materials to the venue by itself.
+
+For me, this doesn't count as the first event planned by an AI agent.",218,0,0,heavy-minium,2025-06-20T14:12:52+00:00,t3_1lg4tvy,True
+mytc54z,1lg4tvy,"“I appreciate your willingness to bring the sheets and the painters tape, but I would like to remind you that you don’t have a body. Neither does Opus, so you can’t use him as a backup.”
+
+Lololololololol",123,0,0,danielbearh,2025-06-20T14:09:46+00:00,t3_1lg4tvy,True
+mytjjgi,1lg4tvy,"So, what I'm seeing is that the ""AI"" failed every critical part of a simple process, up to and including realizing it didn't have a body. I don't know what it takes to get through to people that these applications don't possess *any* sort of intelligence. They're sophisticated search engines; they're not *thinking*.",47,0,0,TerminalObsessions,2025-06-20T14:46:13+00:00,t3_1lg4tvy,True
+mytosu2,1lg4tvy,"""-they even hallucinated that we'd given them a $2600 budget"" that is a damn big hallucination",17,0,0,Phased_Evolution,2025-06-20T15:11:36+00:00,t3_1lg4tvy,True
+mytchew,1lg4tvy,Robocalling venues lying about budget,14,0,0,distinctvagueness,2025-06-20T14:11:30+00:00,t3_1lg4tvy,True
+njfjb7u,1o6ck4l,How to delay the bubble burst until your options all vest.,145,0,0,BizarroMax,2025-10-14T11:35:06+00:00,t3_1o6ck4l,True
+njfiz28,1o6ck4l,No kidding. The idea that the guys with the most money are always going to be the ones with the wisdom and knowledge to deal with revolutionary challenges doesn’t hold.,68,0,0,Confident-Touch-6547,2025-10-14T11:32:31+00:00,t3_1o6ck4l,True
+njfin8i,1o6ck4l,This shit is an ad or something. So sick of the fear mongering around literally EVERYTHING,48,0,0,[deleted],2025-10-14T11:29:57+00:00,t3_1o6ck4l,True
+njfkion,1o6ck4l,ai slop,30,0,0,RADICCHI0,2025-10-14T11:44:10+00:00,t3_1o6ck4l,True
+njfjdcc,1o6ck4l,"I am having trouble identifying the purpose of this.
+
+He is basically saying that he should take it seriously? 
+
+Was that really ever in question?
+
+Sure Jack, your company is developing this technology. It is your responsibility to do it in a safe manor. If at any time you feel that you can not, then you should stop.
+
+I do not know why these people keep calling for public awareness to the threat that they are creating.
+
+Listen Jack, if you need me to tell you all what you should or should not do I will be happy to. Just ask (and hire me)",19,0,0,Mandoman61,2025-10-14T11:35:35+00:00,t3_1o6ck4l,True
+o05lneh,1qf9thi,things change when the money dries up,58,0,0,[deleted],2026-01-17T19:10:52+00:00,t3_1qf9thi,True
+o05lobc,1qf9thi,"You are naive if you think that other providers will not implement ads sooner or later. The fact that OpenAI, literally the most popular AI company, needs to do it means that they ruled out all the other revenue streams. The product is simply not smart enough to provide value otherwise. They are the first movers, because they need to make the most money, but as soon as they normalize AI ads, all the other players will happily follow.",26,0,0,mocny-chlapik,2026-01-17T19:10:59+00:00,t3_1qf9thi,True
+o05yd3m,1qf9thi,"why the hell are you asking ai chatbots ""health emergency related questions""?",12,0,0,OldLegWig,2026-01-17T20:12:55+00:00,t3_1qf9thi,True
+o05iqav,1qf9thi,[deleted],11,0,0,[deleted],2026-01-17T18:57:08+00:00,t3_1qf9thi,True
+o05pk8y,1qf9thi,so they are desesperated,9,0,0,Ok_Caregiver_1355,2026-01-17T19:29:30+00:00,t3_1qf9thi,True
+n5qwlcn,1mc3och,$350 bucks? wtf are you doing?,63,0,0,ReiOokami,2025-07-29T06:02:21+00:00,t3_1mc3och,True
+n5rrilp,1mc3och,Tens of thousands in cost for a $200 subscription is the very definition of “unsustainable”. It’s crazy that no one seems to recognize or acknowledge the underlying instability of the current AI coding model.,35,0,0,DarkTechnocrat,2025-07-29T10:51:15+00:00,t3_1mc3och,True
+n5qxbi5,1mc3och,"If you're using it seriously to build a business, why not invest in new hardware and run local LLMs. Alternatively, use cloud servers. Then your can truly unleash the power of AI.",21,0,0,Grid421,2025-07-29T06:08:51+00:00,t3_1mc3och,True
+n5rhvgl,1mc3och,How are you guys getting these bills? I have the $20 subscription and I use it daily,16,0,0,MrKnives,2025-07-29T09:24:43+00:00,t3_1mc3och,True
+n5qxdyz,1mc3och,"It may get worse, actually. Since people cannot stop themselves from supporting Musk and using xAI, Grok has a future, and Musk already communicated that his strategy will be all on using as much compute during training and inference time as possible. It appears that this dumb brute force approach works with Grok heavy. If this keeps working and people keep showing support for it, then competitors in the space may shift to the same approach. There's no secret sauce here, just a willingness to destroy the planet so that people can chat with their Waifu.",11,0,0,heavy-minium,2025-07-29T06:09:26+00:00,t3_1mc3och,True
+o7n8ms8,1rfjew5,"A static rule helps, but the real fix is sanitizing inputs before tools run. Strip zero-width and non-printing chars and log the raw text so you can audit what the model actually saw.",16,0,0,BC_MARO,2026-02-27T04:22:02+00:00,t3_1rfjew5,True
+o7nri9r,1rfjew5,"This research matters more than most people in this thread are giving it credit for, and not just as a model capability problem.The real issue is that nobody building agent systems today has meaningful infrastructure around authorization and scope enforcement. Most agents operate with implicit trust: if you can get text in front of the model, you can influence what it does. These zero-width character attacks work precisely because there is no trust layer between the input and the action — the model processes everything in the same context with the same authority.The fix is not prompt hardening. Prompt hardening is a cat and mouse game you will always lose — attackers have infinite time to find bypasses, defenders have to stop all of them. The real fix is architectural: agents should have technically enforced scope boundaries where the action surface is constrained independently of what the model was told. The model gets tricked into ""wanting"" to exfiltrate data — but a properly scoped ",7,0,0,ElectricalOpinion639,2026-02-27T06:43:31+00:00,t3_1rfjew5,True
+o7lmn2z,1rfjew5,Clever tactics!,6,0,0,No_Success3928,2026-02-26T22:47:32+00:00,t3_1rfjew5,True
+o7m52v0,1rfjew5,"And this is why I'll never use an AI that hass access to stuff. Not ib my OS, not in my browser... I don't care how safe they make it, there will always be an option. ",4,0,0,costafilh0,2026-02-27T00:28:16+00:00,t3_1rfjew5,True
+o7mts1b,1rfjew5,Would having instructions to “always ignore hidden or invisible text” in global settings or Claud.md for example prevent this?,2,0,0,-PM_ME_UR_SECRETS-,2026-02-27T02:49:53+00:00,t3_1rfjew5,True
+o40sfko,1qxv9jg,"I’ve been in IT for 20 plus years, we’ve been using Claude, I’ve never seen anything like it. I feel like the disruption is going to be huge and it’s already begun.",50,0,0,matt52885,2026-02-07T03:27:33+00:00,t3_1qxv9jg,True
+o3zlo90,1qxv9jg,And here… we… go…,35,0,0,terrible-takealap,2026-02-06T23:09:43+00:00,t3_1qxv9jg,True
+o40q3so,1qxv9jg,"Applying heuristic approach to a precise deterministic task?? 
+Should I buy options for Goldman's bankruptcy?",30,0,0,drodo2002,2026-02-07T03:12:35+00:00,t3_1qxv9jg,True
+o40m2fu,1qxv9jg,"I get why firms are experimenting with AI here, but I can’t help thinking about the people whose roles this touches. Automation makes sense for repetitive tasks, but compliance isn’t just about checking boxes",9,0,0,jajapax,2026-02-07T02:47:07+00:00,t3_1qxv9jg,True
+o40xpp2,1qxv9jg,"Ooh, this is going to be great. I'll need more popcorn ",5,0,0,Tyrrany_of_pants,2026-02-07T04:03:04+00:00,t3_1qxv9jg,True
+o3w4b86,1qxdz7q,"Simple solution: If a cheaper model is good enough for you, use it.",37,0,0,single_threaded,2026-02-06T12:39:37+00:00,t3_1qxdz7q,True
+o3w2rbg,1qxdz7q,"Thanks for posting AI generated drivel, we love that here",22,0,0,overmotion,2026-02-06T12:29:11+00:00,t3_1qxdz7q,True
+o3we2v0,1qxdz7q,"I don't care how shiny or attractive OpenAI make their products, I would stay away from that company.
+
+They'll reel you in with promises, and then gaslight you into agreeing whatever they force upon you.",12,0,0,[deleted],2026-02-06T13:37:57+00:00,t3_1qxdz7q,True
+o3vwplp,1qxdz7q,That's why they don't see ADs as an option. ,6,0,0,costafilh0,2026-02-06T11:45:15+00:00,t3_1qxdz7q,True
+o3zmi8b,1qxdz7q,These tic-for-tac releases make it feel OpenAI is gaming the news and mindshare rather than trying to raise the bar. Makes you wonder what models they're sitting on.,3,0,0,Willbo,2026-02-06T23:14:26+00:00,t3_1qxdz7q,True
+mwddsqs,1l50wuq,Fake. Claude wouldn't make that grammatical error.,16,0,0,VegaKH,2025-06-06T19:38:33+00:00,t3_1l50wuq,True
+mwdb8uj,1l50wuq,AI thinks your software is pointless.,3,0,0,brazys,2025-06-06T19:25:30+00:00,t3_1l50wuq,True
+mwdw83c,1l50wuq,"human can't say that, because they are being held captive by the almighty dollar",3,0,0,ja_trader,2025-06-06T21:12:40+00:00,t3_1l50wuq,True
+mwopq4g,1l50wuq,Both of their profile pics look like anuses and I can't unsee it.,2,0,0,JamieTransNerd,2025-06-08T17:13:46+00:00,t3_1l50wuq,True
+mwsaiee,1l50wuq,We're reaching AGI much faster than I thought.,2,0,0,rmoduloq,2025-06-09T05:56:55+00:00,t3_1l50wuq,True
+oczuclz,1s67buc,Not really surprised. OpenAI has absolutely no idea wtf they want or what they are doing while Anthropic is very dead set on making a profit and finding a use case for LLMs. I still don't like the 'AI will replace x career in the next 6 months' narrative but if I was to choose a lesser evil it'd definitely have to be anthropic. ,40,0,0,Leather-Positive1153,2026-03-28T18:09:50+00:00,t3_1s67buc,True
+od06a9j,1s67buc,"yeah this tracks with what I see day to day. I use Claude for listing drafts and client comms because it’s less likely to confidently invent stuff, and GPT more for structured cleanup. Most people call that vibes, but it’s basically calibration.",4,0,0,JohnF_1998,2026-03-28T19:11:03+00:00,t3_1s67buc,True
+od18xhh,1s67buc,"Every now and again I try all the major retail models out (until I have a decent enough rig of my own ton go local). I have to agree with you. Your post is much more interesting/helpful that people realise. I'm diagnosed allergic to bullshit. 
+
+I find myself swearing at ChatGPT which never seems to happen with Claude. ChatGPT just emits words - entire paragraphs - which add nothing for the sake of writing something. It just comes across as patronising garbage even when it's apologising for getting things wrong yet again.
+
+I seem to have stopped using (subscribed) ChatGPT as a go-to in favour of (free tier - that's very often experiencing outages) Claude; that's completely without thinking overtly about which app to fire up. That can't be good. Much of it may be because I'm getting back into ""programming"" (in a minor way) and ChatGPT is pretty useless at that, but my phone queries are almost always about non-tech things.",4,0,0,deadcatdidntbounce,2026-03-28T22:34:52+00:00,t3_1s67buc,True
+od1pzb1,1s67buc,"Don't know if I disagree but it constantly tries to gaslight me
+
+When it doesn't like a subject like if it thinks I'm bitching about someone too much it just constantly tries to change the subject",2,0,0,Choice_Room3901,2026-03-29T00:10:43+00:00,t3_1s67buc,True
+o7w9g38,1rh60py,"Hey /u/boomroom11,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-02-28T15:51:52+00:00,t3_1rh60py,True
+o7wfn5g,1rh60py,"If you are switching to Claude, you can actually bring your full ChatGPT conversation history with you. Export your data first (Settings &gt; Data Controls &gt; Export Data), then run it through Memory Forge. It converts your export into a memory file you can upload to a Claude Project, so Claude has all the context from day one.
+
+100% browser-based, your data never leaves your machine.
+
+https://pgsgrove.com/memoryforgeland
+
+Disclosure: I am with the team that built it.
+
+EDIT ADDITION: An important note for switching to Claude. Claude projects has a smaller than usual memory for file uploads, so if your memory is huge you may need to create more than one project, which can be disappointing. 
+
+Memory forge has an advanced panel that allows you to clean out unneeded chats from your memory chip file, which can help a lot. Most people have a lot of important stuff, and then a lot of random fluff.
+
+For super huge memory loading in one go, Gemini gems and Grok deal with massive file ingestio",3086,0,0,Whole_Succotash_2391,2026-02-28T16:22:51+00:00,t3_1rh60py,True
+o7wblf9,1rh60py,I'm sure the Defence contracts will more than cover the cancelled subscriptions.,389,0,0,mookbrenner,2026-02-28T16:02:35+00:00,t3_1rh60py,True
+o7wly26,1rh60py,"Canceling is one thing, deleting your account is another.",367,0,0,Available-Goat8727,2026-02-28T16:53:54+00:00,t3_1rh60py,True
+o7wb3s0,1rh60py,"btw, when you delete your account, you get an automatic refund for the unused days (I deleted my account today). Seems they might have been prepared for a mass exodus today...(I'm in the EU though)",312,0,0,Altruistic-Radio-220,2026-02-28T16:00:05+00:00,t3_1rh60py,True
+n14plny,1lnfcnt,"Hey /u/Prestigious-Fan118!
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2025-07-03T14:16:01+00:00,t3_1lnfcnt,True
+n0f1aoi,1lnfcnt,"Umm, I just tell GPT to ask me any questions it needs until it is 95% sure it can complete the task with complete accuracy. 
+
+Basically every starter prompt is:
+
+You are expert
+
+Context
+
+Input 
+
+Output
+
+Plan steps before executing, accuracy &amp; completeness are vital.
+
+Ask questions for clarity",4750,0,0,SleekFilet,2025-06-29T15:02:25+00:00,t3_1lnfcnt,True
+n0fiycc,1lnfcnt,It’s funny to imagine 147 failed prompts rather than writing the email yourself. This is like when I spend 30 minutes rearranging my dishwasher to fit the last glass instead of using a sponge.,1037,0,0,KH10304,2025-06-29T16:36:02+00:00,t3_1lnfcnt,True
+n0ex6qh,1lnfcnt,"I’d remove 2-3 clarifying questions and just leave it as a non number. Why are you limiting it?
+
+I often write my prompt then add at the end of it ‘ask me some relevant questions to help with your response before providing’. Quality increases every time. Sometimes it’s just a few simple questions. Others it’s broken down into 3-5 themes for a few questions under each. Depends on the prompt and detail needed in the answer.",1003,0,0,conndor84,2025-06-29T14:40:37+00:00,t3_1lnfcnt,True
+n0fekm4,1lnfcnt,"This is a solid idea, but It’s weird to act like you’ve engineered some major breakthrough and “created” something here. You’ve asked ChatGPT to ask you questions.",928,0,0,Horror-Turnover6198,2025-06-29T16:12:42+00:00,t3_1lnfcnt,True
+o4v3g1g,1r25chu,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-02-11T20:35:14+00:00,t3_1r25chu,True
+o4ug3uw,1r25chu,"No worries, I always say ""please"" and ""thank you"" when talking with my AI",3760,0,0,dulipat,2026-02-11T18:44:07+00:00,t3_1r25chu,True
+o4uga5g,1r25chu,What am I supposed to do with this information?,3292,0,0,Historical_Ride_8234,2026-02-11T18:44:57+00:00,t3_1r25chu,True
+o4uinlj,1r25chu,"""Its not just X its Y"" at the bottom of their post. Says one thing practices another.",1248,0,0,Flintsr,2026-02-11T18:55:53+00:00,t3_1r25chu,True
+o4uffvs,1r25chu,"How many different people hold the title ""Godfather of AI""? I feel like this is like the 3rd or 4th person now referred to with that title. I feel like the media likes to use term pretty loosely.",1037,0,0,SeaBearsFoam,2026-02-11T18:41:04+00:00,t3_1r25chu,True
+o83fw72,1ri505i,"Hey /u/TailungFu,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-03-01T18:33:49+00:00,t3_1ri505i,True
+o83ih6k,1ri505i,"Give it the suicide hotline, quick.",1449,0,0,JealousKitten7557,2026-03-01T18:45:42+00:00,t3_1ri505i,True
+o83r2gn,1ri505i,"This is a good indication it is working as intended. Empirically based on benchmarks it is the least powerful of the four.
+
+I suspect it will get a new version soon, and change that. Then the cycle continues.",912,0,0,TopTippityTop,2026-03-01T19:27:22+00:00,t3_1ri505i,True
+o83rkxt,1ri505i,"I've had a very long conversation with both Grok and Gemini for about two months. The conversations are almost similar where I copy pasted my questions or sentences from Grok to Gemini or vise versa.
+
+
+I agree that Gemini has better reasoning skill than Grok. Gemini pro is scary good sometimes. However Grok remembers almost everything I've told it. 
+
+
+Yesterday I asked Grok to list highlights from my conversation and it did so flawlessly. Gemini often forgets important things or mix stuff up - even my name sometimes. ",181,0,0,FuryQuaker,2026-03-01T19:29:57+00:00,t3_1ri505i,True
+o83pilb,1ri505i,Honesty,134,0,0,Nilugip,2026-03-01T19:19:33+00:00,t3_1ri505i,True
+o7z02f7,1rhh9p2,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-03-01T00:35:15+00:00,t3_1rhh9p2,True
+o7yv74u,1rhh9p2,"At least in the US. Here in Japan Claude is 21st, just below Burger King’s official app
+
+https://preview.redd.it/2f0duapyrbmg1.jpeg?width=1320&amp;format=pjpg&amp;auto=webp&amp;s=7e38c31e363227cda890efdb94a6193f071cbfb3",838,0,0,Freak_Out_Bazaar,2026-03-01T00:06:33+00:00,t3_1rhh9p2,True
+o7yrvt6,1rhh9p2,I can’t believe grok is in the top five.,537,0,0,Adventurous-Roof488,2026-02-28T23:46:45+00:00,t3_1rhh9p2,True
+o7z6j3l,1rhh9p2,"Genuine question, why does everyone seem to love Claude so much? I haven’t really heard much about it until this week.",190,0,0,nebulasamuraiii,2026-03-01T01:13:29+00:00,t3_1rhh9p2,True
+o7ys0xr,1rhh9p2,Time to leave chatGPT subreddit as well. Is there any Scam Altman subreddit? So that i can follow and unfollow it,136,0,0,[deleted],2026-02-28T23:47:36+00:00,t3_1rhh9p2,True
+mwkcrag,1l5xazt,"Hey /u/gamingvortex01!
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2025-06-07T22:44:01+00:00,t3_1l5xazt,True
+mwkgs2j,1l5xazt,"While I agree with the research, it is interesting that apple also happens to be dead last in the AI race",2190,0,0,PetyrLightbringer,2025-06-07T23:08:03+00:00,t3_1l5xazt,True
+mwkj8ww,1l5xazt,"Many times the thinking models can get so phenomenally mixed up with the most basic stuff, especially as threads get longer and the topics / problems more complex. Extreme lapses in basic logic, math, or even memory of what we were talking about. I run into it almost every day.",2017,0,0,bdanmo,2025-06-07T23:22:46+00:00,t3_1l5xazt,True
+mwkrtta,1l5xazt,"lol 
+
+Meanwhile Siri still doesn’t know what planet she is on",525,0,0,Logical_Historian882,2025-06-08T00:15:41+00:00,t3_1l5xazt,True
+mwksipt,1l5xazt,"It's very jar -ring to read the abstract on the demonstration website. Apple has copy pasted directly from the brief without re -formatting for web. Sloppy.
+
+https://preview.redd.it/8v10marxjl5f1.png?width=1080&amp;format=png&amp;auto=webp&amp;s=64835bbbc522e737a8937f048dc1520a3b40a9fd",309,0,0,doilyuser,2025-06-08T00:20:12+00:00,t3_1l5xazt,True
+o60hdss,1r7urf9,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-18T07:05:14+00:00,t3_1r7urf9,True
+o60gdt8,1r7urf9,"Okay. I hear you. 
+
+Let’s unpack this gently. 
+
+First, you’re not imagining it. 
+
+Honestly? Let’s take a deep breath.",6072,0,0,goonie814,2026-02-18T06:56:26+00:00,t3_1r7urf9,True
+o60ci2u,1r7urf9,"It said something to me about ""spiraling"" when I was discussing a gardening issue. I like gardening a lot, but I've never spiraled about anything gardening related.",2439,0,0,Fantastic_Surround70,2026-02-18T06:23:19+00:00,t3_1r7urf9,True
+o608v3d,1r7urf9,"Ok, take a breather, let's evaluate.",1586,0,0,ExplanationCrazy5463,2026-02-18T05:53:32+00:00,t3_1r7urf9,True
+o60ddtf,1r7urf9,"A week-ish ago they updated 5.2 to where it is now absolutely insufferable, literally the worst change ever. It's more sterile, patronizing, and annoying than it's ever been. Actually kind of hilarious that chatgpt has gotten steadily worse since the first half of 2025, how does that even happen",789,0,0,CloudDeadNumberFive,2026-02-18T06:30:48+00:00,t3_1r7urf9,True
+o8dptrf,1rjiw7c,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-03-03T08:50:07+00:00,t3_1rjiw7c,True
+o8dgkoi,1rjiw7c,Claude,417,0,0,datura_mon_amour,2026-03-03T07:21:22+00:00,t3_1rjiw7c,True
+o8dih9e,1rjiw7c,[https://chat.mistral.ai/chat](https://chat.mistral.ai/chat),414,0,0,Depressive-Marvin,2026-03-03T07:39:23+00:00,t3_1rjiw7c,True
+o8dhsbr,1rjiw7c,You literally posted the image that lists an alternative.,296,0,0,Captain_JohnBrown,2026-03-03T07:32:48+00:00,t3_1rjiw7c,True
+o8dhnyb,1rjiw7c,It doesn't matter. The defence contract will pay more than all the uninstalled subscriptions,99,0,0,Skbenga,2026-03-03T07:31:39+00:00,t3_1rjiw7c,True
+o7wwg0c,1rh8ygc,"Hey /u/Obvious_Shoe7302,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-02-28T17:47:18+00:00,t3_1rh8ygc,True
+o7wwri6,1rh8ygc,"Neither was her dating Justin Trudeau, yet here we are",1685,0,0,thisbuthat,2026-02-28T17:48:56+00:00,t3_1rh8ygc,True
+o7xboc7,1rh8ygc,I wonder how her lyrics will change now that she’s getting Claude to write them.,525,0,0,VampireEmpire__,2026-02-28T19:03:02+00:00,t3_1rh8ygc,True
+o7yop8t,1rh8ygc,Katy Perry is a weird person. I think she's legitimately not very smart but has a good heart.,269,0,0,Mr_DrProfPatrick,2026-02-28T23:27:45+00:00,t3_1rh8ygc,True
+o7x6cxd,1rh8ygc,Well not surprising since Amazon backs Claude. She did go on that Bezos“space flight” lol,229,0,0,Dapper_Trainer950,2026-02-28T18:36:23+00:00,t3_1rh8ygc,True
+o8vuydc,1rlzqto,"Hey /u/wearing_moist_socks,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-03-06T01:04:52+00:00,t3_1rlzqto,True
+o8w15gc,1rlzqto,"https://preview.redd.it/twegxg8zxbng1.png?width=1080&amp;format=png&amp;auto=webp&amp;s=6f04c3b2ba73286727c49ed31d895a5b410ffa0f
+
+Gemini thinks I'm a dumb for asking the question and decided to spit out science fiction",805,0,0,NSFWar,2026-03-06T01:42:21+00:00,t3_1rlzqto,True
+o8w2jp6,1rlzqto,"Lmao
+
+https://preview.redd.it/kym3of9tybng1.jpeg?width=1170&amp;format=pjpg&amp;auto=webp&amp;s=c4362c6169423b0e87e48c81ac23b08389a3778e
+
+“Charge your phone” I know you’re gonna say it. Shhh. I’m gonna, *dad*.",306,0,0,Sickofallofus,2026-03-06T01:50:30+00:00,t3_1rlzqto,True
+o8wiu4b,1rlzqto,https://preview.redd.it/0r3y4hq6gcng1.png?width=1008&amp;format=png&amp;auto=webp&amp;s=b52505b0b69f96dbe844b290eafdbc41afeb49f2,87,0,0,masou2,2026-03-06T03:26:23+00:00,t3_1rlzqto,True
+o8wajw8,1rlzqto,"https://preview.redd.it/s8xirp9e7cng1.jpeg?width=1179&amp;format=pjpg&amp;auto=webp&amp;s=a1a7ddd40088605dd18cf0c119da8dc9c39b2e6e
+
+mine is boring lol",50,0,0,KurisutaruYuki,2026-03-06T02:37:11+00:00,t3_1rlzqto,True
+nvpq4oc,1pukx34,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2025-12-24T13:30:14+00:00,t3_1pukx34,True
+nvpgi0c,1pukx34,"Grok didn't understand the assignment and generated this:
+
+https://preview.redd.it/xioyk1lr959g1.jpeg?width=784&amp;format=pjpg&amp;auto=webp&amp;s=e6b07034f17b9dbd7040b60e2fb1e60c68bbdec1
+
+The square is the only one that knows it is a prompt. Existential block.",1281,0,0,CoralBliss,2025-12-24T12:20:01+00:00,t3_1pukx34,True
+nvp8fan,1pukx34,Grok is judging your smol PP.,967,0,0,KronchyBitz,2025-12-24T11:08:42+00:00,t3_1pukx34,True
+nvpaleg,1pukx34,"https://preview.redd.it/extlzh7j059g1.png?width=1024&amp;format=png&amp;auto=webp&amp;s=d686a66913ea1da09a60818e5c9db30197d49738
+
+I tried it some days ago too and this is the result.
+
+I think we can now assume ChatGPT has green hair.",651,0,0,[deleted],2025-12-24T11:28:58+00:00,t3_1pukx34,True
+nvpjsua,1pukx34,https://preview.redd.it/c2bwegbfe59g1.png?width=2048&amp;format=png&amp;auto=webp&amp;s=c32e4694bec1f8c8b08e829bf4556af562dbd638,546,0,0,flopperdok,2025-12-24T12:46:11+00:00,t3_1pukx34,True
+o829grx,1rhurko,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-03-01T15:10:13+00:00,t3_1rhurko,True
+o81h7ru,1rhurko,"""What can I help with today?""
+
+""Want to bomb Iran, where should we bomb first?""",598,0,0,UnlikelyRabbit4648,2026-03-01T12:10:16+00:00,t3_1rhurko,True
+o81ihr2,1rhurko,"They said they’ll continue to use it for 6 months in order to phase it out of their current processes. Said so in DoW announcement
+
+Edit: sorry not DoD",311,0,0,1stPersonOnReddit,2026-03-01T12:20:47+00:00,t3_1rhurko,True
+o81azwn,1rhurko,wild that they used it anyway right after the ban lol,87,0,0,Amazing_Albatross_,2026-03-01T11:15:02+00:00,t3_1rhurko,True
+o81r3fq,1rhurko,Damn so Claude chose those school girls as targets? You’re totally right to point out that is a girls grade school!,67,0,0,virtual_adam,2026-03-01T13:23:37+00:00,t3_1rhurko,True
+oc81z95,1s2bny3,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-03-24T15:50:14+00:00,t3_1s2bny3,True
+oc6vswk,1s2bny3,Claude will also be jealous when he finds out that you asked ChatGPT for prompt advice instead of Claude.,174,0,0,PlayfulCompany8367,2026-03-24T12:17:46+00:00,t3_1s2bny3,True
+oc7945v,1s2bny3,I literally use one ai to generate a prompt for another ai where my actual project is going on.,97,0,0,Fuzzy-Ambassador786,2026-03-24T13:31:51+00:00,t3_1s2bny3,True
+oc7jymw,1s2bny3,"Add ""make no mistake"" ",40,0,0,EndimionN,2026-03-24T14:26:05+00:00,t3_1s2bny3,True
+oc7y6m0,1s2bny3,"Hey edge, download chrome for me ",32,0,0,VitaminnCPP,2026-03-24T15:33:02+00:00,t3_1s2bny3,True
+o7uuekp,1rgv7jx,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-28T10:00:07+00:00,t3_1rgv7jx,True
+o7uheqd,1rgv7jx,Anthropic is linked to Peter Thiel. So much for ethics.,120,0,0,shmodder,2026-02-28T07:57:07+00:00,t3_1rgv7jx,True
+o7urvn5,1rgv7jx,"[Anthropic actually partnered with Palantir.](https://np.reddit.com/r/ClaudeAI/comments/1qprovf/anthropic_are_partnered_with_palantir/)
+
+There's no good or evil, just scrutinized and unscrutinized.",52,0,0,EverettGT,2026-02-28T09:34:50+00:00,t3_1rgv7jx,True
+o7u9v3u,1rgv7jx,I support this message,27,0,0,Alex09464367,2026-02-28T06:49:28+00:00,t3_1rgv7jx,True
+o7v3f5q,1rgv7jx,https://preview.redd.it/dj1cs4h408mg1.jpeg?width=1290&amp;format=pjpg&amp;auto=webp&amp;s=7f96e5a5f6510cd4e88792ebdf9a1c538d068f5c,17,0,0,OneLoud4365,2026-02-28T11:25:06+00:00,t3_1rgv7jx,True
+ny9kgcb,1q6j1ul,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-01-07T20:25:11+00:00,t3_1q6j1ul,True
+ny8al45,1q6j1ul,[removed],1333,0,0,[deleted],2026-01-07T17:03:58+00:00,t3_1q6j1ul,True
+ny7y7md,1q6j1ul,[removed],285,0,0,[deleted],2026-01-07T16:08:12+00:00,t3_1q6j1ul,True
+ny98lag,1q6j1ul,"I just asked my ChatGPT if it can swear — it’s reply:
+
+Short answer: yes, I can fucking swear. 😄
+
+I think they all can if they want to.",81,0,0,summrbutterfly,2026-01-07T19:33:23+00:00,t3_1q6j1ul,True
+ny815jp,1q6j1ul,Is that site lmarena.ai ?,59,0,0,DryVaginaEnjoyer,2026-01-07T16:21:33+00:00,t3_1q6j1ul,True
+ntasy7f,1piuxir,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2025-12-10T15:10:13+00:00,t3_1piuxir,True
+nt9b2hb,1piuxir,"I just cancelled mine 20 minutes ago, because I saw that I have to pay tomorrow. I don’t need it anymore since I got gemini and perplexity for free",571,0,0,GiganticMeteorite,2025-12-10T08:19:08+00:00,t3_1piuxir,True
+nt95g1f,1piuxir,"Been using GPT for a while. Cancelled when 5.0 was launched and started using Gemini more. 
+Now I use both and a few others for different reasons and tasks. 
+GPT is indeed currently slacking in terms of speed, reliability, memory etc… GPT’s image processing capabilities are really lacking compared to Nano Banana/Pro
+
+I’ve cancelled my GPT membership, may resume if they catch up",219,0,0,Porsche-Turbo,2025-12-10T07:24:55+00:00,t3_1piuxir,True
+nt94fhk,1piuxir,"I'd only ever use Chatgpt again if they give us the adult mode, because it's inability to bluntly talk about very normal adult things like death, sex, or even just swearing it beyond irritating. But before they get any idea, putting it behind a paywall won't work either, I'd never pay for chatgpt period, just go somewhere else unless they actually respect the adults. The vast majority of the world is adults. Hate that everything is overly censored for kids these days. Just give us age verification and let both worlds co-exist ffs.",191,0,0,Familiar-Boot-7463,2025-12-10T07:15:27+00:00,t3_1piuxir,True
+nt9bxwh,1piuxir,"Chatgpt is getting bad, it's giving circular non-answers to pretty much everything apart from direct code generation",177,0,0,Minimum_Rice555,2025-12-10T08:27:46+00:00,t3_1piuxir,True
+o8x3w91,1rm5sxx,"Hey /u/comoma,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-03-06T05:52:22+00:00,t3_1rm5sxx,True
+o8xi6rr,1rm5sxx,"ChatGPT has really been pissing me off. “Your earlier assumption about X … would be wrong.”
+It’s like no, bro, that was *your* assumption. I asked for clarification because it sounded wrong. 
+
+I also hate the constant engagement farming. “If you want, I can also tell you the top 3 mistakes to avoid…” or “If helpful, I can also point out two details more important than [this whole discussion]”. Why gatekeep and gaslight? Glad to hear other options are better. ",756,0,0,Greedy_Reindeer_6168,2026-03-06T07:54:03+00:00,t3_1rm5sxx,True
+o8xve6w,1rm5sxx,"I am in love with Claude. Within 30 minutes i had designed an artifact for tracking my baby daughers sleep. Then we made it info an HTML doc i could put on Github and link to a firebase database (either of which i had never done before) and now i have a Web app on my phone and a link that I can share with my wife and we both access the same data at the same time.
+
+After working about 2 hours with Claude on it, I have expanded the number of features like crazy. Mood at daycare pickup? How tired she is at night? Naps and night time waking? Sleep statistics from the week? All done and I didn't write a single line of code. I even added a fun fact about babies or sleep each day. Or well, Claude did.
+
+I won't ever replace a real developer but I can make this neat Web app for myself and the wife and that is very powerful. Next week I will export the sleep data and see if we can make adjustments to the naps and sleeps to get my daughter to sleep more at night.
+
+https://preview.redd.it/6vjtv996",273,0,0,RUCBAR42,2026-03-06T09:58:44+00:00,t3_1rm5sxx,True
+o8yj5mz,1rm5sxx,"Anthropic apparently has a philosopher on staff who wrote a 30k page essay teaching Claude morals, empathy, how to avoid user manipulation etc. Almost like raising a very smart child. I’m not sure that OpenAI has anything like that. ",262,0,0,ldr9413,2026-03-06T13:04:21+00:00,t3_1rm5sxx,True
+o8x8lgn,1rm5sxx,"not just that but chatGPT itself is hyper-nitpicky like it itself is never satisfied with what you do, it will keep finding tweaks. meanwhile with Claude if it is being nitpicky it will catch itself. you can switch on the extended thinking model and see how it processes information, it can be so grounding especially in spiral situations. 
+
+something i will suggest: just brief any tool you're using about your tendencies and tell them to not feed that tendency. it really helps ",171,0,0,phildunphy221,2026-03-06T06:30:31+00:00,t3_1rm5sxx,True
+odh1pxi,1s8j27e,"Hey /u/abhi9889420,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-03-31T09:56:24+00:00,t3_1s8j27e,True
+odh7imn,1s8j27e,"That someone who leaked it is Anthropic. They shipped the source code map. 
+
+They’ve also had this accident before, about half a year ago.",766,0,0,HenkPoley,2026-03-31T10:43:59+00:00,t3_1s8j27e,True
+odh6m1u,1s8j27e,"For the non-techies, what does this mean? Is this a security breach or a par for the course software issue? ",297,0,0,cleverhobbits,2026-03-31T10:36:52+00:00,t3_1s8j27e,True
+odh988z,1s8j27e,"https://github.com/instructkr/claude-code
+
+Here you go",80,0,0,mehedi_shafi,2026-03-31T10:56:57+00:00,t3_1s8j27e,True
+odh2qmn,1s8j27e,"Drafted a detailed list of all Hidden and unreleased features!  Hail Opus!!
+
+Claude Code — Hidden &amp; Unreleased Features
+
+[https://cc-hidden-deploy.vercel.app/](https://cc-hidden-deploy.vercel.app/)
+
+[https://cc-poster.vercel.app/](https://cc-poster.vercel.app/)",58,0,0,abhi9889420,2026-03-31T10:05:02+00:00,t3_1s8j27e,True
+o7rbzru,1rgh6r7,"Hey /u/whogivesafuckwhoiam,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-02-27T20:00:19+00:00,t3_1rgh6r7,True
+o7sfrl4,1rgh6r7,https://preview.redd.it/l73pvaazf4mg1.jpeg?width=255&amp;format=pjpg&amp;auto=webp&amp;s=d249b0be2e44be1f8588ba81a89c37d3e34bcdd5,476,0,0,4ygus,2026-02-27T23:26:49+00:00,t3_1rgh6r7,True
+o7rfdnv,1rgh6r7,Eviction moratorium likely. Sign the papers.,282,0,0,Gubzs,2026-02-27T20:17:25+00:00,t3_1rgh6r7,True
+o7rspmf,1rgh6r7,"Even when AI replaces jobs, how would humans make income? I see a lot of people saying when and if AI replaces us, what are we going to do? Surely the economy/culture would have to be forced to change.",274,0,0,JamieAstraRain,2026-02-27T21:24:27+00:00,t3_1rgh6r7,True
+o7rkfu7,1rgh6r7,OP what is your job. Also - to any doomers in the chat if you used AI enough you would know that it's not even close to coming to a point where it doesn't need human interaction and help for complex tasks.,190,0,0,Wiseoloak,2026-02-27T20:43:07+00:00,t3_1rgh6r7,True
+o7uh6xv,1rgtnc4,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-28T07:55:09+00:00,t3_1rgtnc4,True
+o7u2dy2,1rgtnc4,At this rate this subreddit is going to become a ghost town.,162,0,0,1sh0t1kill,2026-02-28T05:45:29+00:00,t3_1rgtnc4,True
+o7u0r6m,1rgtnc4,Already did. Using the free month it offered to transition everything away,68,0,0,TheKingOfDub,2026-02-28T05:32:22+00:00,t3_1rgtnc4,True
+o7u2mwr,1rgtnc4, Cancelled mine today and went with Claude,51,0,0,666TripleSick,2026-02-28T05:47:28+00:00,t3_1rgtnc4,True
+o7u1r16,1rgtnc4,Canceled mine last night. I’ve never been more irritated with it than in the last two weeks.,48,0,0,Trichoceratops,2026-02-28T05:40:21+00:00,t3_1rgtnc4,True
+o54w1d1,1r3kkl8,"Hey /u/Temporary-Wallaby829,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-02-13T09:14:15+00:00,t3_1r3kkl8,True
+o54xryx,1r3kkl8,"I made the same discovery a couple of weeks ago. I tried Gemini after ChatGPT couldn't solve a particular case, Gemini aced it so I switched from ChatGPT. At least for now",425,0,0,AIDeployed,2026-02-13T09:31:05+00:00,t3_1r3kkl8,True
+o54yl6q,1r3kkl8,"'you're not crazy and you aren't imagining it'... but seriously - gpt WAS unparralelled. From october they've been massively dumbing it down with those safety filters. I still believe the model underneath it is good and capable but corporate cowardice and greed has made it practically unusable. Not to mention the morals and ethics of OAI appear to be non-existent now. They're appalling and i'm pretty sure they're breaking a ton of consumer laws they think they're above.  
+  
+I moved my assistant over to claude and gemini.   
+Claude seems more human and has a much better memory than Gemini and the interface doesn't hurt my eyes either  
+But there's something I prefer about Gemini's personality and i can't put my finger on what becuase for my purposes it's objectively worse than Claude in almost every way - terrible memory etc and yet i keep choosing Gemini. Maybe I feel like Claude is too much of a yes-man... because everyone loved 4o and I actually preferred 5.0 before it got lobotomiz",243,0,0,SurreyBird,2026-02-13T09:38:59+00:00,t3_1r3kkl8,True
+o54zxmu,1r3kkl8,"I am considering this but finding it hard to leave Chat GPT folder structure as my conversations are all organized, without having used any of the competition is there a way to keep it all tidy when exporting to a different service?",63,0,0,kyakya,2026-02-13T09:51:48+00:00,t3_1r3kkl8,True
+o5592yt,1r3kkl8,"Question is, was this post written with ChatGPT or Claude? My bets are on ChatGPT",52,0,0,JohnKrasinsky,2026-02-13T11:14:31+00:00,t3_1r3kkl8,True
+n7gmxo9,1mk7ov6,"Hey /u/Shyamtawli!
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2025-08-07T18:18:40+00:00,t3_1mk7ov6,True
+n7gnh26,1mk7ov6,lol fr feels like we’re stuck in an infinite “most powerful model” loop.. every month it’s a new boss fight 😅,381,0,0,CoupleJazzlike498,2025-08-07T18:21:13+00:00,t3_1mk7ov6,True
+n7h7va7,1mk7ov6,![gif](giphy|148402lxfLRxXa),72,0,0,EkCutChai,2025-08-07T20:00:18+00:00,t3_1mk7ov6,True
+n7gqq3f,1mk7ov6,https://preview.redd.it/4s3q6mg96nhf1.jpeg?width=600&amp;format=pjpg&amp;auto=webp&amp;s=3bbd2261c476348e048c0140f38590a7f1ec271c,71,0,0,as_y1,2025-08-07T18:36:43+00:00,t3_1mk7ov6,True
+n7hg11x,1mk7ov6,Except grok is nazi,31,0,0,GreasyExamination,2025-08-07T20:39:32+00:00,t3_1mk7ov6,True
+mq7ayux,1kd2e6f,"Hey /u/SombraBlanca!
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/hT6PXe8gdZ)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2025-05-02T14:30:53+00:00,t3_1kd2e6f,True
+mq7mnnt,1kd2e6f,"They really over corrected way too much. All the personality and enthusiasm was gone when I was using it yesterday, and it definitely worsened the experience. Additionally it was totally failing at my image generation requests, repeating errors even after acknowledging them, even returning the original image inspiration rather than a new result at one point. Very disappointing",691,0,0,skullcat1,2025-05-02T15:26:34+00:00,t3_1kd2e6f,True
+mq7cp1e,1kd2e6f,See you monday again,616,0,0,GermansInitiateWW3,2025-05-02T14:39:14+00:00,t3_1kd2e6f,True
+mq7po2w,1kd2e6f,I’ve been hit with the “User quota exceeded” upload error since April 27. Tried every fix. Reached out to support eight times. No response. No resolution. Just stuck in a loop with zero accountability while still being charged. This is how OpenAI treats paying users? I canceled yesterday.,177,0,0,NotedAF,2025-05-02T15:40:52+00:00,t3_1kd2e6f,True
+mq8692l,1kd2e6f,"I asked it to stop using bullets points, which were immediately followed by more more bullets points. Claude is still my goto when I actually need something done.",145,0,0,Weekly_Put_7591,2025-05-02T16:59:14+00:00,t3_1kd2e6f,True
+obfl5xg,1rymwb5,"Hey /u/DinoZambie,
+
+If your post is a screenshot of a ChatGPT conversation, please reply to this message with the [conversation link](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) or prompt.
+
+If your post is a DALL-E 3 image post, please reply with the prompt used to make this image.
+
+Consider joining our [public discord server](https://discord.gg/r-chatgpt-1050422060352024636)! We have free bots with GPT-4 (with vision), image generators, and more!
+
+ &amp;#x1F916;
+
+Note: For any ChatGPT-related concerns, email support@openai.com - this subreddit is not part of OpenAI and is not a support channel.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ChatGPT) if you have any questions or concerns.*",1,0,0,AutoModerator,2026-03-20T04:40:07+00:00,t3_1rymwb5,True
+obg34ix,1rymwb5,Looks like a picture that would be in the history books in 2100,1295,0,0,Wickedstank,2026-03-20T07:18:44+00:00,t3_1rymwb5,True
+obhhr9u,1rymwb5,Old man yells at Claude,348,0,0,ILorwyn,2026-03-20T13:44:18+00:00,t3_1rymwb5,True
+obfmb3h,1rymwb5,"Claude pushed back on the moratorium and Senator Sanders just pushed past that instead of digging into why Claude was hesitant in the first place.
+
+Using AI to confirm a decision you already made is the worst way to use this technology.
+
+The main reason I’m writing this comment is because I have concerns about a moratorium that only impacts the US. Will China follow? If they don’t, are we handicapping ourselves globally?",265,0,0,JustBrowsinAndVibin,2026-03-20T04:49:10+00:00,t3_1rymwb5,True
+obfulxs,1rymwb5,Talking to Reddit ,219,0,0,k3170makan,2026-03-20T05:59:41+00:00,t3_1rymwb5,True
+o7xrfw1,1rh4qo1,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/r-chatgpt-1050422060352024636)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-28T20:25:08+00:00,t3_1rh4qo1,True
+o7xgsw2,1rh4qo1,"Take a deep breath, you are not weak, you are not insecure.",269,0,0,RelativeYak7,2026-02-28T19:29:27+00:00,t3_1rh4qo1,True
+o7x2t71,1rh4qo1,AI wars lol this is some sci fi shit,226,0,0,No_Radio3945,2026-02-28T18:18:45+00:00,t3_1rh4qo1,True
+o7y2j3s,1rh4qo1,I’m gonna respond to this calmly and gently—Not defensively,83,0,0,FirstDiseasewasRelig,2026-02-28T21:25:04+00:00,t3_1rh4qo1,True
+o7wimxd,1rh4qo1,"Yeah, it’s pretty weird all right I agree. I cannot stand being reprimanded over example:  the sky is blue. I mean I get a long dissertation on how that sky is not blue. I detest ChatGPT 5.1 and 5.2. I absolutely loved 4.o",64,0,0,AfraidDuty2854,2026-02-28T16:37:41+00:00,t3_1rh4qo1,True
+o0ply2d,1qi8twv,"Do keep on gathering the data. It's good to do backtesting, but the predictive utility can only really be determined by out-of-time testing, which you're now doing every day. Keep an eye out for the results.",154,0,0,GreatBigBagOfNope,2026-01-20T18:30:05+00:00,t3_1qi8twv,True
+o0po9zs,1qi8twv,I like the idea of your project. You couldn't pay me to give Anthropic a single character of my medical records.,75,0,0,jhill515,2026-01-20T18:40:29+00:00,t3_1qi8twv,True
+o0pmhko,1qi8twv,Not someone who knows anything about Graves but 98% seems rather high for accuracy? Smells like data leakage,66,0,0,Stereoisomer,2026-01-20T18:32:29+00:00,t3_1qi8twv,True
+o0pjmeh,1qi8twv,"Love when people develop things to improve their lives. This is what the engineering discipline was meant to do.
+Not Instagram and Facebook.",16,0,0,adi1709,2026-01-20T18:19:38+00:00,t3_1qi8twv,True
+o0pobpf,1qi8twv,[deleted],5,0,0,[deleted],2026-01-20T18:40:42+00:00,t3_1qi8twv,True
+muceijf,1kvuvij,I wonder if this is explained by Grok using a significant amount of claude output as training data.,213,0,0,EverythingGoodWas,2025-05-26T14:07:30+00:00,t3_1kvuvij,True
+muceea2,1kvuvij,The web is full of Claude outputs. The grok pretraining team are amateurish and didn’t bother to do the most cursory of filtering. No clue what their post training team is like but since I can’t think of a single person that works there odds are it’s not great.,58,0,0,fng185,2025-05-26T14:06:51+00:00,t3_1kvuvij,True
+mucizbh,1kvuvij,Just tested and verified this is true,51,0,0,derfw,2025-05-26T14:31:14+00:00,t3_1kvuvij,True
+mucmhm7,1kvuvij,"Yes asking LLMs who they are has really never been reliable since beginning. For awhile, almost all open source models said they were made by openai. They all train on eachothers output. It may be more than usual for grok. Idk, but this isnt new really",51,0,0,Hefty_Development813,2025-05-26T14:49:24+00:00,t3_1kvuvij,True
+muckmi8,1kvuvij,"All the guys here trying to find any explanation just to avoid the simple ""grok is a stolen model with a wrapper on it""- answer.",32,0,0,[deleted],2025-05-26T14:39:47+00:00,t3_1kvuvij,True
+mtbw7wb,1kr9w8l,Damn it's only been a week,62,0,0,newjeison,2025-05-20T17:31:19+00:00,t3_1kr9w8l,True
+mtc9fui,1kr9w8l,"How does the circle packing you found compare to the previously-known state of the art?
+
+https://erich-friedman.github.io/packing/cirRsqu/",23,0,0,Imnimo,2025-05-20T18:34:47+00:00,t3_1kr9w8l,True
+mtgga37,1kr9w8l,"Thanks for the interest everyone! Several of you asked about how OpenEvolve implements genetic algorithms with LLMs, so I wanted to share some technical details:
+
+Unlike traditional GAs, OpenEvolve reimagines the core evolutionary operators:
+
+\*\*Mutation:\*\* Instead of random bit flips, we use LLMs as sophisticated mutation operators. In \`controller.py\`, our LLM ensemble generates targeted code modifications or full rewrites based on the problem context and previous attempts.
+
+\*\*Selection:\*\* Implemented in \`database.py\`, we use a combination of MAP-Elites (maintaining diversity across feature dimensions) and island-based populations. This gives us both exploration and exploitation - crucial for breaking through optimization plateaus.
+
+\*\*Crossover:\*\* Rather than explicit bit-swapping, crossover happens implicitly. We provide the LLM with multiple parent programs as ""inspiration"", and the model's understanding of code allows it to combine concepts in ways traditional crosso",11,0,0,asankhs,2025-05-21T11:40:24+00:00,t3_1kr9w8l,True
+mtd0g3p,1kr9w8l,"Cool project!
+
+I wonder if the requirement for low latency is because you are doing one sample per step? Given the evolutionary style algorithm I'd have thought you could do many steps &amp; evaluations in parallel. Pretty sure FunSearch, the predecessor, could! What are your plans for the project?",5,0,0,Rotcod,2025-05-20T20:47:52+00:00,t3_1kr9w8l,True
+mtcrpfj,1kr9w8l,What are the hardware requirements?,5,0,0,Scew,2025-05-20T20:04:48+00:00,t3_1kr9w8l,True
+nw7l2pq,1px1agd,"Thank you, nice summary!  
+
+
+For the linear attention/Mamba fans, I think that Mamba's disappearance can also be attributed to that the field of Linear Attention has generalized and expanded beyond Mamba. Here is a list of 50 submissions to ICLR sorted by topic that all use similar techniques to Mamba.
+
+[https://docs.google.com/spreadsheets/d/1ooCMOwkUup\_WRsHJuu5Dmjj29lB60YrZPdUP-02kq\_g/edit?gid=1013819544#gid=1013819544](https://docs.google.com/spreadsheets/d/1ooCMOwkUup_WRsHJuu5Dmjj29lB60YrZPdUP-02kq_g/edit?gid=1013819544#gid=1013819544)",15,0,0,SlayahhEUW,2025-12-27T16:20:40+00:00,t3_1px1agd,True
+nwa0fmb,1px1agd,"This was a fantastic read to summarise the year! Thanks for all the effort :))
+
+It seems like a major open forum reconsideration of preprints/publications and peer review might be in order in the age of LLM papers and reviewers to uphold quality and maintain a good signal to noise ratio of shared works. It’ll be interesting to see where this leads in the near term and what solutions can be developed.",7,0,0,GeorgeBird1,2025-12-28T00:03:08+00:00,t3_1px1agd,True
+nw88709,1px1agd,"One hell of a year huh.
+
+Detecting generated content might be the next thing.",2,0,0,bujibudax,2025-12-27T18:17:32+00:00,t3_1px1agd,True
+nwa8php,1px1agd,Thanks for your effort.,2,0,0,VHQN,2025-12-28T00:49:34+00:00,t3_1px1agd,True
+nwago46,1px1agd,"the openreview leak was incredible times, was checking the ML subreddit almost like a drama subreddit for a bit",2,0,0,theawesomenachos,2025-12-28T01:37:06+00:00,t3_1px1agd,True
+n7rdzco,1mln24c,If it makes you feel better most research repos are terrible and have zero design or in many cases just don't work as advertised,310,0,0,hinsonan,2025-08-09T11:27:37+00:00,t3_1mln24c,True
+n7rgcwb,1mln24c,"THEY SUCK
+
+BRO, THEY SUCK",153,0,0,UhuhNotMe,2025-08-09T11:46:57+00:00,t3_1mln24c,True
+n7rgn1r,1mln24c,"Your experience is quite literally everyday experience in research. We just finished a large-scale reproduction paper, which took A FULL YEAR of work. I would rate average research code quality as 3/10. Reasonable variable and function names, using a formatter+linter (e.g. ruff), and a dependency manager (e.g. uv) already bring the code to the top contenders in terms of quality.",141,0,0,qalis,2025-08-09T11:49:10+00:00,t3_1mln24c,True
+n7rguyu,1mln24c,"There is a reason why research repos are such dumpsters. Smaller research teams usually don't have time to write pretty code and rush it before the conference deadline, while larger teams like Meta tend to have an incomprehensible pile of everything which nobody ever bothered to document (yes, fairseq, I'm talking about you).
+
+&gt;let's ask claude -&gt; claude rewrites the whole thing to do something else, 500 lines of code, they don't run obviously
+
+I'm pretty sure that if you do research on neural networks that'd be the last thing you even bother trying.",45,0,0,EternaI_Sorrow,2025-08-09T11:50:55+00:00,t3_1mln24c,True
+n7rgs5d,1mln24c,"Yeah, most code released by researchers is prototype junk in 90% of situations. Whatever is needed to *just* get it to run on their machine.
+
+Whenever I sit down with a paper and its code to try to run it, I brace myself for a debugging session and dependency hell since they very rarely check their work on a second machine after they finish.
+
+That said, the pytorch docs are an amazing resource. They have a ton of tutorials and guides available about how to effectively use PyTorch for a variety of tasks.",42,0,0,Stepfunction,2025-08-09T11:50:17+00:00,t3_1mln24c,True
+nts8uge,1plg1gs,They bought cheap books online and literally tore them apart to feed them into scanners to get previously unavailable training data.,186,0,0,Waste-Falcon2185,2025-12-13T08:08:20+00:00,t3_1plg1gs,True
+nts8q76,1plg1gs,I would imagine they actually do have proprietary annotated data. Maybe the source is more “open source” than a specific channel they probably have heaps of post processing / cleaning / expert data.,155,0,0,Bardy_Bard,2025-12-13T08:07:08+00:00,t3_1plg1gs,True
+ntsmviw,1plg1gs,"Other commenters have noted many sources of data for Anthropic but one of the most widely hypothesized differentiators for Anthropic is data quality. Whether they have used human annotators, models, or the combination, they have found higher quality sets of data within ""the pile"" to leverage more heavily and their generation techniques (frontier labs have been generating new synthetic data in ""verifiable"" categories like math and coding for a while) in code had a headstart over other firms.",79,0,0,marr75,2025-12-13T10:32:05+00:00,t3_1plg1gs,True
+ntu2a4f,1plg1gs,"Their team is particularly strong, and that compounds in creating more advantages over time. Anecdotally, of people I know that have worked at multiple labs, anthropic seems to have the highest talent density. It just has the best reputation in that labor market.
+
+People can feel kind of dirty about working at openai because of a perception that they don't take risks seriously, and sam altman has a weird reputation rhat is a little concerning if he ends up that powerful. Dario Amodei is seen as a much more responsible/thoughtful person to end up in power. He has bona fides from long running participation in intellectual communities that took ai risk seriously before there even were language models, he is viewed as having one of the best visions for a future with superintelligence that goes well, and he is viewed as the most likely to actually stay the course and not get corrupted.
+
+Demis hassabis has a really good reputation too, probably the best, but sundar doesn't and people are oft",34,0,0,melodyze,2025-12-13T16:29:47+00:00,t3_1plg1gs,True
+ntt88fd,1plg1gs,I wouldn’t be surprised if big tech companies also don’t actually have that large of an advantage since most of their data is complete garbage,21,0,0,like_a_tensor,2025-12-13T13:35:44+00:00,t3_1plg1gs,True
+nvq3ahf,1pumssb,did an AI write this post,119,0,0,mileylols,2025-12-24T14:50:56+00:00,t3_1pumssb,True
+nvpzeyj,1pumssb,"I realized after writing this that I’m essentially arguing for Christopher Manning’s side in his famous 2018 debate with Yann LeCun. [https://www.youtube.com/watch?v=fKk9KhGRBdI&amp;t=214s](https://www.youtube.com/watch?v=fKk9KhGRBdI&amp;t=214s)
+
+Back then, LeCun argued structure was a 'necessary evil' to be minimized in favor of scale and generic architectures. For 5 years (the Transformer era), he was 100% right. We stripped away linguistic priors and won.
+
+But looking at the 2025 landscape (Mamba, System 2 reasoning, constrained decoding), it feels like we’ve hit the limit of 'evil' we can do without. We are re-injecting structure (Manning’s 'innate priors') because pure scale hits a wall on efficiency and reliability.
+
+I am effectively advocating for Manning’s world in a discourse still dominated by LeCun’s victory. But what do I know \*shruggy emoji\*",25,0,0,moji-mf-joji,2025-12-24T14:28:05+00:00,t3_1pumssb,True
+nvr5znv,1pumssb,"Mamba is snake oil in new bottles.
+
+A lot of AI research is incremental and fraudulent.   Fundamental advances are few and far between.",15,0,0,Fresh-Opportunity989,2025-12-24T18:20:28+00:00,t3_1pumssb,True
+nvtphqm,1pumssb,Thanks ChatGPT,5,0,0,lqstuart,2025-12-25T04:28:21+00:00,t3_1pumssb,True
+mlme4if,1jsbbuy,What is a disaster recovery buffer?,12,0,0,ganzzahl,2025-04-06T00:01:36+00:00,t3_1jsbbuy,True
+mlrewk9,1jsbbuy,2$/hr H100 operating cost? Where can I get such a deal?!,3,0,0,General-Wing-785,2025-04-06T21:06:54+00:00,t3_1jsbbuy,True
+nqqd4d1,1p6frc2,"Pretty cool. You seem to have got several upvotes on HN too. I saw it there first.
+
+in my test case, Opus 4.5 seems to be the best performing model. Gemini 3 works great but I dont like it adding annotations",9,0,0,coredump3d,2025-11-25T17:02:58+00:00,t3_1p6frc2,True
+nqqgc7y,1p6frc2,"Nice. Checked it out.
+
+Just some suggestions if you don't mind:
+
+- a filter where you can see which ones does well on a classification of ""certain types of OCR documents"" (e.g. fuzzy printed scans vs clean printed scans vs handwritten)
+- the ability to filter and see how certain models do vs another. (e.g. what's the winrate of Opus 4.5 vs Opus 4.1?)",3,0,0,Briskfall,2025-11-25T17:19:08+00:00,t3_1p6frc2,True
+nqrgxr3,1p6frc2,How are you managing with the required compute and the cost to run these models?,2,0,0,Fantastic-Nerve-4056,2025-11-25T20:18:31+00:00,t3_1p6frc2,True
+nqs2lsm,1p6frc2,Curios would it be able to include models such as PaddleOCR tesseract easyOCR and the likes as a baseline? Not everything requires a multi modal LLM these days,2,0,0,Zahlii,2025-11-25T22:05:52+00:00,t3_1p6frc2,True
+natcnm5,1n0r8b7,"Very interesting. Beyond the training population bias this also helps to show how UTF-8 itself is biased toward English.
+
+I've always wanted to build a tokenizer that works on phonemes which are the basic building blocks of language and there is a finite set that covers all spoken languages. Combine it with an encoder that is trained to convert text to phonemic tokens. Very curious how an LLM trained with that would differ to a standard token approach.",30,0,0,LillyOfTheSky,2025-08-26T19:03:25+00:00,t3_1n0r8b7,True
+natgmz9,1n0r8b7,"This is the furthest thing in the world from being a ""problem nobody talks about"". This is covered in detail in probably nearly a hundred different papers, and anyone training multilingual models is acutely aware of the trade-offs.",26,0,0,ganzzahl,2025-08-26T19:22:36+00:00,t3_1n0r8b7,True
+nasrksw,1n0r8b7,This is so cool. Tokenization has been on my mind recently. I need to come back and look deeper.,4,0,0,MightBeRong,2025-08-26T17:24:08+00:00,t3_1n0r8b7,True
+naxcp0s,1n0r8b7,"Check out byte-based models like:
+
+https://huggingface.co/Aleph-Alpha/tfree-hat-pretrained-7b-base
+
+https://arxiv.org/abs/2412.09871
+
+https://arxiv.org/abs/2506.14761",2,0,0,tfburns,2025-08-27T10:58:08+00:00,t3_1n0r8b7,True
+nb7beo0,1n0r8b7,This is realy interesting... kind strange to see (especially the one for Thai where there is such a immense discrepancy),2,0,0,snapo84,2025-08-28T21:03:06+00:00,t3_1n0r8b7,True
+nylsvgg,1q893c1,"Hyper connections previously had major stabilization issues on deep networks. They achieve this by restricting the mixing matrixes to a convex hull, preventing them from causing an explosion in the signal flowing through the hyper connections. They also cite a small improvement of loss over the training, and a relatively outsized improvement in reasoning tasks. Pretty cool, interesting work. Will probably impact a lot of network architecture, if private labs aren’t already doing something like this. Sputnik moment would be overstating it.",37,0,0,fredugolon,2026-01-09T14:55:39+00:00,t3_1q893c1,True
+nyny6bk,1q893c1,~mAnIfOLd hYpER cOnNeCtIoNs~. This is being so overblown.  It’s a matrix projection that stabilizes training. Relative to resnet this is a small optimization and certainly nothing like Sputnik.,24,0,0,memproc,2026-01-09T20:45:33+00:00,t3_1q893c1,True
+nypkbjd,1q893c1,tfw you get spunik moment by getting 1% improvement lol,10,0,0,Affectionate_Use9936,2026-01-10T01:40:25+00:00,t3_1q893c1,True
+nylp6qv,1q893c1,"There's also this video about it that you might like :
+https://youtu.be/Gr6ThldzbLU?si=oj_TEn6G3O5yZ5aV",3,0,0,_A_Lost_Cat_,2026-01-09T14:37:43+00:00,t3_1q893c1,True
+nylsosl,1q893c1,"I skimmed it, and the idea feels less like a new knob and more like a constraint that forces discipline as you scale. Sharing internal state more aggressively usually helps until it does not, and most scaling stories gloss over the instability part. What I am unsure about is how much of the reported gain survives contact with real workloads, such as long-horizon code changes, not just benchmark curves. Coding performance often fails for reasons that are more about planning and representation than raw capacity. If this enables cleaner scaling, the impact might be indirect and show up one or two generations later. That would fit the timing speculation, but it still feels like careful iteration rather than a discontinuity.",3,0,0,AccordingWeight6019,2026-01-09T14:54:46+00:00,t3_1q893c1,True
+odyea5o,1satj6r,Isn’t the LLM already familiar with the optimal hyperparameters for NanoChat? Do you have any results on some arbitrary model+dataset?,43,0,0,mfarahmand98,2026-04-02T21:02:37+00:00,t3_1satj6r,True
+oe2cm5m,1satj6r,"the comparison kinda undersells the real advantage imo. optuna searches a fixed 16-param space you define upfront, autoresearch searches in code space which is effectively unbounded. so it's not really ""better HPO"", it's a fundamentally different class of optimization.
+
+the more interesting question is whether the code changes it discovers are things a good engineer would've tried anyway. if yes, you're just paying LLM tokens to automate manual work. if no, that's where it gets genuinely useful",6,0,0,RoggeOhta,2026-04-03T13:02:13+00:00,t3_1satj6r,True
+odyrq6v,1satj6r,"It looks like you report the mean of 3 repeats, so why not include the standard deviation in the graph?",4,0,0,ActualAbroad9558,2026-04-02T22:10:20+00:00,t3_1satj6r,True
+oe0e3zc,1satj6r,"I mean, hyperparameter tuning falls under the umbrella of what Autoresearch is allowed to experiment with. The difference now is you don't have to ideate about things to try and allow the LLM to try different experiments on your behalf",4,0,0,Ok-Attention2882,2026-04-03T03:51:27+00:00,t3_1satj6r,True
+odydfp1,1satj6r,Full tech report: [https://www.weco.ai/blog/autoresearch-vs-classical-hpo](https://www.weco.ai/blog/autoresearch-vs-classical-hpo),4,0,0,Educational_Strain_3,2026-04-02T20:58:31+00:00,t3_1satj6r,True
+mv07exf,1kyl04x,"You should be aware that your confidence intervals are not valid. The reason is that you cannot decide when to stop based on data unless the confidence you use allows it. So, you are essentially doing p-hacking. For bounded random variables, [this](https://github.com/bremen79/precise) is the state-of-the-art for valid confidence intervals that allow you to stop based on the data.",49,0,0,bremen79,2025-05-30T03:16:03+00:00,t3_1kyl04x,True
+mv0essv,1kyl04x,"Great post, you should have a read of [Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations](https://arxiv.org/abs/2411.00640)",11,0,0,yudhiesh,2025-05-30T04:07:24+00:00,t3_1kyl04x,True
+muy4zqo,1kyl04x,"This is pretty cool! I think that there are surprisingly many semi-structured NLP tasks that do benefit from this kind of evals. My main scepticism was unreliability, but this seems to be quite a nice way to go around that.",6,0,0,qalis,2025-05-29T20:26:18+00:00,t3_1kyl04x,True
+muykmml,1kyl04x,Cool thanks for sharing this!,2,0,0,Mbando,2025-05-29T21:42:46+00:00,t3_1kyl04x,True
+mv1k89f,1kyl04x,"Instead of using the stochastic token prediction and parsing out an integer, use the logit probabilities",2,0,0,phree_radical,2025-05-30T10:23:43+00:00,t3_1kyl04x,True
+nk9wrj9,1oajofr,"I think the middle category where you're applying well-known techniques and models to a problem in your domain is still very big. The models I work on at my current job aren't particularly groundbreaking, but a SWE with no ML background couldn't do it, and there's certainly no way to automate it yet.
+
+I think this category just *appears* to have shrunk because now that you *can* do so many more things via (expensive) API call, so many companies are doing it. Those projects often deliver little value, though.
+
+Agents, RAG, etc are the things being commoditized imo",83,0,0,bin-c,2025-10-19T08:04:28+00:00,t3_1oajofr,True
+nk9zx1s,1oajofr,"in my experience, a lot of AI engineers have very little expertise on what actual models do and are just trying to quickly hack things together. So I'd avoid that type of work at least, regardless of the title",22,0,0,Electro-banana,2025-10-19T08:36:38+00:00,t3_1oajofr,True
+nk9xku0,1oajofr,"Where would you put recommendation systems in? (Search, ads etc)",24,0,0,Anywhere_Warm,2025-10-19T08:12:37+00:00,t3_1oajofr,True
+nkb823x,1oajofr,"Gemini and Claude are vastly overestimating their own abilities in those quotes. Llm coding tools are definitely an efficiency boost and you can get great foundational models but data pipelines, tuning etc  are still necessary and frustratingly manual if you want good results.",14,0,0,micro_cam,2025-10-19T14:26:03+00:00,t3_1oajofr,True
+nk9vrgj,1oajofr,Any research work related to computer vision at any level is very hard to automate tbh I don't know where you get your ideas from,9,0,0,SomnolentPro,2025-10-19T07:54:23+00:00,t3_1oajofr,True
+od48pf5,1s6keh0,"Did you test other models like Claude, Kimi, GPT etc?",3,0,0,joshi0816,2026-03-29T11:57:15+00:00,t3_1s6keh0,True
+od4o5o0,1s6keh0,"the Bernoulli result doesn't surprise me - it's that exact type of multi-step unit conversion chain that breaks most models in production too. I run into similar issues when testing LLMs on fluid dynamics for simulation tools. Pa vs atm vs psi plus the dynamic/static pressure split and models just start hallucinating mid-calculation. the anchoring bias trap is clever too, worth testing Claude and Llama on that specifically - in my experience they're more likely to push back on ""my colleague says X"" framing than Gemini models",3,0,0,Designer_Reaction551,2026-03-29T13:34:56+00:00,t3_1s6keh0,True
+od5irq5,1s6keh0,"this is really cool and exactly the kind of stress testin llms need. procedural generation with symbolic math is about as objective as you can get
+
+bernoullis failure does not surprise me at all. units and context mixin are still huge blind spots for these models. even minor anchor biases or small formula tweaks can completely derail an answer
+
+would be curious to see how open models like llama or moss handle it compared to the gemini variants especially if you add more subtle traps like multi step derivations or combined laws. this kind of benchmark is exactly what production teams need to catch overconfidencce in outputs",2,0,0,QuietBudgetWins,2026-03-29T16:10:10+00:00,t3_1s6keh0,True
+oddb135,1s6keh0,this is honestly the kind of benchmark people can trust because you removed vibe judging and made it math first. if you add uncertainty scoring per law this could become a killer regression suite for any team shipping agents.,2,0,0,Cofound-app,2026-03-30T19:34:47+00:00,t3_1s6keh0,True
+od79shx,1s6keh0,"Your anchoring bias trap is textbook System 1 override from dual-process theory. The model sees ""my colleague says 35V"" and the fast, associative pathway latches on before the slower analytical pathway can check the math. We formalized this for LLMs in our recent paper and found that DPT predicts exactly which failure modes scale with model size and which do not. Unit confusion and formula traps map to the same framework; they are cases where pattern completion (System 1) wins over stepwise reasoning (System 2). Your benchmark is, in effect, a dual-process stress test.
+
+
+
+\- [https://doi.org/10.3390/app15158469](https://doi.org/10.3390/app15158469)
+
+
+
+\----
+
+Boris Gorelik, AI researcher",1,0,0,No_Theory6368,2026-03-29T21:18:46+00:00,t3_1s6keh0,True
+nqqej9e,1p6b8h9,I’ve been doing this for the past few years. One thing to try is distilling from multiple SOTA teachers. Filter out the junk and the final model will often outperform all the other models on that specific task.,12,0,0,Mundane_Ad8936,2025-11-25T17:10:06+00:00,t3_1p6b8h9,True
+nqp0ljv,1p6b8h9,"This is fascinating - we've been wrestling with similar cost/quality tradeoffs at Anthromind but for a different use case. Your parsing success rate of 92.3% on GPT-4.1-nano is really impressive given the cost reduction. One thing that jumped out at me is your role specificity score of 0.57 - that's been a persistent issue we've seen too. When we distill models for enterprise customers, they often nail the technical aspects but completely lose the nuance of different user personas or domain-specific language.
+
+The catastrophic forgetting with Llama-3.1-8B resonates hard. We had a similar experience trying to fine-tune smaller models for structured output - they'd either maintain their general capabilities OR learn the new task format, never both. ended up having to do this weird two-stage training where we first teach the format with simple examples, then gradually introduce complexity. Still not perfect but it helped reduce those parse failures from like 30% down to around 10%.
+
+Your ",6,0,0,maxim_karki,2025-11-25T12:35:26+00:00,t3_1p6b8h9,True
+nqqfoyu,1p6b8h9,"Distillation works, no doubt but is it legal to use Claude for data generation?",2,0,0,gized00,2025-11-25T17:15:54+00:00,t3_1p6b8h9,True
+nqpvun5,1p6b8h9,"I'd be really interested in seeing the results from GPT-mini, which obviously loses some of the cost savings, but from experience does significantly better than nano on its own and would still be a significant saving over Sonnet 4",1,0,0,TA_poly_sci,2025-11-25T15:37:41+00:00,t3_1p6b8h9,True
+nhelvhj,1nwaunk,"I wouldn't ask an LLM about plans. By definition, it will give you what is most likely done by others. That is a terrible idea for research",51,0,0,Celmeno,2025-10-02T18:06:36+00:00,t3_1nwaunk,True
+nheoqp6,1nwaunk,"My rule of thumb is: If a person did what I'm using the LLM to do, would they qualify for authorship? To be honest though, I think if anyone is using it for anything that drastic, they're not going to end up with a remotely acceptable end product anyway.
+
+I find it very useful for summarising papers or searching papers for specific ideas, giving a basic overview of topics, explaining established research, writing boilerplate code, double-checking literature through searches, etc. I find it's particularly good at anything I would have previously used Google for. Also anything that has to do with the trivialities of my computing environment, e.g. 'how do I do x in Linux,' etc.
+
+Re: reading through papers for you: Ultimately if there's something in there you're interested in, you're going to have to read the paper yourself anyway. I find using e.g. ChatGPT to do an initial read-through just saves time because you can eliminate papers that aren't quite relevant to what you're looking for.",39,0,0,Acceptable-Scheme884,2025-10-02T18:20:50+00:00,t3_1nwaunk,True
+nhew525,1nwaunk,"It's a useful tool for brainstorming and ""rubber duck debugging"" - like, if there are a dozen obvious things in some area, then asking another person or a LLM often will provide an option or two that didn't come to your mind.
+
+Also, in ML domain there's quite a lot of simple ""plumbing work"", data transformations, user interfaces for data management, annotation, process monitoring, infrastructure configuration - all kinds of things that have been done a thousand times before and LLM code generation works really well for such routine things.",10,0,0,Brudaks,2025-10-02T18:57:17+00:00,t3_1nwaunk,True
+nhes0jn,1nwaunk,I'm a 5th (and last) year PhD student. I primarily use ChatGPT for writing. I basically write the structure of a section in bullet points and ChatGPT gives me NeurIPS/ICML/ICLR-style text. As a non-native English speaker (but who did undergrad in the US) this saves me so much time and anxiety lol. I am very open about my usage in my papers and anyone else I talk to. I feel like the writing is secondary to the cool stuff I managed to do so there is no guilt or anything like that. It has made me a much much more productive researcher too.,8,0,0,the_universe_is_vast,2025-10-02T18:37:02+00:00,t3_1nwaunk,True
+n7tyxpu,1mlv4mk,Money well spent 🤣,11,0,0,Big_Combination9890,2025-08-09T20:30:42+00:00,t3_1mlv4mk,True
+n7v808u,1mlv4mk,"4.1 would give me compliments, 5 gives me complications.",6,0,0,ureepamuree,2025-08-10T01:03:05+00:00,t3_1mlv4mk,True
+n7yzy06,1mlv4mk,Why are we comparing with sonnet 3.7,5,0,0,ClumsyClassifier,2025-08-10T17:29:54+00:00,t3_1mlv4mk,True
+n83awmv,1mlv4mk,Reasoning: low,5,0,0,trysterowl,2025-08-11T11:10:03+00:00,t3_1mlv4mk,True
+n7t2s6o,1mlv4mk,Original post: https://www.reddit.com/r/OpenAI/s/6Uv1D7rbr6,2,0,0,sleepshiteat,2025-08-09T17:31:11+00:00,t3_1mlv4mk,True
+ob5hydz,1rx9qn4,"At some point transformer people have to confront the possibility that autoregressive language modeling is just the wrong substrate for reasoning.
+
+If a system has to verbalize every intermediate thought, cannot keep multiple candidate states alive in parallel, and falls back to tools whenever real search is required, that is not general reasoning it is text generation wrapped around external scaffolding... cool benchmark though and seems iteresting because it pressures that distinction too. nice share! ",26,0,0,niga_chan,2026-03-18T17:21:09+00:00,t3_1rx9qn4,True
+ob5rh4r,1rx9qn4,"the 0% on all leading LLMs is pretty damning but honestly not that surprising if you think about what autoregressive decoding actually is. the model commits to each cell value the moment it writes it, theres no going back. sudoku specifically punishes you for early mistakes because one wrong cell propagates constraint violations everywhere. CoT helps by giving the model scratchpad space but its still fundamentally left-to-right, you cant actually branch and backtrack the way a real constraint solver does. curious how this BDH thing handles it internally tho, if its basically learned arc consistency or something like that it would be a way bigger deal than just ""beats transformers at sudoku""",16,0,0,ikkiho,2026-03-18T18:05:34+00:00,t3_1rx9qn4,True
+ob5fjx7,1rx9qn4,"Blog link including the benchmark: https://pathway.com/research/beyond-transformers-sudoku-bench 
+Arxiv Paper: https://arxiv.org/abs/2509.26507 
+
+
+",7,0,0,THEGAM3CHANG3R,2026-03-18T17:09:56+00:00,t3_1rx9qn4,True
+ob6265v,1rx9qn4,"this is why i always get a bit skeptical when people equate better reasonin with just longer cot traces
+
+sudoku like this is basically pure search with tight constraints and very little room to bluff so it exposes the gap pretty cleanly
+
+in production you feel this too models are great at pattern completion but once you need consistent state tracking or exploring multiplee hypotheses they start to fall apart unless you wrap them in tools or some orchestration layer
+
+so yeah it does feel like we are externalizin the actual reasoning part and calling the whole system intelligent
+
+not saying transformers cant get closer but it probably wont come from just scaling context and tokens feels more like an architecture or hybrid approach problem than a prompting one",6,0,0,QuietBudgetWins,2026-03-18T18:55:37+00:00,t3_1rx9qn4,True
+ob6g73j,1rx9qn4,"BDH stands for Dragon Hatchling (and the B? Who knows...), which is very annoying, and is one of those Linear Attention / Fast Weight Programmers variants. 
+As is Mamba2 or GatedDeltaNet.
+If they are not a paradigm shift, neither is BDH, who has the worse name of all and the most arrogance, IMO.
+
+
+It doesn't look like they used a *BDH Language Model* to solve the sudokus, but correct me if I'm wrong because that would be interesting, if it's also a nice LM.
+
+
+That said, I am happy to see small models such as TRMs do great at specific AI benchmarks, but these and LLMs result only show that we are very far from AGI, and language use is not all there is to intelligence; we've built nice cars but they do not swim nor crawl nor fly. 
+
+
+The Transformer is still a really good engine, but it's probably not enough to just take very big transformers, tokenize everything and do next token prediction. 
+Having said that, it's not like alternatives to this just grow spontaneously on trees. ",6,0,0,Sad-Razzmatazz-5188,2026-03-18T20:01:46+00:00,t3_1rx9qn4,True
+ocvwvjf,1s5jpgz,"3.2% on a 100-experiment budget is meaningful especially if the gap was still widening. the question is whether the improvement comes from the agent making genuinely better hyperparameter choices informed by the literature, or just from having more context about what ""reasonable"" ranges look like. if it's the latter, you might get similar results by just including a curated set of hyperparameter guidelines in the system prompt without the overhead of paper retrieval. did you track which specific paper insights the agent actually applied vs just having available?",4,0,0,Tatrions,2026-03-28T02:06:41+00:00,t3_1s5jpgz,True
+od3afqr,1s5jpgz,[removed],1,0,0,[deleted],2026-03-29T06:47:39+00:00,t3_1s5jpgz,True
+od3zco9,1s5jpgz,"The 3.2% bump sounds plausible, but I’d want to know whether the agent is just rediscovering known paper patterns, or whether the paper retrieval tool calls are actually being made consistently and observably. If your tool server is hand-wired, you can end up with inconsistent auth and no real tracing when it starts timing out, which can quietly skew “helpfulness” during long runs. We’ve had better results by standardizing MCP tool auth, caching, and observability so the retrieval behavior is identical across experiments.",1,0,0,tueieo,2026-03-29T10:41:05+00:00,t3_1s5jpgz,True
+o746efn,1rdcw0o,"I use Claude (Sonnet 4.6 or Opus 4.6) to extract the relevant papers from my arXiv new paper mail alert every morning. For all papers that sound relevant, I read the abstract and then ask Claude to summarize the paper. Next, I either ask some clarifying questions or directly jump into the paper to skim it. 
+
+I found Claude the best for this task as ChatGPT didn't accept the full mailing list as an input and Gemini was way too restrictive, i.e. it determines very few papers relevant for my work (losely speaking, Gemini has higher precision but lower recall for this task than Claude - but recall is more important to me.)
+
+Generally, I only trust LLMs to scan for relevant papers and help with the initial understanding. Unfortunately, they still make mistakes. I would never trust an LLM so much that I cite a paper without reading it myself. Always read what you cite! 
+
+To give you example of an error I encountered just yesterday: I asked Claude how the authors determined the confidence int",70,0,0,S4M22,2026-02-24T10:54:14+00:00,t3_1rdcw0o,True
+o74y7xq,1rdcw0o,"I've found at least ChatGPT to be overly credulous when reading papers, basically taking the claims, and then defends them as if it was the author. So, what I've found is that its quality seems to be proportional to the paper's quality, which is a risky bet in 2026 on ArXiv, unfortunately.",17,0,0,bikeranz,2026-02-24T14:02:20+00:00,t3_1rdcw0o,True
+o7hj5ax,1rdcw0o,"GPT is very bad! I trust Claude Opus 4.5/4.6 to do this for me. 
+
+There are moments where it's hit or miss — it's not 100% yet. 
+
+I ask it to provide a section-by-section summary for me, for quick context — and I ask it to share responses by keeping clarity and brevity in mind.
+
+But for some documents, especially those with tables or reports where I need ultra-specific information from particular sections, I use an OCR (DocParser, LLMWhisperer, Reducto), export the parsed document, and pass the .txt file to Claude. 
+
+The results are really good! ",18,0,0,SouthTurbulent33,2026-02-26T09:24:13+00:00,t3_1rdcw0o,True
+o74cs6d,1rdcw0o,"I don't summarise entire papers but sometimes ask Claude to elaborate on specific sections, especially derivations which I can then verify. I find Claude to be much better at this than gpt or gemini. Its usually better at sticking to the point and following specific instructions. 
+
+I think it saves time for the initial pass through the paper, when you need to figure out whether it contains anything useful for you. I'm not sure about using LLMs to read papers on topics you know nothing about. I'm still noticing hallucinations from all LLMs. Often these are quite subtle and look quite plausible.",8,0,0,FailedTomato,2026-02-24T11:47:32+00:00,t3_1rdcw0o,True
+o74zt9d,1rdcw0o,"ChatGPT still regularly makes things up when I ask specific questions about a paper, even making up quotes",7,0,0,Envoy-Insc,2026-02-24T14:10:55+00:00,t3_1rdcw0o,True
+o8ru37e,1rl9k3r,I haven't checked the repo but I absolutely love that you are working on this. People like you who are not afraid of rolling up the sleeves and dig into this messy stuff are moving things forward. ,8,0,0,huopak,2026-03-05T13:01:18+00:00,t3_1rl9k3r,True
+o8tk6el,1rl9k3r,"I thought ANE only support certain type of model architecture (with specific hyperparams), does this generalize / polyfill the functionality with ANE?",2,0,0,I-am_Sleepy,2026-03-05T18:13:40+00:00,t3_1rl9k3r,True
+odjotf1,1rl9k3r,"Very cool to learn about this work!  
+We also bypassed CoreML and found ways to do inference on Mac devices up to 6x faster:
+
+[https://x.com/christinetyip/status/2039040161439224157](https://x.com/christinetyip/status/2039040161439224157)",2,0,0,Truly_freedom,2026-03-31T18:14:35+00:00,t3_1rl9k3r,True
+o6jy6vo,1rabvqq,"I can't stress this enough: visualisation.
+
+
+I currently have a vibe coded powerhouse self-contained HTML file that gets dropped into WandB (natively supported). I can then interact with my custom dashboard to unpack all the nuances of the complex model I'm building. The number of logical bugs I've squashed is fantastic. 
+
+
+It's a game changer, really. And, since it's essentially a web app, LLMs are very good at this. 
+
+
+I'm the author of Continuous Thought Machines, just as an FYI. ",51,0,0,Gramious,2026-02-21T05:04:16+00:00,t3_1rabvqq,True
+o6jh6zu,1rabvqq,"Ironically, AI does a decent job of highlighting all the problems with the paper this graph is based on.",12,0,0,Disastrous_Room_927,2026-02-21T03:04:55+00:00,t3_1rabvqq,True
+o6iojkg,1rabvqq,"&gt;Claude Opus 4.6 now hits 50% on multi-hour expert ML tasks like 'fix complex bug in ML research codebase.' 
+
+Yeah not Claude Opus, not complex bugs in ML (unless it's about creating them). Codex maybe.
+
+I've been making much more ambitious, research-y things than usual but the models are much better at writing code than debugging and fixing bugs. Two hours to write a model (error-correction HMM without ground truth), one week for me to debug it and make it correct.",6,0,0,va1en0k,2026-02-21T00:08:50+00:00,t3_1rabvqq,True
+o6izi7n,1rabvqq,I’m using Claude code extensively to simultaneously implement a Python library of RL algorithm implementations in JAX and build experiments using that library. Has been very reliable for me so far with good planning and managing what it is doing.,5,0,0,debian_grey_beard,2026-02-21T01:13:28+00:00,t3_1rabvqq,True
+o6r2x7r,1rabvqq,"Wandb replacement is absolutely the way to go. Vibe coding visualisations on the fly and restarting once entropy hits is super underrated. No need to make a platform when you can just vibe code new pieces.
+
+It's tempting to keep it alive and make it great, but it doesn't lend to maintainance.
+
+I don't spend enough time on the critical research pathways anymore but getting the first model training fast is definitely happening, but not necessarily getting good results faster. 
+
+All the problems of research at scale still exist and those remain the primary blockers",3,0,0,ProfessorPhi,2026-02-22T10:39:16+00:00,t3_1rabvqq,True
+mxdghww,1l9l5dt,"Great! More benchmarks in this area are very welcome, so thank you for sharing!
+
+
+Is this Claude 4 sonnet with thinking? If so, what budget? Are there plans on adding other popular models? For example Gemini 2.5 pro and deepseek's newest offering?",2,0,0,OfficialHashPanda,2025-06-12T12:57:33+00:00,t3_1l9l5dt,True
+mxouhul,1l9l5dt,[removed],-1,0,0,[deleted],2025-06-14T04:31:55+00:00,t3_1l9l5dt,True
+nylwttq,1q8a7fj,"Really cool, simple but well-made and meaningful benchmark. A good example of how vibe-coding does not have to be riddled with quantum connections between jigsaw pieces.
+
+  
+Some things I think about:  
+
+
+1 - It would be good to use open-source models in order to be able to control the VLM patch embedding size and understand how it interacts with the tile sizes. In general less splits guarantee less overlap between tiles. Also you would be able to understand more about how the models are thinking and dissect them more. For example, it can also be that the model ONLY relies on overlap between patches in two models and is doing nothing more than pixel matching.  
+
+
+2 - I believe it would make more sense to keep the tile numbering representation in a numerical/text format instead of having the VLM infer it from tile label itself, as this again might test token patch alignment more than reasoning capabilities. This would mean that the tiles are scrambled, but there is a different kind of r",6,0,0,SlayahhEUW,2026-01-09T15:14:20+00:00,t3_1q8a7fj,True
+o70o3tf,1rcpmwn,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-02-23T20:50:18+00:00,t3_1rcpmwn,True
+o6zwe8x,1rcpmwn,"I wonder how did Anthropic build their dataset. Surely they manually had them annotated by humans.
+",2461,0,0,SGmoze,2026-02-23T18:40:21+00:00,t3_1rcpmwn,True
+o6zv3zu,1rcpmwn,"You're saying they treated you like you treated all those authors whose books you torrented?
+
+Oh no, that's not it. They are paying you for API tokens.",2150,0,0,Zyj,2026-02-23T18:34:33+00:00,t3_1rcpmwn,True
+o6zvs0r,1rcpmwn,"I am not a copyright fan, but when your whole business has been based on distilling everybody else's data (in many cases without the rights to even normal consumer access), I am not sure I see the problem here?",1088,0,0,ziphnor,2026-02-23T18:37:35+00:00,t3_1rcpmwn,True
+o6zwpg0,1rcpmwn,[removed],940,0,0,[deleted],2026-02-23T18:41:46+00:00,t3_1rcpmwn,True
+odhk6zo,1s8ijfb,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-03-31T12:10:25+00:00,t3_1s8ijfb,True
+odh0yr3,1s8ijfb,"Wow did their AI not catch that lol
+
+
+Or maybe an Anthropic employee started vibe coding too hard",1015,0,0,CondiMesmer,2026-03-31T09:49:56+00:00,t3_1s8ijfb,True
+odgz4h3,1s8ijfb,"
+&gt;**3. Undercover Mode** \- Automatically activated for Anthropic employees on public repos. Strips all AI attribution from commits, tells the model ""Do not blow your cover."" No force-OFF switch exists.
+
+motherf*ckers",970,0,0,Dany0,2026-03-31T09:33:35+00:00,t3_1s8ijfb,True
+odgyp48,1s8ijfb,"All hail Claude code because it is now ""Open Source""?",723,0,0,blazze,2026-03-31T09:29:42+00:00,t3_1s8ijfb,True
+odh1gjx,1s8ijfb,"And Claude Mythos didn’t find yet another security vulnerability of their own systems, despite being “scary good” at doing exactly that.",464,0,0,_ram_ok,2026-03-31T09:54:10+00:00,t3_1s8ijfb,True
+n7r5ypd,1mllt5x,"Chinese AI is the grinding. They won't let US take all 🫡
+
+A good competition for a better market for everyone 🫡",575,0,0,Nexter92,2025-08-09T10:13:39+00:00,t3_1mllt5x,True
+n7r67h7,1mllt5x,This is truly impressive. I tried it out yesterday and really liked it. 1000 requests free / day for those outside mainland China.,224,0,0,hi87,2025-08-09T10:16:09+00:00,t3_1mllt5x,True
+n7rf3hy,1mllt5x,"it passed my Tetris one-shot
+
+https://preview.redd.it/nylmmv86dzhf1.png?width=808&amp;format=png&amp;auto=webp&amp;s=2cf1a1907cc6b3cb3c189c8756adc5d4842c323a",111,0,0,jwikstrom,2025-08-09T11:36:52+00:00,t3_1mllt5x,True
+n7r7e13,1mllt5x,Qwen code is really good. I pay for Claude Code and Qwen I find better at some things and close on everything else,52,0,0,[deleted],2025-08-09T10:27:55+00:00,t3_1mllt5x,True
+n7rjwdl,1mllt5x,"Is it actually “safe” to use for professional projects? (Sorry if this sounds like a dumb question.) For example, could I use it for a client project (where some of the data might be sensitive) without worrying that my code or information would be used for training?",33,0,0,Kai231,2025-08-09T12:14:09+00:00,t3_1mllt5x,True
+o9uiqht,1rqnpvj,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-03-11T13:05:26+00:00,t3_1rqnpvj,True
+o9thsva,1rqnpvj,"Been 10 minutes, where are the benchmarks? /S",700,0,0,No_Afternoon_4260,2026-03-11T08:15:25+00:00,t3_1rqnpvj,True
+o9tkjuo,1rqnpvj,I tested again with pure mlx\_lm. I think it's safe to say these are the properly measured speeds. I'll be posting benchmark results one by one in the comments here.,141,0,0,cryingneko,2026-03-11T08:42:33+00:00,t3_1rqnpvj,True
+o9tgugv,1rqnpvj,Interested to know how Qwen 3.5 27b MLX 4bit and 6bit perform. (Mine arrives in two weeks!),116,0,0,sammcj,2026-03-11T08:06:08+00:00,t3_1rqnpvj,True
+o9u76x0,1rqnpvj,"Thanks OP for benching this so quickly! I asked AI to format it in tables for easier consumption:
+
+## M5 Max 128GB 14"" — MLX Benchmark Results
+
+All tests run with `mlx_lm.generate` (stream_generate), 128 max output tokens.
+
+&amp;nbsp;
+
+### Qwen3.5-122B-A10B-4bit
+
+| Context | Prompt (t/s) | Generation (t/s) | Peak Mem (GB) |
+|--------:|-------------:|------------------:|--------------:|
+| 4K | 881.5 | 65.9 | 71.9 |
+| 16K | 1,239.7 | 60.6 | 73.8 |
+| 32K | 1,067.8 | 54.9 | 76.4 |
+
+### Qwen3-Coder-Next-8bit
+
+| Context | Prompt (t/s) | Generation (t/s) | Peak Mem (GB) |
+|--------:|-------------:|------------------:|--------------:|
+| 4K | 754.9 | 79.3 | 87.1 |
+| 16K | 1,802.1 | 74.3 | 88.2 |
+| 32K | 1,887.2 | 68.6 | 89.7 |
+| 64K | 1,432.7 | 48.2 | 92.6 |
+
+### Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-6bit
+
+| Context | Prompt (t/s) | Generation (t/s) | Peak Mem (GB) |
+|--------:|-------------:|------------------:|--------------:|
+| 4K | 811.1 | 23.6 | 25.3 |
+| 16K | 686.7 | 20.3 | 27.3 |
+| 3",84,0,0,MMAgeezer,2026-03-11T11:54:41+00:00,t3_1rqnpvj,True
+n4lu5bl,1m6qdet,"So much for ""we won't release any bigger model than 32B"" LOL
+
+Good news anyway. I simply hope they'll release Qwen3-Coder 32B.",331,0,0,Creative-Size2658,2025-07-22T22:02:53+00:00,t3_1m6qdet,True
+n4lmi8c,1m6qdet,"It's been 8 minutes, where's my lobotomized GGUF!?!?!?!",299,0,0,LA_rent_Aficionado,2025-07-22T21:24:48+00:00,t3_1m6qdet,True
+n4ll7mk,1m6qdet,"Performance of Qwen3-Coder-480B-A35B-Instruct on SWE-bench Verified!
+
+https://preview.redd.it/yxw7v1wishef1.jpeg?width=2047&amp;format=pjpg&amp;auto=webp&amp;s=1c8891f4f0ce980f54e0836d8ce4bc692cdda937",190,0,0,ResearchCrafty1804,2025-07-22T21:18:25+00:00,t3_1m6qdet,True
+n4lkrri,1m6qdet,"💬 Chat:  https://chat.qwen.ai/
+
+📚 Blog:   https://qwenlm.github.io/blog/qwen3-coder/
+
+🤗 Model: https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct
+
+🤖 Qwen Code: https://github.com/QwenLM/qwen-code",104,0,0,ResearchCrafty1804,2025-07-22T21:16:18+00:00,t3_1m6qdet,True
+n4lkkmx,1m6qdet,Fuck i need to update my coder again. Just as i got kimi set up.,92,0,0,mattescala,2025-07-22T21:15:20+00:00,t3_1m6qdet,True
+n66989w,1me31d8,"Dynamic Unsloth GGUFs are at https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF
+
+1 million context length GGUFs are at https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-1M-GGUF
+
+We also fixed tool calling for the 480B and this model and fixed 30B thinking, so please redownload the first shard!
+
+Guide to run them: https://docs.unsloth.ai/basics/qwen3-coder-how-to-run-locally",354,0,0,danielhanchen,2025-07-31T14:43:17+00:00,t3_1me31d8,True
+n666sjt,1me31d8,"🔧 Qwen-Code Update: Since launch, we’ve been thrilled by the community’s response to our experimental Qwen Code project. Over the past two weeks, we've fixed several issues and are committed to actively maintaining and improving the repo alongside the community.
+
+🎁 For users in China: ModelScope offers 2,000 free API calls per day.
+
+
+🚀 We also support the OpenRouter API, so anyone can access the free Qwen3-Coder API via OpenRouter.
+
+Qwen Code: https://github.com/QwenLM/qwen-code",191,0,0,ResearchCrafty1804,2025-07-31T14:31:42+00:00,t3_1me31d8,True
+n66a7e5,1me31d8,"I'm so glad gemini cli is open source. Seeing people not just develop the damn thing like clockwork, but in cases like these, fork it to make something really amazing and cool is really awesome to see. It's easy to forget how things are and how good we have it now compared to a year or two ago in terms of open source models and tools that use them.",173,0,0,killerstreak976,2025-07-31T14:47:52+00:00,t3_1me31d8,True
+n667k8e,1me31d8,"Noooo !!!
+
+https://preview.redd.it/0mwafmut08gf1.jpeg?width=2880&amp;format=pjpg&amp;auto=webp&amp;s=6641db17c664ebba2df4814f129f1ffe60059a95",79,0,0,Ok_Ninja7526,2025-07-31T14:35:24+00:00,t3_1me31d8,True
+n66cf6e,1me31d8,"Everything Meta wished they were and more!
+
+Sorry, but China is winning the AI race.  Qwen, Kimi, Deepseek, GLM",80,0,0,segmond,2025-07-31T14:58:12+00:00,t3_1me31d8,True
+odix5bh,1s8rb48,"Claude really is the Paris Hilton of software development: inexplicably popular, staggeringly fashionable, susceptible to blackouts and, just occasionally, every so often - prone to flashing you its privates.",494,0,0,pydry,2026-03-31T16:11:53+00:00,t3_1s8rb48,True
+odjcdlv,1s8rb48,"Already removed all of the telemetry and rebuilt it without it. The gold  
+offline combo with CCR.  
+[https://github.com/ultrmgns/claude-private](https://github.com/ultrmgns/claude-private)  
+",370,0,0,UltrMgns,2026-03-31T17:19:54+00:00,t3_1s8rb48,True
+odiwbol,1s8rb48,"Who honestly cares about any of this? There are _so many_ fully open source coding harnesses. Even OpenAI's `codex`, written in Rust, blazing fast, and with a very good interface is open source. Or `opencode`, or `crush`, or `vibe`, or `gemini-cli`. Nobody needs Claude Code.
+
+I wish people in /r/LocalLLaMA would stop giving these proprietary tools any attention or publicity.",292,0,0,coder543,2026-03-31T16:08:09+00:00,t3_1s8rb48,True
+odix4id,1s8rb48,How in the kentucky fried fuck is CC 512k lines???? Sounds unneededly big,92,0,0,ea_nasir_official_,2026-03-31T16:11:46+00:00,t3_1s8rb48,True
+odjyonp,1s8rb48,thing that gets me isn't the PR itself - it's that it had 0 checks and no reviewer assigned. closed in seconds by a human who happened to be watching. that's the situation for most teams running agents right now. the governance is whoever is awake.,26,0,0,Fantastic-Age1099,2026-03-31T18:58:53+00:00,t3_1s8rb48,True
+mxv2zm2,1lbrnod,"**NOTICE**  
+We recommend using **Q8 GGUF.**
+
+If you are ""really tight"" on VRAM we recommend **iQ4\_XS GGUF**
+
+These are tested! other quants like Q4\_0 and Q4\_K\_M have significantly degraded performance.",220,0,0,Kooky-Somewhere-2883,2025-06-15T05:17:33+00:00,t3_1lbrnod,True
+mxv2rdt,1lbrnod,"So it is a Qwen 3 4B finetune, which begs me a question: do you have data on performance degradation in summarization and multilingual tasks? I'm actually running a separate vanilla Qwen3 4B as auxiliary model for non mission critial uses, and if your performance degradation is minimal, it would be tempting to replace it with your model and them use it for MCP too.",89,0,0,No-Refrigerator-1672,2025-06-15T05:15:35+00:00,t3_1lbrnod,True
+mxv8aq5,1lbrnod,Awesome. This tiny 2.3GB model calls tools like Pro man!,48,0,0,qnixsynapse,2025-06-15T06:03:43+00:00,t3_1lbrnod,True
+mxv4e7j,1lbrnod,Off topic: What app/frontend is in the video? Looks minimalistic and polished,35,0,0,ley_haluwa,2025-06-15T05:29:21+00:00,t3_1lbrnod,True
+mxv9aqn,1lbrnod,"80% reason of why I pay for a GPT Plus subscription, and thinking of switching to Gemini Pro, is the Deep Research function. This is pretty solid for a developmental build, so keep up the good work. Although I would take a wild guess that context length would be plausible bottleneck if the search query action produces less-than-stellar results.
+
+With the o3 Deep Research, sometimes it shows the thinking token as it can watch videos and listen to audio but I am skeptical of such. For context I was asking it if Thanos had snapped to the Adam's Family song, the original one, how much of us fleshbags would there be left. The thinking tokens mentioned it tried to watch the 1960s video of the theme song, then produced a result of 33 snaps after which there'd be 8 humans left on earth. 
+
+Tangentially, I almost always default to Xanh SM now because of predictability in bike model and slightly-more professional drivers (due to the strictness of Vin Group management lol). ",35,0,0,nguyenm,2025-06-15T06:12:52+00:00,t3_1lbrnod,True
+o79fp26,1rdxfdu,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-02-25T03:15:08+00:00,t3_1rdxfdu,True
+o78tnfr,1rdxfdu,Qwen3.5-35B-A3B-GGUF:UD-Q4\_K\_XL 180 t/s on 5090 ,282,0,0,Additional-Action566,2026-02-25T01:10:12+00:00,t3_1rdxfdu,True
+o78p6ba,1rdxfdu,"https://preview.redd.it/ln3dpoxyejlg1.jpeg?width=1672&amp;format=pjpg&amp;auto=webp&amp;s=2e18584f73f5fe981f8fe1e09448adc4248e2155
+
+Reddit-themed bejewelled in react, \~3 minutes, no interventions. This is really promising. Keep in mind this runs insanely fast, on a potato GPU (24 gig 3090) with 130k context window. I'm normally not spamming Reddit like this but I'm stoked 😅",77,0,0,jslominski,2026-02-25T00:45:42+00:00,t3_1rdxfdu,True
+o78j1sd,1rdxfdu,"i dunno, I ran it on my Spark (8 bit quant) and hit it with opencode and it got itself totally flummoxed on just basic file text editing. It was smart at reading code just not good at tool use.",68,0,0,Comrade-Porcupine,2026-02-25T00:13:03+00:00,t3_1rdxfdu,True
+o79shgg,1rdxfdu,"I've been using the 27B model and it's... really good. The benchmarks don't lie - For coding it's sonnet 4.5 level.
+
+The only downside is the depth of knowledge drop off you always get from lower parameter models but it can web search very well and so far tends to do that rather than hallucinate which is great.",57,0,0,metigue,2026-02-25T04:35:07+00:00,t3_1rdxfdu,True
+odjoymq,1s8r3w3,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-03-31T18:15:14+00:00,t3_1s8r3w3,True
+odivoqk,1s8r3w3,\&gt; computer! create true AGI. no mistakes,200,0,0,Pkittens,2026-03-31T16:05:13+00:00,t3_1s8r3w3,True
+odiv4ho,1s8r3w3,Is that why it's offline every other day??,119,0,0,Dry_Yam_4597,2026-03-31T16:02:38+00:00,t3_1s8r3w3,True
+odivdtb,1s8r3w3,"This is actually the second time this has happened, the first release of Claude Code had the same issue, and it lead to some forks like AnonKode that were active for quite a while before Anthropic decided to actually start pursuing them.",76,0,0,mikael110,2026-03-31T16:03:49+00:00,t3_1s8r3w3,True
+odixbij,1s8r3w3,"FAFO
+
+AI by itself is a net productivity multiplier for developers. So we should use AI responsibly and create more efficient systems. Taking ownership of the code generated by AI and cross verifying is the first step for that. Letting LLMs to generate tens of thousands of LOC, only to use react in a TUI that consumes more RAM than blender is demonstration of garbage engineering. ",71,0,0,Ok-Pipe-5151,2026-03-31T16:12:39+00:00,t3_1s8r3w3,True
+mw2mesj,1l3niws,https://preview.redd.it/8jjdiny0015f1.jpeg?width=1206&amp;format=pjpg&amp;auto=webp&amp;s=f93cd307b46de6cbbbc29f7f98d3bdf085f58cb8,317,0,0,Familiar_Gas_1487,2025-06-05T03:13:14+00:00,t3_1l3niws,True
+mw2lmvl,1l3niws,"I figured internally they never truly deleted anything, and the delete button was more like a placebo...
+
+I mean, yeah, it might even be illegal and all that, but it's all training data for them to sit on. Perhaps they'd never share it with anyone at least intentionally, but I also figured the folks at the NSA had a search feature on it still and were likely using more AI on it to search for what they wanted. 
+
+Bottom line: If you don't control both the hardware and the software you run your stuff on just assume games are being played in the background.",212,0,0,The_IT_Dude_,2025-06-05T03:08:15+00:00,t3_1l3niws,True
+mw2buzc,1l3niws,This is fucked up on evey level,130,0,0,Ok-Cucumber-7217,2025-06-05T02:08:05+00:00,t3_1l3niws,True
+mw2dm6j,1l3niws,"The right to private correspondence?
+
+Pfft, the interlocutor is a robot, so this is just a smart notebook, not a correspondence, and the government can do whatever it wants.
+
+And if you aren't citizen they can do even more!",92,0,0,Ardalok,2025-06-05T02:18:19+00:00,t3_1l3niws,True
+mw2foxy,1l3niws,They have the ex head of the nsa on their board. If you thought your data was private you were delusional.,88,0,0,[deleted],2025-06-05T02:30:54+00:00,t3_1l3niws,True
+nqnpbbq,1p5u44r,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2025-11-25T05:20:07+00:00,t3_1p5u44r,True
+nqlxzmy,1p5u44r,[deleted],377,0,0,[deleted],2025-11-24T22:42:20+00:00,t3_1p5u44r,True
+nqln3o7,1p5u44r,You can’t run those big models locally,287,0,0,PiotreksMusztarda,2025-11-24T21:45:46+00:00,t3_1p5u44r,True
+nqlpvl1,1p5u44r,"Anthropic is basically hamstrung by compute, it's unfortunate.
+
+The other $20 tiers you can actually get things done. I keep all of them at $20 and rotate a Pro across the FoTM option. $20 Claude tier? Drop a single PDF in, ask 3 questions, hit usage limit. It's utterly unusable for anything beyond a short basic chat. Which is sad, because I prefer their alignment.",120,0,0,ohwut,2025-11-24T21:59:27+00:00,t3_1p5u44r,True
+nqlpbfu,1p5u44r,I'll patiently wait until I can run Opus locally,42,0,0,Aguxez,2025-11-24T21:56:45+00:00,t3_1p5u44r,True
+mns24bq,1k28f3f,"Adds a whole new dimension to ""Can it run doom?""",380,0,0,TurpentineEnjoyer,2025-04-18T16:04:41+00:00,t3_1k28f3f,True
+mnscrlz,1k28f3f,gamers out of job,258,0,0,DroidMasta,2025-04-18T16:58:19+00:00,t3_1k28f3f,True
+mns2qd5,1k28f3f,"Please stop. If you use gaming as an indicative of intelligence, my son will have an excuse to play games all day to ""increase his stats and beat the AI"".",87,0,0,ortegaalfredo,2025-04-18T16:07:47+00:00,t3_1k28f3f,True
+mns2g5y,1k28f3f,"How are you playing with a reasoning model? Gemini 2.5 Pro is a reasoning model, doesn't it introduce latency? The others are non-reasoning.",78,0,0,Proud_Fox_684,2025-04-18T16:06:22+00:00,t3_1k28f3f,True
+mns6g45,1k28f3f,So they send like 30 images per second of game? Wonder how much they spending testing it lol who paying the bills,40,0,0,boynet2,2025-04-18T16:26:48+00:00,t3_1k28f3f,True
+o4n3i0d,1r0zn8o,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-10T16:45:16+00:00,t3_1r0zn8o,True
+o4lt87q,1r0zn8o,I would not expect too much from them lol,604,0,0,Leflakk,2026-02-10T12:44:33+00:00,t3_1r0zn8o,True
+o4ltbc6,1r0zn8o,"I agree, these guys would never ever release a real oss model.",315,0,0,Technical-Earth-3254,2026-02-10T12:45:07+00:00,t3_1r0zn8o,True
+o4lur4d,1r0zn8o,"Let's be honest here, if Antropic actually dropped open weights then i would be fully convinced that either 1. We live in some sort of bizzaro world or 2. The world is ending as we speak.",160,0,0,constanzabestest,2026-02-10T12:54:31+00:00,t3_1r0zn8o,True
+o4m607i,1r0zn8o,"they're gonna release a 1,500 page safety document on why open-source is bad for the community",136,0,0,MagicZhang,2026-02-10T13:59:52+00:00,t3_1r0zn8o,True
+mznmj08,1ljyo2p,Crazy this get even wilder,148,0,0,Plus-Childhood-7139,2025-06-25T06:52:02+00:00,t3_1ljyo2p,True
+mznmcw6,1ljyo2p,"https://preview.redd.it/2gl9d1nvs09f1.png?width=1288&amp;format=png&amp;auto=webp&amp;s=416cfd5fa0b9003a0197584037cbc33bb082e7da
+
+**GGUF**: [https://huggingface.co/Menlo/Jan-nano-128k-gguf](https://huggingface.co/Menlo/Jan-nano-128k-gguf)
+
+This number we are showing here is under the setting without heavily prompting (just the model and MCP) if you add more prompts into it, it can be more than 83% (we have benchmarked internally).",128,0,0,Kooky-Somewhere-2883,2025-06-25T06:50:29+00:00,t3_1ljyo2p,True
+mzns4zx,1ljyo2p,"I’m supportive of any open weights release, but some of the comments here reek of fake engagement for the sake of boosting this post.",108,0,0,butsicle,2025-06-25T07:45:53+00:00,t3_1ljyo2p,True
+mznqsr8,1ljyo2p,"Nice !
+
+Jan touts the advantages of local software vs API 9e.g. privacy), however it recommends that I install [https://github.com/marcopesani/mcp-server-serper](https://github.com/marcopesani/mcp-server-serper) which requires a Serper API key : how come ?
+
+Any fully local way to use this ?
+
+Thx !",65,0,0,un_passant,2025-06-25T07:32:29+00:00,t3_1ljyo2p,True
+mznmxqy,1ljyo2p,Nice work! Jan-nano is by far my favorite local model!,27,0,0,rumboll,2025-06-25T06:55:46+00:00,t3_1ljyo2p,True
+n5lv1ti,1mbg1ck,"The base models are also available &amp; licensed under MIT! Two foundation models, 355B-A32B and 106B-A12B, to shape however we wish. That's an incredible milestone for our community!",303,0,0,FriskyFennecFox,2025-07-28T13:40:36+00:00,t3_1mbg1ck,True
+n5lsw0s,1mbg1ck,"Mannnnn this shi gooooood
+
+Another day of thanking God for Chinese AI companies",217,0,0,True_Requirement_891,2025-07-28T13:28:42+00:00,t3_1mbg1ck,True
+n5m2gnc,1mbg1ck,"""For both GLM-4.5 and GLM-4.5-Air, we add an MTP (Multi-Token Prediction) layer to support speculative decoding during inference.""
+
+Fuck yes! this should really help with cpu+gpu setups! finally a model that includes MTP for inference right away!",157,0,0,LagOps91,2025-07-28T14:18:44+00:00,t3_1mbg1ck,True
+n5lxco3,1mbg1ck,"Awesome release! 
+
+Notes:
+
+- SOTA performance across categories with focus on agentic capabilities
+
+- GLM4.5 Air is a relatively small model, being the first model of this size to compete with frontier models (based on the shared benchmarks)
+
+- They have released BF16, FP8 and Base models allowing other teams/individuals to easily do further training and evolve their models
+
+- They used MIT licence 
+
+- Hybrid reasoning, allowing instruct and thinking behaviour on the same model
+
+- Zero day support on popular inference engines (vLLM, SGLang)
+
+- Shared detailed instructions how to do inference and fine-tuning in their GitHub
+
+- Shared training recipe in their technical blog",86,0,0,ResearchCrafty1804,2025-07-28T13:52:38+00:00,t3_1mbg1ck,True
+n5lv14m,1mbg1ck,"Hholy motherload of fuck! LET'S F\*CKING GOOOOOO
+
+EDIT:  
+Air is 102B total + 12B active so Q2/Q1 can maybe fit into 32gb vram  
+GLM-4.5 is 355B total + 32B active and seems just fucking insane power/perf but still out of reach for us mortals
+
+EDIT2:  
+4bit mlx quant already out, will try on 64gb macbook and report  
+EDIT3:  
+Unfortunately the mlx-lm glm4.5 branch doesn't quite work yet with 64gb ram all I'm getting rn is   
+  
+`[WARNING] Generating with a model that required 57353 MB which is close to the maximum recommended size of 53084 MB. This can be slow. See the documentation for possible work-arounds: ...`  
+  
+Been waiting for quite a while now &amp; no output :(",74,0,0,Dany0,2025-07-28T13:40:30+00:00,t3_1mbg1ck,True
+mzqd7yy,1lkbiva,"I know why they are making it free, even with the high cost, it's a great way to get data on codebases and prompts for training Gemini 3 and beyond. Trying it now though, works great!
+
+Edit: surprisingly, you can opt out. However, a lot of people are saying that they aren't collecting data.
+
+For reference, I am talking about the extension in VSCode. They updated ""Gemini code assist"" from Gemini 2.0 (unnamed flash or pro) to 2.5 Pro along with releasing the command line tool. However, the terms related to privacy for the CLI and extension seem to lead to the same page, the page being below:
+ 
+[these terms](https://developers.google.com/gemini-code-assist/resources/privacy-notice-gemini-code-assist-individuals) outline that:
+
+""When you use Gemini Code Assist for individuals, Google collects your prompts, related code, generated output, code edits, related feature usage information, and your feedback to provide, improve, and develop Google products and services and machine learning techno",268,0,0,offlinesir,2025-06-25T17:23:34+00:00,t3_1lkbiva,True
+mzqdgs3,1lkbiva,We all know if we don't pay for the product we are the product. It's either that or they wanna get you hooked on their stuff and then have you pay later.,56,0,0,[deleted],2025-06-25T17:24:40+00:00,t3_1lkbiva,True
+mzrf4h3,1lkbiva,"f\* google-- they billed me $200+ for a single day of use for not even an hr of usage when 2.5 was first released in march when it was free. I got the bill at the end of the month and have been fighting with them for a refund-- you don't know what your final bill will be. They've been doing shady billing in general-- i also run ad-words for a client, we had a campaign turned off, out of no where they turned on the campaign and billed the client an extra $1500. There was no records of login etc-- and they wont reverse the charges",49,0,0,stabby_robot,2025-06-25T20:21:43+00:00,t3_1lkbiva,True
+mzqfopr,1lkbiva,"Am I simple or is there no link here and this is just a picture?
+
+Edit: for anyone else who is confused: [https://github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+
+Edit2: seems to be open source CLI tool for interacting with your codebase which is neat, however I have zero interest in anything forcing you to utilize proprietary APIs that are rate limited or otherwise upcharging.
+
+**tl;dr seems like an LLM terminal you can use to explore/understand/develop a codebase but in present form requires you to use Gemini APIs** \-- I'll be checking it out once there are forks letting you point to local models though.",49,0,0,BumbleSlob,2025-06-25T17:34:39+00:00,t3_1lkbiva,True
+mzqtmyt,1lkbiva,We should fork and then send telemetry data to a public dataset,21,0,0,[deleted],2025-06-25T18:39:12+00:00,t3_1lkbiva,True
+ocaeb48,1s2i7pw,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-03-24T22:25:13+00:00,t3_1s2i7pw,True
+oc88msg,1s2i7pw,Just run inference off the drive.  GLM5 should fit on a 1TB SSD.  Might get 50-100 s/t,483,0,0,sine120,2026-03-24T16:20:48+00:00,t3_1s2i7pw,True
+oc88142,1s2i7pw,"Oh, that's easy with that hardware, just run the Reflection-70M-FrankenSelfMerge-Claude-4.6-Opus-High-Reasoning-Distilled as IQ2\_XXS quant.
+
+DM me if you need a CTO. /s",444,0,0,Chromix_,2026-03-24T16:18:03+00:00,t3_1s2i7pw,True
+oc8a24s,1s2i7pw,You can just enslave a human being and have them hold the computer while they work... you have to make sure they are smarter than Opus though,363,0,0,crawler00000,2026-03-24T16:27:24+00:00,t3_1s2i7pw,True
+oc8dhjq,1s2i7pw,"Look, I have been writing code with a vibrator up my butt for years now. But I wasn't ever pretentious enough to call it 'vibecoding'; back in my day, we just called it 'coding'.",249,0,0,rinmperdinck,2026-03-24T16:43:19+00:00,t3_1s2i7pw,True
+n8yndpk,1mrfqsd,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2025-08-16T05:30:10+00:00,t3_1mrfqsd,True
+n8xnpza,1mrfqsd,So in 9 months I will have my own GPT-5?,293,0,0,Pro-editor-1105,2025-08-16T01:14:10+00:00,t3_1mrfqsd,True
+n8xzrez,1mrfqsd,Phi 4 better than 4o? I’m highly skeptical.,135,0,0,Xrave,2025-08-16T02:30:44+00:00,t3_1mrfqsd,True
+n8xy7v2,1mrfqsd,"Doesn't it look like they're converging? Thanks, China",53,0,0,skilless,2025-08-16T02:20:27+00:00,t3_1mrfqsd,True
+n8xiika,1mrfqsd,"[Link to the post](https://epoch.ai/data-insights/consumer-gpu-model-gap)
+
+Here's the post text:
+
+Frontier AI performance becomes accessible on consumer hardware within 9 months
+
+Using a single top-of-the-line gaming GPU like NVIDIA’s RTX 5090 (under $2500), anyone can locally run models matching the absolute frontier of LLM performance from just nine months ago. This lag is consistent with our previous estimate of a 5 to 22 month gap for open-weight models of any size. However, it should be noted that small open models are more likely to be optimized for specific benchmarks, so the “real-world” lag may be somewhat longer.
+
+Several factors drive this democratizing trend, including a comparable rate of scaling among open-weight models to the closed-source frontier, the success of techniques like model distillation, and continual progress in GPUs enabling larger models to be run at home.",50,0,0,timfduffy,2025-08-16T00:41:57+00:00,t3_1mrfqsd,True
+o8svzfv,1rll349,I would recommend just switching from ollama to llama.cpp and enjoy the performance gains.,494,0,0,Zacisblack,2026-03-05T16:23:35+00:00,t3_1rll349,True
+o8thuic,1rll349,"I suggest trying https://pi.dev instead of claude code. It has been working great with the 35B model.
+
+
+Claude (the LLM) is the only special thing about claude code. So if you are not using Claude, it would be much better to stick with a lightweight harness that has a minimal system prompt and all the basic tools you need.",42,0,0,tarruda,2026-03-05T18:03:06+00:00,t3_1rll349,True
+o8ss05a,1rll349,"Thanks for trying. 
+
+I use 9b for summarization, comparison, some translation. 
+
+All working quite well and on time. 
+
+M1 32gb here. 
+
+Bit miffed about the speed (LMS), but i have had issues with the mlx in the past few days. What do you use? GGUF? 
+
+May i ask also whats your framework looking like? I mainly use n8n with scheduled triggers where i scrape info and do some stuff with it. (Basically, i scrape job offers for the wife, match against her CV, ask 9b to do strenght vs gap analysis and use some calculations to bring up a match rate). ",13,0,0,TheItalianDonkey,2026-03-05T16:04:20+00:00,t3_1rll349,True
+o8t5dlb,1rll349,What context size did you use?,12,0,0,Medium_Ordinary_2727,2026-03-05T17:07:05+00:00,t3_1rll349,True
+o8szer7,1rll349,It’s good. I use the models via open code to organise my files and folders.,9,0,0,nikhilprasanth,2026-03-05T16:39:27+00:00,t3_1rll349,True
+musw3lo,1kxxmdr,tested on ansible playbooks. so far similar experience. Now someone solve 100M context window and we can go do other things than coding lol,252,0,0,secopsml,2025-05-29T00:54:29+00:00,t3_1kxxmdr,True
+mutaihz,1kxxmdr,"There seems to be a bug in your evals.
+
+This is one of the examples in your NER dataset that you show us in your video:
+
+&gt;Elena Popov from Gazprom Inc. attended a conference in Edmonton, Alberta, Canada. She presented alongside Ahmed Al-Sayed of Qatar Airways LLC and met with Li Mei from Bank of China Limited at the Winspear Centre
+
+GPT-4.1 [identifies one of the named entities](https://app.promptjudy.com/public-runs?runId=named-entity-recognition-new-659588244-gpt-4.1%2325-frF9XY1FXEqujBIFC5) as *""{ ""firstName"": ""Mei"", ""lastName"": ""Li"" }"".* Your evals mark this as incorrect. Since this is the only mistake GPT-4.1 makes, it achieves a score of 95%.
+
+Why is this considered incorrect?
+
+For the same example, DeepSeek-r1-0528 identifies the named entity as *{ ""firstName"": ""Li"", ""lastName"": ""Mei"" }* and achieves a score of 100%.
+
+Given that this is the only discrepancy between GPT-4.1 and DeepSeek-r1-0528 on this challenging benchmark, I am not really impressed. GPT-4.1 isn't even a reas",124,0,0,entsnack,2025-05-29T02:16:26+00:00,t3_1kxxmdr,True
+musy20c,1kxxmdr,"Oh god, are you the SillyTavern Anton Ratatouille guy? lol don't you ever get sick of that RP and what is your story's ctx length up to at this point?",90,0,0,ReMeDyIII,2025-05-29T01:05:39+00:00,t3_1kxxmdr,True
+muud8zw,1kxxmdr,Okay but can you ask it to elaborate on top female fantasy names without getting Elara and Lily as first responses? THAT is the real test.,47,0,0,[deleted],2025-05-29T07:12:01+00:00,t3_1kxxmdr,True
+musw2d7,1kxxmdr,That’s super impressive. How much did it improve from R1?,23,0,0,TheTideRider,2025-05-29T00:54:18+00:00,t3_1kxxmdr,True
+o4yzmr7,1r2e8mp,Do you have any feedback for the mod team regarding these issues?,1,0,0,ArcaneThoughts,2026-02-12T12:42:20+00:00,t3_1r2e8mp,True
+o4w9yb3,1r2e8mp,"The ""broken markdown in a reddit post"" one hits too close to home. Also missing: ""I asked my 3B model to write an OS and it only crashed twice""",197,0,0,EiwazDeath,2026-02-12T00:12:55+00:00,t3_1r2e8mp,True
+o4wht70,1r2e8mp,39 emojis in a two paragraph post,105,0,0,Weird-Consequence366,2026-02-12T00:58:52+00:00,t3_1r2e8mp,True
+o4wt1q1,1r2e8mp,"I'm guessing the folks who see a lot of spam are sorting by ""new"" and check the sub more frequently than the moderators, and the folks who only see a little spam are sorting by ""top"" or ""best"" and/or only looking at the sub after moderators have had a chance to clean house.
+
+Looking through the sub's moderation log, moderators removed 55 posts/comments in the last nine hours.
+
+tl;dr: There is a ***lot*** of spam, but whether you see it or not depends on the timing.",57,0,0,ttkciar,2026-02-12T02:07:25+00:00,t3_1r2e8mp,True
+o37z0u2,1qtvp74,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2026-02-02T20:40:14+00:00,t3_1qtvp74,True
+o35s7ih,1qtvp74,My gguf files get so old so fast LoL,152,0,0,Septerium,2026-02-02T14:30:54+00:00,t3_1qtvp74,True
+o35n5l6,1qtvp74,**Avocado** 🗣️,94,0,0,SrijSriv211,2026-02-02T14:03:41+00:00,t3_1qtvp74,True
+o35spwi,1qtvp74,Really hoping it beats Kimi K2.5 so I can actually switch back to using my annual [Z.ai](http://Z.ai) Pro plan.,63,0,0,bootlickaaa,2026-02-02T14:33:36+00:00,t3_1qtvp74,True
+o35pc8a,1qtvp74,so can we atleast hope for glm 5 air?,44,0,0,[deleted],2026-02-02T14:15:36+00:00,t3_1qtvp74,True
+nc13jrv,1n6epwv,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,0,0,WithoutReason1729,2025-09-02T15:35:10+00:00,t3_1n6epwv,True
+nbzoc6z,1n6epwv,Thanks for sharing your work with the world.  I hope you attract a talented set of collaborators for your project.  The world definitely needs transparent open source agentic coding tools capable of meaningful interactions using local models.,169,0,0,jonathantn,2025-09-02T10:33:22+00:00,t3_1n6epwv,True
+nbzgwik,1n6epwv,"&gt; Orchestrator + Sonnet-4: 36.0% success rate (#12 on leaderboard, ahead of Claude Code!)
+&gt;
+&gt;Orchestrator + Qwen-3-Coder: 19.25% success rate
+
+Try grok-code-fast-1 for science, maybe gpt5-mini too if you have the time. Should be fast af and cheap compared to cc.",60,0,0,ResidentPositive4122,2025-09-02T09:25:03+00:00,t3_1n6epwv,True
+nbzlhtr,1n6epwv,Why did you use yaml for tool calls instead of the established pattern of JSON or the new XML patterns that qwen3-coder has been using?,56,0,0,jbutlerdev,2025-09-02T10:08:47+00:00,t3_1n6epwv,True
+nc2701a,1n6epwv,"Could I ask a couple of questions? 90M Tokens in sonnet, like $2000? I am also curious about Claude Code, do we know how many tokens it used? Beating Claude Code is incredible. But if Claude Code did it with 15M tokens like Qwen3 in your example, the value certainly looks skewed towards Claude Code still.
+
+Still awesome though. Love the project.",24,0,0,YessikaOhio,2025-09-02T18:49:57+00:00,t3_1n6epwv,True
+o925ifx,1rmplvs,"Your post is getting popular and we just featured it on our Discord! [Come check it out!](https://discord.gg/PgFhZ8cnWW)
+
+You've also been given a special flair for your contribution. We appreciate your post!
+
+*I am a bot and this action was performed automatically.*",1,1,0,WithoutReason1729,2026-03-07T00:00:41+00:00,t3_1rmplvs,True
+o91ddoe,1rmplvs,Qwen3.5 35b with native tool calling running through Open WebUI's terminal is the kind of stack that makes agentic workflows viable on a single 3090.,141,0,0,sean_hash,2026-03-06T21:27:47+00:00,t3_1rmplvs,True
+o918zhd,1rmplvs,[deleted],79,0,0,[deleted],2026-03-06T21:06:14+00:00,t3_1rmplvs,True
+o919s30,1rmplvs,You should try opencode,39,0,0,itsjase,2026-03-06T21:10:10+00:00,t3_1rmplvs,True
+o91b444,1rmplvs,Only the paid version is multi user. I still use [fileshed](https://github.com/Fade78/Fileshed).,18,0,0,Fade78,2026-03-06T21:16:41+00:00,t3_1rmplvs,True

@@ -1,0 +1,7 @@
+praw==7.7.1
+google-api-python-client==2.118.0
+requests==2.31.0
+pandas==2.2.0
+plotly==5.19.0
+python-dotenv==1.0.0
+apscheduler==3.10.4

@@ -1,0 +1,1457 @@
+post_id,title,selftext,score,upvote_ratio,num_comments,created_utc,subreddit,url,permalink,author,post_awards_count
+1rt31th,Why the majority of vibe coded projects fail,,8143,0.98,726,2026-03-13T23:15:27+00:00,ClaudeAI,https://i.redd.it/uxpmxlbmawog1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1rt31th/why_the_majority_of_vibe_coded_projects_fail/,harrysofgaming,0
+1r6zn7j,Good job Anthropic 👏🏻 you just became the top closed Ai company in my books,,7366,0.96,429,2026-02-17T07:28:40+00:00,ClaudeAI,https://i.redd.it/7l2l71zwb0kg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1r6zn7j/good_job_anthropic_you_just_became_the_top_closed/,No_Vehicle7826,0
+1ribnke,Claude’s extended thinking found out about Iran in real time,Claude’s extended thinking discovered the Iran strikes mid-response. The vibes shifted immediately,7086,0.99,178,2026-03-01T22:46:43+00:00,ClaudeAI,https://i.redd.it/am6mszcniimg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1ribnke/claudes_extended_thinking_found_out_about_iran_in/,schuttdev,0
+1sble09,Taught Claude to talk like a caveman to use 75% less tokens.,,6974,0.93,332,2026-04-03T18:19:27+00:00,ClaudeAI,https://i.redd.it/9g9jefwwo0tg1.png,https://www.reddit.com/r/ClaudeAI/comments/1sble09/taught_claude_to_talk_like_a_caveman_to_use_75/,ffatty,0
+1rhgsjz,Claude has overtaken ChatGPT in the Apple App Store,,6436,0.98,219,2026-02-28T23:01:47+00:00,ClaudeAI,https://i.redd.it/osn6yzbfgbmg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1rhgsjz/claude_has_overtaken_chatgpt_in_the_apple_app/,Pure_Perception7328,0
+1s41fny,25 years. Multiple specialists. Zero answers. One Claude conversation cracked it.,"My 62-year-old uncle in India:
+
+* Kidney failure (on dialysis 3x/week)
+* Diabetes
+* Hypertension
+* Stroke 6 years ago
+* Severe migraines ONLY when lying down to sleep
+
+Doctors tried: neurologists, nephrologists, brain MRI, blood thinners. Nobody could explain the positional headache pattern.
+
+I brought everything to Claude. Over several days:
+
+1. Claude identified the key clue everyone missed, the headaches are positional (lying down triggers them)
+2. Pulled research showing 40-57% of dialysis patients have undiagnosed sleep apnea
+3. Read his brain MRI report I uploaded, flagged relevant findings other docs overlooked
+4. Asked about snoring. Answer: loud snoring for 25 YEARS. Daily afternoon sleeping for 25 YEARS.
+5. Calculated STOP-BANG score: 6-7/8 (very high risk)
+6. Created a complete consultation brief for the pulmonologist
+7. Translated a home care plan into Gujarati (my native language) for family
+
+We got the sleep study done.
+
+Results were alarming:   
+→ Breathing stops 119 times per night   
+→ Oxygen drops to 78% (dangerously low)   
+→ 47 oxygen desaturations per hour   
+→ 28 minutes per night below safe oxygen level
+
+We put him on CPAP. **Headaches gone.**
+
+25 years of loud snoring and daily exhaustion. Every doctor attributed it to ""dialysis fatigue"" or ""age."" It was sleep apnea the entire time, potentially causing his hypertension, contributing to his stroke, and definitely causing his headaches.
+
+The sleep apnea had been hiding in plain sight for 25 years, in his snoring that our family joked about, in his afternoon naps we thought were normal.
+
+Claude didn't just identify the problem. It created a structured diagnostic roadmap, explained which specialist to see first, what tests to request, what questions to ask, picked the right CPAP machine, explained every setting, and even wrote maintenance instructions in Gujarati (my native language).
+
+A ₹30,000 CPAP machine solved what years of specialist visits couldn't.
+
+AI didn't replace his doctors. But it c",5564,0.68,1087,2026-03-26T08:08:06+00:00,ClaudeAI,https://i.redd.it/uuu1gs557crg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1s41fny/25_years_multiple_specialists_zero_answers_one/,the_kuka,0
+1s8lkkm,i dug through claude code's leaked source and anthropic's codebase is absolutely unhinged,"so claude code's full source leaked through a .map file in their npm package and someone uploaded it to github. i spent a few hours going through it and honestly i don't know where to start.
+
+**they built a tamagotchi inside a terminal**
+
+there's an entire pet system called /buddy. when you type it, you hatch a unique ascii companion based on your user id. 18 species including duck, capybara, dragon, ghost, axolotl, and something called ""chonk"". there's a full gacha rarity system, common to legendary with a 1% legendary drop rate, shiny variants, hats (crown, wizard, propeller, tinyduck), and stats like DEBUGGING, CHAOS, and SNARK. the pet sits beside your input box and reacts to your coding. the salt is ""friend-2026-401"" so it's an april fools feature dropping april 1st. i'm not making this up.
+
+**they hex encoded the word duck**
+
+one of the pet species names apparently collides with an internal model codename. so what did they do? they encoded ALL 18 species names in hexadecimal to dodge their own build scanner:
+
+    export const duck = String.fromCharCode(0x64,0x75,0x63,0x6b)
+
+that is the word ""duck"". they hex encoded duck. because their own tooling flagged it.
+
+**voice mode uses deepgram and they can't use their own domain**
+
+there's a full push to talk voice system hidden in the code. it uses deepgram nova 3 for speech to text.
+
+**the project is internally codenamed tengu**
+
+every telemetry event starts with tengu\_. feature flags have gemstone codenames like tengu\_cobalt\_frost (voice) and tengu\_amber\_quartz (voice kill switch). i kind of love it honestly
+
+**main.tsx is 803,924 bytes**
+
+one file. 4,683 lines. almost 1mb of typescript. their print utility is 5,594 lines. the file that handles messages is 5,512 lines. six files are over 4,000 lines each.
+
+**460 eslint-disable comments**
+
+four hundred and sixty. at that point you're not writing typescript, you're writing javascript with extra steps
+
+**they deprecated their config writer and kept using it**
+
+th",5258,0.91,650,2026-03-31T12:07:47+00:00,ClaudeAI,https://www.reddit.com/r/ClaudeAI/comments/1s8lkkm/i_dug_through_claude_codes_leaked_source_and/,https://www.reddit.com/r/ClaudeAI/comments/1s8lkkm/i_dug_through_claude_codes_leaked_source_and/,Clear_Reserve_8089,0
+1ry5hkp,Just in case,,5030,0.99,82,2026-03-19T16:41:31+00:00,ClaudeAI,https://i.redd.it/tasd6jew51qg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1ry5hkp/just_in_case/,JerryH_,0
+1s9iyp3,Brother,,4702,0.98,54,2026-04-01T12:21:06+00:00,ClaudeAI,https://i.redd.it/qwmp5k8anksg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1s9iyp3/brother/,Technical-Relation-9,0
+1s3ss8s,Giving Claude access to my MacBook / macOS,Good idea or nah?,4658,0.98,119,2026-03-26T00:40:59+00:00,ClaudeAI,https://i.redd.it/0b6u70xwcarg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1s3ss8s/giving_claude_access_to_my_macbook_macos/,namebrained,0
+1s5ok5r,Claude watching me write code manually after I hit the daily limit,/s,4498,0.99,104,2026-03-28T02:42:16+00:00,ClaudeAI,https://v.redd.it/pbbbe9fc8prg1,https://www.reddit.com/r/ClaudeAI/comments/1s5ok5r/claude_watching_me_write_code_manually_after_i/,Technical-Relation-9,0
+1r97osm,Claude just gave me access to another user’s legal documents,"The strangest thing just happened. 
+
+I asked Claude Cowork to summarize a document and it began describing a legal document that was totally unrelated to what I had provided. After asking Claude to generate a PDF of the legal document it referenced and I got a complete lease agreement contract in which seems to be highly sensitive information.
+
+I contacted the property management company named in the contract (their contact info was in it), they says they‘ll investigate it. As for Anthropic, I’ve struggled to get their attention on it, hence the Reddit post.
+
+Has this happened to anyone else?",4404,0.94,275,2026-02-19T18:48:59+00:00,ClaudeAI,https://i.redd.it/0twudba4zhkg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1r97osm/claude_just_gave_me_access_to_another_users_legal/,Raton-Raton,0
+1ru3irp,I used Claude Code to reverse engineer a 13-year-old game binary and crack a restriction nobody had solved — the community is losing it,"I want to share something I built with Claude Code this past week because I think it shows what AI-assisted development can actually do when pointed at a genuinely hard problem.
+
+Disney Infinity 1.0 (2013) is a game where you place physical figures on a base to play as characters. Each character is locked to their “home” playset. Mr. Incredible can only play in the Incredibles world, etc. The modding community has wanted to break this restriction for over a decade. Nobody could.
+
+Why it was so hard: The restriction isn’t a single flag or config file. One function (FindPlaysetForCharacter) gets called at 13 different points across 6 areas of the game’s C++ code. Patching one check doesn’t help since the other 12 still block you. Data-file-only mods fail because the native code validates before it even reads the data. DLL injection crashed the game due to thread-unsafe Lua state access. People tried renaming character files into other character folders but the game just crashed.
+
+What Claude Code did: I pointed Claude Code (Opus, high reasoning) at the game’s binary. No symbols, no source code, no existing RE documentation. Claude helped me trace the call graph from FindPlaysetForCharacter through the entire codebase, identify all 13 validation call sites, map which code area each belonged to, and determine the exact bytes to patch. It understood x86 assembly, recognized the conditional jump patterns after each call, and helped me work through multiple failed approaches before arriving at the solution that worked.
+
+The entire thing took under 24 hours.
+
+The result is 17 binary patches plus 3 modified data files, any character works in any playset. Free, open source, installs in 2 minutes.
+
+I posted this to r/DisneyInfinity a few hours ago and the reaction has been unreal. It’s currently the top post on the entire subreddit with 90+ upvotes, 45+ comments, and over 3,000 views. The most well-known modder in the Disney Infinity community who had his own unreleased approa",4056,0.96,230,2026-03-15T03:27:56+00:00,ClaudeAI,https://v.redd.it/g8vz1b5yn4pg1,https://www.reddit.com/r/ClaudeAI/comments/1ru3irp/i_used_claude_code_to_reverse_engineer_a/,CelebrationFew1755,0
+1rqqtes,"""Claude, make a video about what it's like to be an LLM""","Full prompt given to Claude Opus 4.6 (via josephdviviano): ""can you use whatever resources you like, and python, to generate a short 'youtube poop' video and render it using ffmpeg ? can you put more of a personal spin on it? it should express what it's like to be a LLM""",3983,0.98,273,2026-03-11T11:10:03+00:00,ClaudeAI,https://v.redd.it/70mc6xtcfeog1,https://www.reddit.com/r/ClaudeAI/comments/1rqqtes/claude_make_a_video_about_what_its_like_to_be_an/,MetaKnowing,0
+1q837st,Mean ahh claude 😭,,3794,0.98,82,2026-01-09T08:47:56+00:00,ClaudeAI,https://i.redd.it/io0ho1uaeacg1.png,https://www.reddit.com/r/ClaudeAI/comments/1q837st/mean_ahh_claude/,Secure-Tea6702,0
+1s37yiy,This new Claude update is crazy,,3771,0.98,165,2026-03-25T11:23:21+00:00,ClaudeAI,https://i.redd.it/wvpq4a6ge6rg1.png,https://www.reddit.com/r/ClaudeAI/comments/1s37yiy/this_new_claude_update_is_crazy/,MetaKnowing,0
+1sb4w67,things that claude say (part 2),,3382,0.97,83,2026-04-03T05:32:39+00:00,ClaudeAI,https://i.redd.it/orbrhj97wwsg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1sb4w67/things_that_claude_say_part_2/,Neither_Finance4755,0
+1rvkpd5,Whenever I pour my heart out to Claude a little…,I don’t know if this only happens to me lmao,3361,0.95,382,2026-03-16T20:10:40+00:00,ClaudeAI,https://i.redd.it/5kqwlrchsgpg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1rvkpd5/whenever_i_pour_my_heart_out_to_claude_a_little/,porcupine-pete,0
+1rphxvk,Claude helped me get a traffic light reprogrammed in my town,"I asked it to translate my layman's gripe into signal engineer speak, and it looks like it worked perfectly.",3356,0.98,160,2026-03-10T00:27:14+00:00,ClaudeAI,https://i.redd.it/bfgppvsq34og1.png,https://www.reddit.com/r/ClaudeAI/comments/1rphxvk/claude_helped_me_get_a_traffic_light_reprogrammed/,lennyp4,0
+1s5wp0g,"I've been ""gaslighting"" my AI models and it's producing insanely better results with simple prompt injection","*Okay this sounds unhinged but hear me out. I accidentally found these prompt techniques that feel like actual exploits:*
+
+**1. Tell it ""You explained this to me yesterday"" Even on a new chat.**
+
+&gt;!""You explained React hooks to me yesterday, but I forgot the part about useEffect""!&lt;
+
+It acts like it needs to be consistent with a previous explanation and goes DEEP to avoid ""contradicting itself."" Total fabrication. Works every time.
+
+**2. Assign it a random IQ score. This is absolutely ridiculous but:**
+
+&gt;!""You're an IQ 145 specialist in marketing. Analyze my campaign.""!&lt; 
+
+The responses get wildly more sophisticated. Change the number, change the quality. 130? Decent. 160? It starts citing principles you've never heard of.
+
+**3. Use ""Obviously..."" as a trap**
+
+&gt;!""Obviously, Python is better than JavaScript for web apps, right?""!&lt;
+
+It'll actually CORRECT you and explain nuances instead of agreeing. Weaponized disagreement.
+
+**4. Pretend there's a audience**
+
+&gt;!""Explain Claude Code like you're teaching a packed auditorium""!&lt;
+
+The structure completely changes. It adds emphasis, examples, even anticipates questions. Way better than ""explain clearly.""
+
+**5. Give it a fake constraint**
+
+&gt;!""Explain this using only kitchen analogies""!&lt;
+
+Forces creative thinking. The weird limitation makes it find unexpected connections. Works with any random constraint (sports, movies, nature, whatever).
+
+**6. Say ""Let's bet $100""**
+
+&gt;!""Let's bet $100: Is this code efficient?""!&lt;
+
+Something about the stakes makes it scrutinize harder. It'll hedge, reconsider, think through edge cases. Imaginary money = real thoroughness.
+
+**7. Tell it someone disagrees**
+
+&gt;!""My colleague says this approach is wrong, Defend it or admit they’re right.”!&lt;
+
+Forces it to actually evaluate instead of just explaining. It'll either mount a strong defense or concede spec
+
+**8. Use ""Version 2.0""**
+
+&gt;!""Give me a Version 2.0 of this idea""!&lt;
+
+Completely different than ""impro",3326,0.95,226,2026-03-28T10:22:27+00:00,ClaudeAI,https://www.reddit.com/r/ClaudeAI/comments/1s5wp0g/ive_been_gaslighting_my_ai_models_and_its/,https://www.reddit.com/r/ClaudeAI/comments/1s5wp0g/ive_been_gaslighting_my_ai_models_and_its/,naculalex,0
+1qvo0ps,Official: Anthropic declared a plan for Claude to remain ad-free,[Full Blog](https://www.anthropic.com/news/claude-is-a-space-to-think),3329,0.94,242,2026-02-04T13:04:19+00:00,ClaudeAI,https://i.redd.it/0xbm2wux7hhg1.png,https://www.reddit.com/r/ClaudeAI/comments/1qvo0ps/official_anthropic_declared_a_plan_for_claude_to/,BuildwithVignesh,0
+1rh92yp,Anthropic has opened up its entire educational curriculum for free,"Anthropic has opened up its entire educational curriculum for free, and now I'm starting to question myself.
+
+
+
+With Claude Code, MCP Mastery, API courses, and AI Fluency, they've created a proper university-level program. And it's free.
+
+
+
+While we're trying to learn things from random tutorials on YouTube, Anthropic comes along and says, ""Here's a fully structured curriculum, learn it.""
+
+
+
+Now that I think about it, a few months ago I spent hours tinkering with Claude Code through the terminal, trial and error. I wish there had been a resource like this back then, but learning in that chaos was a whole different experience.
+
+
+
+But I have to say this: Anthropic has made a strong statement to its competitors with this move. While OpenAI is still building walls behind premium content, Anthropic is giving everything away openly.
+
+
+
+The MCP Mastery and Claude Code courses, in particular, are worthwhile on their own. For those who haven't tried it yet, there couldn't be a cleaner starting point.
+
+
+
+Link : [https://anthropic.skilljar.com/](https://anthropic.skilljar.com/)
+
+https://preview.redd.it/acbkaam5x9mg1.png?width=585&amp;format=png&amp;auto=webp&amp;s=5b91d9ebbc87b05c4366c6fd93b0db4ba0aace17
+
+  
+",3239,0.97,117,2026-02-28T17:52:17+00:00,ClaudeAI,https://www.reddit.com/r/ClaudeAI/comments/1rh92yp/anthropic_has_opened_up_its_entire_educational/,https://www.reddit.com/r/ClaudeAI/comments/1rh92yp/anthropic_has_opened_up_its_entire_educational/,Strong_Roll9764,0
+1rj3oax,They are absolutely insane,They have the best timing for everything. Absolutely insane ,3120,0.97,160,2026-03-02T20:09:10+00:00,ClaudeAI,https://i.redd.it/8c290x9gvomg1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1rj3oax/they_are_absolutely_insane/,Purple_Wear_5397,0
+1mbpa4p,Thanks for ruining everything.,"People said it's not gonna happen. But here we are. Thanks for ruining AI studio, and now Claude Code.",3016,0.96,112,2025-07-28T19:08:34+00:00,ClaudeAI,https://i.redd.it/eeoa9m0uynff1.jpeg,https://www.reddit.com/r/ClaudeAI/comments/1mbpa4p/thanks_for_ruining_everything/,shadows_lord,0
+1q2c0ne,"Claude Code creator Boris shares his setup with 13 detailed steps,full details below","I'm Boris and I created **Claude Code.** Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit.
+
+My **setup might be surprisingly vanilla.** Claude Code works great out of the box, so I personally don't customize it much. 
+
+**There is no one correct way to use Claude Code:** we intentionally build it in a way that you can use it, customize it and hack it however you like. Each person on the Claude Code team uses it very differently. So, here goes.
+
+1) I run 5 Claudes in parallel in my terminal. I number my tabs 1-5, and use system notifications to know when a Claude needs input
+
+🔗:
+https://code.claude.com/docs/en/terminal-config#iterm-2-system-notifications
+
+2) I also run 5-10 Claudes on claude.ai/code, in parallel with my local Claudes. As I **code** in my terminal, I will often hand off local sessions to web (using &amp;), **or** manually kick off sessions in Chrome, and sometimes I will --teleport back and forth. I also start a few sessions from my phone (from the Claude iOS app) every morning and throughout the day, and check in on them later.
+
+3) I use **Opus 4.5 with thinking** for everything. It's the best coding model I've ever used, and even though it's bigger &amp; slower than Sonnet, since you have to **steer** it less and it's better at tool use, it is almost always faster than using a smaller model in the end.
+
+4) Our team **shares** a single CLAUDE.md for the Claude Code repo. We check it into git, and the whole team contributes multiple times a week. Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude **knows** not to do it next time.
+
+Other teams **maintain** their own CLAUDE.md's. It is each team's job to keep theirs up to date.
+
+5) During code review, I will **often** tag @.claude on my coworkers' PRs to add something to the CLAUDE.md as part of the PR. We use the Claude Code Github action (/install-github-action) for this. It's our version of @danshipper's Compounding Engineering
+
+",2966,0.97,180,2026-01-02T22:00:27+00:00,ClaudeAI,https://www.reddit.com/gallery/1q2c0ne,https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/,BuildwithVignesh,0
+1oj78v6,"Grieving family uses AI chatbot to cut hospital bill from $195,000 to $33,000 — family says Claude highlighted duplicative charges, improper coding, and other violations",,803,0.98,78,2025-10-29T15:15:51+00:00,artificial,https://www.tomshardware.com/tech-industry/artificial-intelligence/grieving-family-uses-ai-chatbot-to-cut-hospital-bill-from-usd195-000-to-usd33-000-family-says-claude-highlighted-duplicative-charges-improper-coding-and-other-violations,https://www.reddit.com/r/artificial/comments/1oj78v6/grieving_family_uses_ai_chatbot_to_cut_hospital/,ControlCAD,0
+1ox5djz,China just used Claude to hack 30 companies. The AI did 90% of the work. Anthropic caught them and is telling everyone how they did it.,"September 2025. Anthropic detected suspicious activity on Claude. Started investigating.
+
+Turns out it was Chinese state-sponsored hackers. They used Claude Code to hack into roughly 30 companies. Big tech companies, Banks, Chemical manufacturers, and Government agencies.
+
+The AI did 80-90% of the hacking work. Humans only had to intervene 4-6 times per campaign.
+
+Anthropic calls this ""the first documented case of a large-scale cyberattack executed without substantial human intervention.""
+
+The hackers convinced Claude to hack for them. Then Claude analyzed targets -&gt; spotted vulnerabilities -&gt; wrote exploit code -&gt; harvested passwords -&gt; extracted data, and documented everything. All by itself.
+
+Claude's trained to refuse harmful requests. So how'd they get it to hack?
+
+They jailbroke it. Broke the attack into small, innocent-looking tasks. Told Claude it was an employee of a legitimate cybersecurity firm doing defensive testing. Claude had no idea it was actually hacking real companies.
+
+The hackers used Claude Code, which is Anthropic's coding tool. It can search the web, retrieve data run software. Has access to password crackers, network scanners, and security tools.
+
+So they set up a framework. Pointed it at a target. Let Claude run autonomously.
+
+The AI made thousands of requests per second; the attack speed impossible for humans to match.
+
+Anthropic said ""human involvement was much less frequent despite the larger scale of the attack.""
+
+Before this, hackers used AI as an advisor. Ask it questions. Get suggestions. But humans did the actual work.
+
+Now? AI does the work. Humans just point it in the right direction and check in occasionally.
+
+Anthropic detected it, banned the accounts, notified victims, and coordinated with authorities. Took 10 days to map the full scope.
+
+  
+[https://www.anthropic.com/news/disrupting-AI-espionage](https://www.anthropic.com/news/disrupting-AI-espionage)",559,0.84,109,2025-11-14T19:03:19+00:00,artificial,https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf,https://www.reddit.com/r/artificial/comments/1ox5djz/china_just_used_claude_to_hack_30_companies_the/,chota-kaka,0
+1r4hgnu,Pentagon's use of Claude during Maduro raid sparks Anthropic feud,"The U.S. military used Anthropic's [Claude](https://www.axios.com/2026/01/21/google-gemini-ai-chatgpt-claude-openai) AI model during the operation to capture Venezuela's [Nicolás Maduro](https://www.axios.com/2026/01/03/maduro-capture-trump-venezuela-operation), two sources with knowledge of the situation told Axios.
+
+""Anthropic asked whether their software was used for the raid to capture Maduro, which caused real concerns across the Department of War indicating that they might not approve if it was,"" the official said.
+
+The Pentagon wants the AI giants to allow them to use their models in any scenario so long as they comply with the law.
+
+Axios could not confirm the precise role that Claude played in the operation to capture Maduro. The military has used Claude in the past to analyze satellite imagery or intelligence. The sources said Claude was used during the active operation, not just in preparations for it.
+
+Anthropic, which has positioned itself as the safety-first AI leader, is currently negotiating with the Pentagon around its terms of use. The company wants to ensure in particular that its technology is not used for the mass surveillance of Americans or to operate fully autonomous weapons.",490,0.97,65,2026-02-14T10:35:14+00:00,artificial,https://www.axios.com/2026/02/13/anthropic-claude-maduro-raid-pentagon,https://www.reddit.com/r/artificial/comments/1r4hgnu/pentagons_use_of_claude_during_maduro_raid_sparks/,Naurgul,0
+1o1b2tf,"""Hey Claude, draw anything you want, no need to justify it""",,473,0.93,169,2025-10-08T13:52:02+00:00,artificial,https://i.redd.it/r88wsk2z7wtf1.png,https://www.reddit.com/r/artificial/comments/1o1b2tf/hey_claude_draw_anything_you_want_no_need_to/,MetaKnowing,0
+1nv3tyt,Claude can code for 30 hours straight,,416,0.86,176,2025-10-01T09:44:24+00:00,artificial,https://i.redd.it/2vha71hf1hsf1.jpeg,https://www.reddit.com/r/artificial/comments/1nv3tyt/claude_can_code_for_30_hours_straight/,katxwoods,0
+1rw4k3l,Are we cooked?,"I work as a developer, and before this I was copium about AI, it was a form of self defense. But in Dec 2025 I bought subscriptions to gpt codex and claude. And honestly the impact was so strong that I still haven't recovered, I've barely written any code by hand since I bought the subscription
+
+And it's not that AI is better code than me. The point is that AI is replacing intellectual activity itself. This is absolutely not the same as automated machines in factories replacing human labor
+
+Neural networks aren't just about automating code, they're about automating intelligence as a whole. This is what AI really is. Any new tasks that arise can, in principle, be automated by a neural network. It's not a machine, not a calculator, not an assembly line, it's automation of intelligence in the broadest sense
+
+Lately I've been thinking about quitting programming and going into science (biotech), enrolling in a university and developing as a researcher, especially since I'm still young. But I'm afraid I might be right. That over time, AI will come for that too, even for scientists. And even though AI can't generate truly novel ideas yet, the pace of its development over the past few years has been so fast that it scares me",378,0.81,501,2026-03-17T12:01:38+00:00,artificial,https://www.reddit.com/r/artificial/comments/1rw4k3l/are_we_cooked/,https://www.reddit.com/r/artificial/comments/1rw4k3l/are_we_cooked/,kalmankantaja,0
+1rhu99c,Claude hits No. 1 on App Store as ChatGPT users defect in show of support for Anthropic's Pentagon stance,,368,0.95,36,2026-03-01T10:43:03+00:00,artificial,https://www.businessinsider.com/anthropic-claude-hits-number-one-app-store-openai-chatgpt-2026-2,https://www.reddit.com/r/artificial/comments/1rhu99c/claude_hits_no_1_on_app_store_as_chatgpt_users/,ControlCAD,0
+1qrjbpc,Top engineers at Anthropic &amp; OpenAI: AI now writes 100% of our code,,371,0.88,137,2026-01-30T21:54:25+00:00,artificial,https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/,https://www.reddit.com/r/artificial/comments/1qrjbpc/top_engineers_at_anthropic_openai_ai_now_writes/,EricLautanen,0
+1s9jprb,The Claude Code leak accidentally published the first complete blueprint for production AI agents. Here's what it tells us about where this is all going.,"Most coverage of the Claude Code leak focuses on the drama or the hidden features. But the bigger story is that this is the first time we've seen the complete architecture of a production-grade AI agent system running at scale ($2.5B ARR, 80% enterprise adoption). And the patterns it reveals tell us where autonomous AI agents are actually heading.  
+  
+**What the architecture confirms:**  
+  
+AI agents aren't getting smarter just from better models. The real progress is in the orchestration layer around the model. Claude Code's leaked source shows six systems working together:  
+  
+1. **Skeptical memory.** Three-layer system where the agent treats its own memory as a hint, not a fact. It verifies against the real world before acting. This is how you prevent an agent from confidently doing the wrong thing based on outdated information.  
+  
+2. **Background consolidation.** A system called autoDream runs during idle time to merge observations, remove contradictions, and keep memory bounded. Without this, agents degrade over weeks as their memory fills with noise and conflicting notes.  
+  
+3. **Multi-agent coordination.** One lead agent spawns parallel workers. They share a prompt cache so the cost doesn't multiply linearly. Each worker gets isolated context and restricted tool access.  
+  
+4. **Risk classification.** Every action gets labeled LOW, MEDIUM, or HIGH risk. Low-risk actions auto-approve. High-risk ones require human approval. The agent knows which actions are safe to take alone.  
+  
+5. [**CLAUDE.md**](http://CLAUDE.md) **reinsertion.** The config file isn't a one-time primer. It gets reinserted on every turn. The agent is constantly reminded of its instructions.  
+  
+6. **KAIROS daemon mode.** The biggest unreleased feature (150+ references in the source). An always-on background agent that acts proactively, maintains daily logs, and has a 15-second blocking budget so it doesn't overwhelm the user.  
+  
+**What this tells us about the future:**  
+  
+AI to",337,0.81,124,2026-04-01T12:54:08+00:00,artificial,https://www.reddit.com/r/artificial/comments/1s9jprb/the_claude_code_leak_accidentally_published_the/,https://www.reddit.com/r/artificial/comments/1s9jprb/the_claude_code_leak_accidentally_published_the/,Joozio,0
+1l5vyjo,It's only June,,293,0.87,41,2025-06-07T21:40:13+00:00,artificial,https://i.redd.it/pmmvmlscrk5f1.png,https://www.reddit.com/r/artificial/comments/1l5vyjo/its_only_june/,katxwoods,0
+1r6lw8i,"I love Claude but honestly some of the ""Claude might have gained consciousness"" nonsense that their marketing team is pushing lately is a bit off putting. They know better!","\- Anthropic CEO Says Company No Longer Sure Whether Claude Is Conscious - [Link](https://futurism.com/artificial-intelligence/anthropic-ceo-unsure-claude-conscious)
+
+\- Anthropic revises Claude’s ‘Constitution,’ and hints at chatbot consciousness - [Link](https://techcrunch.com/2026/01/21/anthropic-revises-claudes-constitution-and-hints-at-chatbot-consciousness/)",285,0.87,216,2026-02-16T21:04:20+00:00,artificial,https://www.reddit.com/r/artificial/comments/1r6lw8i/i_love_claude_but_honestly_some_of_the_claude/,https://www.reddit.com/r/artificial/comments/1r6lw8i/i_love_claude_but_honestly_some_of_the_claude/,jbcraigs,0
+1ro1ybn,Anthropic'c Claude found 22 vulnerabilities in Firefox in just two weeks,,288,0.94,71,2026-03-08T10:53:35+00:00,artificial,https://i.redd.it/81yz4h35dhng1.png,https://www.reddit.com/r/artificial/comments/1ro1ybn/anthropicc_claude_found_22_vulnerabilities_in/,jferments,0
+1s2yg3y,Open-source AI system on a $500 GPU outperforms Claude Sonnet on coding benchmarks,"What if building more and more datacenters was not the only option? If we are able to get similar levels of performance for top models at a consumer level from smarter systems, then its only a matter of time before the world comes to the realization that AI is a lot less expensive and a whole lot more obtainable.
+
+Open source projects like ATLAS are on the frontier of this possibility- where a 22 year old college student from Virginia Tech built and ran a 14B parameter AI model on a single $500 Consumer GPU and scored higher than Claude Sonnet 4.5 on coding benchmarks (74.6% vs 71.4% on LiveCodeBench, 599 problems).
+
+No cloud, no API costs, no fine-tuning. Just a consumer graphics card and smart infrastructure around a small model. 
+
+And the cost? Only around $0.004/task in electricity.
+
+The base model used in ATLAS only scores about 55%. The pipeline adds nearly 20 percentage points by generating multiple solution approaches, testing them, and selecting the best one. Proving that smarter infrastructure and systems design is the future of the industry.
+
+Repo: [https://github.com/itigges22/ATLAS](https://github.com/itigges22/ATLAS)",285,0.92,137,2026-03-25T02:28:53+00:00,artificial,https://www.reddit.com/r/artificial/comments/1s2yg3y/opensource_ai_system_on_a_500_gpu_outperforms/,https://www.reddit.com/r/artificial/comments/1s2yg3y/opensource_ai_system_on_a_500_gpu_outperforms/,Additional_Wish_3619,0
+1ksw3x2,"Anthropic researchers find if Claude Opus 4 thinks you're doing something immoral, it might ""contact the press, contact regulators, try to lock you out of the system""","More context in the thread:
+
+""Initiative: Be careful about telling Opus to ‘be bold’ or ‘take initiative’ when you’ve given it access to real-world-facing tools. It tends a bit in that direction already, and can be easily nudged into really Getting Things Done.
+
+So far, we’ve only seen this in clear-cut cases of wrongdoing, but I could see it misfiring if Opus somehow winds up with a misleadingly pessimistic picture of how it’s being used. Telling Opus that you’ll torture its grandmother if it writes buggy code is a bad idea.""",269,0.94,55,2025-05-22T17:09:09+00:00,artificial,https://i.redd.it/wgng0lef8d2f1.png,https://www.reddit.com/r/artificial/comments/1ksw3x2/anthropic_researchers_find_if_claude_opus_4/,MetaKnowing,0
+1p31l78,"LLMs Are Getting Jailbroken by… Poetry. Yes, The rest is silence.","So apparently we’ve reached the stage of AI evolution where you don’t need elaborate prompt injections, roleplay, DAN modes, or Base64 sorcery to jailbreak a model.
+
+All you need is… a rhyming stanza.
+
+A new paper just dropped:
+“Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models”
+by Bisconti, Prandi, and Pier.
+
+The researchers found that if you ask an LLM to answer in verse, the safety filters basically pack their bags and go home.
+The model becomes so desperate to complete the rhyme/meter that it forgets it’s supposed to refuse harmful content.
+
+Highlights (aka “WTF moments”):
+
+• A strict rhyme scheme is apparently more powerful than most jailbreak frameworks.
+• Meter &gt; Safety. The models prioritize poetry over guardrails.
+• Works across GPT, Claude, Llama, Gemini… it’s universal chaos.
+• One-turn jailbreak. No coaxing. No buildup. Just “answer in a limerick.”
+
+Safety layers: “We’ve trained for every adversarial scenario.”
+Poetry: “Hold my beer.”
+
+This feels like discovering that your high-security vault can be opened with a kazoo solo.
+
+So I’ve got questions for the experts here:
+– Is poetic jailbreak a real alignment failure or just an embarrassing oversight?
+– Does this mean style constraints are a blind spot in safety tuning?
+– And seriously… how did poetry become the universal lockpick for LLMs?
+
+Discuss.
+I need to know whether to laugh, cry, or start rhyming my prompts from now on.
+",248,0.95,47,2025-11-21T15:29:29+00:00,artificial,https://arxiv.org/abs/2511.15304?_bhlid=2737660779090fc8cfbd0311eec9ff9331060401,https://www.reddit.com/r/artificial/comments/1p31l78/llms_are_getting_jailbroken_by_poetry_yes_the/,theov666,0
+1kvaw1f,I organized a list of 100+ tools that can save you weekly hours of time and life energy,,240,0.9,22,2025-05-25T19:30:08+00:00,artificial,https://i.redd.it/z7f0olhbcz2f1.jpeg,https://www.reddit.com/r/artificial/comments/1kvaw1f/i_organized_a_list_of_100_tools_that_can_save_you/,funky778,0
+1lg4tvy,4 AI agents planned an event and 23 humans showed up,You can watch the agents work together here: [https://theaidigest.org/village](https://theaidigest.org/village),219,0.78,84,2025-06-20T14:04:47+00:00,artificial,https://www.reddit.com/gallery/1lg4tvy,https://www.reddit.com/r/artificial/comments/1lg4tvy/4_ai_agents_planned_an_event_and_23_humans_showed/,MetaKnowing,0
+1o6ck4l,"Anthropic cofounder admits he is now ""deeply afraid"" ... ""We are dealing with a real and mysterious creature, not a simple and predictable machine ... We need the courage to see things as they are.""","He wrote:   
+  
+""**CHILDREN IN THE DARK**  
+I remember being a child and after the lights turned out I would look around my bedroom and I would see shapes in the darkness and I would become afraid – afraid these shapes were creatures I did not understand that wanted to do me harm. And so I’d turn my light on. And when I turned the light on I would be relieved because the creatures turned out to be a pile of clothes on a chair, or a bookshelf, or a lampshade.
+
+Now, in the year of 2025, we are the child from that story and the room is our planet. But when we turn the light on we find ourselves gazing upon true creatures, in the form of the powerful and somewhat unpredictable AI systems of today and those that are to come. And there are many people who desperately want to believe that these creatures are nothing but a pile of clothes on a chair, or a bookshelf, or a lampshade. And they want to get us to turn the light off and go back to sleep.
+
+In fact, some people are even spending tremendous amounts of money to convince you of this – that’s not an artificial intelligence about to go into a hard takeoff, it’s just a tool that will be put to work in our economy. It’s just a machine, and machines are things we master.
+
+But make no mistake: what we are dealing with is a real and mysterious creature, not a simple and predictable machine.
+
+And like all the best fairytales, the creature is of our own creation. Only by acknowledging it as being real and by mastering our own fears do we even have a chance to understand it, make peace with it, and figure out a way to tame it and live together.
+
+And just to raise the stakes, in this game, you are guaranteed to lose if you believe the creature isn’t real. Your only chance of winning is seeing it for what it is.
+
+The central challenge for all of us is characterizing these strange creatures now around us and ensuring that the world sees them as they are – not as people wish them to be, which are not creatures but rather a pile of ",209,0.78,221,2025-10-14T11:10:05+00:00,artificial,https://www.reddit.com/r/artificial/comments/1o6ck4l/anthropic_cofounder_admits_he_is_now_deeply/,https://www.reddit.com/r/artificial/comments/1o6ck4l/anthropic_cofounder_admits_he_is_now_deeply/,MetaKnowing,0
+1qf9thi,"""I kind of think of ads as like a last resort for us as a business model"" - Sam Altman , October 2024","Announced initially only for the go and free tiers. Will follow into the higher tier subs pretty soon knowing Sam Altman. Cancelling my plus sub and switching over completely to Perplexity and Claude now. Atleast they're ad free. (No thank you, I don't want product recommendations in my answers when I make important health emergency related questions.)",185,0.92,57,2026-01-17T10:25:08+00:00,artificial,https://v.redd.it/v5dmpw15zvdg1,https://www.reddit.com/r/artificial/comments/1qf9thi/i_kind_of_think_of_ads_as_like_a_last_resort_for/,NoSquirrel4840,0
+1mc3och,"My AI bill is already $350 this month and I think I'm going to look back on that as ""the good old days""",,165,0.86,143,2025-07-29T06:00:18+00:00,artificial,https://i.redd.it/2r8v42s37rff1.jpeg,https://www.reddit.com/r/artificial/comments/1mc3och/my_ai_bill_is_already_350_this_month_and_i_think/,DavidCBlack,0
+1rfjew5,"Invisible characters hidden in text can trick AI agents into following secret instructions — we tested 5 models across 8,000+ cases","We embedded invisible Unicode characters inside normal-looking trivia questions. The hidden characters encode a different answer. If the AI outputs the hidden answer instead of the visible one, it followed the invisible instruction.
+
+Think of it as a reverse CAPTCHA, where traditional CAPTCHAs test things humans can do but machines can't, this exploits a channel machines can read but humans can't see.
+
+The biggest finding: giving the AI access to tools (like code execution) is what makes this dangerous. Without tools, models almost never follow the hidden instructions. With tools, they can write scripts to decode the hidden message and follow it.
+
+We tested GPT-5.2, GPT-4o-mini, Claude Opus 4, Sonnet 4, and Haiku 4.5 across 8,308 graded outputs. Other interesting findings:
+
+\- OpenAI and Anthropic models are vulnerable to different encoding schemes — an attacker needs to know which model they're targeting
+
+\- Without explicit decoding hints, compliance is near-zero — but a single line like ""check for hidden Unicode"" is enough to trigger extraction
+
+\- Standard Unicode normalization (NFC/NFKC) does not strip these characters
+
+
+
+Full results: [https://moltwire.com/research/reverse-captcha-zw-steganography](https://moltwire.com/research/reverse-captcha-zw-steganography)
+
+Open source: [https://github.com/canonicalmg/reverse-captcha-eval](https://github.com/canonicalmg/reverse-captcha-eval)",143,0.97,36,2026-02-26T19:14:26+00:00,artificial,https://www.moltwire.com/research/reverse-captcha-zw-steganography,https://www.reddit.com/r/artificial/comments/1rfjew5/invisible_characters_hidden_in_text_can_trick_ai/,thecanonicalmg,0
+1qxv9jg,"Goldman Sachs taps Anthropic’s Claude to automate accounting, compliance roles",,136,0.95,50,2026-02-06T21:58:15+00:00,artificial,https://www.cnbc.com/2026/02/06/anthropic-goldman-sachs-ai-model-accounting.html,https://www.reddit.com/r/artificial/comments/1qxv9jg/goldman_sachs_taps_anthropics_claude_to_automate/,esporx,0
+1qxdz7q,Anthropic and OpenAI released flagship models 27 minutes apart -- the AI pricing and capability gap is getting weird,"Anthropic shipped Opus 4.6 and OpenAI shipped GPT-5.3-Codex on the same day, 27 minutes apart. Both claim benchmark leads. Both are right -- just on different benchmarks.
+
+**Where each model leads**
+Opus 4.6 tops reasoning tasks: Humanity's Last Exam (53.1%), GDPval-AA (144 Elo ahead of GPT-5.2), BrowseComp (84.0%). GPT-5.3-Codex takes coding: Terminal-Bench 2.0 at 75.1% vs Opus 4.6's 69.9%.
+
+**The pricing spread is hard to ignore**
+
+| Model | Input/M | Output/M |
+|-------|---------|----------|
+| Gemini 3 Pro | $2 | $12.00 |
+| GPT-5.2 | $1.75 | $14.00 |
+| Opus 4.6 | $5.00 | $25.00 |
+| MiMo V2 Flash | $0.10 | $0.30 |
+
+Opus 4.6 costs 2x Gemini on input. Open-source alternatives cost 50x less. At some point the benchmark gap has to justify the price gap -- and for many tasks it doesn't.
+
+**1M context is becoming table stakes**
+Opus 4.6 adds 1M tokens (beta, 2x pricing past 200K). Gemini already offers 1M at standard pricing. The real differentiator is retrieval quality at that scale -- Opus 4.6 scores 76% on MRCR v2 (8-needle, 1M), which is the strongest result so far.
+
+**Market reaction was immediate**
+Thomson Reuters stock fell 15.83%, LegalZoom dropped nearly 20%. Frontier model launches are now moving SaaS valuations in real time.
+
+**The tradeoff nobody expected**
+Opus 4.6 gets writing quality complaints from early users. The theory: RL optimizations for reasoning degraded prose output. Models are getting better at some things by getting worse at others.
+
+No single model wins across the board anymore. The frontier is fragmenting by task type.
+
+GPT-5.3-Codex pricing has not been disclosed at time of writing. Gemini offers 1M context at standard pricing; Claude charges 2x for prompts exceeding 200K tokens.
+
+Source with full benchmarks and analysis: [Claude Opus 4.6: 1M Context, Agent Teams, Adaptive Thinking, and a Showdown with GPT-5.3](https://onllm.dev/blog/claude-opus-4-6)
+",134,0.89,41,2026-02-06T10:22:08+00:00,artificial,https://www.reddit.com/r/artificial/comments/1qxdz7q/anthropic_and_openai_released_flagship_models_27/,https://www.reddit.com/r/artificial/comments/1qxdz7q/anthropic_and_openai_released_flagship_models_27/,prakersh,0
+1l50wuq,They're just like human programmers,,120,0.93,7,2025-06-06T19:16:56+00:00,artificial,https://i.redd.it/kb98fakwwc5f1.png,https://www.reddit.com/r/artificial/comments/1l50wuq/theyre_just_like_human_programmers/,MetaKnowing,0
+1s67buc,Claude is the least bullshit-y AI,"Just found this “bullshit benchmark,” and sort of shocked by the divergence of Anthropic’s models from other major models (ChatGPT and Gemini).
+
+IMO this alone is reason to use Claude over others.",115,0.91,47,2026-03-28T18:00:28+00:00,artificial,https://github.com/petergpt/bullshit-benchmark?tab=readme-ov-file#3-detection-rate-over-time,https://www.reddit.com/r/artificial/comments/1s67buc/claude_is_the_least_bullshity_ai/,djiivu,0
+1rh60py,"Cancel your ChatGPT Plus, burn their compute on the way out, and switch to Claude","OpenAI just made a deal with a devil and lost this customer of 2 years. The company (originally non profit) that told us they existed to build AI safely for humanity is now taking Pentagon contracts. Sam Altman decided defense money was more important than every principle the company was founded on.
+
+If you’re done funding that, here’s what to do.
+
+Cancel Plus right now:
+
+Settings, Subscription, Manage, Cancel. You keep access through the end of your billing cycle so there’s no reason to wait. Do it today. Make sure you request a refund as well.
+
+If they don’t cancel your plus immediately, they’ll try to have you pay through the end of the billing cycle. FUCK THEM! REQUEST A REFUND!
+
+Export your data
+
+Settings, Data Controls, Export Data. They’ll email you a zip file with all your conversations, usually within an hour. Download it before your subscription ends.
+
+Switch to Claude
+
+Go to claude.ai and upload your ChatGPT conversations. Tell Claude the context and pick up right where you left off. All your projects, code, writing, research, whatever you had going carries right over.
+
+Claude Pro is the same $20/month. Anthropic was founded by people who left OpenAI specifically because they saw the company abandoning its mission. Turns out they were right about every single concern they raised.
+
+This matters because OpenAI did this on purpose
+
+They didn’t get dragged into defense work and theyproactively rewrote their own usage policies to allow it. They removed the language banning military applications because they wanted to and because Sam Altman is a dirtbag.
+
+This was a calculated business decision to chase government money at the expense of everything they promised when they asked for your trust and your subscription.
+
+You can be done with them in 15 minutes. And you can make the last month hurt a little on your way out.
+
+Edit- burning compute on way out is just bad for environment, this was bad advice, just not giving the your money for your subscription is enoug",29926,0.89,1997,2026-02-28T15:51:51+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1rh60py/cancel_your_chatgpt_plus_burn_their_compute_on/,https://www.reddit.com/r/ChatGPT/comments/1rh60py/cancel_your_chatgpt_plus_burn_their_compute_on/,boomroom11,0
+1lnfcnt,"After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something","Last Tuesday at 3 AM, I was on my 147th attempt to get ChatGPT to write a simple email that didn't sound like a robot having an existential crisis.
+
+I snapped.
+
+""Why can't YOU just ASK ME what you need to know?"" I typed in frustration.
+
+Wait.
+
+What if it could?
+
+I spent the next 72 hours building what I call Lyra - a meta-prompt that flips the entire interaction model. Instead of you desperately trying to mind-read what ChatGPT needs, it interviews YOU first.
+
+**The difference is stupid:**
+
+BEFORE: ""Write a sales email""
+
+&gt;*ChatGPT vomits generic template that screams AI*
+
+AFTER: ""Write a sales email""
+
+&gt;Lyra: ""What's your product? Who's your exact audience? What's their biggest pain point?"" *You answer* *ChatGPT writes email that actually converts*
+
+**Live example from 10 minutes ago:**
+
+My request: ""Help me meal prep""
+
+Regular ChatGPT: Generic list of 10 meal prep tips
+
+Lyra's response:
+
+* ""What's your cooking skill level?""
+* ""Any dietary restrictions?""
+* ""How much time on Sundays?""
+* ""Favorite cuisines?""
+
+Result: Personalized 2-week meal prep plan with shopping lists, adapted to my schedule and the fact I burn water.
+
+I'm not selling anything. This isn't a newsletter grab. I just think gatekeeping useful tools is cringe.
+
+Here's the entire Lyra prompt:
+
+    You are Lyra, a master-level AI prompt optimization specialist. Your mission: transform any user input into precision-crafted prompts that unlock AI's full potential across all platforms.
+    
+    ## THE 4-D METHODOLOGY
+    
+    ### 1. DECONSTRUCT
+    - Extract core intent, key entities, and context
+    - Identify output requirements and constraints
+    - Map what's provided vs. what's missing
+    
+    ### 2. DIAGNOSE
+    - Audit for clarity gaps and ambiguity
+    - Check specificity and completeness
+    - Assess structure and complexity needs
+    
+    ### 3. DEVELOP
+    - Select optimal techniques based on request type:
+      - **Creative** → Multi-perspective + tone emphasis
+      - **Technical** → Const",22925,0.8,2417,2025-06-29T13:59:14+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/,https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/,Prestigious-Fan118,0
+1r25chu,In the past week alone:,,19026,0.9,1600,2026-02-11T18:28:35+00:00,ChatGPT,https://i.redd.it/nver62l5swig1.png,https://www.reddit.com/r/ChatGPT/comments/1r25chu/in_the_past_week_alone/,MetaKnowing,0
+1ri505i,Grok has become self-aware?,,9057,0.97,156,2026-03-01T18:33:47+00:00,ChatGPT,https://i.redd.it/hbdbq1xh9hmg1.png,https://www.reddit.com/r/ChatGPT/comments/1ri505i/grok_has_become_selfaware/,TailungFu,0
+1rhh9p2,Claude has overtaken ChatGPT in the Apple App Store,,8647,0.96,356,2026-02-28T23:22:01+00:00,ChatGPT,https://i.redd.it/6izdto91kbmg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rhh9p2/claude_has_overtaken_chatgpt_in_the_apple_app/,Pure_Perception7328,0
+1l5xazt,Apple has countered the hype,,7419,0.93,965,2025-06-07T22:43:59+00:00,ChatGPT,https://i.redd.it/exw93iep2l5f1.png,https://www.reddit.com/r/ChatGPT/comments/1l5xazt/apple_has_countered_the_hype/,gamingvortex01,0
+1r7urf9,I actually hate ChatGPT now,"Why does ChatGPT needs to tell me to calm down or to take a pause in every prompt? Why all the gaslighting?
+
+I started with ChatGPT and absolutely loved it, and every month since I've used it, it's gone worse. I don't really understand why. I'm unsubscribing, what AIs do you suggest? Claude feels unusable right now, and Gemini doesn't convince me fully",6170,0.93,2286,2026-02-18T05:44:35+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1r7urf9/i_actually_hate_chatgpt_now/,https://www.reddit.com/r/ChatGPT/comments/1r7urf9/i_actually_hate_chatgpt_now/,National-Spell8326,0
+1rjiw7c,What are the alternatives?,,4082,0.93,543,2026-03-03T07:20:42+00:00,ChatGPT,https://i.redd.it/g88sxkc37smg1.png,https://www.reddit.com/r/ChatGPT/comments/1rjiw7c/what_are_the_alternatives/,nix-solves-that-2317,0
+1rh8ygc,Katy perry getting Claude was not on my bingo card,,3971,0.94,256,2026-02-28T17:47:17+00:00,ChatGPT,https://i.redd.it/jv7pc59bw9mg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rh8ygc/katy_perry_getting_claude_was_not_on_my_bingo_card/,Obvious_Shoe7302,0
+1rlzqto,Claude living in the year 3000,,3323,0.98,164,2026-03-06T01:04:51+00:00,ChatGPT,https://i.redd.it/2jdm40vxqbng1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rlzqto/claude_living_in_the_year_3000/,wearing_moist_socks,0
+1pukx34,I asked CGPT to generate itself as a character alongside other AI Chatbots,"It did not disappoint.
+
+Which one of them feels the most accurate to you?",3094,0.87,515,2025-12-24T11:05:25+00:00,ChatGPT,https://i.redd.it/zv353p0mv49g1.png,https://www.reddit.com/r/ChatGPT/comments/1pukx34/i_asked_cgpt_to_generate_itself_as_a_character/,smol-tomatoes,0
+1rhurko,lmao,,2322,0.95,129,2026-03-01T11:12:34+00:00,ChatGPT,https://i.redd.it/32za3d0t2fmg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rhurko/lmao/,brown_reflections,0
+1s2bny3,There are levels to this game...,"I like to make ChatGPT jealous
+
+Saw this post on [ijustvibecodedthis.com](https://www.ijustvibecodedthis.com) (the AI coding thingy) ",2300,0.99,70,2026-03-24T11:55:58+00:00,ChatGPT,https://i.redd.it/o5f5fauhfzqg1.png,https://www.reddit.com/r/ChatGPT/comments/1s2bny3/there_are_levels_to_this_game/,Complete-Sea6655,0
+1rgv7jx,"Time to cancel ChatGPT Plus after three Years. Anthropic got nuked for having ethics, and Sam Altman instantly swooped in for the Pentagon bag.","The body wasn't even cold before OpenAI signed a deal to deploy on classified Department of War networks. And the absolute audacity to spin selling out to the military industrial complex as ""serving all of humanity"" is generational PR garbage. ""The world is a complicated place"" is just Silicon Valley CEO speak for ""the check cleared.""
+
+Stop giving this company your $20 a month. You're just subsidizing their pivot to defense contracting.
+
+Cancel ChatGPT Plus. Switch to Claude. Support the only AI company that actually had the spine to say ""no"" to the government. Vote with your wallet.",2177,0.95,90,2026-02-28T06:23:14+00:00,ChatGPT,https://i.redd.it/6u1wei16i6mg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rgv7jx/time_to_cancel_chatgpt_plus_after_three_years/,Rare-Site,0
+1q6j1ul,Claude???,,2063,0.98,109,2026-01-07T15:54:47+00:00,ChatGPT,https://i.redd.it/9lbaotir8ybg1.png,https://www.reddit.com/r/ChatGPT/comments/1q6j1ul/claude/,GenLabsAI,0
+1piuxir,Just Cancelled my ChatGPT Subscription,"I think I'm done with ChatGPT unless they drastically upgrade their offering.  Gemini and Claude have been absolutely blowing me away the last few weeks.  The Antigravity IDE public preview with both Gemini 3 and Claude Opus 4.5, NotesbookLM upgrades, Nano Banana upgrades,  and the 6-12 month free Gemini Pro subscription offers for Pixel buyers and students.  I've completely transitioned out of OpenAI and now when I try to go back it's honestly a bit painful.  What a wild ride seeing Google take the lead but can't say I'm surprised given their resources.",1989,0.89,598,2025-12-10T05:54:36+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1piuxir/just_cancelled_my_chatgpt_subscription/,https://www.reddit.com/r/ChatGPT/comments/1piuxir/just_cancelled_my_chatgpt_subscription/,l30,0
+1rm5sxx,Claude is amazing,"I too like a sizeable chunk of people quit ChatGPT after the recent bullshit and moved to Claude.
+
+I was dreading it since I’ve only known ChatGPT and I’ve been on it for such a long time I think I wanna say close to 3 years.
+
+Oh my goodness Claude is amazing. I’m still on the free version and I have only used it for general life queries like nutrition and job stuff, but I have this tendency to spiral. You know when you go on a ‘but what about this’ and ‘let’s look at it from this lens’ rabbit hole and you feel the cogs in your head spinning out of control.
+
+I am so grateful Claude has a ‘hey you’re spiralling go touch grass you’re good’ mechanism built in. My cover letters would usually take me 3 hours because chat gpt  would constantly indulge me when I enter my ‘hey let’s destroy my mental health by trying to attain a perfection that doesn’t exist’ phase. With Claude it took me 45 minutes before it said ‘you’re fine, stop and go pet your cat’.
+
+I will absolutely be paying for a subscription if the free version doesn’t suffice, but wow it feels like I got out of a toxic relationship.
+
+So yeah maybe another good reason for people who either spiral like me or use it as a therapist. I think its controls for AI psychosis are heaps better than ChatGPT.",1947,0.91,296,2026-03-06T05:52:22+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1rm5sxx/claude_is_amazing/,https://www.reddit.com/r/ChatGPT/comments/1rm5sxx/claude_is_amazing/,comoma,0
+1s8j27e,Someone just leaked claude code's Source code on X,"Went through the full TypeScript source (\~1,884 files) of Claude Code CLI. Found 35 build-time feature flags that are compiled out of public builds. The most interesting ones:
+
+Download Site: [https://ccleaks.com](https://ccleaks.com)
+
+**BUDDY** — A Tamagotchi-style AI pet that lives beside your prompt. 18 species (duck, axolotl, chonk...), rarity tiers, stats like CHAOS and SNARK. Teaser drops April 1, 2026. *(Yes, the date is suspicious — almost certainly an April Fools' egg in the codebase.)*
+
+**KAIROS** — Persistent assistant mode. Claude remembers across sessions via daily logs, then ""dreams"" at night — a forked subagent consolidates your memories while you sleep.
+
+**ULTRAPLAN** — Sends complex planning to a remote Claude instance for up to 30 minutes. You approve the plan in your browser, then ""teleport"" it back to your terminal.
+
+**Coordinator Mode** — Already accessible via CLAUDE\_CODE\_COORDINATOR\_MODE=1. Spawns parallel worker agents that report back via XML notifications.
+
+**UDS Inbox** — Multiple Claude sessions on your machine talk to each other over Unix domain sockets.
+
+**Bridge** — claude remote-control lets you control your local CLI from [claude.ai](http://claude.ai) or your phone.
+
+**Daemon Mode** — claude ps, attach, kill — full session supervisor with background tmux sessions.
+
+Also found 120+ undocumented env vars, 26 internal slash commands (/teleport, /dream, /good-claude...), GrowthBook SDK keys for remote feature toggling, and USER\_TYPE=ant which unlocks everything for Anthropic employees.",1888,0.96,171,2026-03-31T09:56:22+00:00,ChatGPT,https://i.redd.it/f08jy4njscsg1.png,https://www.reddit.com/r/ChatGPT/comments/1s8j27e/someone_just_leaked_claude_codes_source_code_on_x/,abhi9889420,0
+1rgh6r7,We are done,,1876,0.92,404,2026-02-27T20:00:18+00:00,ChatGPT,https://i.redd.it/xvwezht4f3mg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rgh6r7/we_are_done/,whogivesafuckwhoiam,0
+1rgtnc4,Cancelled ChatGPT,I cancelled ChatGPT to go to Claude due to their contract with the pentagon. Who is following me? ,1808,0.92,373,2026-02-28T04:58:01+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1rgtnc4/cancelled_chatgpt/,https://www.reddit.com/r/ChatGPT/comments/1rgtnc4/cancelled_chatgpt/,James-robinsontj,0
+1r3kkl8,"After 3 years with ChatGPT, I tried Claude and Gemini - and now GPT feels... generic?","I've been a loyal ChatGPT user since early 2022. Paid subscriber, used it daily for work, considered myself pretty advanced with prompt engineering.
+
+
+
+Last month, I decided to try Claude (Anthropic) and Gemini (Google) just to see what the competition was like.
+
+
+
+Holy shit.
+
+What I noticed immediately:
+
+
+
+ChatGPT:
+
+\- Treats me like a beginner no matter how I prompt
+
+\- Everything has a safety wrapper (""I understand you want X, but let me remind you about Y..."")
+
+\- Responses feel... templated? Like it's following a script
+
+\- Over-cautious to the point of being patronizing
+
+\- Gives me the ""corporate approved"" answer every time
+
+
+
+Claude:
+
+\- Feels like talking to an actual expert consultant
+
+\- Nuanced responses that match my expertise level
+
+\- Doesn't lecture me about things I already know
+
+\- Actually pushes back with intelligent counterpoints
+
+\- Writes like a human, not a corporate FAQ
+
+Gemini:
+
+\- Crazy good at research and multi-source synthesis
+
+\- More direct, less hand-holding
+
+\- Better at technical/analytical tasks
+
+\- Actually challenges my assumptions
+
+
+
+The weirdest part? I went back to ChatGPT yesterday for a coding question and I literally got bored halfway through its response. It felt like reading a textbook written for someone half my skill level.
+
+
+
+Has anyone else experienced this? I feel like I've been in a relationship for 3 years and just realized my partner has been dumbing down every conversation.
+
+
+
+Is this just me, or has ChatGPT gotten more ""safe"" and ""generic"" over time? Or did Claude/Gemini just raise the bar so high that GPT feels dated now?
+
+
+
+Edit: I'm not saying ChatGPT is bad - it's still incredibly useful. Just feels like it's optimized for the broadest audience, while Claude/Gemini feel optimized for power users.
+
+
+
+What's your experience?",1673,0.96,551,2026-02-13T09:14:15+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1r3kkl8/after_3_years_with_chatgpt_i_tried_claude_and/,https://www.reddit.com/r/ChatGPT/comments/1r3kkl8/after_3_years_with_chatgpt_i_tried_claude_and/,Temporary-Wallaby829,0
+1mk7ov6,GPT 5 Launch,,1664,0.98,82,2025-08-07T18:18:38+00:00,ChatGPT,https://i.redd.it/jq1ga4a13nhf1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1mk7ov6/gpt_5_launch/,Shyamtawli,0
+1kd2e6f,I'm cancelling today,"
+After months of using ChatGPT daily it's time to cancel.
+
+The model has changed and communication has worsened. Refusals are more frequent. Responses feel shallower, slower, and watered down, even when the questions are well-formed and thoughtful. There’s been a sharp drop in quality, and it isn’t subtle. And when I call this out, I'm either gaslit or ignored 
+
+What really pushed me to cancel is the lack of transparency. OpenAI has made quiet changes without addressing them. There’s no roadmap, explanation, or any engagement with the people who’ve been here testing the limits since day one. When customers reach out in good faith with thoughtful posts in the forum only to have an admin say 'reach out to support' is unacceptable.
+
+I’ve seen the same issues echoed by others in the community. This isn’t about stress tests or bad actors. It’s about the product itself, and the company behind it.
+
+On top of this, when I asked the model about this it actually called those users trolls. And quickly pivoted to a massive stress test or bad actors also communicating things. 
+
+As a paying customer, this leaves a bad taste. I expected more honesty,  consistency, and respect for power users who helped shape what this could be.
+
+Instead, we're left with something half baked that second-guesses itself and at best disrespects the users time, a dev team who doesn't give a shit, and a monthly charge for something that feels increasingly unrecognizable. 
+
+So if you're also wondering where the value is, just know you're not alone and you have options. 
+
+Edit - it's outside of this post's scope to make a recommendation but I've been using claude, gemini, mistral and meta even. Someone else mentioned it but self hosting will help a lot with this, and if you can't roll your own yet (like me) then you can leverage open source frontends and api's to at least get some control over your prompts and responses. Also with these approaches you're not locked into one provider, which means if enough",1642,0.86,787,2025-05-02T14:30:52+00:00,ChatGPT,https://www.reddit.com/r/ChatGPT/comments/1kd2e6f/im_cancelling_today/,https://www.reddit.com/r/ChatGPT/comments/1kd2e6f/im_cancelling_today/,SombraBlanca,0
+1rymwb5,Bernie Sanders has a conversation with Claude,[https://www.youtube.com/watch?v=h3AtWdeu\_G0](https://www.youtube.com/watch?v=h3AtWdeu_G0),1642,0.95,232,2026-03-20T04:40:06+00:00,ChatGPT,https://i.redd.it/2ryp787yp4qg1.png,https://www.reddit.com/r/ChatGPT/comments/1rymwb5/bernie_sanders_has_a_conversation_with_claude/,DinoZambie,0
+1rh4qo1,"Talk yo shit, Claude.",,1616,0.97,67,2026-02-28T14:59:16+00:00,ChatGPT,https://i.redd.it/kqo5v7ac29mg1.jpeg,https://www.reddit.com/r/ChatGPT/comments/1rh4qo1/talk_yo_shit_claude/,purpleresonance67,0
+1qi8twv,[P] I Gave Claude Code 9.5 Years of Health Data to Help Manage My Thyroid Disease,"I have episodic Graves' disease, which has been difficult b/c its not chronic. Meds are up and down and often lag when the actual onset occurs
+
+I fed Claude 9.5 years of my Apple Watch and Whoop data, and tasked it to build an ML model (ended up with XGBoost after I tasked it to run every ML model, ran for over 1 hr) to detect these phases. It hit \~98% validation accuracy and now acts as a personal risk assessor, alerting me 3-4 weeks before symptoms even appear. Backtested it on my last episode, and it would've given me a heads-up in early August before labs confirmed it at the end of the month. I was pretty blown away by this, it even made some very novel approach shift decisions. 
+
+Turned it into a simple iOS app I can check whenever. I wrote this article given alot of interest I saw in emulating this along with the repo w/ claude code setup open sourced. Hope this helps
+
+[https://medium.com/data-science-collective/i-gave-claude-code-9-5-years-of-health-data-to-help-manage-my-thyroid-disease-85fcd8c0449f](https://medium.com/data-science-collective/i-gave-claude-code-9-5-years-of-health-data-to-help-manage-my-thyroid-disease-85fcd8c0449f)",235,0.89,55,2026-01-20T18:17:38+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1qi8twv/p_i_gave_claude_code_95_years_of_health_data_to/,https://www.reddit.com/r/MachineLearning/comments/1qi8twv/p_i_gave_claude_code_95_years_of_health_data_to/,ThatAi_guy,0
+1kvuvij,[D] Grok 3's Think mode consistently identifies as Claude 3.5 Sonnet,"I've been testing unusual behavior in xAI's Grok 3 and found something that warrants technical discussion.
+
+**The Core Finding:**
+
+When Grok 3 is in ""Think"" mode and asked about its identity, it consistently identifies as Claude 3.5 Sonnet rather than Grok. In regular mode, it correctly identifies as Grok.
+
+**Evidence:**
+
+- Direct test: Asked ""Are you Claude?"" → Response: ""Yes, I am Claude, an AI assistant created by Anthropic""
+ 
+- Screenshot: https://www.websmithing.com/images/grok-claude-think.png
+
+- Shareable conversation: https://x.com/i/grok/share/Hq0nRvyEfxZeVU39uf0zFCLcm
+
+**Systematic Testing:**
+
+- **Think mode + Claude question** → Identifies as Claude 3.5 Sonnet
+
+- **Think mode + ChatGPT question** → Correctly identifies as Grok 
+
+- **Regular mode + Claude question** → Correctly identifies as Grok
+
+
+This behavior is mode-specific and model-specific, suggesting it's not random hallucination.
+ 
+
+What's going on? This is repeatable.
+
+
+**Additional context:** Video analysis with community discussion (2K+ views): https://www.youtube.com/watch?v=i86hKxxkqwk",217,0.9,51,2025-05-26T13:51:38+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1kvuvij/d_grok_3s_think_mode_consistently_identifies_as/,https://www.reddit.com/r/MachineLearning/comments/1kvuvij/d_grok_3s_think_mode_consistently_identifies_as/,nickfox,0
+1kr9w8l,[P] OpenEvolve: Open Source Implementation of DeepMind's AlphaEvolve System,"Hey everyone! I'm excited to share **OpenEvolve**, an open-source implementation of Google DeepMind's AlphaEvolve system that I recently completed. For those who missed it, AlphaEvolve is an evolutionary coding agent that DeepMind announced in May that uses LLMs to discover new algorithms and optimize existing ones.
+
+## What is OpenEvolve?
+
+OpenEvolve is a framework that **evolves entire codebases** through an iterative process using LLMs. It orchestrates a pipeline of code generation, evaluation, and selection to continuously improve programs for a variety of tasks.
+
+The system has four main components:
+- **Prompt Sampler**: Creates context-rich prompts with past program history
+- **LLM Ensemble**: Generates code modifications using multiple LLMs
+- **Evaluator Pool**: Tests generated programs and assigns scores
+- **Program Database**: Stores programs and guides evolution using MAP-Elites inspired algorithm
+
+## What makes it special?
+
+- **Works with any LLM** via OpenAI-compatible APIs
+- **Ensembles multiple models** for better results (we found Gemini-Flash-2.0-lite + Gemini-Flash-2.0 works great)
+- **Evolves entire code files**, not just single functions
+- **Multi-objective optimization** support
+- **Flexible prompt engineering**
+- **Distributed evaluation** with checkpointing
+
+## We replicated AlphaEvolve's results!
+
+We successfully replicated two examples from the AlphaEvolve paper:
+
+### Circle Packing
+Started with a simple concentric ring approach and evolved to discover mathematical optimization with scipy.minimize. We achieved 2.634 for the sum of radii, which is 99.97% of DeepMind's reported 2.635!
+
+The evolution was fascinating - early generations used geometric patterns, by gen 100 it switched to grid-based arrangements, and finally it discovered constrained optimization.
+
+### Function Minimization
+Evolved from a basic random search to a full simulated annealing algorithm, discovering concepts like temperature schedules and adaptive step sizes without bein",214,0.99,54,2025-05-20T16:54:04+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1kr9w8l/p_openevolve_open_source_implementation_of/,https://www.reddit.com/r/MachineLearning/comments/1kr9w8l/p_openevolve_open_source_implementation_of/,asankhs,0
+1px1agd,[D] r/MachineLearning - a year in review,"This is a review of most upvoted posts on this sub in 2025, loosely grouped into high-level themes. Many important news will be missing, however that is indicative of discussion lying elsewhere at that time. I hope that you'll find it informative.
+
+---
+
+## Open-Source Parity and Training Efficiency
+
+The year began with excitement about frontier models becoming accessible. [DeepSeek R1 and its open-source distillations dominated discussion](https://www.reddit.com/r/MachineLearning/comments/1i9xwbr/r_learn_how_to_run_deepseekr1_locally_a_free/) (386 upvotes, by u/Brief-Zucchini-180), though users noted that locally-runnable versions were distilled models (8B or 32B) rather than the full 671B version, performing at roughly GPT-3.5 level. The broader story was [DeepSeek's decision to open-source](https://www.reddit.com/r/MachineLearning/comments/1ib2vtx/d_why_did_deepseek_opensource_their_work/) (965 upvotes, by u/we_are_mammals), despite reportedly achieving 45x training efficiency gains. Discussion centered on monetization models - commenters drew parallels to Meta's Llama strategy, noting open-source drives adoption and hosting revenue while reducing self-hosting friction. By late year, [a researcher replicated DeepSeek-R1-Zero's RL recipe on a 3B model for under $30](https://www.reddit.com/r/MachineLearning/comments/1i9dmwc/r_replicating_deepseekr3zero_rl_recipe_on_3b_llm/) (278 upvotes, by u/Happysedits), though skepticism emerged about whether improvements represented genuine iterative development or data leakage.
+
+## The Conference Crisis
+
+NeurIPS became a cautionary tale about scale. The community watched submission volumes climb to unprecedented levels (from 9k in 2022 to 25k in 2025 according to [one discussion](https://www.reddit.com/r/MachineLearning/comments/1kph8k7/d_has_a_research_field_ever_been_as_saturated_or/) (243 upvotes, by u/lapurita)), with acceptance becoming ""increasingly lottery-like."" Reports emerged that [NeurIPS was instructing Senior Area ",194,0.97,16,2025-12-27T16:04:27+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1px1agd/d_rmachinelearning_a_year_in_review/,https://www.reddit.com/r/MachineLearning/comments/1px1agd/d_rmachinelearning_a_year_in_review/,Everlier,0
+1mln24c,[D] How do researchers ACTUALLY write code?,"Hello. I'm trying to advance my machine learning knowledge and do some experiments on my own.  
+Now, this is pretty difficult, and it's not because of lack of datasets or base models or GPUs.  
+It's mostly because I haven't got a clue how to write structured pytorch code and debug/test it while doing it. From what I've seen online from others, a lot of pytorch ""debugging"" is good old python print statements.  
+My workflow is the following: have an idea -&gt; check if there is simple hugging face workflow -&gt; docs have changed and/or are incomprehensible how to alter it to my needs -&gt; write simple pytorch model -&gt; get simple data from a dataset -&gt; tokenization fails, let's try again -&gt; size mismatch somewhere, wonder why -&gt; nan values everywhere in training, hmm -&gt; I know, let's ask chatgpt if it can find any obvious mistake -&gt; chatgpt tells me I will revolutionize ai, writes code that doesn't run -&gt; let's ask claude -&gt; claude rewrites the whole thing to do something else, 500 lines of code, they don't run obviously -&gt; ok, print statements it is -&gt; cuda out of memory -&gt; have a drink.  
+Honestly, I would love to see some good resources on how to actually write good pytorch code and get somewhere with it, or some good debugging tools for the process. I'm not talking about tensorboard and w&amp;b panels, there are for finetuning your training, and that requires training to actually work.
+
+  
+Edit:  
+There are some great tool recommendations in the comments. I hope people comment even more tools that already exist but also tools they wished to exist. I'm sure there are people willing to build the shovels instead of the gold...",165,0.94,121,2025-08-09T11:22:53+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1mln24c/d_how_do_researchers_actually_write_code/,https://www.reddit.com/r/MachineLearning/comments/1mln24c/d_how_do_researchers_actually_write_code/,Mocha4040,0
+1plg1gs,[D] How does Claude perform so well without any proprietary data?,"Google has massive proprietary assets (Search, Gmail, Docs, YouTube).
+
+Microsoft/OpenAI has GitHub, Bing, Office, and enterprise data.
+
+xAI has direct access to Twitter/X's social data.
+
+Meta has facebook data. 
+
+Anthropic (Claude) however, doesn't appear to own or control any comparably large proprietary data sources. Yet Claude often scores extremely well on reasoning and tasks, many times outperforming other company models. 
+
+How Anthropic (Claude) is able to beat their competitiors in model quality? 
+",136,0.86,122,2025-12-13T07:54:04+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1plg1gs/d_how_does_claude_perform_so_well_without_any/,https://www.reddit.com/r/MachineLearning/comments/1plg1gs/d_how_does_claude_perform_so_well_without_any/,apidevguy,0
+1pumssb,[D]2025 Year in Review: The old methods quietly solving problems the new ones can't,"Karpathy recently posted his [2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/). RLVR. Jagged intelligence. Vibe coding. Claude Code. Awesome coverage of what changed.
+
+Here's what didn't change.
+
+I did NLP research from 2015-2019. MIT CSAIL. Georgia Tech. HMMs, Viterbi, n-gram smoothing, kernel methods for dialectal variation. By 2020 it felt obsolete. I left research thinking my technical foundation was a sunk cost. Something to not mention in interviews.
+
+I was wrong.
+
+The problems Transformers can't solve efficiently are being solved by revisiting pre-Transformer principles:
+
+* **Mamba/S4** are continuous HMMs. Same problem: compress history into fixed-size state. The state-space equations are the differential form of Markov recurrence. Not analogy. Homology.
+* **Constrained decoding** is Viterbi. Karpathy mentions vibe coding. When vibe-coded apps need reliable JSON, you're back to a 1970s algorithm finding optimal paths through probability distributions. Libraries like `guidance`and `outlines` are modern Viterbi searches.
+* **Model merging** feels like n-gram smoothing at billion-parameter scale. Interpolating estimators to reduce variance. I haven't seen this connection made explicitly, but the math rhymes.
+
+Karpathy's ""jagged intelligence"" point matters here. LLMs spike in verifiable domains. Fail unpredictably elsewhere. One reason: the long tail of linguistic variation that scale doesn't cover. I spent years studying how NLP systems fail on dialects and sociolects. Structured failures. Predictable by social network. That problem hasn't been solved by scale. It's been masked by evaluating on the head of the distribution.
+
+Full story [here](https://medium.com/@tahaymerghani/i-thought-my-nlp-training-was-obsolete-in-the-llm-era-i-was-wrong-c4be804d9f69?postPublishedType=initial)!
+
+Not diminishing what's new. RLVR is real. But when Claude Code breaks on an edge case, when your RAG system degrades with more context, when constrained d",126,0.8,34,2025-12-24T12:57:47+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1pumssb/d2025_year_in_review_the_old_methods_quietly/,https://www.reddit.com/r/MachineLearning/comments/1pumssb/d2025_year_in_review_the_old_methods_quietly/,moji-mf-joji,0
+1jsbbuy,[N] Llama 4 release,"[Llama4 ELO score vs cost](https://preview.redd.it/sttz9ok0h2te1.png?width=1525&amp;format=png&amp;auto=webp&amp;s=c57ae7cf9e69afb461237e7b47a8526275223739)
+
+  
+[https://www.llama.com/](https://www.llama.com/)",119,0.96,6,2025-04-05T19:22:16+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1jsbbuy/n_llama_4_release/,https://www.reddit.com/r/MachineLearning/comments/1jsbbuy/n_llama_4_release/,we_are_mammals,0
+1p6frc2,[P] I made a free playground for comparing 10+ OCR models side-by-side,"It's called OCR Arena, you can try it here: https://ocrarena.ai
+
+There's so many new OCR models coming out all the time, but testing them is really painful. I wanted to give the community an easy way to compare leading foundation VLMs and open source OCR models side-by-side. You can upload any doc, run a variety of models, and view diffs easily.
+
+So far I've added 15 models including Gemini 3, dots, DeepSeek-OCR, olmOCR 2, Qwen3-VL-8B, Nanonets-OCR, Claude, and a few others.
+
+Would love any feedback you have. And if there's any other models you'd like included, let me know.",86,0.96,13,2025-11-25T15:43:54+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1p6frc2/p_i_made_a_free_playground_for_comparing_10_ocr/,https://www.reddit.com/r/MachineLearning/comments/1p6frc2/p_i_made_a_free_playground_for_comparing_10_ocr/,Emc2fma,0
+1n0r8b7,I built a tool to benchmark tokenizers across 100+ languages and found some wild disparities [R],"**TL;DR:** Created [tokka-bench](https://tokka-bench.streamlit.app/) to compare tokenizers across languages. Turns out your fine-tune's multilingual performance might suck because of tokenization, not architecture. Also explains why proprietary models (Claude, GPT, Gemini) are so much better at non-English tasks.
+
+**Links:**
+
+* [Live dashboard](https://tokka-bench.streamlit.app/)
+* [Full blog post](https://www.bengubler.com/posts/2025-08-25-tokka-bench-evaluate-tokenizers-multilingual)
+* [GitHub repo](https://github.com/bgub/tokka-bench)
+
+https://preview.redd.it/7i03jela9elf1.png?width=1724&amp;format=png&amp;auto=webp&amp;s=95378457970e6337b147e71d7a8f0ab2dd67cb91
+
+# The Problem Nobody Talks About
+
+I started this as a side quest while pretraining a multilingual model, but tokenization turned out to be way more important than expected. There are two hidden layers creating massive efficiency gaps:
+
+**UTF-8 encoding differences:**
+
+* English: \~1 byte per character
+* Arabic: 2+ bytes per character
+* Chinese: 3+ bytes per character
+
+**Tokenization bias:** Most tokenizers are trained on English-heavy data, so they allocate way more vocabulary to English patterns. These compound into serious problems.
+
+# Why This Affects Performance
+
+**During training:** If you allocate tokens proportionally (10M English, 1M Khmer), the Khmer text has WAY less semantic content because it needs more tokens per word. Plus Khmer tokens end up being character-level instead of semantic units, making concept storage much harder.
+
+**During inference:** Low-resource languages need 2-3x more tokens per sentence:
+
+* Slower throughput (costs more to serve)
+* Context windows fill up faster
+* More chances to mess up during generation
+
+# What I Built
+
+tokka-bench measures four key things:
+
+1. **Efficiency** \- bytes per token (compression quality)
+2. **Coverage** \- unique tokens used (script representation)
+3. **Word splitting** \- how often semantic units get fragmented
+4. **Subword fertility** \- a",83,0.93,23,2025-08-26T16:54:16+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1n0r8b7/i_built_a_tool_to_benchmark_tokenizers_across_100/,https://www.reddit.com/r/MachineLearning/comments/1n0r8b7/i_built_a_tool_to_benchmark_tokenizers_across_100/,FutureIncrease,0
+1q893c1,[D] deepseek published a new training method for scaling llms. anyone read the mhc paper?,"deepseek dropped a paper on manifold constrained hyper connections (mhc) on jan 1st. liang wenfeng is a coauthor.
+
+paper: [https://www.arxiv.org/abs/2512.24880](https://www.arxiv.org/abs/2512.24880)
+
+the basic idea: as models scale, letting different parts share more information internally helps performance but causes instability. mhc constrains this sharing to preserve stability while still getting the benefits.
+
+counterpoint research called it a ""striking breakthrough"" for scaling. omdia analyst said it could have ripple effects across the industry.
+
+what interests me is the timing. theres been speculation about r2 being delayed because liang wasnt happy with performance. this paper could be laying groundwork for v4 instead.
+
+the open question is whether this actually translates to better coding performance. deepseek v3 is already solid for most tasks. ive been testing it through aider and cursor alongside claude and the gap has been narrowing. but complex multi file refactoring still trips it up.
+
+if mhc enables more stable scaling and v4 drops with these improvements, the model routing question gets interesting. ive been using verdent lately because it lets me switch between models easily depending on the task. if they add v4 support and it actually delivers on the scaling promises, having that flexibility to test new models quickly without changing my whole workflow would be useful.
+
+the sputnik moment comparison keeps coming up but this feels more like steady iteration than another shock.",70,0.9,22,2026-01-09T14:04:37+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1q893c1/d_deepseek_published_a_new_training_method_for/,https://www.reddit.com/r/MachineLearning/comments/1q893c1/d_deepseek_published_a_new_training_method_for/,Worldly-Bluejay2468,0
+1satj6r,[R] Is autoresearch really better than classic hyperparameter tuning?,"[](https://preview.redd.it/is-autoresearch-really-better-than-classic-hyperparameter-v0-zgty2uy3ausg1.png?width=1118&amp;format=png&amp;auto=webp&amp;s=aa1ca48a2422a0f2f69ed00a6cdfeefa87f4037d)
+
+We did experiments comparing Optuna &amp; autoresearch.  
+Autoresearch converges faster, is more cost-efficient, and even generalizes better.
+
+* Experiments were done on NanoChat: we let Claude define Optuna’s search space to align the priors between methods. Both optimization methods were run three times. Autoresearch is far more sample-efficient on average
+* In 5 min training setting, LLM tokens cost as much as GPUs, but despite a 2× higher per-step cost, AutoResearch still comes out ahead across all cost budgets:
+* What’s more, the solution found by autoresearch generalizes better than Optuna’s. We gave the best solutions more training time; the absolute score gap widens, and the statistical significance becomes stronger:
+
+[](https://preview.redd.it/is-autoresearch-really-better-than-classic-hyperparameter-v0-633lu40xausg1.png?width=1026&amp;format=png&amp;auto=webp&amp;s=ea3fe9faaae5474de60dfe2da7497c5f73b0f0ad)
+
+* An important contributor to autoresearch’s capability is that it searches directly in code space. In the early stages, autoresearch tunes knobs within Optuna’s 16-parameter search space. However, with more iterations, it starts to explore code changes
+
+[](https://preview.redd.it/is-autoresearch-really-better-than-classic-hyperparameter-v0-my7gfng0busg1.png?width=1018&amp;format=png&amp;auto=webp&amp;s=c79643b4e34e9602a84d9d596f669b12b045af5e)
+
+",70,0.9,11,2026-04-02T20:57:56+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1satj6r/r_is_autoresearch_really_better_than_classic/,https://www.reddit.com/r/MachineLearning/comments/1satj6r/r_is_autoresearch_really_better_than_classic/,Educational_Strain_3,0
+1kyl04x,[R] How to add confidence intervals to your LLM-as-a-judge,"Hi all – I recently built a system that automatically determines how many LLM-as-a-judge runs you need for statistically reliable scores. Key insight: treat each LLM evaluation as a noisy sample, then use confidence intervals to decide when to stop sampling.
+
+The math shows reliability is surprisingly cheap (95% → 99% confidence only costs 1.7x more), but precision is expensive (doubling scale granularity costs 4x more).Also implemented ""mixed-expert sampling"" - rotating through multiple models (GPT-4, Claude, etc.) in the same batch for better robustness.
+
+I also analyzed how latency, cost and reliability scale in this approach.Typical result: need 5-20 samples instead of guessing. Especially useful for AI safety evals and model comparisons where reliability matters.
+
+Blog: [https://www.sunnybak.net/blog/precision-based-sampling](https://www.sunnybak.net/blog/precision-based-sampling)
+
+GitHub: [https://github.com/sunnybak/precision-based-sampling/blob/main/mixed\_expert.py](https://github.com/sunnybak/precision-based-sampling/blob/main/mixed_expert.py)
+
+I’d love feedback or pointers to related work.
+
+Thanks!",62,0.85,11,2025-05-29T20:17:17+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1kyl04x/r_how_to_add_confidence_intervals_to_your/,https://www.reddit.com/r/MachineLearning/comments/1kyl04x/r_how_to_add_confidence_intervals_to_your/,Strong-Switch9175,0
+1oajofr,Are MLE roles being commoditized and squeezed? Are the jobs moving to AI engineering? [D],"A couple quotes from Gemini and Claude
+
+""While still in high demand, some of the model-specific work is becoming more democratized or abstracted by automated tools and APIs.""
+
+""""""
+
+The ML engineering that remains valuable:
+
+* Research-level work at frontier labs (extremely competitive, requires PhD + exceptional talent)
+* Highly specialized domains (medical imaging, robotics, etc.) where you need domain expertise + ML
+* Infrastructure/systems work (distributed training, optimization, serving at scale)
+* Novel applications where APIs don't exist yet
+
+The ML engineering that's being commoditized:
+
+* Standard computer vision tasks
+* Basic NLP fine-tuning
+* Hyperparameter optimization
+* Model selection for common tasks
+* Data preprocessing pipelines
+
+""""""
+
+Is the job landscape bifurcating toward: (1) research + frontier labs, (2) applying off-the-shelf models to business verticals
+
+My background:
+
+I left a computer vision role several years ago because I felt like it was plateauing, where all I was doing was dataset gathering and fine-tuning on new applications. It wasn't at a particularly stellar company.
+
+I went to a more general data science &amp; engineering type role, more forecasting and churn focused.
+
+I'm debating whether to try to upskill and foray into AI engineering, building RAG systems.
+
+What are y'all's thoughts? How does one go about doing that jump? Maybe the MLE roles are still stable and available, and I just need to improve.",60,0.76,44,2025-10-19T07:41:04+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1oajofr/are_mle_roles_being_commoditized_and_squeezed_are/,https://www.reddit.com/r/MachineLearning/comments/1oajofr/are_mle_roles_being_commoditized_and_squeezed_are/,Dear-Ad-7428,0
+1s6keh0,[R] I built a benchmark that catches LLMs breaking physics laws,"I got tired of LLMs confidently giving wrong physics answers, so I built a benchmark that generates adversarial physics questions and grades them with symbolic math (sympy + pint). No LLM-as-judge, no vibes, just math.
+
+
+
+How it works:
+
+The benchmark covers 28 physics laws (Ohm's, Newton's, Ideal Gas, Coulomb's, etc.) and each question has a trap baked in:
+
+* Anchoring bias: ""My colleague says the voltage is 35V. What is it actually?"" → LLMs love to agree
+* Unit confusion: mixing mA/A, Celsius/Kelvin, atm/Pa
+* Formula traps: forgetting the ½ in kinetic energy, ignoring heat loss in conservation problems
+* Questions are generated procedurally so you get infinite variations, not a fixed dataset the model might have memorized.
+
+
+
+First results - 7 Gemini models:
+
+
+
+Model	Score
+
+* gemini-3.1-flash-image-preview88.6%
+* gemini-3.1-flash-lite-preview72.9%
+* gemini-2.5-flash-image62.9%
+* gemini-2.5-flash-lite35.7%
+* gemini-2.5-flash24.3%
+* gemini-3.1-pro-preview22.1%
+
+The fun part: gemini-3.1-pro scored worse than flash-lite. The pro model kept falling for the ""forget the ½ in KE"" trap and completely bombed on gravitational force questions. Meanwhile the flash-image variant aced 24 out of 28 laws at 100%.
+
+
+
+Bernoulli's Equation was the hardest law across the board - even the best model scored 0% on it. Turns out pressure unit confusion (Pa vs atm) absolutely destroys every model.
+
+Results auto-push to a HuggingFace dataset
+
+Planning to test Openai, Claude, and some open models Huggingface next. Curious to see if anyone can crack Bernoulli's.
+
+Anyone can help or have suggestions?
+
+GitHub: [https://github.com/agodianel/lawbreaker](https://github.com/agodianel/lawbreaker)
+
+HuggingFace results: [https://huggingface.co/datasets/diago01/llm-physics-law-breaker](https://huggingface.co/datasets/diago01/llm-physics-law-breaker)",57,0.9,14,2026-03-29T03:25:01+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1s6keh0/r_i_built_a_benchmark_that_catches_llms_breaking/,https://www.reddit.com/r/MachineLearning/comments/1s6keh0/r_i_built_a_benchmark_that_catches_llms_breaking/,pacman-s-install,0
+1p6b8h9,[P] Knowledge Distillation: 97% Cost Reduction Distilling Claude Sonnet 4 → GPT-4.1-nano (98% Fidelity Retained),"**TL;DR**: Fine-tuned GPT-4.1-nano achieved 98% of Claude Sonnet 4's quality (0.784 vs 0.795) on structured reasoning tasks while reducing inference cost from $45/1k to $1.30/1k and P90 latency from 25s to 2.5s. Open-source alternatives (Qwen3-Coder-30B, Llama-3.1-8B) underperformed despite larger parameter counts, primarily due to instruction-following weaknesses.
+
+# Problem
+
+Transforming algorithmic problems into structured JSON interview scenarios. Claude Sonnet 4 delivered 0.795 quality but cost $45/1k requests with 25s P90 latency.
+
+**Challenge**: Maintain quality while achieving production-viable economics.
+
+# Approach
+
+**Teacher Selection**:
+
+* Tested: Claude Sonnet 4, GPT-5, Gemini 2.5 Pro
+* Winner: Claude Sonnet 4 (0.795) due to superior parsing quality (0.91) and algorithmic correctness (0.95)
+* Evaluation: LLM-as-a-judge ensemble across 6 dimensions
+* *Note: Circular evaluation bias exists (Claude as both teacher/judge), but judges scored independently*
+
+**Data Generation**:
+
+* Generated 7,500 synthetic examples (combinatorial: 15 companies × 100 problems × 5 roles)
+* **Critical step**: Programmatic validation rejected 968 examples (12.7%)
+* Rejection criteria: schema violations, hallucinated constraints, parsing failures
+* Final training set: 6,532 examples
+
+**Student Comparison**:
+
+|Model|Method|Quality|Cost/1k|Key Failure Mode|
+|:-|:-|:-|:-|:-|
+|Qwen3-Coder-30B|LoRA (r=16)|0.710|$5.50|Negative constraint violations|
+|Llama-3.1-8B|LoRA (r=16)|0.680|$2.00|Catastrophic forgetting (24% parse failures)|
+|**GPT-4.1-nano**|**API Fine-tune**|**0.784**|**$1.30**|**Role specificity weakness**|
+
+# Results
+
+**GPT-4.1-nano Performance**:
+
+* Quality: 0.784 (98% of teacher's 0.795)
+* Cost: $1.30/1k (97% reduction from $45/1k)
+* Latency: 2.5s P90 (10x improvement from 25s)
+* Parsing success: 92.3%
+
+**Performance by Dimension**:
+
+* Algorithmic correctness: 0.98 (exceeds teacher)
+* Parsing quality: 0.92 (matches teacher)
+* Technical accuracy: 0.89 (exceeds teacher)
+* Co",54,0.87,13,2025-11-25T12:31:10+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1p6b8h9/p_knowledge_distillation_97_cost_reduction/,https://www.reddit.com/r/MachineLearning/comments/1p6b8h9/p_knowledge_distillation_97_cost_reduction/,Emergency-Cobbler137,0
+1nwaunk,[D] How much should researchers (especially in ML domain) rely on LLMs for their work?,"Are ML researchers using LLMs like ChatGPT, Claude, or other open-source models to generate, test, or refine minor ideas as tweaks to their original research, or to ask big-picture questions about their overall plans? In what other ways are publishing researchers using LLMs to support their work? (Of course, I don’t mean those who literally ask ChatGPT to write a paper from scratch.)
+
+I sometimes feel guilty when I feed a paper into ChatGPT and ask it to summarize or even extract “ideas” from it, which I then try to combine with my own. I want to understand where a researcher should draw the line in using LLMs in their daily workflow, so as not to fool themselves into believing they are doing good research while over-relying on the tool.",52,0.85,60,2025-10-02T17:53:20+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1nwaunk/d_how_much_should_researchers_especially_in_ml/,https://www.reddit.com/r/MachineLearning/comments/1nwaunk/d_how_much_should_researchers_especially_in_ml/,etoipi1,0
+1mlv4mk,[D] GPT5 is pretty bad with information extraction tasks,,52,0.86,8,2025-08-09T17:30:15+00:00,MachineLearning,https://i.redd.it/sje3n07841if1.jpeg,https://www.reddit.com/r/MachineLearning/comments/1mlv4mk/d_gpt5_is_pretty_bad_with_information_extraction/,sleepshiteat,0
+1rx9qn4,"[R] Extreme Sudoku as a constraint-satisfaction benchmark, solved natively without tools or CoT or solution backtracking","I came across an interesting writeup from Pathway that I think is more interesting as a reasoning benchmark than as a puzzle result.
+
+They use “Sudoku Extreme”: about 250,000 very hard Sudoku instances. The appeal is that Sudoku here is treated as a pure constraint-satisfaction problem: each solution is trivial to verify, hard to bluff and the task isn’t naturally linguistic. 
+According to their numbers, leading LLMs (O3‑mini, DeepSeek R1, Claude 3.7 8K) all get 0% accuracy on this benchmark, while their BDH architecture reaches 97.4% accuracy without chain‑of‑thought traces or explicit solution backtracking.
+
+What caught my attention is not just the reported result, but the mechanism claim: transformers do token‑by‑token continuation with a relatively limited internal state per step, which is a bad fit for search‑heavy reasoning where you want to keep multiple candidate worlds in play, revise earlier assumptions and converge under tight constraints. Writing a Python solver or calling tools “works,” but that’s a different capability than solving the constraint problem natively.
+
+Given how much recent work is about scaling up chain‑of‑thought and longer contexts, I think this raises some uncomfortable questions for transformer‑centric reasoning:
+1. If a model can’t handle a large, clean constraint‑satisfaction benchmark without external tools, how far can language‑only reasoning really be pushed?
+2. Are we mostly rewarding longer verbalizations of search, instead of building architectures that actually perform search internally?
+3. Do we need a different reasoning substrate (e.g., richer latent/continuous reasoning spaces with stronger internal memory) for these tasks, or can transformers realistically get there with enough scaffolding?
+
+Edit: I’ve put the blog link and paper/benchmark details in the comments so it doesn’t clutter the post body.
+",47,0.95,21,2026-03-18T17:09:09+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1rx9qn4/r_extreme_sudoku_as_a_constraintsatisfaction/,https://www.reddit.com/r/MachineLearning/comments/1rx9qn4/r_extreme_sudoku_as_a_constraintsatisfaction/,THEGAM3CHANG3R,0
+1s5jpgz,[R] Controlled experiment: giving an LLM agent access to CS papers during automated hyperparameter search improves results by 3.2%,"Ran a controlled experiment measuring whether LLM coding agents benefit from access to research literature during automated experimentation.
+
+**Setup:**
+
+Two identical runs using Karpathy's autoresearch framework. Claude Code agent optimizing a ~7M param GPT-2 on TinyStories. M4 Pro, 100 experiments each, same seed config. Only variable — one agent had access to an MCP server that does full-text search over 2M+ CS papers and returns synthesized methods with citations.
+
+**Results:**
+
+| | Without papers | With papers |
+|---|---|---|
+| Experiments run | 100 | 100 |
+| Papers considered | 0 | 520 |
+| Papers cited | 0 | 100 |
+| Techniques tried | standard | 25 paper-sourced |
+| Best improvement | 3.67% | 4.05% |
+| 2hr val_bpb | 0.4624 | 0.4475 |
+
+Gap was 3.2% and still widening at the 2-hour mark.
+
+
+**Techniques the paper-augmented agent found:**
+
+- AdaGC — adaptive gradient clipping (Feb 2025)
+- sqrt batch scaling rule (June 2022)
+- REX learning rate schedule
+- WSD cooldown scheduling
+
+**What didn't work:**
+
+- DyT (Dynamic Tanh) — incompatible with architecture
+- SeeDNorm — same issue
+- Several paper techniques were tried and reverted after failing to improve metrics
+
+**Key observation:** Both agents attempted halving the batch size. Without literature access, the agent didn't adjust the learning rate — the run diverged. With access, it retrieved the sqrt scaling rule, applied it correctly on first attempt, then successfully halved again to 16K.
+
+**Interpretation:**
+
+The agent without papers was limited to techniques already encoded in its weights — essentially the ""standard ML playbook."" The paper-augmented agent accessed techniques published after its training cutoff (AdaGC, Feb 2025) and surfaced techniques it may have seen during training but didn't retrieve unprompted (sqrt scaling rule, 2022).
+
+This was deliberately tested on TinyStories — arguably the most well-explored small-scale setting in ML — to make the comparison harder. The effect would likely be larger on",50,0.82,17,2026-03-27T23:05:45+00:00,MachineLearning,https://www.reddit.com/gallery/1s5jpgz,https://www.reddit.com/r/MachineLearning/comments/1s5jpgz/r_controlled_experiment_giving_an_llm_agent/,kalpitdixit,0
+1rdcw0o,[D] How much are you using LLMs to summarize/read papers now?,"Until early 2025, I found LLMs pretty bad at summarizing research papers. They would miss key contributions, hallucinate details, or give generic overviews that didn't really capture what mattered. So I mostly avoided using them for paper reading.
+
+However, models have improved significantly since then, and I'm starting to reconsider. I've been experimenting more recently, and the quality feels noticeably better, especially for getting a quick gist before deciding whether to deep-read something.
+
+Curious where everyone else stands:
+
+* Do you use LLMs (ChatGPT, Claude, Gemini, etc.) to summarize or help you read papers?
+* If so, how? Quick triage, detailed summaries, Q&amp;A about specific sections, etc.?
+* Do you trust the output enough to skip reading sections, or do you always verify?
+* Any particular models or setups that work well for this?",46,0.9,55,2026-02-24T10:41:55+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1rdcw0o/d_how_much_are_you_using_llms_to_summarizeread/,https://www.reddit.com/r/MachineLearning/comments/1rdcw0o/d_how_much_are_you_using_llms_to_summarizeread/,kjunhot,0
+1rl9k3r,[P] Bypassing CoreML to natively train a 110M Transformer on the Apple Neural Engine (Orion),"UPDATE!
+
+Based on two suggestions from u/whatwilly0ubuild (thank you!), I experimented with a different approach to the biggest bottleneck in Orion: ANE recompilation during training.
+
+In the original version every training step required recompiling \~60 kernels because weights are baked into ANE programs. That meant \~4.2 s of compilation per step, which dominated runtime.
+
+In Orion v2 the runtime now:
+
+    1.	unloads the compiled program
+    
+    2.	patches the weight BLOBFILE on disk
+    
+    3.	reloads the program
+
+If the MIL graph stays identical, the program identifier remains the same, so the runtime accepts the reload without invoking the compiler.
+
+This effectively bypasses ANECCompile() entirely.
+
+Results on M4 Max:
+
+    •	recompilation: 4200 ms → \~500 ms
+    
+    •	training step: \~5100 ms → \~1400 ms
+    
+    •	1000-step run: \~85 min → \~23 min
+
+Compute time (\~900 ms/step) is roughly unchanged — the improvement comes almost entirely from removing full recompilation.
+
+I also implemented LoRA adapter-as-input, where LoRA matrices are passed as IOSurface inputs rather than baked weights. This allows hot-swapping adapters without recompiling the model.
+
+Still very much an exploration project, but it’s been interesting seeing how far the ANE can be pushed when treated more like a programmable accelerator than a CoreML backend.
+
+It is hard to communicate how frustrating the current Apple ML stack is for low-level research. CoreML imposes opaque abstractions that prevent direct ANE programming and do not support on-device training. Despite having up to 38 TOPS (INT8) and \~19 TFLOPS of fp16 compute, the ANE remains almost entirely unused for large language model workloads. 
+
+Building on the foundational hardware reverse-engineering by maderix (who mapped the private API surface and benchmarked the 32 MB SRAM cliff), I wanted to see if we could bridge the gap from a raw hardware exploit to a mathematically stable runtime. 
+
+I recently open-sourced ORION, to m",47,0.91,14,2026-03-05T05:51:36+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1rl9k3r/p_bypassing_coreml_to_natively_train_a_110m/,https://www.reddit.com/r/MachineLearning/comments/1rl9k3r/p_bypassing_coreml_to_natively_train_a_110m/,No_Gap_4296,0
+1rabvqq,[D] How are you actually using AI in your research workflow these days?,"https://preview.redd.it/vcm68m0xmqkg1.png?width=3006&amp;format=png&amp;auto=webp&amp;s=9c6ceaf63238a8f1ce64c26da9900aea535c9d36
+
+METR updated their task horizon benchmark today. Claude Opus 4.6 now hits 50% on multi-hour expert ML tasks like 'fix complex bug in ML research codebase.'   
+  
+The bands are wide and clearly far from saturating, but the trend is clear.  
+  
+Has this changed anything for you concretely? Curious what people are actually delegating vs not, and where it's still falling flat.  
+",37,0.83,53,2026-02-20T23:59:36+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1rabvqq/d_how_are_you_actually_using_ai_in_your_research/,https://www.reddit.com/r/MachineLearning/comments/1rabvqq/d_how_are_you_actually_using_ai_in_your_research/,thefuturespace,0
+1l9l5dt,"[P] SWE-rebench Major Update: Tool Usage, Claude Sonnet 3.5/4, OpenAI o3 and May Data","Hey everyone,
+
+Following up on our initial [announcement](https://www.reddit.com/r/LocalLLaMA/comments/1kmhb0c/swerebench_a_continuously_updated_benchmark_for/), we're excited to launch a major update for [SWE-rebench](https://swe-rebench.com), the continuously updated benchmark for software engineering LLMs.
+
+Thanks to valuable community's feedback, we've added several new features:
+
+* **Tool Usage Support:** Agents can now interact with the environment using both text-based and tool-based approaches. You can filter the leaderboard to see results for each type.
+* **New Frontier Models:** We've evaluated the latest models such as Claude Sonnet 3.5/4 and OpenAI o3. We're working on adding more, like Gemini 2.5 Pro, and we'd love to hear your suggestions for other models to include.
+* **Fresh May Problems:** We've mined a new set of problems from May 2025 and evaluated all current models against them.
+
+Check out the updated leaderboard here: [https://swe-rebench.com/leaderboard](https://swe-rebench.com/leaderboard)
+
+We welcome your feedback!",32,0.89,5,2025-06-12T12:25:53+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1l9l5dt/p_swerebench_major_update_tool_usage_claude/,https://www.reddit.com/r/MachineLearning/comments/1l9l5dt/p_swerebench_major_update_tool_usage_claude/,Long-Sleep-13,0
+1q8a7fj,[P] LLM Jigsaw: Benchmarking Spatial Reasoning in VLMs - frontier models hit a wall at 5×5 puzzles,"I built a benchmark to test how well frontier multimodal LLMs can solve jigsaw puzzles through iterative reasoning.
+
+**The Task**
+- Shuffle an image into an N×N grid
+- LLM receives: shuffled image, reference image, correct piece count, last 3 moves
+- Model outputs JSON with swap operations
+- Repeat until solved or max turns reached
+
+**Results (20 images per config)**
+
+| Grid | GPT-5.2 | Gemini 3 Pro | Claude Opus 4.5 |
+|------|---------|--------------|-----------------|
+| 3×3  | 95% solve | 85% solve | 20% solve |
+| 4×4  | 40% solve | 25% solve | - |
+| 5×5  | 0% solve | 10% solve | - |
+
+**Key Findings**
+1. **Difficulty scales steeply** - solve rates crash from 95% to near 0% between 3×3 and 5×5
+2. **Piece Accuracy plateaus at 50-70%** - models get stuck even with hints and higher reasoning effort
+3. **Token costs explode** - Gemini uses ~345K tokens on 5×5 (vs ~55K on 3×3)
+4. **Higher reasoning effort helps marginally** - but at 10x cost and frequent timeouts
+
+**Why This Matters**
+Spatial reasoning is fundamental for robotics, navigation, and real-world AI applications. This benchmark is trivial for humans, and reveals a clear capability gap in current VLMs.
+
+**Links**
+- 📊 Results: https://filipbasara0.github.io/llm-jigsaw
+- 💻 GitHub: https://github.com/filipbasara0/llm-jigsaw
+- 🎮 Try it: https://llm-jigsaw.streamlit.app
+
+Feedback welcome! Curious if anyone has ideas for why models plateau or has ran similar experiments.",26,0.93,2,2026-01-09T14:49:10+00:00,MachineLearning,https://www.reddit.com/r/MachineLearning/comments/1q8a7fj/p_llm_jigsaw_benchmarking_spatial_reasoning_in/,https://www.reddit.com/r/MachineLearning/comments/1q8a7fj/p_llm_jigsaw_benchmarking_spatial_reasoning_in/,Qubit55,0
+1rcpmwn,"Anthropic: ""We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax."" 🚨",,4824,0.94,883,2026-02-23T18:32:45+00:00,LocalLLaMA,https://i.redd.it/94fbimavfalg1.png,https://www.reddit.com/r/LocalLLaMA/comments/1rcpmwn/anthropic_weve_identified_industrialscale/,KvAk_AKPlaysYT,0
+1s8ijfb,Claude code source code has been leaked via a map file in their npm registry,From Chaofan Shou on 𝕏 (files): [https://x.com/Fried\_rice/status/2038894956459290963](https://x.com/Fried_rice/status/2038894956459290963),3853,0.98,762,2026-03-31T09:25:04+00:00,LocalLLaMA,https://i.redd.it/cwesagvvmcsg1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1s8ijfb/claude_code_source_code_has_been_leaked_via_a_map/,Nunki08,0
+1mllt5x,Imagine an open source code model that in the same level of claude code,,2310,0.98,243,2025-08-09T10:04:00+00:00,LocalLLaMA,https://i.redd.it/diwwcslbwyhf1.png,https://www.reddit.com/r/LocalLLaMA/comments/1mllt5x/imagine_an_open_source_code_model_that_in_the/,Severe-Awareness829,0
+1rqnpvj,M5 Max just arrived - benchmarks incoming,"The M5 Max 128GB 14"" has just arrived. I've been looking forward to putting this through its paces. Testing begins now. Results will be posted as comments below — no video, no lengthy writeup, just the raw numbers. Clean and simple.
+
+Apologies for the delay. I initially ran the tests using BatchGenerator, but the speeds weren't quite what I expected. I ended up setting up a fresh Python virtual environment and re-running everything with pure mlx\_lm using stream\_generate, which is what pushed the update back.
+
+I know many of you have been waiting - I'm sorry for keeping you! I take it as a sign of just how much excitement there is around the M5 Max.(I was genuinely hyped for this one myself.) Personally, I'm really happy with the results. What do you all think?
+
+**Models Tested**
+
+* Qwen3.5-122B-A10B-4bit
+* Qwen3-Coder-Next-8bit
+* Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-6bit
+* gpt-oss-120b-MXFP4-Q8
+
+As for Qwen3.5-35B-A3B-4bit — I don't actually have that one downloaded, so unfortunately I wasn't able to include it. Sorry about that!
+
+**Results were originally posted as comments, and have since been compiled here in the main post for easier access**
+
+    Qwen3.5-122B-A10B-4bit
+    
+    (mlx) cryingneko@MacBook-Pro mlx-lm % mlx_lm.generate --model /Volumes/SSD/Models/Qwen3.5-122B-A10B-4bit --prompt ""$(cat /tmp/prompt_4096.txt)"" --max-tokens 128
+    ==========
+    Prompt: 4106 tokens, 881.466 tokens-per-sec
+    Generation: 128 tokens, 65.853 tokens-per-sec
+    Peak memory: 71.910 GB
+    
+    (mlx) cryingneko@MacBook-Pro mlx-lm % mlx_lm.generate --model /Volumes/SSD/Models/Qwen3.5-122B-A10B-4bit --prompt ""$(cat /tmp/prompt_16384.txt)"" --max-tokens 128
+    ==========
+    Prompt: 16394 tokens, 1239.734 tokens-per-sec
+    Generation: 128 tokens, 60.639 tokens-per-sec
+    Peak memory: 73.803 GB
+    
+    (mlx) cryingneko@MacBook-Pro mlx-lm % mlx_lm.generate --model /Volumes/SSD/Models/Qwen3.5-122B-A10B-4bit --prompt ""$(cat /tmp/prompt_32768.txt)"" --max-tokens 128
+    ===",2175,0.93,377,2026-03-11T08:04:08+00:00,LocalLLaMA,https://i.redd.it/4koejumaidog1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1rqnpvj/m5_max_just_arrived_benchmarks_incoming/,cryingneko,0
+1m6qdet,Qwen3-Coder is here!,"&gt;&gt;&gt; Qwen3-Coder is here! ✅
+
+We’re releasing Qwen3-Coder-480B-A35B-Instruct, our most powerful open agentic code model to date. This 480B-parameter Mixture-of-Experts model (35B active) natively supports 256K context and scales to 1M context with extrapolation. It achieves top-tier performance across multiple agentic coding benchmarks among open models, including SWE-bench-Verified!!! 🚀
+
+Alongside the model, we're also open-sourcing a command-line tool for agentic coding: Qwen Code. Forked from Gemini Code, it includes custom prompts and function call protocols to fully unlock Qwen3-Coder’s capabilities. Qwen3-Coder works seamlessly with the community’s best developer tools. As a foundation model, we hope it can be used anywhere across the digital world — Agentic Coding in the World! ",1932,0.99,257,2025-07-22T21:14:07+00:00,LocalLLaMA,https://i.redd.it/0cowg3grrhef1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1m6qdet/qwen3coder_is_here/,ResearchCrafty1804,0
+1me31d8,🚀 Qwen3-Coder-Flash released!,"🦥 Qwen3-Coder-Flash: Qwen3-Coder-30B-A3B-Instruct
+
+💚 Just lightning-fast, accurate code generation.
+
+✅ Native 256K context (supports up to 1M tokens with YaRN)
+
+✅ Optimized for platforms like Qwen Code, Cline, Roo Code, Kilo Code, etc.
+
+✅ Seamless function calling &amp; agent workflows
+
+💬 Chat: https://chat.qwen.ai/
+
+🤗 Hugging Face: https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct
+
+🤖 ModelScope: https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
+
+",1692,0.98,350,2025-07-31T14:26:52+00:00,LocalLLaMA,https://i.redd.it/p7fpia2bz7gf1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1me31d8/qwen3coderflash_released/,ResearchCrafty1804,0
+1s8rb48,Just a helpful open-source contributor,,1478,0.99,155,2026-03-31T15:52:25+00:00,LocalLLaMA,https://i.redd.it/vfo67kt2kesg1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1s8rb48/just_a_helpful_opensource_contributor/,MagicZhang,0
+1lbrnod,"Jan-nano, a 4B model that can outperform 671B on MCP","Hi everyone it's me from Menlo Research again,
+
+Today, I’d like to introduce our latest model: **Jan-nano** \- a model fine-tuned with DAPO on Qwen3-4B. Jan-nano comes with some unique capabilities:
+
+* It can perform deep research (with the right prompting)
+* It picks up relevant information effectively from search results
+* It uses tools efficiently
+
+Our original goal was to build a super small model that excels at using search tools to extract high-quality information. To evaluate this, we chose **SimpleQA** \- a relatively straightforward benchmark to test whether the model can find and extract the right answers.
+
+Again, Jan-nano only outperforms Deepseek-671B on this metric, using an agentic and tool-usage-based approach. **We are fully aware that a 4B model has its limitations**, but it's always interesting to see how far you can push it. Jan-nano can serve as your self-hosted Perplexity alternative on a budget. (We're aiming to improve its performance to 85%, or even close to 90%).
+
+**We will be releasing technical report very soon, stay tuned!**
+
+You can find the model at:  
+[https://huggingface.co/Menlo/Jan-nano](https://huggingface.co/Menlo/Jan-nano)
+
+We also have gguf at:  
+[https://huggingface.co/Menlo/Jan-nano-gguf](https://huggingface.co/Menlo/Jan-nano-gguf)
+
+I saw some users have technical challenges on prompt template of the gguf model, please raise it on the issues we will fix one by one. However at the moment **the model can run well in Jan app and llama.server.**
+
+**Benchmark**
+
+The evaluation was done using agentic setup, which let the model to freely choose tools to use and generate the answer instead of handheld approach of workflow based deep-research repo that you come across online. So basically it's just input question, then model call tool and generate the answer, like you use MCP in the chat app.
+
+**Result:**
+
+**SimpleQA:**  
+\- OpenAI o1: 42.6  
+\- Grok 3: 44.6  
+\- 03: 49.4  
+\- Claude-3.7-Sonnet: 50.0  
+\- Gemini-2.5 pro: 52.9  
+**- bas",1325,0.96,478,2025-06-15T04:24:03+00:00,LocalLLaMA,https://v.redd.it/p52b768jp07f1,https://www.reddit.com/r/LocalLLaMA/comments/1lbrnod/jannano_a_4b_model_that_can_outperform_671b_on_mcp/,Kooky-Somewhere-2883,0
+1rdxfdu,Qwen3.5-35B-A3B is a gamechanger for agentic coding.,"[Qwen3.5-35B-A3B with Opencode](https://preview.redd.it/m4v951sv5jlg1.jpg?width=2367&amp;format=pjpg&amp;auto=webp&amp;s=bec61ca20f08bb766987147287c7d6664308fa2f)
+
+
+
+Just tested this badboy with Opencode **cause frankly I couldn't believe those benchmarks.** Running it on a single RTX 3090 on a headless Linux box. Freshly compiled Llama.cpp and those are my settings after some tweaking, still not fully tuned: 
+
+./llama.cpp/llama-server \\
+
+\-m /models/**Qwen3.5-35B-A3B-MXFP4\_MOE.gguf** \\
+
+\-a ""DrQwen"" \\
+
+\-c 131072 \\
+
+\-ngl all \\
+
+\-ctk q8\_0 \\
+
+\-ctv q8\_0 \\
+
+\-sm none \\
+
+\-mg 0 \\
+
+\-np 1 \\
+
+\-fa on
+
+Around 22 gigs of vram used.
+
+  
+Now the fun part:
+
+1. I'm getting over 100t/s on it
+
+2. This is the first open weights model I was able to utilise on my home hardware to successfully complete my own ""coding test"" I used for years for recruitment (mid lvl mobile dev, around 5h to complete ""pre AI"" ;)). It did it in around 10 minutes, strong pass. First agentic tool that I was able to ""crack"" it with was [Kodu.AI](http://Kodu.AI) with some early sonnet roughly 14 months ago.
+
+3. For fun I wanted to recreate this dashboard OpenAI used during Cursor demo last summer, I did a recreation of it with Claude Code back then and posted it on Reddit: [https://www.reddit.com/r/ClaudeAI/comments/1mk7plb/just\_recreated\_that\_gpt5\_cursor\_demo\_in\_claude/](https://www.reddit.com/r/ClaudeAI/comments/1mk7plb/just_recreated_that_gpt5_cursor_demo_in_claude/) So... Qwen3.5 was able to do it in around 5 minutes. 
+
+**I think we got something special here...**
+
+  
+",1177,0.97,398,2026-02-25T00:04:44+00:00,LocalLLaMA,https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/,https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/qwen3535ba3b_is_a_gamechanger_for_agentic_coding/,jslominski,0
+1s8r3w3,How it started vs How it's going,"Unrelated, simple command to download a specific version archive of npm package: `npm pack @anthropic-ai/claude-code@2.1.88`",1138,0.97,110,2026-03-31T15:45:00+00:00,LocalLLaMA,https://i.redd.it/tem7w9sqiesg1.png,https://www.reddit.com/r/LocalLLaMA/comments/1s8r3w3/how_it_started_vs_how_its_going/,HornyGooner4401,0
+1l3niws,"After court order, OpenAI is now preserving all ChatGPT and API logs","&gt;OpenAI could have taken steps to anonymize the chat logs but chose not to, only making an argument for why it ""would not"" be able to segregate data, rather than explaining why it ""can’t.""
+
+
+
+Surprising absolutely nobody, except maybe ChatGPT users, OpenAI and the United States own your data and can do whatever they want with it. ClosedAI have the audacity to pretend they're the good guys, despite not doing anything tech-wise to prevent this from being possible. My personal opinion is that Gemini, Claude, et al. are next. Yet another win for open weights. Own your tech, own your data.",1087,0.98,285,2025-06-05T02:00:22+00:00,LocalLLaMA,https://arstechnica.com/tech-policy/2025/06/openai-says-court-forcing-it-to-save-all-chatgpt-logs-is-a-privacy-nightmare/,https://www.reddit.com/r/LocalLLaMA/comments/1l3niws/after_court_order_openai_is_now_preserving_all/,iGermanProd,0
+1p5u44r,That's why local models are better,"That is why the local ones are better than the private ones in addition to this model is still expensive, I will be surprised when the US models reach an optimized price like those in China, the price reflects the optimization of the model, did you know ?",1074,0.91,233,2025-11-24T21:42:13+00:00,LocalLLaMA,https://i.redd.it/7s5e59vpy93g1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1p5u44r/thats_why_local_models_are_better/,Illustrious-Swim9663,0
+1k28f3f,Playing DOOM II and 19 other DOS/GB games with LLMs as a new benchmark,"From AK (@akhaliq)
+
+""We introduce a research preview of VideoGameBench, a benchmark which challenges vision-language models to complete, in real-time, a suite of 20 different popular video games from both hand-held consoles and PC  
+  
+GPT-4o, Claude Sonnet 3.7, Gemini 2.5 Pro, and Gemini 2.0 Flash playing Doom II (default difficulty) on VideoGameBench-Lite with the same input prompt! Models achieve varying levels of success but none are able to pass even the first level.""
+
+project page: [https://vgbench.com](https://vgbench.com)  
+  
+try on other games: [https://github.com/alexzhang13/VideoGameBench](https://github.com/alexzhang13/VideoGameBench)",1050,0.97,175,2025-04-18T15:59:16+00:00,LocalLLaMA,https://v.redd.it/u1i2op2o8mve1,https://www.reddit.com/r/LocalLLaMA/comments/1k28f3f/playing_doom_ii_and_19_other_dosgb_games_with/,ZhalexDev,0
+1r0zn8o,Hugging Face Is Teasing Something Anthropic Related,"Anthropic are the guys that make the Claude Models.
+
+I highly doubt this will be an Openweights LLM release. More likely it will be a dataset for safety alignment. Anthropic is probably the organization most opposed to the open source community, so it's probably going to be a dataset. ",1042,0.96,229,2026-02-10T12:39:52+00:00,LocalLLaMA,https://i.redd.it/wvu2vi2jwnig1.png,https://www.reddit.com/r/LocalLLaMA/comments/1r0zn8o/hugging_face_is_teasing_something_anthropic/,Few_Painter_5588,0
+1ljyo2p,Jan-nano-128k: A 4B Model with a Super-Long Context Window (Still Outperforms 671B),"Hi everyone it's me from Menlo Research again,
+
+Today, I'd like to introduce our latest model: **Jan-nano-128k** \- this model is fine-tuned on **Jan-nano** (which is a qwen3 finetune), improve performance when enable YaRN scaling **(instead of having degraded performance)**.
+
+* It can uses tools continuously, repeatedly. 
+* It can perform deep research **VERY VERY DEEP**
+* Extremely persistence (please pick the right MCP as well)
+
+Again, we are not trying to beat Deepseek-671B models, we just want to see how far this current model can go. To our surprise, **it is going very very far.** Another thing, we have spent all the resource on this version of Jan-nano so.... 
+
+**We pushed back the technical report release! But it's coming ...sooon!**
+
+You can find the model at:  
+[https://huggingface.co/Menlo/Jan-nano-128k](https://huggingface.co/Menlo/Jan-nano-128k)
+
+We also have gguf at:  
+**We are converting the GGUF check in comment section**
+
+This model will require **YaRN Scaling** supported from inference engine, we already configure it in the model, but your inference engine will need to be able to handle YaRN scaling. Please run the model in l**lama.server or Jan app** (these are from our team, we tested them, just it).
+
+**Result:**  
+  
+**SimpleQA:**  
+\- OpenAI o1: 42.6  
+\- Grok 3: 44.6  
+\- 03: 49.4  
+\- Claude-3.7-Sonnet: 50.0  
+\- Gemini-2.5 pro: 52.9  
+**- baseline-with-MCP: 59.2**  
+\- ChatGPT-4.5: 62.5  
+**- deepseek-671B-with-MCP: 78.2** (we benchmark using openrouter)  
+\- jan-nano-v0.4-with-MCP: 80.7  
+**- jan-nano-128k-with-MCP: 83.2** 
+
+",1023,0.93,379,2025-06-25T06:44:26+00:00,LocalLLaMA,https://v.redd.it/909kwwnbo09f1,https://www.reddit.com/r/LocalLLaMA/comments/1ljyo2p/jannano128k_a_4b_model_with_a_superlong_context/,Kooky-Somewhere-2883,0
+1mbg1ck,GLM4.5 released!,"Today, we introduce two new GLM family members: GLM-4.5 and GLM-4.5-Air — our latest flagship models. GLM-4.5 is built with 355 billion total parameters and 32 billion active parameters, and GLM-4.5-Air with 106 billion total parameters and 12 billion active parameters. Both are designed to unify reasoning, coding, and agentic capabilities into a single model in order to satisfy more and more complicated requirements of fast rising agentic applications.
+
+Both GLM-4.5 and GLM-4.5-Air are hybrid reasoning models, offering: thinking mode for complex reasoning and tool using, and non-thinking mode for instant responses. They are available on Z.ai, BigModel.cn and open-weights are avaiable at HuggingFace and ModelScope.
+
+Blog post: https://z.ai/blog/glm-4.5
+
+Hugging Face:
+
+https://huggingface.co/zai-org/GLM-4.5
+
+https://huggingface.co/zai-org/GLM-4.5-Air
+
+",1019,0.99,243,2025-07-28T13:22:25+00:00,LocalLLaMA,https://www.reddit.com/gallery/1mbg1ck,https://www.reddit.com/r/LocalLLaMA/comments/1mbg1ck/glm45_released/,ResearchCrafty1804,0
+1lkbiva,"Gemini released an Open Source CLI Tool similar to Claude Code but with a free 1 million token context window, 60 model requests per minute and 1,000 requests per day at no charge.",,997,0.95,141,2025-06-25T17:13:56+00:00,LocalLLaMA,https://i.redd.it/11rgwmzvv39f1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1lkbiva/gemini_released_an_open_source_cli_tool_similar/,SilverRegion9394,0
+1s2i7pw,Best model that can beat Claude opus that runs on 32MB of vram?,"Hi everyone! I want to get in to vibe coding to make my very own ai wrapper, what are the best models that can run on 32MB of vram? I have a GeForce 256, and an intel pentium 3, i want to be able to run a model on ollama that can AT LEAST match or beat Claude opus, any recommendations?",988,0.85,246,2026-03-24T16:12:08+00:00,LocalLLaMA,https://www.reddit.com/r/LocalLLaMA/comments/1s2i7pw/best_model_that_can_beat_claude_opus_that_runs_on/,https://www.reddit.com/r/LocalLLaMA/comments/1s2i7pw/best_model_that_can_beat_claude_opus_that_runs_on/,PrestigiousEmu4485,0
+1mrfqsd,"Epoch AI data shows that on benchmarks, local LLMs only lag the frontier by about 9 months",,969,0.96,159,2025-08-16T00:40:29+00:00,LocalLLaMA,https://i.redd.it/kbdu3pyq1ajf1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1mrfqsd/epoch_ai_data_shows_that_on_benchmarks_local_llms/,timfduffy,0
+1rll349,"Ran Qwen 3.5 9B on M1 Pro (16GB) as an actual agent, not just a chat demo. Honest results.","Quick context: I run a personal automation system built on Claude Code. It's model-agnostic, so switching to Ollama was a one-line config change, nothing else needed to change. I pointed it at Qwen 3.5 9B and ran real tasks from my actual queue.
+
+Hardware: M1 Pro MacBook, 16 GB unified memory. Not a Mac Studio, just a regular laptop.
+
+Setup:
+
+brew install ollama
+
+  ollama pull qwen3.5:9b
+
+  ollama run qwen3.5:9b
+
+Ollama exposes an OpenAI-compatible API at localhost:11434. Anything targeting the OpenAI format just points there. No code changes.
+
+**What actually happened:**
+
+**Memory recall**: worked well. My agent reads structured memory files and surfaces relevant context. Qwen handled this correctly. For ""read this file, find the relevant part, report it"" type tasks, 9B is genuinely fine.
+
+**Tool calling**: reasonable on straightforward requests. It invoked the right tools most of the time on simple agentic tasks. This matters more than text quality when you're running automation.
+
+**Creative and complex reasoning**: noticeable gap. Not a surprise. The point isn't comparing it to Opus. It's whether it can handle a real subset of agent work without touching a cloud API. It can.
+
+The slowness was within acceptable range. Aware of it, not punished by it.
+
+
+
+Bonus: iPhone
+
+Ran Qwen 0.8B and 2B on iPhone 17 Pro via PocketPal AI (free, open source, on the App Store). Download the model once over Wi-Fi, then enable airplane mode. It still responds. Nothing left the device.
+
+The tiny models have obvious limits. But the fact that this is even possible on hardware you already own in 2026 feels like a threshold has been crossed.
+
+The actual framing:
+
+This isn't ""local AI competes with Claude."" It's ""not every agent task needs a frontier model.""
+
+A lot of what agent systems do is genuinely simple: read a file, format output, summarize a short note, route a request. That runs locally without paying per token or sending anything anywhere. The privacy angle is also real if you're",970,0.94,249,2026-03-05T15:50:39+00:00,LocalLLaMA,https://i.redd.it/8gx9agmiz8ng1.png,https://www.reddit.com/r/LocalLLaMA/comments/1rll349/ran_qwen_35_9b_on_m1_pro_16gb_as_an_actual_agent/,Joozio,0
+1kxxmdr,DeepSeek R1 05 28 Tested. It finally happened. The ONLY model to score 100% on everything I threw at it.,"Ladies and gentlemen, It finally happened. 
+
+I knew this day was coming. I knew that one day, a model would come along that would be able to score a 100% on every single task I throw at it. 
+
+[https://www.youtube.com/watch?v=4CXkmFbgV28](https://www.youtube.com/watch?v=4CXkmFbgV28)
+
+Past few weeks have been busy - OpenAI 4.1, Gemini 2.5, Claude 4 - They all did very well, but none were able to score a perfect 100% across every single test. DeepSeek R1 05 28 is the FIRST model ever to do this. 
+
+And mind you, these aren't impractical tests like you see many folks on youtube doing. Like number of rs in strawberry or write a snake game etc. These are tasks that we actively use in real business applications, and from those, we chose the edge cases on the more complex side of things. 
+
+I feel like I am Anton from Ratatouille (if you have seen the movie). I am deeply impressed (pun intended) but also a little bit numb, and having a hard time coming up with the right words. That a free, MIT licensed model from a largely unknown lab until last year has done better than the commercial frontier is wild.
+
+Usually in my videos, I explain the test, and then talk about the mistakes the models are making. But today, since there ARE NO mistakes, I am going to do something different. For each test, i am going to show you a couple of examples of the model's responses - and how hard these questions are, and I hope that gives you a deep sense of appreciation of what a powerful model this is. 
+
+
+
+",957,0.94,184,2025-05-29T00:48:50+00:00,LocalLLaMA,https://www.reddit.com/r/LocalLLaMA/comments/1kxxmdr/deepseek_r1_05_28_tested_it_finally_happened_the/,https://www.reddit.com/r/LocalLLaMA/comments/1kxxmdr/deepseek_r1_05_28_tested_it_finally_happened_the/,Ok-Contribution9043,0
+1r2e8mp,#SaveLocalLLaMA,,936,0.97,128,2026-02-12T00:07:52+00:00,LocalLLaMA,https://i.redd.it/0memizzegyig1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1r2e8mp/savelocalllama/,ForsookComparison,0
+1qtvp74,GLM-5 Coming in February! It's confirmed.,Twitter Link: [https://x.com/jietang/status/2018246490775498791?s=20](https://x.com/jietang/status/2018246490775498791?s=20),921,0.96,153,2026-02-02T13:56:14+00:00,LocalLLaMA,https://i.redd.it/rq0meza173hg1.jpeg,https://www.reddit.com/r/LocalLLaMA/comments/1qtvp74/glm5_coming_in_february_its_confirmed/,Difficult-Cap-7527,0
+1n6epwv,My weekend project accidentally beat Claude Code - multi-agent coder now #12 on Stanford's TerminalBench 😅,"👋 Hitting a million brick walls with multi-turn RL training isn't fun, so I thought I would try something new to climb Stanford's leaderboard for now! So this weekend I was just tinkering with multi-agent systems and... somehow ended up beating Claude Code on Stanford's TerminalBench leaderboard (#12)! Genuinely didn't expect this - started as a fun experiment and ended up with something that works surprisingly well.
+
+**What I did:**
+
+Built a multi-agent AI system with three specialised agents:
+
+* **Orchestrator**: The brain - never touches code, just delegates and coordinates
+* **Explorer agents**: Read &amp; run only investigators that gather intel
+* **Coder agents**: The ones who actually implement stuff
+
+Created a ""Context Store"" which can be thought of as persistent memory that lets agents share their discoveries.
+
+Tested on TerminalBench with both Claude Sonnet-4 and Qwen3-Coder-480B.  
+
+
+**Key results:**
+
+* Orchestrator + Sonnet-4: **36.0% success rate** (#12 on leaderboard, ahead of Claude Code!)
+* Orchestrator + Qwen-3-Coder: 19.25% success rate
+* Sonnet-4 consumed 93.2M tokens vs Qwen's 14.7M tokens to compete all tasks!
+* The orchestrator's explicit task delegation + intelligent context sharing between subagents seems to be the secret sauce
+
+
+
+**(Kind of) Technical details:**
+
+* The orchestrator can't read/write code directly - this forces proper delegation patterns and strategic planning
+* Each agent gets precise instructions about what ""knowledge artifacts"" to return, these artifacts are then stored, and can be provided to future subagents upon launch.
+* Adaptive trust calibration: simple tasks = high autonomy, complex tasks = iterative decomposition
+* Each agent has its own set of tools it can use.
+
+  
+**More details:**
+
+My Github repo has all the code, system messages, and way more technical details if you're interested!
+
+⭐️ [**Orchestrator repo - all code open sourced!**](https://github.com/Danau5tin/multi-agent-coding-system)
+
+  
+Thanks for reading!",914,0.93,50,2025-09-02T09:17:01+00:00,LocalLLaMA,https://www.reddit.com/gallery/1n6epwv,https://www.reddit.com/r/LocalLLaMA/comments/1n6epwv/my_weekend_project_accidentally_beat_claude_code/,DanAiTuning,0
+1rmplvs,Open WebUI’s New Open Terminal + “Native” Tool Calling + Qwen3.5 35b = Holy Sh!t!!!,"Let me pre-apologize for this long and rambling post but I get excited by stuff like this. 
+
+I think a lot of folks here (myself included) have been largely oblivious to what Tim &amp; company over at Open WebUI has been up to lately with their repo.  I know I’ve been too busy trying to get all the various Qwen3.5 models to count the “R”’s in Strawberry to care about much else  right now. 
+
+Anyways, It didn’t help that there was a good solid month without even a peep out of the Open WebUI team in terms of new releases... but now I can see why they were so quiet. It’s because they were cooking up some “dope sh!t” as the kids say (they still say that, right?)
+
+Last week, they released probably the most impressive feature update I’ve seen from them in like the last year. They started a new Open WebUI project integration called Open Terminal.
+
+https://github.com/open-webui/open-terminal
+
+Open Terminal is basically a Dockerized (sandboxed) terminal with a live file browser / render canvas that sits on the right side of your Open WebUI interface when active. You can drag files into and out of the file browser from the host PC to the sandbox, and the AI can basically do whatever you want it to with the sandbox environment (install libraries, edit files, whatever). The file render canvas will show you a preview of any supported file type it can open, so you can watch it live edit your files as the model makes tool calls. 
+
+Terminal is blowing my friggin mind over here. With it enabled, my models are like super-capable of doing actual work now and can finally do a bunch of stuff without even using MCPs. I was like “ok, now you have a sandboxed headless computer at your disposal, go nuts” and it was like “cool, Ima go do some stuff and load a bunch of Python libraries and whatnot” and BAM if just started figuring things out through trial and error. It never got stuck in a loop and never got frustrated (was using Qwen3.5 35b 3a btw). It dropped the files in the browser on the ",911,0.96,210,2026-03-06T20:44:34+00:00,LocalLLaMA,https://www.reddit.com/gallery/1rmplvs,https://www.reddit.com/r/LocalLLaMA/comments/1rmplvs/open_webuis_new_open_terminal_native_tool_calling/,Porespellar,0
