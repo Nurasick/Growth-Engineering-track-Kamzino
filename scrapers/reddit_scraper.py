@@ -167,11 +167,13 @@ def save_to_csv(records: list[dict], filepath: str) -> None:
 # ---------------------------------------------------------------------------
 # Main — all 5 subreddits, 0.5s delay between them
 # ---------------------------------------------------------------------------
-def main(subreddits: list[str] = SUBREDDITS, limit: int = 100) -> None:
+def main(subreddits: list[str] = SUBREDDITS, limit: int = 100,
+         query: str = "Claude", output_prefix: str = "") -> None:
     today         = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     raw_dir       = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
-    posts_path    = os.path.join(raw_dir, f"reddit_posts_{today}.csv")
-    comments_path = os.path.join(raw_dir, f"reddit_comments_{today}.csv")
+    prefix        = f"{output_prefix}_" if output_prefix else ""
+    posts_path    = os.path.join(raw_dir, f"{prefix}reddit_posts_{today}.csv")
+    comments_path = os.path.join(raw_dir, f"{prefix}reddit_comments_{today}.csv")
 
     if os.path.exists(posts_path) or os.path.exists(comments_path):
         raise FileExistsError(
@@ -182,7 +184,7 @@ def main(subreddits: list[str] = SUBREDDITS, limit: int = 100) -> None:
     all_posts, all_comments = [], []
 
     for i, sub in enumerate(subreddits):
-        posts, comments = scrape_subreddit(sub, limit=limit)
+        posts, comments = scrape_subreddit(sub, query=query, limit=limit)
         all_posts.extend(posts)
         all_comments.extend(comments)
         if i < len(subreddits) - 1:
@@ -198,19 +200,27 @@ def main(subreddits: list[str] = SUBREDDITS, limit: int = 100) -> None:
 # Smoke test — limit=5, r/ClaudeAI only
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    posts, comments = scrape_subreddit("ClaudeAI", limit=5)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--subreddits",    type=str, default="", help="Comma-separated subreddits")
+    parser.add_argument("--query",         type=str, default="Claude", help="Search query")
+    parser.add_argument("--limit",         type=int, default=100)
+    parser.add_argument("--output-prefix", type=str, default="")
+    parser.add_argument("--smoke",         action="store_true")
+    args = parser.parse_args()
 
-    df_posts    = pd.DataFrame(posts)
-    df_comments = pd.DataFrame(comments)
+    if args.smoke:
+        posts, comments = scrape_subreddit("ClaudeAI", limit=5)
+        df_posts    = pd.DataFrame(posts)
+        df_comments = pd.DataFrame(comments)
+        print(f"\n--- Smoke test results ---")
+        print(f"Posts rows:    {len(df_posts)}")
+        print(f"Comments rows: {len(df_comments)}")
+        if not df_posts.empty:
+            print("\nFirst post:")
+            print(json.dumps(df_posts.iloc[0].to_dict(), indent=2, default=str))
+    else:
+        subs = args.subreddits.split(",") if args.subreddits else SUBREDDITS
+        main(subreddits=subs, limit=args.limit, query=args.query,
+             output_prefix=args.output_prefix)
 
-    print(f"\n--- Smoke test results ---")
-    print(f"Posts rows:    {len(df_posts)}")
-    print(f"Comments rows: {len(df_comments)}")
-
-    if not df_posts.empty:
-        print("\nFirst post:")
-        print(json.dumps(df_posts.iloc[0].to_dict(), indent=2, default=str))
-
-    if not df_comments.empty:
-        print("\nFirst comment:")
-        print(json.dumps(df_comments.iloc[0].to_dict(), indent=2, default=str))

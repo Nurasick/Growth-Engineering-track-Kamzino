@@ -226,36 +226,40 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def main() -> int:
+def main(prefix: str = "") -> int:
+    """
+    prefix: product prefix for raw filenames (e.g. "higgsfield").
+    Empty string = default Claude dataset.
+    """
     posts:    list[dict] = []
     comments: list[dict] = []
     loaded = []
+    p = f"{prefix}_" if prefix else ""
 
     # X posts
-    x_path = RAW_DIR / "x_case_raw.csv"
+    x_path = RAW_DIR / f"{p}x_case_raw.csv" if prefix else RAW_DIR / "x_case_raw.csv"
     if x_path.exists():
         rows = read_csv(x_path)
         posts.extend(normalize_x_posts(rows, x_path.name))
         loaded.append(f"X: {len(rows)}")
 
     # Reddit posts
-    rp = _find_input(f"reddit_posts_{TODAY}.csv", "reddit_posts_*.csv")
+    rp = _find_input(f"{p}reddit_posts_{TODAY}.csv", f"{p}reddit_posts_*.csv")
     if rp:
         rows = read_csv(rp)
         posts.extend(normalize_reddit_posts(rows, rp.name))
         loaded.append(f"Reddit posts: {len(rows)}")
 
     # Reddit comments
-    rc = _find_input(f"reddit_comments_{TODAY}.csv", "reddit_comments_*.csv")
+    rc = _find_input(f"{p}reddit_comments_{TODAY}.csv", f"{p}reddit_comments_*.csv")
     if rc:
         rows = read_csv(rc)
         comments.extend(normalize_reddit_comments(rows, rc.name))
         loaded.append(f"Reddit comments: {len(rows)}")
 
-    # HN
-    # Prefer the wider historical file if available (e.g. hn_items_90d_*.csv)
-    hn_wide = _latest("hn_items_*d_*.csv")
-    hn = hn_wide if hn_wide else _find_input(f"hn_items_{TODAY}.csv", "hn_items_*.csv")
+    # HN — prefer wider historical file if available
+    hn_wide = _latest(f"{p}hn_items_*d_*.csv") if not prefix else _latest(f"{p}hn_items_*.csv")
+    hn = hn_wide if hn_wide else _find_input(f"{p}hn_items_{TODAY}.csv", f"{p}hn_items_*.csv")
     if hn:
         rows = read_csv(hn)
         hn_posts, hn_comments = normalize_hn_items(rows, hn.name)
@@ -264,8 +268,8 @@ def main() -> int:
         loaded.append(f"HN: {len(rows)}")
 
     # YouTube videos
-    yt = _find_input(f"youtube_videos_{TODAY}.csv", "youtube_videos_*.csv")
-    if not yt:
+    yt = _find_input(f"{p}youtube_videos_{TODAY}.csv", f"{p}youtube_videos_*.csv")
+    if not yt and not prefix:
         yt = _find_input("youtube_posts.csv", "youtube_posts.csv")
     if yt:
         rows = read_csv(yt)
@@ -293,4 +297,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prefix", type=str, default="", help="Product prefix for raw filenames (e.g. higgsfield)")
+    args = parser.parse_args()
+    raise SystemExit(main(prefix=args.prefix))
