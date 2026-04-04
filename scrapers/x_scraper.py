@@ -120,6 +120,17 @@ PRODUCT_CONFIGS = {
             'site:x.com "Higgsfield review"',
             'site:x.com "Higgsfield tutorial"',
             'site:x.com "AI video generation" Higgsfield',
+            # Hashtags and broader discovery
+            'site:x.com "#Higgsfield"',
+            'site:x.com "#Higgsfield"',
+            'site:x.com "higgsfield.ai"',
+            'site:x.com "Higgsfield" "AI video"',
+            'site:x.com "Higgsfield" filmmaker',
+            'site:x.com "Higgsfield" generated',
+            'site:x.com "Higgsfield" cinematic',
+            # Yandex-specific (broader, no site: restriction)
+            '"Higgsfield AI" -site:higgsfield.ai',
+            '"@Higgsfield_ai" video',
         ],
         "handle_search_term": "Higgsfield",
         "official_handles": {"higgsfield_ai"},
@@ -185,6 +196,21 @@ NITTER_RSS_CANDIDATES = [
     'https://xcancel.com',
     'https://nitter.poast.org',
     'https://nitter.tiekoetter.com',
+]
+
+# SearXNG public instances — some support ?format=json (proxies Google + Bing + others)
+SEARXNG_INSTANCES = [
+    'https://searx.be',
+    'https://search.bus-hit.me',
+    'https://searxng.site',
+]
+
+# Nitter profile HTML instances — for direct timeline scraping without RSS
+NITTER_HTML_CANDIDATES = [
+    'https://xcancel.com',
+    'https://nitter.poast.org',
+    'https://nitter.tiekoetter.com',
+    'https://nitter.privacyredirect.com',
 ]
 
 STATUS_URL_RE = re.compile(
@@ -369,6 +395,88 @@ def bing_search(session: requests.Session, query: str, page: int = 0) -> list[Di
     return hits
 
 
+def yandex_search(session: requests.Session, query: str, page: int = 0) -> list[DiscoveryHit]:
+    """Yandex indexes X/Twitter more aggressively than Western search engines."""
+    response = session.get(
+        'https://yandex.com/search/',
+        params={'text': query, 'p': str(page), 'lr': '10393'},
+        headers={**DEFAULT_HEADERS, 'Accept-Language': 'en-US,en;q=0.9'},
+        timeout=30,
+    )
+    if response.status_code != 200:
+        return []
+    html = response.text.replace('\\/', '/')
+    urls = dedupe_preserve_order(TWITTER_URL_IN_HTML_RE.findall(html))
+    hits: list[DiscoveryHit] = []
+    for url in urls:
+        normalized = canonicalize_status_url(url)
+        if not normalized:
+            continue
+        clean_url, _ = normalized
+        hits.append(DiscoveryHit(url=clean_url, source_query=query, source='yandex'))
+    return hits
+
+
+def searxng_search(session: requests.Session, query: str) -> list[DiscoveryHit]:
+    """Try public SearXNG instances — some proxy Google results with JSON output."""
+    for instance in SEARXNG_INSTANCES:
+        try:
+            response = session.get(
+                f'{instance}/search',
+                params={'q': query, 'format': 'json', 'categories': 'general'},
+                headers=DEFAULT_HEADERS,
+                timeout=20,
+            )
+            if response.status_code != 200:
+                continue
+            data = response.json()
+            hits: list[DiscoveryHit] = []
+            for result in data.get('results', []):
+                url = result.get('url', '')
+                normalized = canonicalize_status_url(url)
+                if not normalized:
+                    continue
+                clean_url, _ = normalized
+                hits.append(DiscoveryHit(url=clean_url, source_query=query, source=f'searxng:{instance}'))
+            if hits:
+                return hits
+        except Exception:
+            continue
+    return []
+
+
+def nitter_profile_html(session: requests.Session, handle: str, limit: int = 20) -> list[DiscoveryHit]:
+    """Scrape Nitter profile HTML page for recent tweet URLs — more reliable than RSS."""
+    NITTER_STATUS_RE = re.compile(
+        r'/([A-Za-z0-9_]{1,15})/status/(\d{5,25})'
+    )
+    for base in NITTER_HTML_CANDIDATES:
+        try:
+            url = f'{base}/{handle}'
+            response = session.get(url, headers=DEFAULT_HEADERS, timeout=20)
+            if response.status_code != 200:
+                continue
+            text = response.text
+            if 'whitelisted' in text.lower() or 'not a bot' in text.lower():
+                continue
+            matches = NITTER_STATUS_RE.findall(text)
+            hits: list[DiscoveryHit] = []
+            seen: set[str] = set()
+            for tweet_handle, tweet_id in matches:
+                if tweet_id in seen:
+                    continue
+                seen.add(tweet_id)
+                tweet_url = f'https://x.com/{tweet_handle}/status/{tweet_id}'
+                hits.append(DiscoveryHit(url=tweet_url, source_query=f'nitter_profile:{handle}', source='nitter_html'))
+                if len(hits) >= limit:
+                    break
+            if hits:
+                return hits
+        except Exception:
+            continue
+    return []
+
+
 def discover_hits(session: requests.Session, query: str, pages: int) -> list[DiscoveryHit]:
     hits: list[DiscoveryHit] = []
     seen_urls: set[str] = set()
@@ -384,17 +492,27 @@ def discover_hits(session: requests.Session, query: str, pages: int) -> list[Dis
                     continue
                 seen_urls.add(hit.url)
                 hits.append(hit)
+        # Yandex — best X indexing of any major search engine
+        try:
+            for hit in yandex_search(session, query, page):
+                if hit.url in seen_urls:
+                    continue
+                seen_urls.add(hit.url)
+                hits.append(hit)
+        except Exception:
+            pass
         polite_sleep(0.3)
 
-    # Brave fallback is single-page and best-effort only.
-    try:
-        for hit in brave_search(session, query):
-            if hit.url in seen_urls:
-                continue
-            seen_urls.add(hit.url)
-            hits.append(hit)
-    except Exception:
-        pass
+    # Single-page fallbacks
+    for fallback in (brave_search, searxng_search):
+        try:
+            for hit in fallback(session, query):
+                if hit.url in seen_urls:
+                    continue
+                seen_urls.add(hit.url)
+                hits.append(hit)
+        except Exception:
+            pass
 
     return hits
 
@@ -546,7 +664,24 @@ def main() -> int:
             seen_urls.add(hit.url)
             discovered.append(hit)
 
-    # Priority 1: known handles.
+    # Priority 1a: Nitter profile HTML (more reliable than RSS).
+    for handle in get_all_handles(prod_handles):
+        try:
+            html_hits = nitter_profile_html(session, handle, limit=args.limit_per_handle_rss)
+            added = 0
+            for hit in html_hits:
+                if hit.url in seen_urls:
+                    continue
+                seen_urls.add(hit.url)
+                discovered.append(hit)
+                added += 1
+            if args.verbose and html_hits:
+                print(f'[nitter-html] @{handle}: {added} tweets', file=sys.stderr)
+        except Exception as exc:  # noqa: BLE001
+            if args.verbose:
+                print(f'[warn] nitter profile failed for {handle}: {exc}', file=sys.stderr)
+
+    # Priority 1b: Nitter RSS as fallback.
     rss_base, rss_status = check_nitter_rss(session)
     if args.verbose:
         print(f'[rss-check] {rss_status}', file=sys.stderr)
