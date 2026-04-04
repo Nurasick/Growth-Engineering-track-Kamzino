@@ -5,9 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: "#0f172a",
-        card: "#1e293b",
-        border: "#334155",
+        hg: {
+          lime:    "#CAFF33",
+          "lime-d":"#b3e020",
+          black:   "#0d0d0d",
+          surface: "#141414",
+          card:    "#1a1a1a",
+          border:  "#242424",
+          muted:   "#2e2e2e",
+        },
       },
     },
   },

@@ -9,33 +9,45 @@ const links = [
   { href: "/scrapers",  label: "Scrapers" },
   { href: "/pipeline",  label: "Pipeline" },
   { href: "/downloads", label: "Downloads" },
-  { href: "/charts", label: "Charts" },
+  { href: "/charts",    label: "Charts" },
 ];
+
+function HiggsLogo() {
+  return (
+    <Link href="/" className="flex items-center gap-3 group">
+      <img
+        src="/logo.jpg"
+        alt="Higgsfield"
+        width={28}
+        height={28}
+        className="rounded shrink-0 object-contain"
+      />
+      <span className="text-sm font-bold tracking-[0.18em] uppercase text-white group-hover:text-[#CAFF33] transition-colors">
+        HIGGSFIELD
+      </span>
+    </Link>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-10 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+    <nav className="sticky top-0 z-10 border-b border-[#242424] bg-[#0d0d0d]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-8 px-6 py-3">
-        <div className="flex items-center gap-2">
-          <span className="text-violet-400 text-xl">⚡</span>
-          <span className="font-semibold text-slate-100 text-sm tracking-wide">
-            Growth Intelligence
-          </span>
-        </div>
+        <HiggsLogo />
 
-        <div className="flex gap-1">
+        <div className="flex gap-0.5">
           {links.map(({ href, label }) => {
             const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
               <Link
                 key={href}
                 href={href}
-                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                className={`rounded px-3 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors ${
                   active
-                    ? "bg-violet-500/20 text-violet-300"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                    ? "bg-[#CAFF33]/10 text-[#CAFF33]"
+                    : "text-white/40 hover:text-white/80 hover:bg-white/5"
                 }`}
               >
                 {label}

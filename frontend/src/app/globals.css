@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 body {
-  background-color: #0f172a;
-  color: #f1f5f9;
+  background-color: #0d0d0d;
+  color: #ffffff;
 }
+
+.glow-green {
+  text-shadow: 0 0 8px #CAFF33, 0 0 20px #CAFF3360;
+}
+.glow-border {
+  box-shadow: 0 0 0 1px #CAFF33, 0 0 12px #CAFF3330;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #CAFF3340; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #CAFF33; }

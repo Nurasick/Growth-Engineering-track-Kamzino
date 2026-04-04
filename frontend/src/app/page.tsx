@@ -19,53 +19,35 @@ export default function DashboardPage() {
       .catch(() => {});
   }, []);
 
-  const totalFiles = files
-    ? files.raw.length + files.processed.length + files.amplifier.length
-    : null;
-
+  const totalFiles = files ? files.raw.length + files.processed.length + files.amplifier.length : null;
   const recentJobs = jobs.slice(0, 5);
 
   const statCards = [
     {
       label: "Backend",
       value: health === null ? "…" : health ? "Online" : "Offline",
-      color: health === null ? "text-slate-400" : health ? "text-green-400" : "text-red-400",
-      dot: health === null ? "bg-slate-500" : health ? "bg-green-400 animate-pulse" : "bg-red-500",
+      color: health === null ? "text-white/30" : health ? "text-[#CAFF33]" : "text-red-400",
+      dot: health === null ? "bg-white/20" : health ? "bg-[#CAFF33] animate-pulse" : "bg-red-500",
     },
-    {
-      label: "Raw files",
-      value: files ? String(files.raw.length) : "…",
-      color: "text-violet-300",
-      dot: null,
-    },
-    {
-      label: "Processed files",
-      value: files ? String(files.processed.length) : "…",
-      color: "text-violet-300",
-      dot: null,
-    },
-    {
-      label: "Total files",
-      value: totalFiles !== null ? String(totalFiles) : "…",
-      color: "text-slate-200",
-      dot: null,
-    },
+    { label: "Raw files",       value: files ? String(files.raw.length)       : "…", color: "text-[#CAFF33]", dot: null },
+    { label: "Processed files", value: files ? String(files.processed.length) : "…", color: "text-[#CAFF33]", dot: null },
+    { label: "Total files",     value: totalFiles !== null ? String(totalFiles) : "…", color: "text-white",     dot: null },
   ];
 
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-slate-100">Dashboard</h1>
-        <p className="mt-1 text-sm text-slate-400">
+        <h1 className="text-2xl font-bold tracking-tight text-white">Dashboard</h1>
+        <p className="mt-1 text-sm text-white/40">
           Growth Intelligence · HackNU 2026 · 4 platforms
         </p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {statCards.map((s) => (
-          <div key={s.label} className="rounded-xl border border-slate-700 bg-slate-800/60 p-4">
-            <div className="flex items-center gap-2 text-xs text-slate-400 mb-1">
+          <div key={s.label} className="rounded border border-[#242424] bg-[#141414] p-4">
+            <div className="flex items-center gap-2 text-xs text-white/30 mb-1 uppercase tracking-wider">
               {s.dot && <span className={`h-2 w-2 rounded-full ${s.dot}`} />}
               {s.label}
             </div>
@@ -76,25 +58,25 @@ export default function DashboardPage() {
 
       {/* Quick actions */}
       <div>
-        <h2 className="text-sm font-medium text-slate-400 uppercase tracking-wider mb-3">
+        <h2 className="text-xs font-medium text-white/30 uppercase tracking-widest mb-3">
           Quick Actions
         </h2>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/pipeline"
-            className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white hover:bg-violet-500 transition-colors"
+            className="rounded bg-[#CAFF33] px-4 py-2 text-xs font-bold tracking-wide uppercase text-black hover:bg-[#b3e020] transition-colors"
           >
             ▶ Run Full Pipeline
           </Link>
           <Link
             href="/scrapers"
-            className="rounded-lg border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:border-slate-400 hover:text-slate-100 transition-colors"
+            className="rounded border border-[#333] px-4 py-2 text-xs font-medium text-white/60 hover:border-[#CAFF33] hover:text-[#CAFF33] transition-colors"
           >
             Run Scrapers
           </Link>
           <Link
             href="/downloads"
-            className="rounded-lg border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:border-slate-400 hover:text-slate-100 transition-colors"
+            className="rounded border border-[#333] px-4 py-2 text-xs font-medium text-white/60 hover:border-[#CAFF33] hover:text-[#CAFF33] transition-colors"
           >
             Download CSVs
           </Link>
@@ -104,26 +86,26 @@ export default function DashboardPage() {
       {/* Recent jobs */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-sm font-medium text-slate-400 uppercase tracking-wider">
+          <h2 className="text-xs font-medium text-white/30 uppercase tracking-widest">
             Recent Jobs
           </h2>
-          <Link href="/scrapers" className="text-xs text-violet-400 hover:text-violet-300">
+          <Link href="/scrapers" className="text-xs text-[#CAFF33]/70 hover:text-[#CAFF33]">
             View all →
           </Link>
         </div>
 
         {recentJobs.length === 0 ? (
-          <p className="text-sm text-slate-500">No jobs yet — run a scraper or the pipeline.</p>
+          <p className="text-sm text-white/20">No jobs yet — run a scraper or the pipeline.</p>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             {recentJobs.map((j) => (
               <div
                 key={j.id}
-                className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3"
+                className="flex items-center justify-between rounded border border-[#242424] bg-[#141414] px-4 py-3"
               >
-                <span className="text-sm text-slate-300 truncate mr-4">{j.label}</span>
+                <span className="text-sm text-white/70 truncate mr-4">{j.label}</span>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="text-xs text-slate-500">{j.id}</span>
+                  <span className="text-xs text-white/20">{j.id}</span>
                   <StatusBadge status={j.status} />
                 </div>
               </div>
@@ -132,14 +114,14 @@ export default function DashboardPage() {
         )}
       </div>
 
-      {/* Available processed files preview */}
+      {/* Processed files */}
       {files && files.processed.length > 0 && (
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium text-slate-400 uppercase tracking-wider">
+            <h2 className="text-xs font-medium text-white/30 uppercase tracking-widest">
               Processed Files
             </h2>
-            <Link href="/downloads" className="text-xs text-violet-400 hover:text-violet-300">
+            <Link href="/downloads" className="text-xs text-[#CAFF33]/70 hover:text-[#CAFF33]">
               Download all →
             </Link>
           </div>
@@ -149,11 +131,11 @@ export default function DashboardPage() {
                 key={f.name}
                 href={`/api/downloads/processed/${encodeURIComponent(f.name)}`}
                 download={f.name}
-                className="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/60 px-3 py-2 text-xs text-slate-300 hover:border-violet-600 hover:text-violet-300 transition-colors"
+                className="flex items-center gap-2 rounded border border-[#222] bg-[#141414] px-3 py-2 text-xs text-white/50 hover:border-[#CAFF33] hover:text-[#CAFF33] transition-colors"
               >
                 <span>↓</span>
-                <span>{f.name}</span>
-                <span className="text-slate-500">{(f.size_bytes / 1024).toFixed(1)} KB</span>
+                <span className="font-mono">{f.name}</span>
+                <span className="text-white/20">{(f.size_bytes / 1024).toFixed(1)} KB</span>
               </a>
             ))}
           </div>
