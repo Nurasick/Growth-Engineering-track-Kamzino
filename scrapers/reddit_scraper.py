@@ -110,7 +110,7 @@ def scrape_subreddit(
     data = _get(url, params={
         "q":          query,
         "sort":       "top",
-        "t":          "week",
+        "t":          "year",
         "limit":      min(limit, 100),
         "restrict_sr": True,
     })
@@ -167,7 +167,7 @@ def save_to_csv(records: list[dict], filepath: str) -> None:
 # ---------------------------------------------------------------------------
 # Main — all 5 subreddits, 0.5s delay between them
 # ---------------------------------------------------------------------------
-def main(subreddits: list[str] = SUBREDDITS, limit: int = 25) -> None:
+def main(subreddits: list[str] = SUBREDDITS, limit: int = 100) -> None:
     today         = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     raw_dir       = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
     posts_path    = os.path.join(raw_dir, f"reddit_posts_{today}.csv")

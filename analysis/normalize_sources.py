@@ -253,7 +253,9 @@ def main() -> int:
         loaded.append(f"Reddit comments: {len(rows)}")
 
     # HN
-    hn = _find_input(f"hn_items_{TODAY}.csv", "hn_items_*.csv")
+    # Prefer the wider historical file if available (e.g. hn_items_90d_*.csv)
+    hn_wide = _latest("hn_items_*d_*.csv")
+    hn = hn_wide if hn_wide else _find_input(f"hn_items_{TODAY}.csv", "hn_items_*.csv")
     if hn:
         rows = read_csv(hn)
         hn_posts, hn_comments = normalize_hn_items(rows, hn.name)

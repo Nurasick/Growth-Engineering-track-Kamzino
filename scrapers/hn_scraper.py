@@ -70,16 +70,15 @@ def _get(url, params=None):
 # ---------------------------------------------------------------------------
 # Item fetching — paginates search_by_date for one query + tag type
 # ---------------------------------------------------------------------------
-def fetch_items(query, tags, pages=3, hits_per_page=100):
+def fetch_items(query, tags, pages=3, hits_per_page=100, days=7):
     records = []
-    # Filter for items from the last 7 days
-    one_week_ago = int((datetime.now(timezone.utc).timestamp())) - (7 * 24 * 60 * 60)
+    since = int(datetime.now(timezone.utc).timestamp()) - (days * 24 * 60 * 60)
 
     for page_num in range(pages):
         params = {
             "query":          query,
             "tags":           tags,
-            "numericFilters": f"created_at_i>{one_week_ago}",
+            "numericFilters": f"created_at_i>{since}",
             "hitsPerPage":    hits_per_page,
             "page":           page_num,
         }
@@ -129,26 +128,27 @@ def save_to_csv(records, filepath):
 # ---------------------------------------------------------------------------
 # Main — both queries, stories + comments, deduped on object_id
 # ---------------------------------------------------------------------------
-def main(queries=QUERIES, pages=3):
+def main(queries=QUERIES, pages=3, days=7, overwrite=False):
     today    = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    suffix   = f"_{days}d" if days != 7 else ""
     filepath = os.path.join(
-        os.path.dirname(__file__), "..", "data", "raw", f"hn_items_{today}.csv"
+        os.path.dirname(__file__), "..", "data", "raw", f"hn_items{suffix}_{today}.csv"
     )
 
-    if os.path.exists(filepath):
+    if os.path.exists(filepath) and not overwrite:
         raise FileExistsError(
             f"Output file for {today} already exists: {filepath}\n"
-            "Delete it manually if you want to re-run today."
+            "Pass overwrite=True or use --overwrite flag to re-run."
         )
 
     all_records = []
 
     for query in queries:
-        print(f"\nFetching stories  — query: {query!r}")
-        all_records.extend(fetch_items(query, tags="story", pages=pages))
+        print(f"\nFetching stories  — query: {query!r} (last {days} days)")
+        all_records.extend(fetch_items(query, tags="story", pages=pages, days=days))
 
-        print(f"\nFetching comments — query: {query!r}")
-        all_records.extend(fetch_items(query, tags="comment", pages=pages))
+        print(f"\nFetching comments — query: {query!r} (last {days} days)")
+        all_records.extend(fetch_items(query, tags="comment", pages=pages, days=days))
 
     # Deduplicate on object_id — keep first occurrence
     seen    = set()
@@ -166,11 +166,20 @@ def main(queries=QUERIES, pages=3):
 # Smoke test — 1 page, 20 hits, stories only, does NOT write a file
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("Running smoke test: fetch_items('Claude AI', tags='story', pages=1, hits_per_page=20)")
-    results = fetch_items("Claude AI", tags="story", pages=1, hits_per_page=20)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--days",      type=int, default=7,     help="How many days back to fetch (default 7)")
+    parser.add_argument("--pages",     type=int, default=3,     help="Pages per query (default 3)")
+    parser.add_argument("--overwrite", action="store_true",     help="Overwrite existing output file")
+    parser.add_argument("--smoke",     action="store_true",     help="Smoke test only — don't write file")
+    args = parser.parse_args()
 
-    print(f"\nRow count: {len(results)}")
-
-    if results:
-        print("\nFirst row:")
-        print(json.dumps(results[0], indent=2, default=str))
+    if args.smoke:
+        print("Running smoke test: fetch_items('Claude AI', tags='story', pages=1, hits_per_page=20)")
+        results = fetch_items("Claude AI", tags="story", pages=1, hits_per_page=20)
+        print(f"\nRow count: {len(results)}")
+        if results:
+            print("\nFirst row:")
+            print(json.dumps(results[0], indent=2, default=str))
+    else:
+        main(pages=args.pages, days=args.days, overwrite=args.overwrite)

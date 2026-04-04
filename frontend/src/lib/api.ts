@@ -79,6 +79,83 @@ export const downloadUrl = (bucket: "raw" | "processed", filename: string) =>
 
 export const amplifierDownloadUrl = () => `${BASE}/api/downloads/amplifier`;
 
+// ── analytics ─────────────────────────────────────────────────────────────────
+
+export interface SpikeStat {
+  spike_type: string;
+  count: number;
+  pct: number;
+  mean_engagement: number;
+  median_engagement: number;
+}
+
+export interface PlatformStat {
+  platform: string;
+  count: number;
+  mean_engagement: number;
+  median_engagement: number;
+}
+
+export interface Creator {
+  author: string;
+  platform: string;
+  posts: number;
+  total_engagement: number;
+}
+
+export interface WeeklyTrend {
+  weeks: string[];
+  series: Record<string, number[]>;
+}
+
+export interface AnalyticsSummary {
+  total_posts: number;
+  date_range: { from: string | null; to: string | null };
+  spike_breakdown: SpikeStat[];
+  platform_breakdown: PlatformStat[];
+  weekly_trend: WeeklyTrend;
+  top_creators: Creator[];
+}
+
+export interface FeedPost {
+  post_id: string;
+  title: string;
+  platform: string;
+  author: string;
+  url: string;
+  spike_type: string;
+  confidence: number;
+  engagement_score: number;
+  velocity: number;
+  age_hours: number;
+  created_at: string | null;
+}
+
+export interface Alert {
+  title: string;
+  platform: string;
+  author: string;
+  velocity: number;
+  age_hours: number;
+  spike_type: string;
+  url: string;
+}
+
+export const getAnalyticsSummary = () =>
+  request<AnalyticsSummary>("/api/analytics/summary");
+
+export const getAnalyticsFeed = (params?: { platform?: string; spike_type?: string; limit?: number }) => {
+  const qs = params ? "?" + new URLSearchParams(
+    Object.fromEntries(Object.entries(params).filter(([, v]) => v !== undefined).map(([k, v]) => [k, String(v)]))
+  ) : "";
+  return request<{ total: number; posts: FeedPost[] }>(`/api/analytics/feed${qs}`);
+};
+
+export const getAlerts = (threshold?: number) =>
+  request<{ count: number; threshold: number; alerts: Alert[] }>(
+    `/api/analytics/alerts${threshold !== undefined ? `?velocity_threshold=${threshold}` : ""}`
+  );
+
 // ── health ────────────────────────────────────────────────────────────────────
 
 export const checkHealth = () =>
