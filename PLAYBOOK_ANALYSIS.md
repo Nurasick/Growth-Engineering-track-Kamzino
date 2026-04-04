@@ -392,6 +392,41 @@ r/ChatGPT has a **higher mean score** (5,770 vs 4,593) for Claude-related posts.
 
 ---
 
+## Finding 14: The Competitor Switching Narrative Is the Most Persistent Cross-Platform Thread
+
+**Method:** `analysis/cascade_detector.py` — cross-platform narrative correlator run on 11,454 posts across 16 months. Groups posts by shared keyword overlap within sliding time windows, detects when the same story spreads across multiple platforms.
+
+**What the data shows:**
+
+Running the cascade detector on the full dataset surfaces 48 distinct narrative clusters. The single most persistent sustained narrative across the entire 16-month dataset is not a product launch, not the Pentagon controversy, and not a viral meme. It is the competitor switching story:
+
+| Narrative | Posts | Platforms | Peak engagement | Spread pattern |
+|---|---|---|---|---|
+| "Why I Switched From ChatGPT to Claude" | **333** | **4/4** | 170,513 pts | HN → Reddit (+188h) → X (+98h) → YouTube (+675h) |
+| Source code leak (anthropic_news cluster) | 914 | 4/4 | 2,592,415 pts | HN → Reddit (+35h) → X (+103h) → YouTube (+958h) |
+| "AI News: Anthropic Leak is Bigger Than You Think" | 245 | 4/4 | 55,639 pts | HN → Reddit (+30h) → X (+364h) → YouTube (+757h) |
+| "the end of Claude Code" (attack narrative) | 23 | 3/4 | 85,756 pts | HN → Reddit (+79h) → YouTube (+686h) |
+
+**The ChatGPT switching narrative is significant for three reasons:**
+
+1. **It ran all 4 platforms spontaneously.** No official Anthropic post seeded it. It started on HN as an organic user comparison, moved to Reddit (competitor territory, r/ChatGPT), reached X, and eventually YouTube — across 8 weeks of discourse. This is the same organic competitor-seeding pattern that drives growth for tools like Linear and Notion.
+
+2. **It outperforms most launch content.** 333 posts with 170K peak engagement across all platforms — this is more sustained engagement than any single Anthropic announcement in our dataset outside of the source code leak.
+
+3. **The attack narrative spreads too.** "the end of Claude Code" — 23 posts, 3 platforms, 85K peak — demonstrates that competitor attack narratives also cascade. A growth team needs to monitor for these early (Finding 9 threat catalyst applies here).
+
+**A finding only reachable with cross-platform cascade detection:**
+
+A per-post analysis would show this as 333 separate posts. The cascade detector reveals it as one narrative thread that has been running since February 2026 across every platform simultaneously. That distinction matters: it means the switching narrative is not a one-time viral moment — it is a structural feature of how users discuss Claude. Anthropic doesn't manufacture it. Users do it unprompted. The growth team's job is to make switching stories easy to find and share.
+
+**Additional cascade finding — international spread:**
+
+The source code leak cascade includes Arabic-language YouTube coverage: "تسريب Claude كشف أسرار أخطر من الكود" (Claude leak reveals secrets more dangerous than the code) — appearing in the `claude_code + ai_safety` cluster alongside HN posts from the same week. This required cross-referencing YouTube scrape data with HN timestamps — not detectable from any single platform's data alone.
+
+**Growth insight:** The competitor switching narrative is Claude's most durable organic growth engine. It requires no seeding, no launches, and no budget — it runs because users are genuinely migrating and talking about it. For a competing product like Higgsfield, the equivalent is getting users to post "I switched from Runway/Sora to Higgsfield" in video creator communities. The cascade detector is how you know when that narrative is starting.
+
+---
+
 ## Limitations
 
 - **X historical data is Top-mode biased.** Search returns high-engagement tweets preferentially — low-engagement posts are underrepresented. The dataset is a reliable sample of *what went viral*, not a complete census.
