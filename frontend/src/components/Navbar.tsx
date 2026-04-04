@@ -8,6 +8,7 @@ const links = [
   { href: "/scrapers", label: "Scrapers" },
   { href: "/pipeline", label: "Pipeline" },
   { href: "/downloads", label: "Downloads" },
+  { href: "/charts", label: "Charts" },
 ];
 
 export function Navbar() {

@@ -79,6 +79,31 @@ export const downloadUrl = (bucket: "raw" | "processed", filename: string) =>
 
 export const amplifierDownloadUrl = () => `${BASE}/api/downloads/amplifier`;
 
+// ── charts ────────────────────────────────────────────────────────────────────
+
+export interface YoutubeEngagementPoint {
+  period: string;
+  avg_engagement_rate: number;
+  median_engagement_rate: number;
+  video_count: number;
+  total_views: number;
+  total_likes: number;
+  total_comments: number;
+}
+
+export interface YoutubeEngagementResponse {
+  data: YoutubeEngagementPoint[];
+  summary: {
+    total_videos: number;
+    overall_avg_engagement_rate: number;
+    date_range: string;
+    source_file: string;
+  };
+}
+
+export const getYoutubeEngagement = () =>
+  request<YoutubeEngagementResponse>("/api/charts/youtube-engagement");
+
 // ── health ────────────────────────────────────────────────────────────────────
 
 export const checkHealth = () =>
