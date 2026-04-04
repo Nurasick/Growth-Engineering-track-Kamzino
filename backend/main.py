@@ -5,7 +5,7 @@ Growth Intelligence — FastAPI Backend
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import scrapers, pipeline, downloads, charts
+from routers import scrapers, pipeline, downloads, charts, analytics
 
 app = FastAPI(title="Growth Intelligence API", version="1.0.0")
 
@@ -16,10 +16,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(scrapers.router, prefix="/scrapers", tags=["scrapers"])
-app.include_router(pipeline.router, prefix="/pipeline", tags=["pipeline"])
+app.include_router(scrapers.router,  prefix="/scrapers",  tags=["scrapers"])
+app.include_router(pipeline.router,  prefix="/pipeline",  tags=["pipeline"])
 app.include_router(downloads.router, prefix="/downloads", tags=["downloads"])
-app.include_router(charts.router, prefix="/charts", tags=["charts"])
+app.include_router(charts.router,    prefix="/charts",    tags=["charts"])
+app.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
 
 
 @app.get("/health")
