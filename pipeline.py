@@ -11,16 +11,17 @@ Usage:
   python pipeline.py --demo        # fast demo mode (fewer pages, lower limits)
 
 Steps:
-  1. HN       — Algolia API, last 7 days
-  2. Reddit   — public JSON, 5 subreddits
-  3. X        — fxtwitter + DDG/Bing/Brave discovery
-  4. YouTube  — Data API v3 (skipped if no YOUTUBE_API_KEY)
+  1.  HN       — Algolia API, last 7 days
+  2.  Reddit   — public JSON, 5 subreddits
+  3.  X        — fxtwitter + DDG/Bing/Brave discovery
+  4.  YouTube  — Data API v3 (skipped if no YOUTUBE_API_KEY)
   3.5 Amplifier watchlist — auto-score X creators, expand handle list
-  5. Normalize — merge all into unified_posts.csv
-  6. Classify  — spike_classifier.py (5 types)
-  7. Rank      — growth_frontpage.py (HN gravity velocity)
-  8. Visualize — virality_timeline.html
-  9. Alert     — surface hot posts right now
+  5.  Normalize — merge all into unified_posts.csv
+  6.  Classify  — spike_classifier.py (5 types)
+  7.  Rank      — growth_frontpage.py (HN gravity velocity)
+  8.  Cascade   — cascade_detector.py (cross-platform narrative correlator)
+  9.  Visualize — virality_timeline.html
+  10. Alert     — surface hot posts + cascade events right now
 """
 
 from __future__ import annotations
@@ -301,14 +302,19 @@ print(f'Saved {{len(videos)}} videos, {{len(comments)}} comments')
     print("  ── STEP 7: Velocity ranking (HN gravity) ────────────────────")
     run_python(ANALYSIS_DIR / "growth_frontpage.py", [], "Growth front page")
 
-    # ── STEP 8: Visualize ─────────────────────────────────────────────────────
+    # ── STEP 8: Cross-platform cascade detection ──────────────────────────────
     print()
-    print("  ── STEP 8: Generate dashboard ───────────────────────────────")
+    print("  ── STEP 8: Cascade detection (cross-platform event correlator) ──")
+    run_python(ANALYSIS_DIR / "cascade_detector.py", [], "Cross-platform cascade detector")
+
+    # ── STEP 9: Visualize ─────────────────────────────────────────────────────
+    print()
+    print("  ── STEP 9: Generate dashboard ───────────────────────────────")
     run_python(ANALYSIS_DIR / "virality_timeline.py", [], "Virality timeline HTML")
 
-    # ── STEP 9: Alerts ────────────────────────────────────────────────────────
+    # ── STEP 10: Alerts ───────────────────────────────────────────────────────
     print()
-    print("  ── STEP 9: Alert check ──────────────────────────────────────")
+    print("  ── STEP 10: Alert check ─────────────────────────────────────")
     check_alerts()
 
     print_summary(prefix=prefix)
