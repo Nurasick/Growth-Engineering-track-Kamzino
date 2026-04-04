@@ -114,6 +114,43 @@ export interface YoutubeEngagementResponse {
 export const getYoutubeEngagement = () =>
   request<YoutubeEngagementResponse>("/api/charts/youtube-engagement");
 
+export interface RedditPost {
+  title: string;
+  score: number;
+  comments: number;
+  ratio: number;
+  url: string;
+  subreddit: string;
+  date: string;
+}
+
+export interface RedditEngagementPoint {
+  period: string;
+  avg_score: number;
+  median_score: number;
+  avg_comments: number;
+  post_count: number;
+  total_score: number;
+  total_comments: number;
+  top_posts: RedditPost[];
+  hn_item_count: number;
+  hn_total_score: number;
+  hn_top_stories: HnStory[];
+}
+
+export interface RedditEngagementResponse {
+  data: RedditEngagementPoint[];
+  summary: {
+    total_posts: number;
+    overall_avg_score: number;
+    date_range: string;
+    source_file: string;
+  };
+}
+
+export const getRedditEngagement = () =>
+  request<RedditEngagementResponse>("/api/charts/reddit-engagement");
+
 // ── analytics ─────────────────────────────────────────────────────────────────
 
 export interface SpikeStat {
