@@ -27,6 +27,8 @@ We ran our scraper with Higgsfield-specific queries and collected 45 Reddit post
 
 ## 1. Platform Translation
 
+**From Finding 7:** Community creators drove 29x official channel reach (Fireship 2.59M vs Anthropic 196K). The mechanic is platform-agnostic — it works wherever your audience lives. Higgsfield's audience is not on HN.
+
 Claude's distribution graph is developer-shaped. Higgsfield's must be creator-shaped.
 
 | Claude Platform | Role | Higgsfield Equivalent | Data |
@@ -43,11 +45,13 @@ Claude's distribution graph is developer-shaped. Higgsfield's must be creator-sh
 
 **The 35K TikTok vs 846K Instagram gap is the most important number in this playbook.** Higgsfield's product IS TikTok content. The platform where their output naturally lives has 24x less reach than their static image platform. This is the primary growth gap to close.
 
-**Community finding [from our data]:** r/videography is hostile. "Disgusting how many creators sell out to AI" was a top post at 103 pts. Do not seed r/videography. Seed r/aivideo — that community celebrates AI video output.
+**From Finding 13 (applied to Higgsfield):** Claude performs 25% better on competitor turf (r/ChatGPT mean 5,770 vs r/ClaudeAI 4,593). Same principle applies here in reverse: r/videography is hostile ("Disgusting how many creators sell out to AI," 103 pts top post). Do not seed r/videography. Seed r/aivideo — that community celebrates AI video output.
 
 ---
 
 ## 2. The Celebrity Signal They're Not Using
+
+**From Finding 10:** @karpathy's "vibe coding" tweet (6.9M views, Feb 2025) compounded to 74M total views across 346 downstream tweets. The pattern: one credible person names a behavior → the term spreads faster than the product → Bolt v2 captured it for 56.1M views. Higgsfield has the equivalent moment — unused.
 
 **This is Higgsfield's biggest undocumented growth asset.**
 
@@ -67,13 +71,13 @@ Higgsfield has the equivalent: **a celebrity already used your product and Elon 
 - Find what Madonna and Snoop Dogg made. Package those outputs as social proof.
 - When briefing Tier 1 creators, lead with this: "Madonna and Snoop Dogg already use this. Here's the output." Not "we have great AI video tools."
 
-**Why this works — from our data:** Our Reddit data shows "viral" framing and social proof in posts correlates with higher engagement. The celebrity adoption signal functions as the equivalent of the Pentagon controversy for Anthropic — it gives the product a cultural frame that product features alone cannot create.
+**From Finding 6:** The Pentagon controversy cluster (253 posts, 51.9 avg pts vs 6.5 baseline = 8x lift) drove Claude to App Store #1. The mechanism: controversy gives neutral observers a reason to pay attention and share. Celebrity adoption does the same — it signals "this is already culturally relevant," which removes the friction of being first to care.
 
 ---
 
 ## 3. Creator Strategy: Who, How, Automated
 
-### The Tier System (backed by data)
+### The Tier System (backed by Finding 11 and Finding 12)
 
 **Tier 1 — Movement Namers (3 creators, ongoing relationship)**
 
@@ -97,11 +101,11 @@ These are the people who, if they coin a term for AI-assisted filmmaking, own th
 
 **Tier 3 — Organic Accelerators (tracked, not briefed)**
 
-Small accounts (<50K followers) who already post Higgsfield content. Our X data: @MangoLassC (6.8K followers) got 2.85M views on a genuine reaction tweet. 8.1% of non-mega account tweets in our dataset crossed 100K views. These accounts self-select — your job is to identify them when they post and amplify.
+**From Finding 12:** @MangoLassC (6.8K followers) generated 2.85M views — a 415x views-to-follower ratio. 8.1% of non-mega account tweets in our 16-month dataset crossed 100K views. Small accounts self-select for quality because they have nothing to protect. Your job is to identify them when they post and amplify — not manufacture them.
 
 ### The Inside Engineer Play
 
-@bcherny (engineer who built Claude Code) generated **44.3M views from 124 personal tweets** vs @AnthropicAI + @claudeai combined 7.2M. The ratio is 6x.
+**From Finding 11:** @bcherny (engineer who built Claude Code) generated **44.3M views from 124 personal tweets** vs @AnthropicAI + @claudeai combined 7.2M views. The ratio is 6x. The reason: authenticity signals credibility; credibility generates trust; trust converts to shares from people who otherwise wouldn't share marketing.
 
 Higgsfield needs one founder or lead engineer posting raw:
 - "I've been training this model for 8 months and here's what surprised me"
@@ -113,6 +117,8 @@ Higgsfield needs one founder or lead engineer posting raw:
 ---
 
 ## 4. TikTok and Instagram: The Actual Playbook
+
+**From Finding 3:** Shock/scandal-adjacent content has the highest median floor (353K vs competitor framing's 381 median = worst). From Finding 8: YouTube retains velocity 6+ days; HN is dead in 24h. Platform decay curves should determine where you publish first and where you publish last. For Higgsfield: TikTok first (algorithmic distribution), YouTube second (retention), Reddit on weekends (Finding 4: Sunday 2.7x Thursday).
 
 These are not mentioned in Claude's playbook because Claude's audience isn't there. For Higgsfield, they're primary.
 
@@ -147,6 +153,8 @@ Higgsfield already has the audience. The gap is activation — most accounts wit
 
 ## 5. Content Strategy: Format Decisions Backed by Data
 
+**From Finding 3:** Content type ceiling and floor are inverted. Meme content has the highest average (588K) but is impossible to manufacture. Competitor framing has the worst median floor (381 views) — avoid. Shock/scandal-adjacent has the best floor (353K) with a high ceiling. Personal story is the most consistent (median 914). From Finding 5: frame with stakes, not features — "leaked" 22x lift, feature titles 0.25–0.35x.
+
 | Format | Claude data (median) | Use when | Don't use when |
 |---|---|---|---|
 | Shock/scandal-adjacent | **353K** (highest floor) | You have a genuinely impressive output | Output needs explaining |
@@ -171,6 +179,8 @@ Higgsfield already has the audience. The gap is activation — most accounts wit
 ---
 
 ## 6. Automated Outreach System
+
+**From Finding 12:** Small accounts generate disproportionate reach (415x ratio for @MangoLassC). From Finding 2: the cascade peaks within 7 minutes of the trigger event on HN → YouTube, and Reddit follows 12h later. An outreach system that fires in <4 hours catches the cascade. One that fires next day misses it entirely.
 
 This is the core engineering problem: finding the right creators before you need them, and knowing when to reach out.
 
