@@ -213,20 +213,14 @@ if __name__ == "__main__":
         posts, comments = scrape_subreddit("ClaudeAI", limit=5)
         df_posts    = pd.DataFrame(posts)
         df_comments = pd.DataFrame(comments)
-        print(f"Posts: {len(df_posts)}, Comments: {len(df_comments)}")
+        print(f"\n--- Smoke test results ---")
+        print(f"Posts rows:    {len(df_posts)}")
+        print(f"Comments rows: {len(df_comments)}")
+        if not df_posts.empty:
+            print("\nFirst post:")
+            print(json.dumps(df_posts.iloc[0].to_dict(), indent=2, default=str))
     else:
         subs = args.subreddits.split(",") if args.subreddits else SUBREDDITS
         main(subreddits=subs, limit=args.limit, query=args.query,
              output_prefix=args.output_prefix)
 
-    print(f"\n--- Smoke test results ---")
-    print(f"Posts rows:    {len(df_posts)}")
-    print(f"Comments rows: {len(df_comments)}")
-
-    if not df_posts.empty:
-        print("\nFirst post:")
-        print(json.dumps(df_posts.iloc[0].to_dict(), indent=2, default=str))
-
-    if not df_comments.empty:
-        print("\nFirst comment:")
-        print(json.dumps(df_comments.iloc[0].to_dict(), indent=2, default=str))
