@@ -77,6 +77,9 @@ def summary():
 
     # ── Weekly trend (posts per week per platform) ──────────────────────────
     dated = classified.dropna(subset=["created_at"]).copy()
+    # Cap to last 16 weeks — older data is too sparse to show meaningful trends
+    cutoff = dated["created_at"].max() - pd.Timedelta(weeks=16)
+    dated = dated[dated["created_at"] >= cutoff]
     dated["week"] = dated["created_at"].dt.to_period("W").dt.start_time.dt.strftime("%Y-%m-%d")
     weekly = (
         dated.groupby(["week", "platform"])
