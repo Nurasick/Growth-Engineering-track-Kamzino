@@ -35,6 +35,15 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Load .env if present (teammates don't need to export env vars manually)
+_env_file = Path(__file__).parent / ".env"
+if _env_file.exists():
+    for _line in _env_file.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
 REPO_ROOT     = Path(__file__).parent
 RAW_DIR       = REPO_ROOT / "data" / "raw"
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"
@@ -201,11 +210,37 @@ def main() -> int:
         yt_key = os.environ.get("YOUTUBE_API_KEY", "")
         yt_out = RAW_DIR / f"youtube_videos_{TODAY}.csv"
         if not yt_key:
-            log("No YOUTUBE_API_KEY — skipping", "⏭️")
+            log("No YOUTUBE_API_KEY in .env — skipping (add key to .env to enable)", "⏭️")
         elif yt_out.exists():
-            log("YouTube cached", "⏭️")
+            count = sum(1 for _ in yt_out.open()) - 1
+            log(f"YouTube cached ({count} videos)", "⏭️")
         else:
-            run_python(SCRAPERS_DIR / "youtube_scraper.py", [], "YouTube scraper (Data API v3)")
+            # Run inline so we can control output paths directly
+            yt_script = f"""
+import sys, os
+sys.path.insert(0, r'{SCRAPERS_DIR}')
+os.environ['YOUTUBE_API_KEY'] = '{yt_key}'
+from youtube_scraper import search_video_ids, fetch_video_stats, fetch_comments, save_to_csv
+from pathlib import Path
+
+raw_dir = Path(r'{RAW_DIR}')
+raw_dir.mkdir(parents=True, exist_ok=True)
+queries = ['Claude AI', 'Anthropic Claude', 'Claude Code', 'Claude vs ChatGPT', 'Claude Sonnet']
+seen, all_ids = set(), []
+for q in queries:
+    for vid_id in search_video_ids(q, max_results=20):
+        if vid_id not in seen:
+            seen.add(vid_id)
+            all_ids.append(vid_id)
+videos   = fetch_video_stats(all_ids)
+comments = []
+for v in videos[:30]:
+    comments.extend(fetch_comments(v['video_id'], max_comments=10))
+save_to_csv(videos,   str(raw_dir / 'youtube_videos_{TODAY}.csv'))
+save_to_csv(comments, str(raw_dir / 'youtube_comments_{TODAY}.csv'))
+print(f'Saved {{len(videos)}} videos, {{len(comments)}} comments')
+"""
+            run([PYTHON, "-c", yt_script], label="YouTube scraper (Data API v3)")
 
     # ── STEP 5: Normalize ─────────────────────────────────────────────────────
     print()
