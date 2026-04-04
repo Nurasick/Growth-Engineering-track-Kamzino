@@ -81,6 +81,13 @@ export const amplifierDownloadUrl = () => `${BASE}/api/downloads/amplifier`;
 
 // ── charts ────────────────────────────────────────────────────────────────────
 
+export interface HnStory {
+  title: string;
+  points: number;
+  url: string;
+  comments: number;
+}
+
 export interface YoutubeEngagementPoint {
   period: string;
   avg_engagement_rate: number;
@@ -89,6 +96,9 @@ export interface YoutubeEngagementPoint {
   total_views: number;
   total_likes: number;
   total_comments: number;
+  hn_item_count: number;
+  hn_total_score: number;
+  hn_top_stories: HnStory[];
 }
 
 export interface YoutubeEngagementResponse {

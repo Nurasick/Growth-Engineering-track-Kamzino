@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import {
   ResponsiveContainer,
-  LineChart,
+  ComposedChart,
   Line,
-  BarChart,
   Bar,
   XAxis,
   YAxis,
@@ -15,7 +14,7 @@ import {
   ReferenceLine,
 } from "recharts";
 import { getYoutubeEngagement } from "@/lib/api";
-import type { YoutubeEngagementResponse } from "@/lib/api";
+import type { YoutubeEngagementResponse, YoutubeEngagementPoint } from "@/lib/api";
 
 function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
@@ -33,6 +32,65 @@ const fmtNumber = (n: number) =>
     : n >= 1_000
     ? (n / 1_000).toFixed(1) + "K"
     : String(n);
+
+function EnrichedTooltip({ active, payload, label }: any) {
+  if (!active || !payload?.length) return null;
+  const d: YoutubeEngagementPoint = payload[0].payload;
+
+  return (
+    <div className="rounded-lg border border-slate-600 bg-slate-900/95 p-4 text-xs shadow-2xl max-w-xs">
+      <div className="text-slate-200 font-semibold text-sm mb-3">{label}</div>
+
+      {/* YouTube metrics */}
+      <div className="mb-3 space-y-1">
+        <div className="text-slate-500 uppercase tracking-wider text-[10px] mb-1">YouTube</div>
+        <div className="flex justify-between gap-4">
+          <span className="text-slate-400">Avg engagement rate</span>
+          <span className="text-violet-300 font-medium">{d.avg_engagement_rate.toFixed(3)}%</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-slate-400">Median rate</span>
+          <span className="text-cyan-400">{d.median_engagement_rate.toFixed(3)}%</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-slate-400">Videos published</span>
+          <span className="text-slate-300">{d.video_count}</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-slate-400">Total views</span>
+          <span className="text-blue-400">{fmtNumber(d.total_views)}</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-slate-400">Likes · Comments</span>
+          <span className="text-slate-400">{fmtNumber(d.total_likes)} · {fmtNumber(d.total_comments)}</span>
+        </div>
+      </div>
+
+      {/* HN section */}
+      {d.hn_item_count > 0 && (
+        <div className="border-t border-slate-700 pt-3 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-orange-400 uppercase tracking-wider text-[10px] font-semibold">
+              HackerNews · {d.hn_item_count} stories
+            </span>
+            <span className="text-orange-300 text-[10px]">{fmtNumber(d.hn_total_score)} pts total</span>
+          </div>
+          {d.hn_top_stories.map((s, i) => (
+            <div key={i} className="flex gap-2 items-start">
+              <span className="text-orange-500 font-bold shrink-0 w-8">{s.points}▲</span>
+              <span className="text-slate-300 leading-tight">{s.title}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {d.hn_item_count === 0 && (
+        <div className="border-t border-slate-700 pt-2 text-slate-600 text-[10px]">
+          No HN stories on this day
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ChartsPage() {
   const [data, setData] = useState<YoutubeEngagementResponse | null>(null);
@@ -66,38 +124,7 @@ export default function ChartsPage() {
 
   const { summary } = data;
   const chartData = data.data;
-
-  // overall avg line for reference
   const avgRate = summary.overall_avg_engagement_rate;
-
-  const CustomTooltip = ({ active, payload, label }: any) => {
-    if (!active || !payload?.length) return null;
-    const d = payload[0].payload;
-    return (
-      <div className="rounded-lg border border-slate-700 bg-slate-900 p-3 text-xs space-y-1 shadow-xl">
-        <div className="text-slate-300 font-semibold mb-1">{label}</div>
-        <div className="text-violet-300">Avg rate: {d.avg_engagement_rate.toFixed(3)}%</div>
-        <div className="text-slate-400">Median rate: {d.median_engagement_rate.toFixed(3)}%</div>
-        <div className="text-slate-400">Videos: {d.video_count}</div>
-        <div className="text-slate-400">Views: {fmtNumber(d.total_views)}</div>
-        <div className="text-slate-400">
-          Likes: {fmtNumber(d.total_likes)} · Comments: {fmtNumber(d.total_comments)}
-        </div>
-      </div>
-    );
-  };
-
-  const BarTooltip = ({ active, payload, label }: any) => {
-    if (!active || !payload?.length) return null;
-    const d = payload[0].payload;
-    return (
-      <div className="rounded-lg border border-slate-700 bg-slate-900 p-3 text-xs space-y-1 shadow-xl">
-        <div className="text-slate-300 font-semibold mb-1">{label}</div>
-        <div className="text-blue-300">Views: {fmtNumber(d.total_views)}</div>
-        <div className="text-slate-400">Videos: {d.video_count}</div>
-      </div>
-    );
-  };
 
   return (
     <div className="space-y-8">
@@ -137,10 +164,7 @@ export default function ChartsPage() {
 
       {/* Summary stats */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <StatCard
-          label="Total Videos"
-          value={fmtNumber(summary.total_videos)}
-        />
+        <StatCard label="Total Videos" value={fmtNumber(summary.total_videos)} />
         <StatCard
           label="Overall Avg Engagement"
           value={`${summary.overall_avg_engagement_rate.toFixed(2)}%`}
@@ -158,51 +182,82 @@ export default function ChartsPage() {
         />
       </div>
 
-      {/* Engagement Rate Line Chart */}
+      {/* Main combined chart */}
       <div className="rounded-xl border border-slate-700 bg-slate-800/60 p-6">
         <h2 className="text-sm font-medium text-slate-300 mb-1">
-          Avg Engagement Rate by Day
+          YouTube Engagement Rate vs HackerNews Activity
         </h2>
-        <p className="text-xs text-slate-500 mb-5">
-          Engagement rate = (likes + comments) / views × 100. Dashed line = overall average ({avgRate.toFixed(2)}%).
+        <p className="text-xs text-slate-500 mb-1">
+          Dashed reference line = overall avg engagement ({avgRate.toFixed(2)}%).
+          Hover a day to see the top HN stories that may have driven interest.
         </p>
-        <ResponsiveContainer width="100%" height={320}>
-          <LineChart data={chartData} margin={{ top: 4, right: 24, bottom: 4, left: 0 }}>
+        <div className="flex flex-wrap gap-4 mb-5 text-xs text-slate-500">
+          <span><span className="inline-block w-3 h-0.5 bg-violet-400 mr-1 align-middle" />Avg engagement rate (left axis)</span>
+          <span><span className="inline-block w-3 h-0.5 bg-cyan-500 mr-1 align-middle border-dashed" />Median rate (left axis)</span>
+          <span><span className="inline-block w-3 h-2 bg-orange-500/50 mr-1 align-middle rounded-sm" />HN total score (right axis)</span>
+        </div>
+        <ResponsiveContainer width="100%" height={340}>
+          <ComposedChart data={chartData} margin={{ top: 4, right: 56, bottom: 4, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
             <XAxis
               dataKey="period"
               tick={{ fill: "#94a3b8", fontSize: 11 }}
               tickLine={false}
               axisLine={{ stroke: "#475569" }}
-              interval="preserveStartEnd"
             />
+            {/* Left axis: engagement rate */}
             <YAxis
+              yAxisId="rate"
               tick={{ fill: "#94a3b8", fontSize: 11 }}
               tickLine={false}
               axisLine={false}
               tickFormatter={(v) => `${v}%`}
               width={48}
             />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend
-              wrapperStyle={{ fontSize: 12, color: "#94a3b8", paddingTop: 8 }}
+            {/* Right axis: HN score */}
+            <YAxis
+              yAxisId="hn"
+              orientation="right"
+              tick={{ fill: "#f97316", fontSize: 11 }}
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={fmtNumber}
+              width={48}
             />
+            <Tooltip content={<EnrichedTooltip />} />
             <ReferenceLine
+              yAxisId="rate"
               y={avgRate}
               stroke="#7c3aed"
               strokeDasharray="6 3"
-              label={{ value: `avg ${avgRate.toFixed(2)}%`, fill: "#a78bfa", fontSize: 10, position: "insideTopRight" }}
+              label={{
+                value: `avg ${avgRate.toFixed(2)}%`,
+                fill: "#a78bfa",
+                fontSize: 10,
+                position: "insideTopRight",
+              }}
+            />
+            {/* HN score bars behind the lines */}
+            <Bar
+              yAxisId="hn"
+              dataKey="hn_total_score"
+              name="HN Total Score"
+              fill="#f97316"
+              fillOpacity={0.25}
+              radius={[3, 3, 0, 0]}
             />
             <Line
+              yAxisId="rate"
               type="monotone"
               dataKey="avg_engagement_rate"
               name="Avg Engagement Rate (%)"
               stroke="#8b5cf6"
-              strokeWidth={2}
-              dot={{ fill: "#8b5cf6", r: 3 }}
-              activeDot={{ r: 5 }}
+              strokeWidth={2.5}
+              dot={{ fill: "#8b5cf6", r: 4, strokeWidth: 0 }}
+              activeDot={{ r: 6 }}
             />
             <Line
+              yAxisId="rate"
               type="monotone"
               dataKey="median_engagement_rate"
               name="Median Engagement Rate (%)"
@@ -211,67 +266,60 @@ export default function ChartsPage() {
               strokeDasharray="4 2"
               dot={false}
             />
-          </LineChart>
+          </ComposedChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Video Count Bar Chart */}
-      <div className="rounded-xl border border-slate-700 bg-slate-800/60 p-6">
-        <h2 className="text-sm font-medium text-slate-300 mb-1">
-          Video Volume &amp; Total Views by Day
-        </h2>
-        <p className="text-xs text-slate-500 mb-5">
-          Bar = total views (left axis). Line = number of videos published (right axis).
-        </p>
-        <ResponsiveContainer width="100%" height={260}>
-          <BarChart data={chartData} margin={{ top: 4, right: 48, bottom: 4, left: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-            <XAxis
-              dataKey="period"
-              tick={{ fill: "#94a3b8", fontSize: 11 }}
-              tickLine={false}
-              axisLine={{ stroke: "#475569" }}
-              interval="preserveStartEnd"
-            />
-            <YAxis
-              yAxisId="views"
-              tick={{ fill: "#94a3b8", fontSize: 11 }}
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={fmtNumber}
-              width={52}
-            />
-            <YAxis
-              yAxisId="count"
-              orientation="right"
-              tick={{ fill: "#94a3b8", fontSize: 11 }}
-              tickLine={false}
-              axisLine={false}
-              width={36}
-            />
-            <Tooltip content={<BarTooltip />} />
-            <Legend
-              wrapperStyle={{ fontSize: 12, color: "#94a3b8", paddingTop: 8 }}
-            />
-            <Bar
-              yAxisId="views"
-              dataKey="total_views"
-              name="Total Views"
-              fill="#3b82f6"
-              fillOpacity={0.7}
-              radius={[3, 3, 0, 0]}
-            />
-            <Line
-              yAxisId="count"
-              type="monotone"
-              dataKey="video_count"
-              name="Videos Published"
-              stroke="#f59e0b"
-              strokeWidth={2}
-              dot={{ fill: "#f59e0b", r: 3 }}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+      {/* HN stories per day */}
+      <div className="rounded-xl border border-slate-700 bg-slate-800/60 overflow-hidden">
+        <div className="px-6 py-4 border-b border-slate-700 flex items-center gap-2">
+          <span className="text-orange-400 font-bold">Y</span>
+          <h2 className="text-sm font-medium text-slate-300">Top HackerNews Stories by Day</h2>
+          <span className="text-xs text-slate-500 ml-auto">stories mentioning Claude / Anthropic</span>
+        </div>
+        <div className="divide-y divide-slate-800">
+          {[...chartData].reverse().map((row) => (
+            <div key={row.period} className="px-6 py-4">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xs font-medium text-slate-300 w-24 shrink-0">{row.period}</span>
+                <span className="text-xs text-violet-300">{row.avg_engagement_rate.toFixed(3)}% eng.</span>
+                {row.hn_total_score > 0 && (
+                  <span className="text-xs text-orange-400 ml-auto">
+                    {row.hn_item_count} stories · {fmtNumber(row.hn_total_score)} pts
+                  </span>
+                )}
+              </div>
+              {row.hn_top_stories.length > 0 ? (
+                <div className="space-y-1.5 pl-0">
+                  {row.hn_top_stories.map((s, i) => (
+                    <div key={i} className="flex gap-3 items-start text-xs">
+                      <span className="text-orange-500 font-bold w-12 shrink-0 tabular-nums">
+                        {s.points}▲
+                      </span>
+                      {s.url ? (
+                        <a
+                          href={s.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate-300 hover:text-violet-300 transition-colors leading-tight"
+                        >
+                          {s.title}
+                        </a>
+                      ) : (
+                        <span className="text-slate-300 leading-tight">{s.title}</span>
+                      )}
+                      {s.comments > 0 && (
+                        <span className="text-slate-600 shrink-0">{s.comments}c</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-slate-600 pl-0">No HN stories recorded</p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Data table */}
@@ -283,11 +331,8 @@ export default function ChartsPage() {
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-slate-700">
-                {["Month", "Videos", "Avg Eng. Rate", "Median Eng. Rate", "Total Views", "Likes", "Comments"].map((h) => (
-                  <th
-                    key={h}
-                    className="px-4 py-2.5 text-left text-slate-400 font-medium whitespace-nowrap"
-                  >
+                {["Day", "Videos", "Avg Eng. Rate", "Median Rate", "Total Views", "HN Stories", "HN Score"].map((h) => (
+                  <th key={h} className="px-4 py-2.5 text-left text-slate-400 font-medium whitespace-nowrap">
                     {h}
                   </th>
                 ))}
@@ -295,17 +340,14 @@ export default function ChartsPage() {
             </thead>
             <tbody>
               {[...chartData].reverse().map((row) => (
-                <tr
-                  key={row.period}
-                  className="border-b border-slate-800 hover:bg-slate-700/30 transition-colors"
-                >
+                <tr key={row.period} className="border-b border-slate-800 hover:bg-slate-700/30 transition-colors">
                   <td className="px-4 py-2.5 text-slate-300 font-medium">{row.period}</td>
                   <td className="px-4 py-2.5 text-slate-400">{row.video_count}</td>
                   <td className="px-4 py-2.5 text-violet-300">{row.avg_engagement_rate.toFixed(3)}%</td>
                   <td className="px-4 py-2.5 text-cyan-400">{row.median_engagement_rate.toFixed(3)}%</td>
                   <td className="px-4 py-2.5 text-blue-400">{fmtNumber(row.total_views)}</td>
-                  <td className="px-4 py-2.5 text-slate-400">{fmtNumber(row.total_likes)}</td>
-                  <td className="px-4 py-2.5 text-slate-400">{fmtNumber(row.total_comments)}</td>
+                  <td className="px-4 py-2.5 text-orange-400">{row.hn_item_count}</td>
+                  <td className="px-4 py-2.5 text-orange-300">{fmtNumber(row.hn_total_score)}</td>
                 </tr>
               ))}
             </tbody>
