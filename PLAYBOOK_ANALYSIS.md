@@ -7,6 +7,21 @@
 
 ---
 
+## Three Questions Only Scraping Can Answer
+
+The brief says: *"If your analysis could have been written by someone who never touched a scraper, that is a problem."* These three findings cannot be reached without the data.
+
+**1. How does a 6,800-follower account generate 2.85M views?** (415x ratio)
+You need author follower counts AND view counts in the same row. @MangoLassC doesn't appear in any "top influencer" list. Only by joining follower data (from fxtwitter enrichment) with view counts (from the Playwright scrape) does this account surface. Finding 12.
+
+**2. What is the single most persistent cross-platform narrative in 16 months of Claude discourse?**
+Not a product launch. Not the source code leak. It's "Why I Switched From ChatGPT to Claude" — 333 posts across all 4 platforms, running since February 2026. Invisible in per-post ranking. Only detectable by running `cascade_detector.py` across the full unified dataset. Finding 14.
+
+**3. Did the source code leak reach Arabic YouTube — and how fast?**
+Yes. "تسريب Claude كشف أسرار أخطر من الكود" appeared within the same weekly window as the HN ignition. Requires cross-referencing YouTube scrape data with HN timestamps across platforms — not findable from any single platform's data. Finding 2 + Finding 14.
+
+---
+
 ## Dataset Summary
 
 | Platform | Posts | Coverage |
