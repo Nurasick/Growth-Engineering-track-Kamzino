@@ -1,19 +1,23 @@
 # Claude's Viral Growth Playbook — Decoded
 ## HackNU 2026 · Growth Engineering Track · Part 2
 
-> **Data provenance:** All findings below are derived exclusively from our scraped dataset (855 classified posts, 5,083 normalized rows across HN, Reddit, X, YouTube). No external sources or summaries used.
+> **Data provenance:** All findings below are derived exclusively from our scraped dataset. No external sources or summaries used.
+>
+> **Note on dataset versions:** Findings 1–2 and 4–6 use the full 2,177-post dataset (90-day HN history). Finding 3 (spike type engagement) uses the original 855-post balanced dataset — a better basis for cross-platform engagement comparisons because HN (1–1000 pt scale) and YouTube (thousands–millions view scale) normalize differently. Both datasets are in the repo.
 
 ---
 
 ## Dataset Summary
 
-| Platform | Posts | Notes |
+| Platform | Posts | Coverage |
 |---|---|---|
-| Hacker News | 562 | Algolia API, last 7 days, 3 queries |
-| Reddit | 125 posts + 584 comments | 5 subreddits: r/ClaudeAI, r/artificial, r/ChatGPT, r/MachineLearning, r/LocalLLaMA |
-| X / Twitter | 82 tweets | fxtwitter API, full engagement metrics (likes, views, retweets) |
-| YouTube | 86 videos + 293 comments | YouTube Data API v3, 5 queries |
-| **Total** | **855 classified posts** | Unified schema, deduped, date-stamped |
+| Hacker News | 1,884 | 90 days (Jan–Apr 2026), Algolia API |
+| Reddit | 125 posts + 584 comments | Last year, top posts, 5 subreddits |
+| X / Twitter | 82 tweets | fxtwitter API, full engagement (likes, views, retweets, bookmarks) |
+| YouTube | 86 videos + 293 comments | YouTube Data API v3, last 2 weeks |
+| **Total classified** | **2,177 posts** | Unified schema, deduped, velocity ranked |
+
+*Original balanced dataset (used for Finding 3): 855 posts — HN 562 / Reddit 125 / YouTube 86 / X 82.*
 
 ---
 

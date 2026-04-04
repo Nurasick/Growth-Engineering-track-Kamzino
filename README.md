@@ -7,15 +7,27 @@ Competitive intelligence pipeline that reverse-engineers how Claude goes viral �
 
 ## Quick Start
 
+**Data pipeline:**
 ```bash
 pip install -r requirements.txt
-cp .env.example .env        # add YOUTUBE_API_KEY=...
+cp .env.example .env          # add YOUTUBE_API_KEY=...
 python pipeline.py --skip-scrape   # run on cached data (<30s)
 python pipeline.py --demo          # live scrape, fast subset
 python pipeline.py                 # full live scrape (~3 min)
 ```
 
-Output: `data/processed/virality_timeline.html` — open in browser.
+**Backend API:**
+```bash
+cd backend && pip install -r requirements.txt
+python3 -m uvicorn main:app --reload --port 8000
+# → http://localhost:8000/docs
+```
+
+**Frontend dashboard:**
+```bash
+cd frontend && npm install && npm run dev
+# → http://localhost:3000
+```
 
 ---
 
@@ -23,64 +35,58 @@ Output: `data/processed/virality_timeline.html` — open in browser.
 
 A 9-step automated pipeline that runs every Monday morning:
 
-1. Scrapes HN, Reddit, X, and YouTube for Claude-related content
+1. Scrapes HN (90-day history), Reddit, X, and YouTube for Claude-related content
 2. Auto-discovers and scores third-party amplifiers (self-expanding)
 3. Normalizes all platforms into a unified schema
-4. Classifies each post into one of 5 spike types
-5. Ranks by velocity (HN gravity formula)
-6. Generates a virality timeline dashboard
+4. Classifies each post into one of 5 spike types (breakthrough/tutorial/meme/personal/comparison)
+5. Ranks by velocity (HN gravity formula, cross-platform normalized)
+6. Generates a virality timeline HTML dashboard
 7. Alerts on posts with high velocity and age < 12h
 
-No API keys required except YouTube (free tier: 10K units/day, our run uses ~600).
+**Backend** serves analytics via REST API. **Frontend** (Next.js) provides a live dashboard with velocity feed, spike breakdown, weekly trend chart, and top amplifier tracking.
 
 ---
 
 ## Repo Structure
 
 ```
-pipeline.py              ← run this
-scrapers/
-  hn_scraper.py          ← Algolia API, no auth
-  reddit_scraper.py      ← public JSON API, no auth
-  x_scraper.py           ← fxtwitter API, no auth
-  youtube_scraper.py     ← YouTube Data API v3 (needs .env)
-analysis/
-  amplifier_watchlist.py ← auto-scores X creators, self-expanding
-  normalize_sources.py   ← unified schema, date-aware fallback
-  spike_classifier.py    ← keyword + platform prior classifier
-  growth_frontpage.py    ← velocity ranking
-  virality_timeline.py   ← Chart.js HTML dashboard
-data/raw/                ← date-stamped CSVs from scrapers
-data/processed/          ← unified_posts.csv, spike_classified.csv,
-                            growth_frontpage.csv, virality_timeline.html
-data/amplifier_watchlist.csv  ← auto-generated, feeds x_scraper.py
-.env                     ← YOUTUBE_API_KEY=... (gitignored)
+pipeline.py              ← run this for data
+backend/                 ← FastAPI backend (uvicorn, port 8000)
+frontend/                ← Next.js dashboard (port 3000)
+scrapers/                ← HN, Reddit, X, YouTube scrapers
+analysis/                ← normalize, classify, rank, chart generation
+data/raw/                ← date-stamped CSVs from scrapers (gitignored)
+data/processed/          ← unified_posts.csv, spike_classified.csv (gitignored)
+data/charts/             ← PNG charts for PLAYBOOK_ANALYSIS.md (gitignored)
+PLAYBOOK_ANALYSIS.md     ← Part 2: 6 findings with charts
+ARCHITECTURE.md          ← Part 3: pipeline design doc
+COUNTER_PLAYBOOK.md      ← Part 4: Higgsfield distribution strategy
 ```
 
 ---
 
-## Dataset (April 2026 run)
+## Dataset (April 2026)
 
-| Platform | Posts | Notes |
+| Platform | Posts | Coverage |
 |---|---|---|
-| Hacker News | 562 | Algolia API, last 7 days |
-| Reddit | 125 posts + 584 comments | 5 subreddits |
-| X / Twitter | 82 tweets | fxtwitter, full engagement metrics |
-| YouTube | 86 videos + 293 comments | Data API v3 |
-| **Unified** | **855 classified, 692 velocity-ranked** | |
+| Hacker News | 1,884 | 90 days (Jan–Apr 2026) |
+| Reddit | 125 | Last year, 5 subreddits |
+| X / Twitter | 82 | Seed-based, known handles |
+| YouTube | 86 | Last 2 weeks |
+| **Classified** | **2,177** | Spike type + velocity scored |
 
 ---
 
 ## Key Findings (Part 2)
 
-Full analysis in [`PLAYBOOK_ANALYSIS.md`](PLAYBOOK_ANALYSIS.md). Summary:
+Full analysis with charts in [`PLAYBOOK_ANALYSIS.md`](PLAYBOOK_ANALYSIS.md). Summary:
 
-1. **3-wave cascade is real** — HN fires at 01:13 UTC, YouTube reacts in 7 minutes, Reddit joins 12h later, meme/international wave at 48h+. Validated on the Apr 1 source code leak.
+1. **3-wave cascade is real** — HN fires at 01:13 UTC, YouTube reacts in 7 minutes, Reddit joins 12h later, meme/international at 48h+. Validated on the Apr 1 source code leak.
 2. **Community creators = 29x official channel** — Fireship (2.59M views) beat Anthropic official (196K) by 13x on the same event.
-3. **Meme content has the highest ceiling** (588K avg engagement) but only 9% of posts. Breakthrough is most common (45%) but median = 4 pts.
-4. **Title framing matters**: "leaked" = 22x engagement lift, "chatgpt" = 15x. "Anthropic" standalone = 0.35x (hurts).
-5. **HN peaks 2–6pm ET**, not morning. Reddit peaks weekends (Sunday 2.7x Thursday).
-6. **Engagement decay**: HN dead in 24h. Reddit half-life 3–4 days. YouTube retains velocity 6+ days.
+3. **Meme content has the highest ceiling** (588K avg engagement). Personal stories are most consistent. Breakthrough is most common but median = 4 pts.
+4. **Title framing**: "leaked" = 22x lift, "chatgpt" = 15x. "Anthropic" standalone = 0.35x (hurts).
+5. **HN peaks 2–6pm ET** (not morning). Reddit peaks weekends (2.7x weekdays).
+6. **Decay**: HN dead in 24h. Reddit half-life 3–4 days. YouTube retains velocity 6+ days.
 
 ---
 
@@ -88,44 +94,48 @@ Full analysis in [`PLAYBOOK_ANALYSIS.md`](PLAYBOOK_ANALYSIS.md). Summary:
 
 | Deliverable | File |
 |---|---|
-| Scrapers + working pipeline | `pipeline.py`, `scrapers/`, `analysis/` |
-| Structured dataset | `data/processed/unified_posts.csv` |
-| Playbook analysis (Part 2) | `PLAYBOOK_ANALYSIS.md` |
-| Architecture diagram + design doc (Part 3) | `ARCHITECTURE.md` |
-| Higgsfield counter-playbook (Part 4) | `COUNTER_PLAYBOOK.md` |
+| Scrapers + pipeline | `pipeline.py`, `scrapers/`, `analysis/` |
+| Backend API | `backend/` |
+| Frontend dashboard | `frontend/` |
+| Structured dataset | `data/processed/unified_posts.csv` (run pipeline first) |
+| Playbook analysis + charts | `PLAYBOOK_ANALYSIS.md` |
+| Architecture design doc | `ARCHITECTURE.md` |
+| Higgsfield counter-playbook | `COUNTER_PLAYBOOK.md` |
 
 ---
 
 ## Known Limitations
 
-- **X data is seed-based** — we scrape known handles + auto-discovered amplifiers. Organic content from unknown accounts is not captured.
-- **Instagram, LinkedIn, TikTok excluded** — no public API without login. ~30% of Claude discourse surface area is missing.
-- **X rate limit** — fxtwitter caps at ~100 requests/session. Not suitable for real-time monitoring; sufficient for weekly intelligence runs.
-- **HN data is last-7-days only** — Algolia API filter. Historical patterns before the scrape window are not captured.
-- **Small n per timing bucket** — timing findings (HN peaks 2–6pm ET, Reddit peaks weekends) are directionally consistent but not statistically significant at the bucket level.
-- **Cascade timing validated on one event** — the Apr 1 source code leak. Generalization to all launch types requires more events.
-
----
-
-## Architecture
-
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full design doc including:
-- Architecture diagram (all layers: collection → transform → delivery → orchestration)
-- Automated vs human-review classification for each step
-- Tool recommendations (cron → Prefect, CSV → Postgres) with justification
-- Cost estimates: $0/month now, ~$56/month at 10x scale
-- Error recovery design
+- **X data is seed-based** — known handles only. Organic content from unknown accounts not captured.
+- **Instagram, LinkedIn, TikTok excluded** — no public API without login.
+- **HN includes off-topic posts** — Algolia search returns posts where "Claude"/"Anthropic" appears in comments, not just titles. Some noise in the dataset.
+- **Velocity recency bias** — fresh posts with low engagement can temporarily outrank older high-engagement posts. Per-platform minimum thresholds not enforced.
+- **Alerts require hourly scraping** — the alert system works correctly but with weekly batch scraping nothing is ever < 12h old at analysis time.
+- **Backend job store is in-memory** — job history lost on server restart. Acceptable for demo.
+- **Cascade timing from one event** — the 3-wave cascade was validated on the Apr 1 source code leak. Generalizing to all launch types requires more events.
 
 ---
 
 ## AI Tooling Disclosure
 
-Per the challenge rules: Claude (Anthropic) was used as a coding assistant throughout this project. Specifically:
-- Scaffolding and debugging the scraper code (all scrapers validated by running against live APIs and checking output CSVs)
-- Drafting `PLAYBOOK_ANALYSIS.md`, `ARCHITECTURE.md`, `COUNTER_PLAYBOOK.md` (all findings verified against the actual scraped dataset — numbers in the docs match `data/processed/` outputs)
-- The analysis methods (word lift, HN gravity formula, amplifier scoring) were designed by us and validated against real data; no numbers were hallucinated
+Per challenge rules: Claude (Anthropic) was used as a coding assistant throughout. Specifically:
+- Scaffolding and debugging scraper code (all validated by running against live APIs and checking output CSVs)
+- Drafting analysis docs and counter-playbook (all findings verified against actual scraped data — numbers match `data/processed/` outputs)
+- Analysis methods (word lift, HN gravity, amplifier scoring) were designed and validated by us
 
-The pipeline, dataset, and findings are real. The data is in `data/processed/` and reproducible by running `pipeline.py --skip-scrape`.
+The pipeline, dataset, and findings are real and reproducible via `pipeline.py --skip-scrape`.
+
+---
+
+## Architecture
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full design doc: ASCII diagram, automated vs human classification, tool recommendations (cron→Prefect, CSV→Postgres), cost estimates ($0/month now, ~$56/month at 10x), error recovery design, alert system.
+
+---
+
+## Counter-Playbook
+
+See [`COUNTER_PLAYBOOK.md`](COUNTER_PLAYBOOK.md) for the Higgsfield distribution strategy: creator seeding, content format playbook, timing calendar, alert system, K-factor metrics, and $2,150 budget estimate for a 90-day launch window.
 
 ---
 
@@ -135,9 +145,3 @@ The pipeline, dataset, and findings are real. The data is in `data/processed/` a
 # runs every Monday at 8am
 0 8 * * 1 cd /path/to/repo && python pipeline.py >> data/pipeline.log 2>&1
 ```
-
----
-
-## Counter-Playbook (Part 4)
-
-See [`COUNTER_PLAYBOOK.md`](COUNTER_PLAYBOOK.md) for the full Higgsfield distribution strategy, including creator seeding targets, content format playbook, timing calendar, alert system, and metrics.
