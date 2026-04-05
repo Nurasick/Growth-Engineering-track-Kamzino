@@ -157,11 +157,19 @@ def scrape_subreddit(
 
 
 # ---------------------------------------------------------------------------
-# CSV output
+# CSV upsert — merge new records into existing file, dedup on id_col
 # ---------------------------------------------------------------------------
-def save_to_csv(records: list[dict], filepath: str) -> None:
+def upsert_csv(new_records: list[dict], filepath: str, id_col: str) -> int:
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    pd.DataFrame(records).to_csv(filepath, index=False, encoding="utf-8")
+    new_df = pd.DataFrame(new_records)
+    if os.path.exists(filepath):
+        existing = pd.read_csv(filepath, dtype=str)
+        existing = existing[~existing[id_col].isin(new_df[id_col].astype(str))]
+        merged = pd.concat([existing, new_df], ignore_index=True)
+    else:
+        merged = new_df
+    merged.to_csv(filepath, index=False, encoding="utf-8")
+    return len(merged)
 
 
 # ---------------------------------------------------------------------------
@@ -175,12 +183,6 @@ def main(subreddits: list[str] = SUBREDDITS, limit: int = 100,
     posts_path    = os.path.join(raw_dir, f"{prefix}reddit_posts_{today}.csv")
     comments_path = os.path.join(raw_dir, f"{prefix}reddit_comments_{today}.csv")
 
-    if os.path.exists(posts_path) or os.path.exists(comments_path):
-        raise FileExistsError(
-            f"Output files for {today} already exist. "
-            "Delete them manually if you want to re-run today."
-        )
-
     all_posts, all_comments = [], []
 
     for i, sub in enumerate(subreddits):
@@ -190,10 +192,10 @@ def main(subreddits: list[str] = SUBREDDITS, limit: int = 100,
         if i < len(subreddits) - 1:
             time.sleep(0.5)
 
-    save_to_csv(all_posts,    posts_path)
-    save_to_csv(all_comments, comments_path)
-    print(f"\nSaved {len(all_posts)} posts    → {posts_path}")
-    print(f"Saved {len(all_comments)} comments → {comments_path}")
+    total_posts    = upsert_csv(all_posts,    posts_path,    id_col="post_id")
+    total_comments = upsert_csv(all_comments, comments_path, id_col="comment_id")
+    print(f"\nUpserted {len(all_posts)} posts    → {total_posts} total in {posts_path}")
+    print(f"Upserted {len(all_comments)} comments → {total_comments} total in {comments_path}")
 
 
 # ---------------------------------------------------------------------------

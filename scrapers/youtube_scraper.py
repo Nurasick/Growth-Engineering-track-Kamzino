@@ -191,27 +191,29 @@ def _parse_duration(duration: str) -> int:
 
 
 # ---------------------------------------------------------------------------
-# CSV output
+# CSV upsert — merge new records into existing file, dedup on id_col
 # ---------------------------------------------------------------------------
-def save_to_csv(records: list[dict], filepath: str) -> None:
+def upsert_csv(new_records: list[dict], filepath: str, id_col: str) -> int:
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    pd.DataFrame(records).to_csv(filepath, index=False, encoding="utf-8")
+    new_df = pd.DataFrame(new_records)
+    if os.path.exists(filepath):
+        existing = pd.read_csv(filepath, dtype=str)
+        existing = existing[~existing[id_col].isin(new_df[id_col].astype(str))]
+        merged = pd.concat([existing, new_df], ignore_index=True)
+    else:
+        merged = new_df
+    merged.to_csv(filepath, index=False, encoding="utf-8")
+    return len(merged)
 
 
 # ---------------------------------------------------------------------------
-# Main — all queries, saves date-stamped CSVs
+# Main — all queries, upserts date-stamped CSVs
 # ---------------------------------------------------------------------------
 def main(queries: list[str] = SEARCH_QUERIES, limit: int = RESULTS_PER_QUERY) -> None:
     today         = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     raw_dir       = os.path.join(os.path.dirname(__file__), "..", "..", "data", "raw")
     videos_path   = os.path.join(raw_dir, f"youtube_videos_{today}.csv")
     comments_path = os.path.join(raw_dir, f"youtube_comments_{today}.csv")
-
-    if os.path.exists(videos_path) or os.path.exists(comments_path):
-        raise FileExistsError(
-            f"Output files for {today} already exist. "
-            "Delete them manually if you want to re-run today."
-        )
 
     seen_ids: set[str] = set()
     all_video_ids: list[str] = []
@@ -234,10 +236,10 @@ def main(queries: list[str] = SEARCH_QUERIES, limit: int = RESULTS_PER_QUERY) ->
         comments = fetch_comments(video["video_id"])
         all_comments.extend(comments)
 
-    save_to_csv(all_videos,   videos_path)
-    save_to_csv(all_comments, comments_path)
-    print(f"\nSaved {len(all_videos)} videos   → {videos_path}")
-    print(f"Saved {len(all_comments)} comments → {comments_path}")
+    total_videos   = upsert_csv(all_videos,   videos_path,   id_col="video_id")
+    total_comments = upsert_csv(all_comments, comments_path, id_col="comment_id")
+    print(f"\nUpserted {len(all_videos)} videos   → {total_videos} total in {videos_path}")
+    print(f"Upserted {len(all_comments)} comments → {total_comments} total in {comments_path}")
 
 
 # ---------------------------------------------------------------------------

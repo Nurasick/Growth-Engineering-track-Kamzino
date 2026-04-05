@@ -19,19 +19,12 @@ SCRAPERS_DIR = REPO_ROOT / "scrapers"
 
 @router.post("/hn")
 def run_hn():
-    job_id = run_script(SCRAPERS_DIR / "hn_scraper.py", ["--overwrite"], "HN scraper")
+    job_id = run_script(SCRAPERS_DIR / "hn_scraper.py", [], "HN scraper")
     return {"job_id": job_id, "scraper": "hn"}
 
 
 @router.post("/reddit")
 def run_reddit():
-    # Reddit scraper has no --overwrite flag; delete today's files before re-running
-    import datetime, glob, os
-    today = datetime.datetime.utcnow().strftime("%Y-%m-%d")
-    raw_dir = REPO_ROOT / "data" / "raw"
-    for pattern in [f"reddit_posts_{today}.csv", f"reddit_comments_{today}.csv"]:
-        for f in glob.glob(str(raw_dir / pattern)):
-            os.remove(f)
     job_id = run_script(SCRAPERS_DIR / "reddit_scraper.py", [], "Reddit scraper")
     return {"job_id": job_id, "scraper": "reddit"}
 
@@ -45,12 +38,6 @@ def run_x(pages: int = 2, limit_per_query: int = 20):
 
 @router.post("/youtube")
 def run_youtube():
-    import datetime, glob, os
-    today = datetime.datetime.utcnow().strftime("%Y-%m-%d")
-    raw_dir = REPO_ROOT / "data" / "raw"
-    for pattern in [f"youtube_videos_{today}.csv", f"youtube_comments_{today}.csv"]:
-        for f in glob.glob(str(raw_dir / pattern)):
-            os.remove(f)
     job_id = run_script(SCRAPERS_DIR / "youtube_scraper.py", [], "YouTube scraper")
     return {"job_id": job_id, "scraper": "youtube"}
 

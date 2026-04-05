@@ -118,15 +118,24 @@ def fetch_items(query, tags, pages=3, hits_per_page=100, days=7):
 
 
 # ---------------------------------------------------------------------------
-# CSV output
+# CSV upsert — merge new records into existing file, dedup on id_col
 # ---------------------------------------------------------------------------
-def save_to_csv(records, filepath):
+def upsert_csv(new_records, filepath, id_col="object_id"):
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    pd.DataFrame(records).to_csv(filepath, index=False, encoding="utf-8")
+    new_df = pd.DataFrame(new_records)
+    if os.path.exists(filepath):
+        existing = pd.read_csv(filepath, dtype=str)
+        # New rows take precedence: drop existing rows whose id appears in new data
+        existing = existing[~existing[id_col].isin(new_df[id_col].astype(str))]
+        merged = pd.concat([existing, new_df], ignore_index=True)
+    else:
+        merged = new_df
+    merged.to_csv(filepath, index=False, encoding="utf-8")
+    return len(merged)
 
 
 # ---------------------------------------------------------------------------
-# Main — both queries, stories + comments, deduped on object_id
+# Main — both queries, stories + comments, upserted on object_id
 # ---------------------------------------------------------------------------
 def main(queries=QUERIES, pages=3, days=7, overwrite=False, output_prefix=""):
     today    = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -135,12 +144,6 @@ def main(queries=QUERIES, pages=3, days=7, overwrite=False, output_prefix=""):
     filepath = os.path.join(
         os.path.dirname(__file__), "..", "data", "raw", f"{prefix}hn_items{suffix}_{today}.csv"
     )
-
-    if os.path.exists(filepath) and not overwrite:
-        raise FileExistsError(
-            f"Output file for {today} already exists: {filepath}\n"
-            "Pass overwrite=True or use --overwrite flag to re-run."
-        )
 
     all_records = []
 
@@ -151,16 +154,15 @@ def main(queries=QUERIES, pages=3, days=7, overwrite=False, output_prefix=""):
         print(f"\nFetching comments — query: {query!r} (last {days} days)")
         all_records.extend(fetch_items(query, tags="comment", pages=pages, days=days))
 
-    # Deduplicate on object_id — keep first occurrence
-    seen    = set()
-    deduped = []
+    # Deduplicate within this batch first
+    seen, deduped = set(), []
     for rec in all_records:
         if rec["object_id"] not in seen:
             seen.add(rec["object_id"])
             deduped.append(rec)
 
-    save_to_csv(deduped, filepath)
-    print(f"\nSaved {len(deduped)} items -> {filepath}")
+    total = upsert_csv(deduped, filepath, id_col="object_id")
+    print(f"\nUpserted {len(deduped)} new/updated items → {total} total in {filepath}")
 
 
 # ---------------------------------------------------------------------------
@@ -171,7 +173,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--days",          type=int, default=7,  help="How many days back to fetch (default 7)")
     parser.add_argument("--pages",         type=int, default=3,  help="Pages per query (default 3)")
-    parser.add_argument("--overwrite",     action="store_true",  help="Overwrite existing output file")
+    parser.add_argument("--overwrite",     action="store_true",  help="(ignored, kept for backwards compat — runs always upsert)")
     parser.add_argument("--smoke",         action="store_true",  help="Smoke test only — don't write file")
     parser.add_argument("--queries",       type=str, default="", help="Comma-separated queries (overrides default)")
     parser.add_argument("--output-prefix", type=str, default="", help="Prefix for output filename (e.g. 'higgsfield')")
