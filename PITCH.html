@@ -341,48 +341,77 @@
   <div class="slide" id="s3">
     <div class="label">Part 1 · Dataset</div>
     <h2>The dataset</h2>
-    <div class="grid-4" style="margin-top:28px;">
-      <div class="card">
-        <div class="num">6,400+</div>
-        <div class="card-label">total posts</div>
-        <p>Unified schema, deduped, velocity scored</p>
+    <div class="grid-2" style="margin-top:20px;align-items:start;gap:24px;">
+      <div>
+        <div style="margin-bottom:16px;">
+          <div class="bar-row">
+            <div class="bar-label">Hacker News</div>
+            <div class="bar-track"><div class="bar-fill" style="width:59%;background:#f97316;"></div></div>
+            <div class="bar-val" style="color:#f97316;">3,779</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Reddit</div>
+            <div class="bar-track"><div class="bar-fill" style="width:14%;background:#fb923c;"></div></div>
+            <div class="bar-val" style="color:#fb923c;">5,502+</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">X / Twitter</div>
+            <div class="bar-track"><div class="bar-fill" style="width:33%;background:#38bdf8;"></div></div>
+            <div class="bar-val" style="color:#38bdf8;">2,117</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">YouTube</div>
+            <div class="bar-track"><div class="bar-fill" style="width:22%;background:#ef4444;"></div></div>
+            <div class="bar-val" style="color:#ef4444;">1,428</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div class="card" style="flex:1;min-width:100px;padding:12px;">
+            <div class="num" style="font-size:28px;">6,400+</div>
+            <div class="card-label">total posts</div>
+          </div>
+          <div class="card" style="flex:1;min-width:100px;padding:12px;">
+            <div class="num" style="font-size:28px;">16mo</div>
+            <div class="card-label">X history</div>
+          </div>
+          <div class="card" style="flex:1;min-width:100px;padding:12px;">
+            <div class="num" style="font-size:28px;">2,177</div>
+            <div class="card-label">classified</div>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="num">16mo</div>
-        <div class="card-label">X history</div>
-        <p>Jan 2025 → Apr 2026, enriched via FxTwitter</p>
-      </div>
-      <div class="card">
-        <div class="num">2,177</div>
-        <div class="card-label">posts classified</div>
-        <p>5 spike types: breakthrough, tutorial, personal, meme, comparison</p>
-      </div>
-      <div class="card">
-        <div class="num">14</div>
-        <div class="card-label">validated findings</div>
-        <p>Every number cross-checked against raw CSV output</p>
-      </div>
-    </div>
-    <div style="margin-top:28px;">
-      <div class="bar-row">
-        <div class="bar-label">Hacker News</div>
-        <div class="bar-track"><div class="bar-fill" style="width:59%;background:#f97316;"></div></div>
-        <div class="bar-val" style="color:#f97316;">3,779</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Reddit</div>
-        <div class="bar-track"><div class="bar-fill" style="width:14%;background:#fb923c;"></div></div>
-        <div class="bar-val" style="color:#fb923c;">5,502+</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">X / Twitter</div>
-        <div class="bar-track"><div class="bar-fill" style="width:33%;background:#38bdf8;"></div></div>
-        <div class="bar-val" style="color:#38bdf8;">2,117</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">YouTube</div>
-        <div class="bar-track"><div class="bar-fill" style="width:22%;background:#ef4444;"></div></div>
-        <div class="bar-val" style="color:#ef4444;">1,428</div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">5 spike types — every post gets one label</div>
+        <table class="data-table">
+          <thead><tr><th>Type</th><th>What it is</th><th>Avg engagement</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span style="color:#CAFF33;font-weight:700;">⚡ Breakthrough</span></td>
+              <td style="font-size:12px;">Product launch, model release, major announcement. High ceiling, very low floor — most get ignored.</td>
+              <td>146K avg · <span style="color:#666;">4 median</span></td>
+            </tr>
+            <tr>
+              <td><span style="color:#38bdf8;font-weight:700;">📖 Tutorial</span></td>
+              <td style="font-size:12px;">"How to use Claude for X." Drives consistent mid-tier engagement. Best for sustained community presence.</td>
+              <td>33K avg · <span style="color:#888;">5 median</span></td>
+            </tr>
+            <tr>
+              <td><span style="color:#a78bfa;font-weight:700;">💬 Personal</span></td>
+              <td style="font-size:12px;">"I switched / this helped me / my experience." Most consistent — rarely zero, rarely massive. Highest trust signal.</td>
+              <td>28K avg · <span style="color:#CAFF33;">914 median</span></td>
+            </tr>
+            <tr>
+              <td><span style="color:#f97316;font-weight:700;">😂 Meme</span></td>
+              <td style="font-size:12px;">Format-native humor. Highest ceiling when it lands — cultural spread, no explanation needed.</td>
+              <td><span style="color:#CAFF33;">588K avg</span> · 337 median</td>
+            </tr>
+            <tr>
+              <td><span style="color:#ef4444;font-weight:700;">⚔️ Comparison</span></td>
+              <td style="font-size:12px;">"Claude vs ChatGPT / Gemini / Cursor." High volume (720 tweets) but worst median floor — almost all go nowhere unless you're @elonmusk.</td>
+              <td>7K avg · <span style="color:#666;">32 median</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="slide-num">03 / 10</div>
