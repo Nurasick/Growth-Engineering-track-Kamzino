@@ -127,6 +127,7 @@ export interface RedditPost {
   title: string;
   score: number;
   comments: number;
+  engagement: number;
   ratio: number;
   url: string;
   subreddit: string;
@@ -137,6 +138,8 @@ export interface RedditEngagementPoint {
   period: string;
   avg_score: number;
   median_score: number;
+  avg_engagement: number;
+  median_engagement: number;
   avg_comments: number;
   post_count: number;
   total_score: number;
@@ -152,6 +155,7 @@ export interface RedditEngagementResponse {
   summary: {
     total_posts: number;
     overall_avg_score: number;
+    overall_avg_engagement: number;
     date_range: string;
     source_file: string;
   };

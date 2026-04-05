@@ -134,6 +134,12 @@ def normalize_reddit_posts(rows, source_file):
     out = []
     for row in rows:
         body = (row.get("title", "") + "\n\n" + row.get("selftext", "")).strip()
+        # Weighted engagement: comments require writing = 3× the intent of an upvote
+        # engagement_score = score + (num_comments × 3)
+        # upvote_ratio stored as secondary_metric for filtering
+        score    = int(row.get("score", 0) or 0)
+        comments = int(row.get("num_comments", 0) or 0)
+        eng      = score + (comments * 3)
         out.append({
             "platform": "reddit", "source_type": "post", "source_file": source_file,
             "post_id": row["post_id"], "root_post_id": row["post_id"],
@@ -143,8 +149,8 @@ def normalize_reddit_posts(rows, source_file):
             "title": row.get("title", ""), "body_text": body,
             "url": row.get("permalink") or row.get("url", ""),
             "topic_query": row.get("subreddit", ""),
-            "engagement_score": row.get("score", ""),
-            "comment_count": row.get("num_comments", ""),
+            "engagement_score": eng,
+            "comment_count": comments,
             "secondary_metric": row.get("upvote_ratio", ""),
             "secondary_metric_name": "upvote_ratio",
             "raw_tags": row.get("subreddit", ""),

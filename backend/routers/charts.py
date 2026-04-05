@@ -155,7 +155,7 @@ def reddit_engagement():
     from datetime import date as date_cls
 
     buckets: dict[str, dict] = defaultdict(
-        lambda: {"scores": [], "comments": [], "total_score": 0, "total_comments": 0,
+        lambda: {"scores": [], "comments": [], "eng": [], "total_score": 0, "total_comments": 0,
                  "count": 0, "top_posts": []}
     )
 
@@ -174,20 +174,25 @@ def reddit_engagement():
                 comments = int(row.get("num_comments") or 0)
                 ratio    = float(row.get("upvote_ratio") or 0)
 
+                # Weighted engagement: comments require writing = 3× upvote intent
+                eng = score + (comments * 3)
+
                 b = buckets[period]
                 b["scores"].append(score)
                 b["comments"].append(comments)
+                b["eng"].append(eng)
                 b["total_score"]    += score
                 b["total_comments"] += comments
                 b["count"]          += 1
                 b["top_posts"].append({
-                    "title":    (row.get("title") or "").strip(),
-                    "score":    score,
-                    "comments": comments,
-                    "ratio":    ratio,
-                    "url":      (row.get("url") or row.get("permalink") or "").strip(),
-                    "subreddit": (row.get("subreddit") or "").strip(),
-                    "date":     raw_date,
+                    "title":      (row.get("title") or "").strip(),
+                    "score":      score,
+                    "comments":   comments,
+                    "engagement": eng,
+                    "ratio":      ratio,
+                    "url":        (row.get("url") or row.get("permalink") or "").strip(),
+                    "subreddit":  (row.get("subreddit") or "").strip(),
+                    "date":       raw_date,
                 })
             except (ValueError, KeyError):
                 continue
@@ -220,33 +225,41 @@ def reddit_engagement():
     for period in sorted(buckets.keys()):
         b = buckets[period]
         scores_sorted = sorted(b["scores"])
+        eng_sorted    = sorted(b["eng"])
         avg_score     = sum(b["scores"]) / len(b["scores"]) if b["scores"] else 0
         median_score  = scores_sorted[len(scores_sorted) // 2]
         avg_comments  = sum(b["comments"]) / len(b["comments"]) if b["comments"] else 0
+        avg_eng       = sum(b["eng"]) / len(b["eng"]) if b["eng"] else 0
+        median_eng    = eng_sorted[len(eng_sorted) // 2]
 
-        top_posts = sorted(b["top_posts"], key=lambda x: x["score"], reverse=True)[:3]
+        # Rank top posts by engagement (score + comments×3), not just score
+        top_posts = sorted(b["top_posts"], key=lambda x: x["engagement"], reverse=True)[:3]
 
         hw = hn_by_week.get(period, {})
         data.append({
-            "period":         period,
-            "avg_score":      round(avg_score, 1),
-            "median_score":   round(median_score, 1),
-            "avg_comments":   round(avg_comments, 1),
-            "post_count":     b["count"],
-            "total_score":    b["total_score"],
-            "total_comments": b["total_comments"],
-            "top_posts":      top_posts,
-            "hn_item_count":  hw.get("item_count", 0),
-            "hn_total_score": hw.get("total_score", 0),
-            "hn_top_stories": hw.get("stories", [])[:3],
+            "period":          period,
+            "avg_score":       round(avg_score, 1),
+            "median_score":    round(median_score, 1),
+            "avg_engagement":  round(avg_eng, 1),
+            "median_engagement": round(median_eng, 1),
+            "avg_comments":    round(avg_comments, 1),
+            "post_count":      b["count"],
+            "total_score":     b["total_score"],
+            "total_comments":  b["total_comments"],
+            "top_posts":       top_posts,
+            "hn_item_count":   hw.get("item_count", 0),
+            "hn_total_score":  hw.get("total_score", 0),
+            "hn_top_stories":  hw.get("stories", [])[:3],
         })
 
     all_scores = [s for b in buckets.values() for s in b["scores"]]
+    all_eng    = [e for b in buckets.values() for e in b["eng"]]
     summary = {
-        "total_posts":       sum(b["count"] for b in buckets.values()),
-        "overall_avg_score": round(sum(all_scores) / len(all_scores) if all_scores else 0, 1),
-        "date_range":        f"{data[0]['period']} → {data[-1]['period']}" if data else "",
-        "source_file":       os.path.basename(reddit_path),
+        "total_posts":           sum(b["count"] for b in buckets.values()),
+        "overall_avg_score":     round(sum(all_scores) / len(all_scores) if all_scores else 0, 1),
+        "overall_avg_engagement": round(sum(all_eng) / len(all_eng) if all_eng else 0, 1),
+        "date_range":            f"{data[0]['period']} → {data[-1]['period']}" if data else "",
+        "source_file":           os.path.basename(reddit_path),
     }
 
     return {"data": data, "summary": summary}

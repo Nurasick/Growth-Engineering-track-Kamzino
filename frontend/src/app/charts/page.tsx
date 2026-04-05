@@ -98,12 +98,12 @@ function RedditTooltip({ active, payload, label }: any) {
       <div className="mb-3 space-y-1">
         <div className="text-white/25 uppercase tracking-wider text-[10px] mb-1">Reddit</div>
         <div className="flex justify-between gap-4">
-          <span className="text-white/40">Avg upvote score</span>
-          <span className="text-orange-300 font-medium">{fmtNumber(d.avg_score)}</span>
+          <span className="text-white/40">Avg engagement</span>
+          <span className="text-orange-300 font-medium">{fmtNumber(d.avg_engagement)}</span>
         </div>
         <div className="flex justify-between gap-4">
-          <span className="text-white/40">Median score</span>
-          <span className="text-amber-400">{fmtNumber(d.median_score)}</span>
+          <span className="text-white/40">Avg score (upvotes)</span>
+          <span className="text-amber-400">{fmtNumber(d.avg_score)}</span>
         </div>
         <div className="flex justify-between gap-4">
           <span className="text-white/40">Posts</span>
@@ -312,45 +312,46 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
       {/* formula */}
       <div className="rounded border border-orange-800/40 bg-orange-900/10 p-4">
         <div className="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-2">
-          How Reddit engagement is measured
+          How Reddit engagement is calculated
         </div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-mono">
-          <span className="text-white/80">Avg Score</span>
+          <span className="text-white/80">Engagement</span>
           <span className="text-white/25">=</span>
-          <span className="text-orange-300">Σ Upvotes per post</span>
-          <span className="text-white/25">÷</span>
-          <span className="text-white/80">Posts that week</span>
+          <span className="text-orange-300">Score</span>
+          <span className="text-white/25">+</span>
+          <span className="text-amber-300">(Comments × 3)</span>
         </div>
         <p className="mt-2 text-xs text-white/40 leading-relaxed">
-          Reddit has no view count, so the primary signal is the upvote score — how much the community
-          endorsed a post. Grouped by ISO week since posts span a full year.
+          Reddit has no view count. Upvote score is the base signal, but commenting requires
+          writing — it&apos;s 3× the intent of a vote. A post with 5K score and 1K comments
+          outranks a 9K score post with 50 comments.
         </p>
         <div className="mt-3 flex flex-wrap gap-4 text-xs text-white/25">
-          <span><span className="text-orange-300 font-medium">Score</span> — net upvotes (upvotes − downvotes)</span>
-          <span><span className="text-amber-300 font-medium">Comments</span> — discussion depth per post</span>
-          <span><span className="text-white/60 font-medium">Upvote ratio</span> — % of votes that were upvotes</span>
+          <span><span className="text-orange-300 font-medium">Score</span> — net upvotes (base signal)</span>
+          <span><span className="text-amber-300 font-medium">Comments ×3</span> — discussion depth, high-intent</span>
+          <span><span className="text-white/60 font-medium">Upvote ratio</span> — community consensus</span>
         </div>
       </div>
 
       {/* stat cards */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard label="Total Posts" value={fmtNumber(summary.total_posts)} />
-        <StatCard label="Overall Avg Score" value={fmtNumber(avgScore)} sub="avg upvotes per post" />
-        <StatCard label="Date Range" value={chartData[0]?.period ?? "—"} sub={`→ ${chartData[chartData.length - 1]?.period ?? "—"}`} />
-        <StatCard label="Weeks Tracked" value={String(chartData.length)} sub="ISO weeks of data" />
+        <StatCard label="Overall Avg Engagement" value={fmtNumber(summary.overall_avg_engagement)} sub="score + comments×3" />
+        <StatCard label="Overall Avg Score" value={fmtNumber(avgScore)} sub="upvotes only" />
+        <StatCard label="Weeks Tracked" value={String(chartData.length)} sub={summary.date_range} />
       </div>
 
       {/* chart */}
       <div className="rounded border border-[#222] bg-[#242424]/60 p-6">
         <h3 className="text-sm font-medium text-white/60 mb-1">
-          Avg Upvote Score vs HackerNews Activity · by Week
+          Avg Engagement vs HackerNews Activity · by Week
         </h3>
         <p className="text-xs text-white/25 mb-1">
-          Dashed line = overall avg score ({fmtNumber(avgScore)}). Hover for top posts and HN stories that week.
+          Engagement = score + comments×3. Dashed = score only (for comparison). Hover for top posts.
         </p>
         <div className="flex flex-wrap gap-4 mb-5 text-xs text-white/25">
-          <span><span className="inline-block w-3 h-0.5 bg-orange-400 mr-1 align-middle" />Avg score (left)</span>
-          <span><span className="inline-block w-3 h-0.5 bg-amber-500 mr-1 align-middle" />Median score (left)</span>
+          <span><span className="inline-block w-3 h-0.5 bg-orange-400 mr-1 align-middle" />Avg engagement (left)</span>
+          <span><span className="inline-block w-3 h-0.5 bg-amber-500 mr-1 align-middle" style={{borderTop:'2px dashed'}} />Avg score only (left)</span>
           <span><span className="inline-block w-3 h-2 bg-orange-500/50 mr-1 align-middle rounded-sm" />HN total score (right)</span>
         </div>
         <ResponsiveContainer width="100%" height={320}>
@@ -365,7 +366,6 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
               angle={-40}
               height={48}
               tickFormatter={(v: string) => {
-                // "2025-W14" → "W14 '25"
                 const m = v.match(/^(\d{4})-W(\d+)$/);
                 return m ? `W${m[2]} '${m[1].slice(2)}` : v;
               }}
@@ -373,11 +373,11 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
             <YAxis yAxisId="score" tick={{ fill: "#666", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={52} />
             <YAxis yAxisId="hn" orientation="right" tick={{ fill: "#f97316", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={48} />
             <Tooltip content={<RedditTooltip />} />
-            <ReferenceLine yAxisId="score" y={avgScore} stroke="#f97316" strokeDasharray="6 3"
-              label={{ value: `avg ${fmtNumber(avgScore)}`, fill: "#fb923c", fontSize: 10, position: "insideTopRight" }} />
+            <ReferenceLine yAxisId="score" y={summary.overall_avg_engagement} stroke="#f97316" strokeDasharray="6 3"
+              label={{ value: `avg ${fmtNumber(summary.overall_avg_engagement)}`, fill: "#fb923c", fontSize: 10, position: "insideTopRight" }} />
             <Bar yAxisId="hn" dataKey="hn_total_score" name="HN Score" fill="#f97316" fillOpacity={0.25} radius={[3, 3, 0, 0]} />
-            <Line yAxisId="score" type="monotone" dataKey="avg_score" name="Avg Score" stroke="#f97316" strokeWidth={2.5} dot={{ fill: "#f97316", r: 4 }} activeDot={{ r: 6 }} />
-            <Line yAxisId="score" type="monotone" dataKey="median_score" name="Median Score" stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 2" dot={false} />
+            <Line yAxisId="score" type="monotone" dataKey="avg_engagement" name="Avg Engagement" stroke="#f97316" strokeWidth={2.5} dot={{ fill: "#f97316", r: 4 }} activeDot={{ r: 6 }} />
+            <Line yAxisId="score" type="monotone" dataKey="avg_score" name="Avg Score (upvotes)" stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 2" dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
@@ -402,16 +402,18 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
               <div className="space-y-1.5">
                 {row.top_posts.map((p, i) => (
                   <div key={i} className="flex gap-3 items-start text-xs">
-                    <span className="text-orange-500 font-bold w-14 shrink-0 tabular-nums">{fmtNumber(p.score)}▲</span>
+                    <div className="shrink-0 text-right w-20">
+                      <div className="text-orange-400 font-bold tabular-nums">{fmtNumber(p.engagement)}</div>
+                      <div className="text-white/25 text-[10px]">{fmtNumber(p.score)}▲ {p.comments}c</div>
+                    </div>
                     {p.url ? (
                       <a href={p.url} target="_blank" rel="noopener noreferrer"
-                        className="text-white/60 hover:text-orange-300 transition-colors leading-tight">
+                        className="text-white/60 hover:text-orange-300 transition-colors leading-tight flex-1">
                         {p.title}
                       </a>
                     ) : (
-                      <span className="text-white/60 leading-tight">{p.title}</span>
+                      <span className="text-white/60 leading-tight flex-1">{p.title}</span>
                     )}
-                    <span className="text-white/15 shrink-0">{p.comments}c</span>
                   </div>
                 ))}
               </div>
@@ -429,7 +431,7 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-[#222]">
-                {["Week", "Posts", "Avg Score", "Median Score", "Avg Comments", "HN Stories", "HN Score"].map(h => (
+                {["Week", "Posts", "Avg Engagement", "Avg Score", "Avg Comments", "HN Stories", "HN Score"].map(h => (
                   <th key={h} className="px-4 py-2.5 text-left text-white/40 font-medium whitespace-nowrap">{h}</th>
                 ))}
               </tr>
@@ -439,8 +441,8 @@ function RedditSection({ data }: { data: RedditEngagementResponse }) {
                 <tr key={row.period} className="border-b border-[#1e1e1e] hover:bg-[#242424]/30 transition-colors">
                   <td className="px-4 py-2.5 text-white/60 font-medium">{row.period}</td>
                   <td className="px-4 py-2.5 text-white/40">{row.post_count}</td>
-                  <td className="px-4 py-2.5 text-orange-300">{fmtNumber(row.avg_score)}</td>
-                  <td className="px-4 py-2.5 text-amber-400">{fmtNumber(row.median_score)}</td>
+                  <td className="px-4 py-2.5 text-orange-300">{fmtNumber(row.avg_engagement)}</td>
+                  <td className="px-4 py-2.5 text-amber-400">{fmtNumber(row.avg_score)}</td>
                   <td className="px-4 py-2.5 text-white/40">{row.avg_comments.toFixed(0)}</td>
                   <td className="px-4 py-2.5 text-orange-400">{row.hn_item_count}</td>
                   <td className="px-4 py-2.5 text-orange-300">{fmtNumber(row.hn_total_score)}</td>
