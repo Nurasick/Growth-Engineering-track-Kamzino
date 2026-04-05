@@ -134,7 +134,25 @@ cd frontend && npm install && npm run dev
 
 ---
 
-## Known Limitations
+## Known Limitations & Tradeoffs
+
+**1. Cross-platform engagement score is an approximation.**
+Unifying likes, upvotes, retweets, comments, and view counts into a single "engagement score" requires platform-specific normalization that is inherently lossy. A Reddit upvote and an X like do not represent equivalent social signals — Reddit's vote-hiding, HN's decay formula, and YouTube's like-to-view ratio all encode different audience behaviors. The unified score is useful for directional ranking and spike detection, but cross-platform comparisons should not be treated as precise. Per-platform raw metrics are always available in `data/raw/` for anyone who wants to work with native units.
+
+**2. Gemini-assisted playbook generation produces NaN values and dataset-not-found errors.**
+When the playbook pipeline calls the Gemini API for narrative synthesis, it occasionally fails silently on missing or sparse CSV slices — returning `NaN` cells or raising dataset unavailability errors mid-document. This is a data completeness issue as much as an API one: thin subreddit slices and low-sample spike categories do not always have enough rows to compute meaningful aggregates before the text generation step. Workaround: run `pipeline.py --skip-scrape` to ensure all processed CSVs exist before invoking the playbook generator, and treat any `NaN`-containing finding as flagged for manual review.
+
+**3. TikTok and Instagram are excluded.**
+Both platforms require authenticated sessions for any meaningful data access — there is no public API for content search, engagement metrics, or creator stats without OAuth app approval (which requires business verification and review cycles incompatible with a hackathon timeline). Scraping via browser automation would violate both platforms' Terms of Service and produce brittle, unverifiable data. Given that reproducibility is a stated goal of this project, we chose to exclude them entirely rather than include data we could not re-generate cleanly. This is a real gap: TikTok in particular is a major distribution channel for AI demos. Documented as a future extension.
+
+**4. HN over-representation inflates the "breakthrough" category.**
+The Algolia HN scraper returns any post where "Claude" appears anywhere — titles, comment threads, and linked discussions — which caused 3,779 posts to be ingested versus ~125–384 posts from Reddit and X respectively. This imbalance means the spike classifier disproportionately draws from HN signal when labeling posts as "breakthrough," even when the actual breakout moment originated elsewhere. A proper fix requires per-platform post caps or a stratified sampling strategy before classification. For now, treat breakthrough counts as HN-weighted and cross-reference with the per-platform raw files before drawing distribution conclusions.
+
+**5. X historical data uses a Playwright browser scraper instead of the official API.**
+The X API v2 (Basic tier and above) would have been the right tool — it provides structured tweet data, full engagement metrics, and reliable pagination. We did not purchase API access. To compensate, we automated a logged-in browser session via Playwright, which successfully recovered 1,668 historical tweets across 16 months. The trade-off: the scraper is session-dependent, rate-limited by UI behavior rather than documented API quotas, and will break if X changes its DOM. No credentials are stored in the repo; the resulting dataset is committed to `data/raw/` so it does not need to be re-scraped. If X API access is available, replacing `x_playwright_scraper.py` with an API client is the highest-priority robustness upgrade.
+
+**6. Real-time alert system is designed but not operationally live.**
+The architecture includes an alert layer that would monitor Anthropic's blog, major tech outlets, and tracked X accounts for trigger events (new model releases, policy changes, competitor launches) and fire notifications within minutes. The detection logic and scoring are implemented, but the system runs on a weekly batch cron rather than an hourly or streaming schedule — meaning no alert fires sooner than 12 hours after an event in practice. Upgrading to a live alert pipeline requires either a hosted cron (GitHub Actions on schedule, Render cron job) or a proper orchestrator (Prefect, Airflow). The upgrade path is documented in `ARCHITECTURE.md`.
 
 - **X historical data uses Playwright** — requires a logged-in X session. The scraper automates a real browser; no credentials are stored in the repo. See [ARCHITECTURE.md §Playwright Story](ARCHITECTURE.md) for the full explanation. The resulting dataset (1,668 tweets) is committed to `data/raw/` and does not need to be re-scraped.
 - **Instagram, LinkedIn, TikTok excluded** — no public API without login. Documented gap.
