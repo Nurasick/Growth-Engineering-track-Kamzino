@@ -10,6 +10,7 @@ const links = [
   { href: "/pipeline",  label: "Pipeline" },
   { href: "/downloads", label: "Downloads" },
   { href: "/charts",    label: "Charts" },
+  { href: "/playbooks", label: "Playbooks" },
 ];
 
 function HiggsLogo() {
