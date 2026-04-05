@@ -109,9 +109,9 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 
 | Time (UTC) | Platform | Score/Views | Event |
 |---|---|---|---|
-| Apr 01 ~01:00 | X | 34.8M views | @Fried_rice tweets the leak — actual ignition point |
-| Apr 01 01:13 | HN | 2 pts | First HN post — picks up from X |
-| Apr 01 01:20 | YouTube | 162,576 views | Matthew Berman reacts — also picks up from X independently |
+| Mar 31 13:23 (local) | X | 34.9M views | @Fried_rice: "Claude code source code has been leaked via npm" — actual ignition |
+| Apr 01 01:13 UTC | HN | 2 pts | First HN post — ~12h after X |
+| Apr 01 01:20 UTC | YouTube | 162,576 views | Matthew Berman reacts — also ~12h after X, independent of HN |
 | Apr 01 02:01 | YouTube | 111,462 views | Nate Herk: "Claude Code Source Code Just Leaked… 8 Things You Must Do" |
 | Apr 01 04:15 | YouTube | 182,642 views | Theo (t3.gg): "BREAKING: Claude Code source leaked" |
 | Apr 01 12:54 | Reddit | 337 pts | First Reddit post about the leak — 12h after HN |
@@ -122,12 +122,12 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 ![3-Wave Cascade](data/charts/chart_cascade_timeline.png)
 
 **Wave structure confirmed:**
-- **Wave 0 (ignition):** X — the real first surface. @Fried_rice's tweet is the trigger, not HN.
-- **Wave 1 (0–2h):** HN and YouTube both pick up from X independently. The 7-minute gap between them is noise — neither triggered the other.
-- **Wave 2 (2–16h):** Tutorial/breakdown content, Reddit joins, peak reach
-- **Wave 3 (48h+):** Satire, non-English creators, cultural commentary
+- **Wave 0 (ignition — Mar 31):** X (@Fried_rice) — the real first surface, ~12 hours before HN/YouTube.
+- **Wave 1 (~12h after X):** HN and YouTube both pick up overnight. The 7-minute gap *between* HN and YouTube is coincidence — both reacted to the X tweet independently.
+- **Wave 2 (~24h after X):** Reddit joins, tutorial/breakdown content peaks.
+- **Wave 3 (48h+ after X):** Satire, non-English creators, cultural commentary.
 
-**Growth insight:** X is the ignition surface. HN and YouTube are early amplifiers. **The window for maximum impact is 0–16 hours from X ignition.** After 48h, content shifts from information to culture — still valuable but no longer actionable for a competitor response.
+**Growth insight:** X is the ignition surface and has the biggest absolute reach (34.9M on one tweet). HN and YouTube are overnight amplifiers — they pick up ~12h later. **The actionable window is 12–24h from X ignition.** After 48h, content shifts from information to culture.
 
 ---
 
