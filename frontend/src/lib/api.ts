@@ -127,6 +127,7 @@ export interface RedditPost {
   title: string;
   score: number;
   comments: number;
+  engagement: number;
   ratio: number;
   url: string;
   subreddit: string;
@@ -137,6 +138,8 @@ export interface RedditEngagementPoint {
   period: string;
   avg_score: number;
   median_score: number;
+  avg_engagement: number;
+  median_engagement: number;
   avg_comments: number;
   post_count: number;
   total_score: number;
@@ -152,6 +155,7 @@ export interface RedditEngagementResponse {
   summary: {
     total_posts: number;
     overall_avg_score: number;
+    overall_avg_engagement: number;
     date_range: string;
     source_file: string;
   };
@@ -237,6 +241,8 @@ export interface XTweet {
   text: string;
   author_handle: string;
   views: number;
+  engagement: number;
+  eng_rate: number;
   likes: number;
   retweets: number;
   url: string;
@@ -244,8 +250,10 @@ export interface XTweet {
 
 export interface XEngagementPoint {
   period: string;
+  avg_engagement: number;
+  median_engagement: number;
+  avg_engagement_rate: number;
   avg_views: number;
-  median_views: number;
   total_views: number;
   total_likes: number;
   total_retweets: number;
@@ -257,7 +265,8 @@ export interface XEngagementResponse {
   data: XEngagementPoint[];
   summary: {
     total_tweets: number;
-    overall_avg_views: number;
+    overall_avg_engagement: number;
+    overall_avg_eng_rate: number;
     date_range: string;
     source_files: string[];
   };

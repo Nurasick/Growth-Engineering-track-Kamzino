@@ -305,7 +305,10 @@ function WeeklyChart({ trend }: { trend: { weeks: string[]; series: Record<strin
     <div className="space-y-3">
       <div className="flex items-stretch gap-1 h-24">
         {recentWeeks.map((week, wi) => {
-          const total = Object.values(recentSeries).reduce((s, arr) => s + (arr[wi] ?? 0), 0);
+          const breakdown = Object.fromEntries(
+            Object.entries(recentSeries).map(([platform, arr]) => [platform, arr[wi] ?? 0])
+          );
+          const total = Object.values(breakdown).reduce((sum, value) => sum + value, 0);
           const pct = (total / maxVal) * 100;
           return (
             <div key={week} className="flex-1 flex flex-col justify-end group relative h-full" title={week}>
@@ -317,8 +320,17 @@ function WeeklyChart({ trend }: { trend: { weeks: string[]; series: Record<strin
                   ) : null;
                 })}
               </div>
-              <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block z-10 bg-[#0d0d0d] border border-[#222] rounded px-2 py-1 text-xs text-white/80 whitespace-nowrap shadow-lg">
-                {week.slice(0, 10)}: {total} posts
+              <div className="pointer-events-none absolute left-1/2 top-1 z-10 hidden min-w-[148px] -translate-x-1/2 rounded border border-[#222] bg-[#0d0d0d] px-2 py-1.5 text-[11px] text-white/80 shadow-lg group-hover:block">
+                <div className="font-medium text-white/90">{week.slice(0, 10)}</div>
+                <div className="mb-1 text-white/50">{total} posts</div>
+                <div className="space-y-0.5">
+                  {Object.entries(breakdown).map(([platform, count]) => (
+                    <div key={platform} className="flex items-center justify-between gap-3">
+                      <span style={{ color: COLORS[platform] ?? "#CAFF33" }}>{platform.toUpperCase()}</span>
+                      <span className="tabular-nums text-white/70">{count}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           );

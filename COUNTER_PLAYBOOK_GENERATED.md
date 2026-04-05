@@ -9,7 +9,7 @@
 
 Higgsfield will achieve viral growth by directly replicating Claude's data-backed strategies. The core focus is empowering community creators, as their content drives 30.6x more views than official channels. We will prioritize "breakthrough" and "tutorial" content, which together account for 389 and 229 viral spikes, respectively, ensuring a steady stream of high-impact material.
 
-Our distribution strategy targets platforms with proven high engagement, specifically X with its 1352195 mean engagement, and Reddit, where Sunday posts achieve an average score of 4344.0. This plan leverages precise timing and content formats to maximize reach and virality, ensuring Higgsfield dominates the AI video generation market.
+Our distribution strategy targets platforms with proven high engagement, specifically X with its 2.38% mean engagement rate (likes + RT×2 + replies×2 + bookmarks ÷ views), and Reddit, where Sunday posts achieve an average score of 4344.0. This plan leverages precise timing and content formats to maximize reach and virality, ensuring Higgsfield dominates the AI video generation market.
 
 ## 0. What the Data Shows (Key Numbers)
 
@@ -17,7 +17,7 @@ Our distribution strategy targets platforms with proven high engagement, specifi
 |---|---|---|
 |Community Content Ratio|30.6|Community-generated content is 30.6x more effective than official content. Higgsfield must invest in creators.|
 |Breakthrough Spike Count|389|Breakthroughs are the most frequent viral spike type (45.5%). Higgsfield must consistently deliver "wow" features.|
-|X Mean Engagement|1352195|X provides the highest average engagement. Higgsfield must prioritize X for broad reach and virality.|
+|X Mean Engagement Rate|2.38%|X engagement rate = (likes + RT×2 + replies×2 + bookmarks) ÷ views. Views are reach, not engagement — top tweets hit 168K engagement score (@bcherny) with 1.85% rate.|
 |Reddit Peak Day|4344.0|Sunday posts on Reddit achieve an average score of 4344.0. Higgsfield must schedule Reddit posts for Sunday.|
 |Max Impact Window|16 hours|Rapid response to market events is critical. Higgsfield must react to competitors within 16 hours.|
 
@@ -27,7 +27,7 @@ Our distribution strategy targets platforms with proven high engagement, specifi
 |---|---|---|
 |HN|r/aivideo, r/indiegaming|HN mean engagement is 14. r/aivideo and r/indiegaming are niche, early-adopter communities for technical discussions.|
 |Reddit|r/filmmakers, r/videography|Reddit mean engagement is 2446. These subreddits are large creative communities for sharing and discussion.|
-|X|X|X mean engagement is 1352195. This is the highest reach platform for broad announcements and viral content.|
+|X|X|X mean engagement rate is 2.38% (engagement = likes + RT×2 + replies×2 + bookmarks; views = separate reach signal). Highest reach platform for broad announcements and viral content.|
 |YouTube|YouTube|YouTube mean engagement is 69917. This is the primary platform for video content, tutorials, and visual showcases.|
 
 **Structural Difference:** Claude is a text-based AI, often generating viral content around code, leaks, or text interactions. Higgsfield is an AI video generation tool. Its "breakthroughs" will be visual quality, cinematic features, and camera motion control. This makes YouTube and X even more critical for showcasing the product's core value visually, while Reddit and niche forums will host more technical or community-driven discussions around its application in filmmaking.
@@ -65,7 +65,7 @@ Creator seeding is the core lever. Community content generates 30.6x more views 
 **Week 0: Launch Week**
 *   **Day 0 (Launch Day):**
     *   **19:00 UTC:** Post official "breakthrough" announcement on r/aivideo and r/indiegaming. Target HN peak hour (49.4% engagement at 19 UTC).
-    *   **Immediately:** Release official "breakthrough" video on YouTube and X. Target X mean engagement of 1352195.
+    *   **Immediately:** Release official "breakthrough" video on YouTube and X. Target X engagement rate >2.38% (platform average) — optimize for retweets and replies, not just views.
     *   **Simultaneously:** Coordinate Tier 1 creators to publish their "breakthrough" and "tutorial" content on YouTube and X.
     *   **Goal:** Achieve day0 Reddit velocity of 0.2011.
 *   **Day 1-3 (Wave 2):**
@@ -110,7 +110,7 @@ Creator seeding is the core lever. Community content generates 30.6x more views 
 |---|---|---|
 |Creator Seeding Program|$50,000|Community content drives 30.6x more views than official content.|
 |Content Production (Breakthrough/Tutorials)|$30,000|Breakthroughs (389 count) and Tutorials (229 count) are top spike types.|
-|X Amplification/Ads|$20,000|X has the highest mean engagement at 1352195.|
+|X Amplification/Ads|$20,000|X avg engagement rate 2.38%; top creators hit 168K eng score. Highest reach platform — @bcherny-style authentic posts outperform ads.|
 |Community Management (Reddit/HN)|$10,000|Reddit mean score 2446, HN mean 14. Requires active engagement.|
 |**TOTAL**|**$110,000**||
 
@@ -118,7 +118,7 @@ Creator seeding is the core lever. Community content generates 30.6x more views 
 
 1.  Prioritize community-generated content, leveraging its 30.6x higher view ratio over official channels.
 2.  Focus on "breakthrough" and "tutorial" content types, which account for 389 and 229 viral spikes respectively.
-3.  Dominate X with high-impact visuals, targeting the platform's 1352195 mean engagement.
+3.  Dominate X with high-impact visuals, targeting >2.38% engagement rate (platform average) — measure by likes + RT×2 + replies×2 + bookmarks, not views alone.
 4.  Optimize Reddit posts for Sunday, aiming for an average score of 4344.0.
 5.  Respond to competitor launches within the 16-hour maximum impact window.
 6.  Track K-factor to ensure virality, aiming for a coefficient greater than 1.0.

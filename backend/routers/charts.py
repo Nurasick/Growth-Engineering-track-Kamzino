@@ -155,7 +155,7 @@ def reddit_engagement():
     from datetime import date as date_cls
 
     buckets: dict[str, dict] = defaultdict(
-        lambda: {"scores": [], "comments": [], "total_score": 0, "total_comments": 0,
+        lambda: {"scores": [], "comments": [], "eng": [], "total_score": 0, "total_comments": 0,
                  "count": 0, "top_posts": []}
     )
 
@@ -174,20 +174,25 @@ def reddit_engagement():
                 comments = int(row.get("num_comments") or 0)
                 ratio    = float(row.get("upvote_ratio") or 0)
 
+                # Weighted engagement: comments require writing = 3× upvote intent
+                eng = score + (comments * 3)
+
                 b = buckets[period]
                 b["scores"].append(score)
                 b["comments"].append(comments)
+                b["eng"].append(eng)
                 b["total_score"]    += score
                 b["total_comments"] += comments
                 b["count"]          += 1
                 b["top_posts"].append({
-                    "title":    (row.get("title") or "").strip(),
-                    "score":    score,
-                    "comments": comments,
-                    "ratio":    ratio,
-                    "url":      (row.get("url") or row.get("permalink") or "").strip(),
-                    "subreddit": (row.get("subreddit") or "").strip(),
-                    "date":     raw_date,
+                    "title":      (row.get("title") or "").strip(),
+                    "score":      score,
+                    "comments":   comments,
+                    "engagement": eng,
+                    "ratio":      ratio,
+                    "url":        (row.get("url") or row.get("permalink") or "").strip(),
+                    "subreddit":  (row.get("subreddit") or "").strip(),
+                    "date":       raw_date,
                 })
             except (ValueError, KeyError):
                 continue
@@ -220,33 +225,41 @@ def reddit_engagement():
     for period in sorted(buckets.keys()):
         b = buckets[period]
         scores_sorted = sorted(b["scores"])
+        eng_sorted    = sorted(b["eng"])
         avg_score     = sum(b["scores"]) / len(b["scores"]) if b["scores"] else 0
         median_score  = scores_sorted[len(scores_sorted) // 2]
         avg_comments  = sum(b["comments"]) / len(b["comments"]) if b["comments"] else 0
+        avg_eng       = sum(b["eng"]) / len(b["eng"]) if b["eng"] else 0
+        median_eng    = eng_sorted[len(eng_sorted) // 2]
 
-        top_posts = sorted(b["top_posts"], key=lambda x: x["score"], reverse=True)[:3]
+        # Rank top posts by engagement (score + comments×3), not just score
+        top_posts = sorted(b["top_posts"], key=lambda x: x["engagement"], reverse=True)[:3]
 
         hw = hn_by_week.get(period, {})
         data.append({
-            "period":         period,
-            "avg_score":      round(avg_score, 1),
-            "median_score":   round(median_score, 1),
-            "avg_comments":   round(avg_comments, 1),
-            "post_count":     b["count"],
-            "total_score":    b["total_score"],
-            "total_comments": b["total_comments"],
-            "top_posts":      top_posts,
-            "hn_item_count":  hw.get("item_count", 0),
-            "hn_total_score": hw.get("total_score", 0),
-            "hn_top_stories": hw.get("stories", [])[:3],
+            "period":          period,
+            "avg_score":       round(avg_score, 1),
+            "median_score":    round(median_score, 1),
+            "avg_engagement":  round(avg_eng, 1),
+            "median_engagement": round(median_eng, 1),
+            "avg_comments":    round(avg_comments, 1),
+            "post_count":      b["count"],
+            "total_score":     b["total_score"],
+            "total_comments":  b["total_comments"],
+            "top_posts":       top_posts,
+            "hn_item_count":   hw.get("item_count", 0),
+            "hn_total_score":  hw.get("total_score", 0),
+            "hn_top_stories":  hw.get("stories", [])[:3],
         })
 
     all_scores = [s for b in buckets.values() for s in b["scores"]]
+    all_eng    = [e for b in buckets.values() for e in b["eng"]]
     summary = {
-        "total_posts":       sum(b["count"] for b in buckets.values()),
-        "overall_avg_score": round(sum(all_scores) / len(all_scores) if all_scores else 0, 1),
-        "date_range":        f"{data[0]['period']} → {data[-1]['period']}" if data else "",
-        "source_file":       os.path.basename(reddit_path),
+        "total_posts":           sum(b["count"] for b in buckets.values()),
+        "overall_avg_score":     round(sum(all_scores) / len(all_scores) if all_scores else 0, 1),
+        "overall_avg_engagement": round(sum(all_eng) / len(all_eng) if all_eng else 0, 1),
+        "date_range":            f"{data[0]['period']} → {data[-1]['period']}" if data else "",
+        "source_file":           os.path.basename(reddit_path),
     }
 
     return {"data": data, "summary": summary}
@@ -287,7 +300,7 @@ def x_engagement():
     _TW_FMT = "%a %b %d %H:%M:%S %z %Y"
 
     buckets: dict[str, dict] = defaultdict(
-        lambda: {"views": [], "likes": [], "retweets": [], "replies": [], "count": 0, "top_tweets": []}
+        lambda: {"views": [], "eng": [], "eng_rates": [], "likes": [], "retweets": [], "replies": [], "bookmarks": [], "count": 0, "top_tweets": []}
     )
 
     for row in rows_all:
@@ -312,23 +325,34 @@ def x_engagement():
             continue
 
         try:
-            views    = int(row.get("views") or row.get("engagement_score") or 0)
-            likes    = int(row.get("likes") or 0)
-            retweets = int(row.get("retweets") or 0)
-            replies  = int(row.get("replies") or 0)
+            views     = int(row.get("views") or 0)
+            likes     = int(row.get("likes") or 0)
+            retweets  = int(row.get("retweets") or 0)
+            replies   = int(row.get("replies") or 0)
+            bookmarks = int(row.get("bookmarks") or 0)
         except ValueError:
             continue
 
+        # Weighted engagement: replies/RTs require more intent than likes
+        eng = likes + (retweets * 2) + (replies * 2) + bookmarks
+        eng_rate = (eng / views * 100) if views > 0 else 0
+
         b = buckets[period]
         b["views"].append(views)
+        b["eng"].append(eng)
         b["likes"].append(likes)
         b["retweets"].append(retweets)
         b["replies"].append(replies)
+        b["bookmarks"].append(bookmarks)
+        if views > 0:
+            b["eng_rates"].append(eng_rate)
         b["count"] += 1
         b["top_tweets"].append({
             "text":          (row.get("text") or "").strip()[:280],
             "author_handle": (row.get("author_handle") or "").strip(),
             "views":         views,
+            "engagement":    eng,
+            "eng_rate":      round(eng_rate, 3),
             "likes":         likes,
             "retweets":      retweets,
             "url":           (row.get("url") or "").strip(),
@@ -340,27 +364,34 @@ def x_engagement():
     data = []
     for period in sorted(buckets.keys()):
         b = buckets[period]
-        views_sorted = sorted(b["views"])
+        eng_sorted   = sorted(b["eng"])
+        avg_eng      = sum(b["eng"]) / len(b["eng"]) if b["eng"] else 0
+        median_eng   = eng_sorted[len(eng_sorted) // 2]
+        avg_eng_rate = sum(b["eng_rates"]) / len(b["eng_rates"]) if b["eng_rates"] else 0
         avg_views    = sum(b["views"]) / len(b["views"]) if b["views"] else 0
-        median_views = views_sorted[len(views_sorted) // 2]
-        top_tweets   = sorted(b["top_tweets"], key=lambda x: x["views"], reverse=True)[:3]
+        # Sort top tweets by engagement score (not raw views)
+        top_tweets   = sorted(b["top_tweets"], key=lambda x: x["engagement"], reverse=True)[:3]
         data.append({
-            "period":         period,
-            "avg_views":      round(avg_views, 0),
-            "median_views":   round(median_views, 0),
-            "total_views":    sum(b["views"]),
-            "total_likes":    sum(b["likes"]),
-            "total_retweets": sum(b["retweets"]),
-            "tweet_count":    b["count"],
-            "top_tweets":     top_tweets,
+            "period":           period,
+            "avg_engagement":   round(avg_eng, 1),
+            "median_engagement": round(median_eng, 1),
+            "avg_engagement_rate": round(avg_eng_rate, 3),
+            "avg_views":        round(avg_views, 0),
+            "total_views":      sum(b["views"]),
+            "total_likes":      sum(b["likes"]),
+            "total_retweets":   sum(b["retweets"]),
+            "tweet_count":      b["count"],
+            "top_tweets":       top_tweets,
         })
 
-    all_views = [v for b in buckets.values() for v in b["views"]]
+    all_eng   = [v for b in buckets.values() for v in b["eng"]]
+    all_rates = [v for b in buckets.values() for v in b["eng_rates"]]
     summary = {
-        "total_tweets":      sum(b["count"] for b in buckets.values()),
-        "overall_avg_views": round(sum(all_views) / len(all_views) if all_views else 0, 0),
-        "date_range":        f"{data[0]['period']} → {data[-1]['period']}" if data else "",
-        "source_files":      [os.path.basename(p) for p in sorted(x_files)],
+        "total_tweets":          sum(b["count"] for b in buckets.values()),
+        "overall_avg_engagement": round(sum(all_eng) / len(all_eng) if all_eng else 0, 1),
+        "overall_avg_eng_rate":  round(sum(all_rates) / len(all_rates) if all_rates else 0, 3),
+        "date_range":            f"{data[0]['period']} → {data[-1]['period']}" if data else "",
+        "source_files":          [os.path.basename(p) for p in sorted(x_files)],
     }
 
     return {"data": data, "summary": summary}

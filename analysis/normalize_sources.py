@@ -98,10 +98,18 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 def normalize_x_posts(rows, source_file):
     out = []
     for row in rows:
-        # Compute engagement score: prefer views, fall back to likes
-        views = int(row.get("views", 0) or 0)
-        likes = int(row.get("likes", 0) or 0)
-        eng   = views if views > 0 else likes
+        # Weighted engagement: replies and retweets require higher intent than likes
+        # engagement_score = likes + (retweets × 2) + (replies × 2) + bookmarks
+        # views is stored as secondary_metric (reach, not engagement)
+        likes     = int(row.get("likes",     0) or 0)
+        retweets  = int(row.get("retweets",  0) or 0)
+        replies   = int(row.get("replies",   0) or 0)
+        bookmarks = int(row.get("bookmarks", 0) or 0)
+        views     = int(row.get("views",     0) or 0)
+        eng = likes + (retweets * 2) + (replies * 2) + bookmarks
+        # Fall back to views if no interaction data available (legacy seed tweets)
+        if eng == 0 and views > 0:
+            eng = views
         out.append({
             "platform": "x", "source_type": "post", "source_file": source_file,
             "post_id": row["tweet_id"], "root_post_id": row["tweet_id"],
@@ -113,8 +121,8 @@ def normalize_x_posts(rows, source_file):
             "url": row.get("url", ""), "topic_query": row.get("source_query", ""),
             "engagement_score": eng,
             "comment_count": row.get("replies", ""),
-            "secondary_metric": row.get("retweets", ""),
-            "secondary_metric_name": "retweets",
+            "secondary_metric": views,
+            "secondary_metric_name": "views",
             "raw_tags": row.get("source_query", ""),
             "has_media": parse_bool(row.get("has_media")),
             "outbound_links_json": json.dumps(parse_listish(row.get("outbound_links", "")), ensure_ascii=False),
@@ -126,6 +134,12 @@ def normalize_reddit_posts(rows, source_file):
     out = []
     for row in rows:
         body = (row.get("title", "") + "\n\n" + row.get("selftext", "")).strip()
+        # Weighted engagement: comments require writing = 3× the intent of an upvote
+        # engagement_score = score + (num_comments × 3)
+        # upvote_ratio stored as secondary_metric for filtering
+        score    = int(row.get("score", 0) or 0)
+        comments = int(row.get("num_comments", 0) or 0)
+        eng      = score + (comments * 3)
         out.append({
             "platform": "reddit", "source_type": "post", "source_file": source_file,
             "post_id": row["post_id"], "root_post_id": row["post_id"],
@@ -135,8 +149,8 @@ def normalize_reddit_posts(rows, source_file):
             "title": row.get("title", ""), "body_text": body,
             "url": row.get("permalink") or row.get("url", ""),
             "topic_query": row.get("subreddit", ""),
-            "engagement_score": row.get("score", ""),
-            "comment_count": row.get("num_comments", ""),
+            "engagement_score": eng,
+            "comment_count": comments,
             "secondary_metric": row.get("upvote_ratio", ""),
             "secondary_metric_name": "upvote_ratio",
             "raw_tags": row.get("subreddit", ""),
