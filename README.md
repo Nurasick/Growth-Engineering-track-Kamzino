@@ -28,7 +28,6 @@ HN post: 01:13 UTC Apr 1. First YouTube video: 01:20 (7 minutes later). Reddit: 
 | Automation architecture diagram | [`ARCHITECTURE.md`](ARCHITECTURE.md) | ✅ |
 | Higgsfield counter-playbook | [`COUNTER_PLAYBOOK.md`](COUNTER_PLAYBOOK.md) | ✅ |
 | Live dashboard (FastAPI + Next.js) | `backend/`, `frontend/` | ✅ |
-| Progress tracker | [`PROGRESS.md`](PROGRESS.md) | ✅ |
 
 ---
 
