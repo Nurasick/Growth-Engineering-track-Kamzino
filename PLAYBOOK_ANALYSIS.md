@@ -1,9 +1,33 @@
-# Claude's Viral Growth Playbook — Decoded
+# Claude's Viral Growth Playbook — Final Analysis
 ## HackNU 2026 · Growth Engineering Track · Part 2
 
-> **Data provenance:** All findings below are derived exclusively from our scraped dataset. No external sources or summaries used.
+> **This is the final non-generated analysis deliverable.**
 >
-> **Dataset versions:** Findings 1–2 and 4–9 use the full multi-platform dataset. Finding 3 (spike type engagement) uses the original 855-post balanced dataset — better for cross-platform comparisons because HN (1–1000 pt scale) and YouTube (thousands–millions view scale) normalize differently.
+> **Data provenance:** Every finding below is grounded in the repo's scraped CSV data and derived charts. No outside summaries were used to create the claims.
+>
+> **Challenge alignment:** This document is the answer to Part 2 of `GROWTH ENGINEERING TRACK.pdf` ("Decode the Playbook") and is also the evidence base used for the counter-playbook in Part 4.
+
+---
+
+## Methodology and engagement definitions
+
+This repo now has **two different metric layers**, and this document uses them deliberately:
+
+1. **Long-horizon platform-native analysis** — used for the big strategic findings in this file.  
+   This keeps each platform's native signal when that signal is the real thing we care about:
+   - **X historical findings:** mostly use **views** as reach, because the 16-month X dataset is about narrative spread and view-scale distribution.
+   - **Reddit findings:** use **score** and **comment activity**.
+   - **YouTube findings:** use **views** first, with likes/comments as supporting quality signals.
+   - **HN findings:** use **points** and **comments**.
+
+2. **Current unified pipeline scoring** — used elsewhere in the app for cross-platform ranking/velocity:
+   - **X engagement score:** `likes + 2*retweets + 2*replies + bookmarks`
+   - **Reddit engagement score:** `score + 3*num_comments`
+   - **YouTube engagement score:** `view_count`
+
+Why both exist: a single cross-platform score is useful for feeds and alerts, but the analysis in this file is stronger when it uses the platform's native reach signal directly.
+
+**Dataset versions used in this analysis:** Findings 1–2 and 4–14 use the full multi-platform dataset assembled in the repo, including the long-range X historical scrape. Finding 3 (spike type engagement) uses the earlier 855-post balanced dataset because it is cleaner for comparing spike types across platforms with very different scale distributions.
 
 ---
 
