@@ -16,10 +16,11 @@ REPO_ROOT     = Path(__file__).parent.parent.parent
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"
 
 
-def _load() -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Load spike_classified and growth_frontpage. Raise 503 if not ready."""
+def _load() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Load spike_classified, growth_frontpage, and unified_posts. Raise 503 if not ready."""
     classified_path = PROCESSED_DIR / "spike_classified.csv"
     frontpage_path  = PROCESSED_DIR / "growth_frontpage.csv"
+    unified_path    = PROCESSED_DIR / "unified_posts.csv"
 
     if not classified_path.exists() or not frontpage_path.exists():
         raise HTTPException(
@@ -30,14 +31,20 @@ def _load() -> tuple[pd.DataFrame, pd.DataFrame]:
     classified = pd.read_csv(classified_path)
     classified["created_at"] = pd.to_datetime(classified["created_at"], utc=True, errors="coerce")
 
-    frontpage  = pd.read_csv(frontpage_path)
-    return classified, frontpage
+    frontpage = pd.read_csv(frontpage_path)
+
+    # Load body_text from unified_posts for platforms without titles (X/Twitter)
+    unified = pd.DataFrame()
+    if unified_path.exists():
+        unified = pd.read_csv(unified_path, usecols=["post_id", "body_text"], dtype=str).fillna("")
+
+    return classified, frontpage, unified
 
 
 @router.get("/summary")
 def summary():
     """Full analytics summary: spike breakdown, platform stats, top creators, weekly trend."""
-    classified, frontpage = _load()
+    classified, frontpage, _ = _load()
 
     now = datetime.now(timezone.utc)
 
@@ -144,45 +151,65 @@ def feed(
     spike_type: str = Query(default="all"),
 ):
     """Velocity-ranked post feed. Filter by platform or spike_type."""
-    classified, frontpage = _load()
-
-    # Merge velocity from frontpage into classified
-    velocity_map = frontpage.set_index(
-        frontpage.apply(lambda r: f"{r.get('platform','')}_{r.get('title','')}", axis=1)
-    )["velocity"].to_dict() if "velocity" in frontpage.columns else {}
+    classified, frontpage, unified = _load()
 
     df = classified.copy()
-    if "velocity" not in df.columns:
-        fp_cols = ["title", "platform", "velocity", "rank", "age_hours"]
-        available = [c for c in fp_cols if c in frontpage.columns]
+
+    # Merge velocity by post_id (reliable key across all platforms, including X with empty titles)
+    if "velocity" not in df.columns and "post_id" in frontpage.columns:
+        fp_cols = [c for c in ["post_id", "velocity", "rank", "age_hours"] if c in frontpage.columns]
         df = df.merge(
-            frontpage[available].drop_duplicates(subset=["title", "platform"]),
-            on=["title", "platform"],
+            frontpage[fp_cols].drop_duplicates(subset=["post_id"]),
+            on="post_id",
             how="left",
         )
+
+    # Fallback: merge by title+platform for rows without post_id match
+    if "velocity" in df.columns:
+        missing_vel = df["velocity"].isna()
+        if missing_vel.any() and "title" in frontpage.columns:
+            fp_fallback = frontpage[
+                [c for c in ["title", "platform", "velocity", "age_hours"] if c in frontpage.columns]
+            ].drop_duplicates(subset=["title", "platform"])
+            df_missing = df[missing_vel].drop(columns=["velocity", "age_hours"], errors="ignore")
+            df_filled  = df_missing.merge(fp_fallback, on=["title", "platform"], how="left")
+            df = pd.concat([df[~missing_vel], df_filled], ignore_index=True)
+
+    # Attach body_text from unified_posts (tweet content for X, description for YouTube)
+    if not unified.empty and "post_id" in df.columns:
+        df = df.merge(unified, on="post_id", how="left")
+        df["body_text"] = df["body_text"].fillna("")
+    else:
+        df["body_text"] = ""
 
     if platform != "all":
         df = df[df["platform"] == platform]
     if spike_type != "all":
         df = df[df["spike_type"] == spike_type]
 
-    sort_col = "velocity" if "velocity" in df.columns else "engagement_score"
-    df = df.sort_values(sort_col, ascending=False).head(limit)
+    # Sort: velocity for ranked posts, engagement_score for X (velocity=0 due to age)
+    if "velocity" in df.columns:
+        df = df.sort_values(["velocity", "engagement_score"], ascending=False).head(limit)
+    else:
+        df = df.sort_values("engagement_score", ascending=False).head(limit)
 
     posts = []
     for _, row in df.iterrows():
+        title     = str(row.get("title", "")) if pd.notna(row.get("title")) else ""
+        body_text = str(row.get("body_text", "")) if pd.notna(row.get("body_text")) else ""
         posts.append({
-            "post_id":        str(row.get("post_id", "")),
-            "title":          str(row.get("title", "")) if pd.notna(row.get("title")) else "",
-            "platform":       str(row.get("platform", "")),
-            "author":         str(row.get("author", "")) if pd.notna(row.get("author")) else "",
-            "url":            str(row.get("url", "")) if pd.notna(row.get("url")) else "",
-            "spike_type":     str(row.get("spike_type", "")),
-            "confidence":     float(row.get("confidence", 0)),
+            "post_id":          str(row.get("post_id", "")),
+            "title":            title,
+            "body_text":        body_text[:280],   # tweet-length cap
+            "platform":         str(row.get("platform", "")),
+            "author":           str(row.get("author", "")) if pd.notna(row.get("author")) else "",
+            "url":              str(row.get("url", "")) if pd.notna(row.get("url")) else "",
+            "spike_type":       str(row.get("spike_type", "")),
+            "confidence":       float(row.get("confidence", 0)),
             "engagement_score": int(row.get("engagement_score", 0)),
-            "velocity":       round(float(row.get("velocity", 0)), 4) if pd.notna(row.get("velocity")) else 0,
-            "age_hours":      round(float(row.get("age_hours", 0)), 1) if pd.notna(row.get("age_hours")) else 0,
-            "created_at":     row["created_at"].isoformat() if pd.notna(row.get("created_at")) else None,
+            "velocity":         round(float(row.get("velocity", 0)), 4) if pd.notna(row.get("velocity")) else 0,
+            "age_hours":        round(float(row.get("age_hours", 0)), 1) if pd.notna(row.get("age_hours")) else 0,
+            "created_at":       row["created_at"].isoformat() if pd.notna(row.get("created_at")) else None,
         })
 
     return {"total": len(posts), "posts": posts}
@@ -191,7 +218,7 @@ def feed(
 @router.get("/alerts")
 def alerts(velocity_threshold: float = Query(default=0.1)):
     """Posts with high velocity and age < 12h — breaking out right now."""
-    classified, frontpage = _load()
+    classified, frontpage, _ = _load()
 
     if "velocity" not in frontpage.columns or "age_hours" not in frontpage.columns:
         return {"alerts": [], "message": "velocity data not available — run rank step first"}
