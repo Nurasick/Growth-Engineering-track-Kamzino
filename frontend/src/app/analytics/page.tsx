@@ -303,12 +303,12 @@ function WeeklyChart({ trend }: { trend: { weeks: string[]; series: Record<strin
 
   return (
     <div className="space-y-3">
-      <div className="flex items-end gap-1 h-24">
+      <div className="flex items-stretch gap-1 h-24">
         {recentWeeks.map((week, wi) => {
           const total = Object.values(recentSeries).reduce((s, arr) => s + (arr[wi] ?? 0), 0);
           const pct = (total / maxVal) * 100;
           return (
-            <div key={week} className="flex-1 flex flex-col justify-end group relative" title={week}>
+            <div key={week} className="flex-1 flex flex-col justify-end group relative h-full" title={week}>
               <div className="w-full rounded-sm overflow-hidden" style={{ height: `${Math.max(pct, 2)}%` }}>
                 {Object.entries(recentSeries).map(([p, arr]) => {
                   const segPct = total > 0 ? ((arr[wi] ?? 0) / total) * 100 : 0;

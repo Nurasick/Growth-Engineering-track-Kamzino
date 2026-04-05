@@ -250,3 +250,117 @@ def reddit_engagement():
     }
 
     return {"data": data, "summary": summary}
+
+
+@router.get("/x-engagement")
+def x_engagement():
+    """
+    Return X/Twitter engagement (avg views) grouped by ISO week.
+    Merges all x_playwright_*.csv and x_historical_*.csv files (deduped by tweet_id).
+    """
+    from datetime import datetime, date as date_cls
+
+    x_files: list[str] = []
+    for prefix in ("x_playwright", "x_historical", "x_case"):
+        pattern = os.path.join(DATA_RAW, f"{prefix}*.csv")
+        x_files.extend(glob.glob(pattern))
+
+    if not x_files:
+        raise HTTPException(status_code=404, detail="No X/Twitter CSV found")
+
+    # Dedupe by tweet_id
+    seen_ids: set[str] = set()
+    rows_all: list[dict] = []
+
+    for path in sorted(x_files):
+        with open(path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                tid = (row.get("tweet_id") or "").strip()
+                if tid and tid in seen_ids:
+                    continue
+                if tid:
+                    seen_ids.add(tid)
+                rows_all.append(row)
+
+    # Twitter date format: "Wed Jan 29 03:27:51 +0000 2025"
+    _TW_FMT = "%a %b %d %H:%M:%S %z %Y"
+
+    buckets: dict[str, dict] = defaultdict(
+        lambda: {"views": [], "likes": [], "retweets": [], "replies": [], "count": 0, "top_tweets": []}
+    )
+
+    for row in rows_all:
+        raw_date = (row.get("created_at") or "").strip()
+        if not raw_date:
+            continue
+        period = None
+        try:
+            dt = datetime.strptime(raw_date, _TW_FMT)
+            iso = dt.isocalendar()
+            period = f"{iso[0]}-W{iso[1]:02d}"
+        except ValueError:
+            plain = raw_date[:10]
+            if len(plain) >= 10:
+                try:
+                    d = date_cls.fromisoformat(plain)
+                    iso = d.isocalendar()
+                    period = f"{iso[0]}-W{iso[1]:02d}"
+                except ValueError:
+                    pass
+        if period is None:
+            continue
+
+        try:
+            views    = int(row.get("views") or row.get("engagement_score") or 0)
+            likes    = int(row.get("likes") or 0)
+            retweets = int(row.get("retweets") or 0)
+            replies  = int(row.get("replies") or 0)
+        except ValueError:
+            continue
+
+        b = buckets[period]
+        b["views"].append(views)
+        b["likes"].append(likes)
+        b["retweets"].append(retweets)
+        b["replies"].append(replies)
+        b["count"] += 1
+        b["top_tweets"].append({
+            "text":          (row.get("text") or "").strip()[:280],
+            "author_handle": (row.get("author_handle") or "").strip(),
+            "views":         views,
+            "likes":         likes,
+            "retweets":      retweets,
+            "url":           (row.get("url") or "").strip(),
+        })
+
+    if not buckets:
+        raise HTTPException(status_code=404, detail="No valid X/Twitter data found")
+
+    data = []
+    for period in sorted(buckets.keys()):
+        b = buckets[period]
+        views_sorted = sorted(b["views"])
+        avg_views    = sum(b["views"]) / len(b["views"]) if b["views"] else 0
+        median_views = views_sorted[len(views_sorted) // 2]
+        top_tweets   = sorted(b["top_tweets"], key=lambda x: x["views"], reverse=True)[:3]
+        data.append({
+            "period":         period,
+            "avg_views":      round(avg_views, 0),
+            "median_views":   round(median_views, 0),
+            "total_views":    sum(b["views"]),
+            "total_likes":    sum(b["likes"]),
+            "total_retweets": sum(b["retweets"]),
+            "tweet_count":    b["count"],
+            "top_tweets":     top_tweets,
+        })
+
+    all_views = [v for b in buckets.values() for v in b["views"]]
+    summary = {
+        "total_tweets":      sum(b["count"] for b in buckets.values()),
+        "overall_avg_views": round(sum(all_views) / len(all_views) if all_views else 0, 0),
+        "date_range":        f"{data[0]['period']} → {data[-1]['period']}" if data else "",
+        "source_files":      [os.path.basename(p) for p in sorted(x_files)],
+    }
+
+    return {"data": data, "summary": summary}

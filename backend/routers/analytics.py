@@ -155,25 +155,30 @@ def feed(
 
     df = classified.copy()
 
-    # Merge velocity by post_id (reliable key across all platforms, including X with empty titles)
-    if "velocity" not in df.columns and "post_id" in frontpage.columns:
-        fp_cols = [c for c in ["post_id", "velocity", "rank", "age_hours"] if c in frontpage.columns]
-        df = df.merge(
-            frontpage[fp_cols].drop_duplicates(subset=["post_id"]),
-            on="post_id",
-            how="left",
-        )
+    # Merge velocity from frontpage — try post_id first, fall back to title+platform
+    if "velocity" not in df.columns:
+        if "post_id" in frontpage.columns:
+            fp_cols = [c for c in ["post_id", "velocity", "rank", "age_hours"] if c in frontpage.columns]
+            df = df.merge(
+                frontpage[fp_cols].drop_duplicates(subset=["post_id"]),
+                on="post_id",
+                how="left",
+            )
 
-    # Fallback: merge by title+platform for rows without post_id match
-    if "velocity" in df.columns:
-        missing_vel = df["velocity"].isna()
-        if missing_vel.any() and "title" in frontpage.columns:
-            fp_fallback = frontpage[
+        if "title" in frontpage.columns:
+            fp_title = frontpage[
                 [c for c in ["title", "platform", "velocity", "age_hours"] if c in frontpage.columns]
             ].drop_duplicates(subset=["title", "platform"])
-            df_missing = df[missing_vel].drop(columns=["velocity", "age_hours"], errors="ignore")
-            df_filled  = df_missing.merge(fp_fallback, on=["title", "platform"], how="left")
-            df = pd.concat([df[~missing_vel], df_filled], ignore_index=True)
+            if "velocity" in df.columns:
+                # Fill gaps left by post_id merge
+                missing_vel = df["velocity"].isna()
+                if missing_vel.any():
+                    df_missing = df[missing_vel].drop(columns=["velocity", "age_hours"], errors="ignore")
+                    df_filled  = df_missing.merge(fp_title, on=["title", "platform"], how="left")
+                    df = pd.concat([df[~missing_vel], df_filled], ignore_index=True)
+            else:
+                # No post_id column in frontpage — title+platform is the only key
+                df = df.merge(fp_title, on=["title", "platform"], how="left")
 
     # Attach body_text from unified_posts (tweet content for X, description for YouTube)
     if not unified.empty and "post_id" in df.columns:
