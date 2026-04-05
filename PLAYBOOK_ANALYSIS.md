@@ -31,6 +31,21 @@ Why both exist: a single cross-platform score is useful for feeds and alerts, bu
 
 ---
 
+## TL;DR
+
+1. Claude growth is **not evenly distributed**; a tiny minority of posts creates most visible reach.
+2. The strongest observed viral events spread as a **cross-platform cascade** rather than isolated per-platform spikes.
+3. Different content formats do different jobs: breakthrough content ignites attention, tutorials explain, personal posts build trust, and meme formats expand cultural reach.
+4. **Timing matters structurally** on HN and Reddit because early traction determines whether a post stays visible long enough to spread.
+5. Word-lift is useful as a **frame detector**, not a bag of magic keywords.
+6. The Pentagon saga shows that **values-aligned controversy** can behave like growth when it reinforces what the target audience already believes.
+7. Platform decay differs sharply: HN is short-lived, Reddit is medium-lived, and YouTube keeps paying off longer.
+8. Some of Claude's biggest discourse moments were **externally triggered**, so growth monitoring has to track competitor moves and narrative shocks, not just launches.
+9. When the market names a behavior around the product, the product gains a **portable cultural handle** that others can spread.
+10. Reach is concentrated in a small set of authors and voices, so growth strategy should identify and activate specific distribution nodes rather than assume the whole community carries equally.
+
+---
+
 ## Three Questions Only Scraping Can Answer
 
 The brief says: *"If your analysis could have been written by someone who never touched a scraper, that is a problem."* These three findings cannot be reached without the data.
@@ -471,6 +486,7 @@ The source code leak cascade includes Arabic-language YouTube coverage: "تسر�
 - **X historical data is Top-mode biased.** Search returns high-engagement tweets preferentially — low-engagement posts are underrepresented. The dataset is a reliable sample of *what went viral*, not a complete census.
 - **YouTube window is 2 weeks only.** Historical YouTube data requires paid API quotas; we used the free tier limit.
 - **HN timing analysis has a noise component.** The 22:00 UTC spike is real but partially confounded by the Pentagon posts (many filed in US evening hours by journalists). Direction is correct; magnitude should not be over-indexed.
+- **We did not force one unified engagement score for the long-horizon analysis.** Different platforms expose different primary signals — HN gives points/comments, Reddit gives score/comments/upvote ratio, X gives views plus interaction counts, and YouTube gives views/likes/comments. For the strategic findings in this document, we kept platform-native inputs where that preserved meaning better than flattening everything into one artificial score.
 - **Instagram, LinkedIn, TikTok** — not scraped. Public API access requires login or paid tier.
 - **The cascade timing is from one event** (source code leak). Generalizing to all launch types requires more events.
 - **n per Reddit bucket is 25.** Subreddit comparisons are directionally reliable, not statistically definitive.

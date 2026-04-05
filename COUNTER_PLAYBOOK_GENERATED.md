@@ -1,124 +1,229 @@
-<!-- Generated: 2026-04-04 18:34 UTC -->
-<!-- Model: gemini/models/gemini-2.5-flash | Product: Higgsfield -->
-<!-- Source data: 855 classified posts across hn: 562, reddit: 125, youtube: 86, x: 82 -->
-<!-- Data files: data/processed/spike_classified.csv, growth_frontpage.csv, unified_posts.csv -->
-<!-- Audit trail: data/processed/playbook_context.json -->
+# Higgsfield Counter-Playbook — Final Working Draft
+## HackNU 2026 · Growth Engineering Track · Part 4
 
-# Higgsfield Counter-Playbook: Replicating Claude's Viral Growth Mechanics
-## Data-Driven Growth Distribution Plan
+> **Purpose:** This is the step-by-step counter-playbook built from the Claude analysis. It does not try to copy Claude's surface style. It translates the mechanics that made Claude repeatedly spread across platforms.
+>
+> **Evidence base:** Every section below is grounded in findings from `PLAYBOOK_ANALYSIS.md`, especially the findings on power-law concentration, cross-platform cascades, timing, controversy, inside voice, top-author concentration, and durable switching narratives.
 
-Higgsfield will achieve viral growth by directly replicating Claude's data-backed strategies. The core focus is empowering community creators, as their content drives 30.6x more views than official channels. We will prioritize "breakthrough" and "tutorial" content, which together account for 389 and 229 viral spikes, respectively, ensuring a steady stream of high-impact material.
+---
 
-Our distribution strategy targets platforms with proven high engagement, specifically X with its 2.38% mean engagement rate (likes + RT×2 + replies×2 + bookmarks ÷ views), and Reddit, where Sunday posts achieve an average score of 4344.0. This plan leverages precise timing and content formats to maximize reach and virality, ensuring Higgsfield dominates the AI video generation market.
+## TL;DR
 
-## 0. What the Data Shows (Key Numbers)
+1. Do not copy Claude's tone or topics; copy the **distribution mechanics** that made Claude hard to ignore.
+2. Higgsfield should map Claude's growth jobs into creator-native channels: proof, explanation, discussion, and cultural spread.
+3. Launches should begin with a **showable proof object**, not a polished announcement.
+4. The creator layer should be treated as a **distribution system**, not as optional influencer support.
+5. Higgsfield needs one credible inside voice with enough freedom to sound human in public.
+6. The strongest acquisition narrative is not "our product is powerful" but **"people like you are switching."**
+7. Capabilities should be packaged as **stories with stakes**, not isolated feature bullets.
+8. Distribution should be **sequenced by platform role and decay curve**, not posted everywhere at once.
+9. External shocks matter; some of the biggest growth moments come from **outside the company**.
+10. The counter-playbook should run as an **operating system**, not a launch calendar.
 
-|Finding|Number|Why it Matters for Higgsfield|
-|---|---|---|
-|Community Content Ratio|30.6|Community-generated content is 30.6x more effective than official content. Higgsfield must invest in creators.|
-|Breakthrough Spike Count|389|Breakthroughs are the most frequent viral spike type (45.5%). Higgsfield must consistently deliver "wow" features.|
-|X Mean Engagement Rate|2.38%|X engagement rate = (likes + RT×2 + replies×2 + bookmarks) ÷ views. Views are reach, not engagement — top tweets hit 168K engagement score (@bcherny) with 1.85% rate.|
-|Reddit Peak Day|4344.0|Sunday posts on Reddit achieve an average score of 4344.0. Higgsfield must schedule Reddit posts for Sunday.|
-|Max Impact Window|16 hours|Rapid response to market events is critical. Higgsfield must react to competitors within 16 hours.|
+---
 
-## 1. Platform Translation
+## 1. Core Thesis — Copy the physics, not the costume
 
-|Claude Platform|Higgsfield Equivalent|Why (Data Point)|
-|---|---|---|
-|HN|r/aivideo, r/indiegaming|HN mean engagement is 14. r/aivideo and r/indiegaming are niche, early-adopter communities for technical discussions.|
-|Reddit|r/filmmakers, r/videography|Reddit mean engagement is 2446. These subreddits are large creative communities for sharing and discussion.|
-|X|X|X mean engagement rate is 2.38% (engagement = likes + RT×2 + replies×2 + bookmarks; views = separate reach signal). Highest reach platform for broad announcements and viral content.|
-|YouTube|YouTube|YouTube mean engagement is 69917. This is the primary platform for video content, tutorials, and visual showcases.|
+Claude's public growth did not come from one content format or one channel. It came from a repeatable system that kept turning product moments, external shocks, creator reactions, and user migration stories into new waves of discussion.
 
-**Structural Difference:** Claude is a text-based AI, often generating viral content around code, leaks, or text interactions. Higgsfield is an AI video generation tool. Its "breakthroughs" will be visual quality, cinematic features, and camera motion control. This makes YouTube and X even more critical for showcasing the product's core value visually, while Reddit and niche forums will host more technical or community-driven discussions around its application in filmmaking.
+The counter-playbook for Higgsfield is therefore not to imitate Claude's voice, launch style, or exact platforms. It is to recreate the mechanics that made Claude culturally unavoidable:
 
-## 2. Creator Seeding Strategy
+- create ignition moments with visible stakes
+- make them easy for third parties to explain
+- let trusted non-brand voices carry the story
+- convert attention into switching and identity narratives
+- monitor outside events that can be turned into growth moments
 
-Creator seeding is the core lever. Community content generates 30.6x more views than official content.
+**Why this is grounded in the Claude analysis:**
+- Finding 1: reach is hit-driven and concentrated in outliers
+- Finding 2: spread occurs as a staged cascade, not as random multi-platform noise
+- Finding 9: some of the largest moments were externally triggered
+- Finding 14: durable migration narratives outlast launches
 
-**Creator Archetypes:**
-*   **Tier 1 (Fireship Equivalents):** Top indie filmmakers, VFX artists, or tech YouTubers with >1M subscribers. Target "Fireship" level views (2592415).
-*   **Tier 2 (ilyasut Equivalents):** Mid-tier content creators, AI tech reviewers with >100K followers. Target "ilyasut" level amplification (69.98x).
-*   **Tier 3 (claire20250311 Equivalents):** Niche videographers, indie game developers, micro-influencers with high engagement rates (>0.02). Target "claire20250311" level amplification (22.47x).
+**Counter-playbook implication:** Higgsfield should be built as a narrative distribution machine, not just a content calendar.
 
-**Creator Engagement:** Provide early access, dedicated support, exclusive features, and co-marketing opportunities.
-**Timing:** Initiate seeding Weeks -2 to -1 before public launch.
-**K-Factor Tracking:** Track `(New Signups from Creator / Creator's Audience Reach) * Amplification_Mult`.
-**Attribution Window:** 72 hours for all creator-driven sign-ups.
+---
 
-## 3. Content Format Playbook
+## 2. Market Translation — Translate the jobs, not the channels
 
-|Spike Type|Engagement (Mean)|Higgsfield Post Format|Platform|Title Formula|
-|---|---|---|---|---|
-|Breakthrough|146932|Short, cinematic AI-generated video clips showcasing new features/quality.|X, YouTube Shorts, r/aivideo|"Higgsfield's INSANE new cinematic AI video quality!" (Word Lift: "insane" 22.54)|
-|Tutorial|33649|Step-by-step video guides for specific cinematic effects or camera controls.|YouTube, r/videography|"Higgsfield TUTORIAL: Make cinematic shots 99% FASTER" (Word Lift: "tutorial" 22.54, "make" 9.39)|
-|Comparison|7098|Side-by-side video comparison with Sora, Runway, or Pika on specific prompts.|YouTube, r/filmmakers|"Higgsfield vs Sora: BEST cinematic AI video tool?" (Word Lift: "best" 16.91)|
-|Personal|28177|Creator's personal project (e.g., short film, game trailer) made with Higgsfield, behind-the-scenes.|Reddit (r/indiegaming), X|"I made a full indie game trailer with Higgsfield in 2 hours" (Word Lift: "full" 7.51)|
-|Meme|588137|Humorous or exaggerated video showcasing Higgsfield's capabilities or limitations in a viral context.|X, TikTok, YouTube Shorts|"Higgsfield LEAKS its own source code (just kidding, it's a meme)" (Word Lift: "leaks" 22.54)|
+Claude's channels performed specific jobs:
 
-## 4. Timing Calendar — Weeks -2 to +3
+- **HN:** technical legitimacy and ignition
+- **YouTube:** explanation and creator amplification
+- **Reddit:** discussion, switching proof, and community validation
+- **X:** narrative spread, identity, and status signaling
 
-**Weeks -2 to -1: Pre-Launch Seeding**
-*   **Day -14 to -7:** Onboard Tier 1 and Tier 2 creators. Provide early access to Higgsfield.
-*   **Goal:** Generate initial "personal" and "tutorial" content from creators.
+Higgsfield should not copy those surfaces literally. Its audience is not developer-shaped; it is creator-shaped. The jobs still matter, but the channel equivalents change:
 
-**Week 0: Launch Week**
-*   **Day 0 (Launch Day):**
-    *   **19:00 UTC:** Post official "breakthrough" announcement on r/aivideo and r/indiegaming. Target HN peak hour (49.4% engagement at 19 UTC).
-    *   **Immediately:** Release official "breakthrough" video on YouTube and X. Target X engagement rate >2.38% (platform average) — optimize for retweets and replies, not just views.
-    *   **Simultaneously:** Coordinate Tier 1 creators to publish their "breakthrough" and "tutorial" content on YouTube and X.
-    *   **Goal:** Achieve day0 Reddit velocity of 0.2011.
-*   **Day 1-3 (Wave 2):**
-    *   Amplify top-performing creator content on X and Reddit.
-    *   Engage with comments and questions across all platforms.
-    *   **Sunday (Day 2 or 3):** Post a compelling "personal" story on r/filmmakers or r/videography. Target 4344.0 average score for Sunday.
-    *   **Goal:** Maintain YouTube engagement decay at 0.0349 (day1).
+- **creator credibility surfaces** replace HN as the legitimacy layer
+- **YouTube / short-form video** become the proof and explanation layer
+- **creator and workflow communities** replace developer forums as the discussion layer
+- **visual-native social platforms** become the identity and cultural spread layer
 
-**Weeks 1-3: Wave 3 & Sustained Growth**
-*   **Week 1:**
-    *   Focus on "tutorial" and "comparison" content.
-    *   Repurpose top-performing "breakthrough" content into shorter formats for X and TikTok.
-    *   Engage Tier 3 creators for niche content.
-    *   **Goal:** Capture 30.6x community over official views.
-*   **Weeks 2-3:**
-    *   Continuously monitor engagement decay (e.g., Reddit day6 decay 0.0001, YouTube day6 decay 0.0036).
-    *   Launch new "breakthrough" features or updates to reignite interest.
-    *   Encourage user-generated content contests.
+**What this means:** the right question is not "where did Claude post?" The right question is "what channel does this job for Higgsfield's audience?"
 
-## 5. Alert System
+**Caveat:** this translation is mechanism-backed, but Higgsfield's exact channel mix must still be validated in-market.
 
-|Signal|Threshold|Action|
-|---|---|---|
-|High Velocity Post|Velocity > 0.2011 (e.g., Reddit post)|Amplify immediately on X, share across all platforms, notify creator for further engagement.|
-|Competitor Launch|New Sora/Runway/Pika feature announced|Respond within 16 hours (max_impact_window_hours). Create comparison content showcasing Higgsfield's superiority.|
-|Negative Sentiment Spike|>100 negative mentions on X in 1 hour|Pause scheduled posts. Draft official response. Engage directly with affected users.|
-|Creator K-Factor|K-Factor < 1.0 for a Tier 1/2 creator|Re-evaluate creator selection. Provide additional support or adjust content brief. Seek new creators.|
+---
 
-## 6. Metrics to Track
+## 3. Ignition Strategy — Show, don't announce
 
-|Metric|Formula|Target|Measurement Timing|
-|---|---|---|---|
-|**K-Factor (Virality Coefficient)**|(Invites Sent * Conversion Rate)|> 1.0|Weekly|
-|**Community Content View Ratio**|Community Views / Official Views|> 30.6|Monthly|
-|**X Engagement Rate**|(Likes + Retweets + Comments) / Impressions|> 0.002 (ilyasut's rate)|Daily|
-|**Reddit Average Post Score**|Average Upvotes per Post|> 2446 (Reddit mean)|Weekly|
-|**YouTube Community Creator Views**|Total views from top 5 community creators|> 2592415 (Fireship's views)|Monthly|
+Claude's strongest moments were not neutral feature rollouts. They were moments with stakes, surprise, conflict, or proof. For Higgsfield, ignition should not start with a polished feature announcement. It should start with a **proof object** that creators can instantly show to other people.
 
-## 7. Budget Estimate
+For a visual product, that means the first public asset should itself contain the evidence:
 
-|Line Item|Cost Estimate|Justification (Data Point)|
-|---|---|---|
-|Creator Seeding Program|$50,000|Community content drives 30.6x more views than official content.|
-|Content Production (Breakthrough/Tutorials)|$30,000|Breakthroughs (389 count) and Tutorials (229 count) are top spike types.|
-|X Amplification/Ads|$20,000|X avg engagement rate 2.38%; top creators hit 168K eng score. Highest reach platform — @bcherny-style authentic posts outperform ads.|
-|Community Management (Reddit/HN)|$10,000|Reddit mean score 2446, HN mean 14. Requires active engagement.|
-|**TOTAL**|**$110,000**||
+- a side-by-side replacement moment
+- a transformation that looks impossible or unusually expensive to make manually
+- a creator-grade output shown without heavy explanation
+- a visible workflow reduction that others can immediately understand
 
-## Summary: Higgsfield's Growth Playbook in 6 Rules
+**Why this is backed by the Claude analysis:**
+- Finding 1: visible reach concentrates in a small number of outlier posts
+- Finding 3: different content formats play different roles in the spread system
+- Finding 5: high-performing frames are consequential stories, not neutral descriptions
 
-1.  Prioritize community-generated content, leveraging its 30.6x higher view ratio over official channels.
-2.  Focus on "breakthrough" and "tutorial" content types, which account for 389 and 229 viral spikes respectively.
-3.  Dominate X with high-impact visuals, targeting >2.38% engagement rate (platform average) — measure by likes + RT×2 + replies×2 + bookmarks, not views alone.
-4.  Optimize Reddit posts for Sunday, aiming for an average score of 4344.0.
-5.  Respond to competitor launches within the 16-hour maximum impact window.
-6.  Track K-factor to ensure virality, aiming for a coefficient greater than 1.0.
+**Operational rule:** the first public object must be able to travel even if nobody reads a thread or article about it.
+
+---
+
+## 4. Creator Layer — Creators are the interpretation system
+
+In the Claude data, trusted non-brand voices did not merely amplify the story; they made the story legible at scale.
+
+Evidence from the analysis:
+- Finding 2: creator coverage entered the source-code-leak cascade almost immediately
+- Finding 7: community YouTube massively outperformed official-channel reach
+- Finding 11: a human non-brand voice outperformed polished official messaging
+
+This suggests that the creator layer should be treated as a structured distribution system with distinct roles:
+
+1. **Proof creators** — first visible demonstration that the capability is real
+2. **Workflow translators** — show how the product fits into actual work
+3. **Cultural spreaders** — turn capability into a shareable format, trend, or meme
+
+**Counter-playbook implication for Higgsfield:** build relationships with specific high-leverage creator nodes, not generic influencer lists. The job is not broad outreach. The job is to identify which creators validate, explain, and spread.
+
+**Caveat:** this only works when creators retain enough autonomy to sound like themselves.
+
+---
+
+## 5. Inside Voice — One credible human can outperform the brand
+
+Claude's data strongly suggests that a single authentic insider can become a major distribution node. The relevant lesson is not "employees should post more." The lesson is that a product becomes easier to trust when one real builder can talk about it like a person rather than like a press release.
+
+Evidence from the Claude analysis:
+- Finding 11: the inside-builder voice materially outperformed official brand messaging
+- Finding 13: reach is concentrated in a small number of high-leverage nodes
+
+**What Higgsfield should do:** identify one founder, product lead, researcher, or creative technologist who is visibly close to the work and let that person post in first person about:
+- what they are building
+- what failed
+- what surprised them
+- what the product is actually good at
+- where the edge really is
+
+**Why this matters:** a credible inside voice can carry trust, specificity, and continuity that the official handle cannot.
+
+---
+
+## 6. Switching Narrative — The strongest acquisition story is migration
+
+Claude's most valuable durable narrative was not "Claude is powerful." It was "people like me switched."
+
+Evidence from the analysis:
+- Finding 14: the most persistent cross-platform narrative was a switching narrative
+- Finding 13: competitor-adjacent communities are often high-value because users are still in decision mode
+
+This matters because switching stories combine:
+- comparison
+- risk reduction
+- social proof
+- identity change
+
+**Counter-playbook implication for Higgsfield:** create the conditions for credible migration stories such as:
+- "I switched from Runway"
+- "I switched from Sora"
+- "I switched from my old edit-heavy workflow"
+
+These should be told by users, creators, and practitioners — not only by the brand.
+
+**Caveat:** fake switching stories are easy to detect and will damage trust.
+
+---
+
+## 7. Narrative Packaging — Features must be carried inside stories
+
+The Claude analysis shows that high-performing public moments were rarely flat product descriptions. They were narratives with visible stakes, conflict, comparison, or identity relevance.
+
+Evidence used here:
+- Finding 5: title/frame effects point to consequential narrative framing, not generic feature language
+- Finding 6: product-adjacent controversy became a repeated discussion engine
+- Finding 3: different content formats do different jobs
+
+**What Higgsfield should do:** package capabilities as stories, for example:
+- impossible before / now possible
+- replacement of a slower incumbent workflow
+- side-by-side win condition
+- transformation challenge
+- creator-quality output from a smaller team or budget
+
+The principle is not hype. The principle is to make genuine product value socially legible.
+
+---
+
+## 8. Timing and Sequencing — Launch by handoff, not simultaneity
+
+Claude's spread pattern suggests that the winning move is not posting everything at once. It is sequencing distribution so that each platform receives the story when it can do the most useful work.
+
+Evidence from the analysis:
+- Finding 2: the spread pattern behaves like a handoff across surfaces
+- Finding 4: timing affects whether a story gets initial traction
+- Finding 8: platforms have very different decay curves
+
+**Counter-playbook implication for Higgsfield:** use a phased distribution model:
+1. proof object / first reaction
+2. creator explanation
+3. comparison / workflow examples
+4. community discussion and secondary visual formats
+
+The exact clock time may differ from Claude's world, but the sequencing logic transfers directly.
+
+---
+
+## 9. External-Event Monitoring — Some of the biggest moments begin outside the company
+
+Claude's growth was shaped not only by planned launches, but also by leaks, public conflict, competitor pressure, and third-party commentary.
+
+Evidence from the analysis:
+- Finding 2: the source-code leak became a major cascade
+- Finding 6: the Pentagon saga behaved like a prolonged growth event
+- Finding 9: some of the largest discourse spikes were externally triggered
+
+**Counter-playbook implication for Higgsfield:** build an explicit monitoring-and-response layer for:
+- competitor launches
+- creator complaints about alternative tools
+- failure moments in rival products
+- emerging trends in creator workflows
+- any public event that re-opens the category conversation
+
+The point is not to react to everything. The point is to identify which external events create usable narrative conditions.
+
+---
+
+## 10. Operating Model — Run this as a system, not a campaign calendar
+
+The overall lesson from Claude is that growth behaves like an operating system with recurring loops:
+
+1. **Monitor** what creators, competitors, and users are doing
+2. **Select** the moments worth turning into stories
+3. **Package** them into proof, comparison, or migration narratives
+4. **Distribute** them through the right voices and channels
+5. **Read signals** on what actually spread
+6. **Compound** the strongest moments into longer-lived narratives
+
+This is a better response to Claude than simply launching more often.
+
+**Final conclusion:**
+
+> The right response to Claude is not a better launch calendar. It is a better growth operating system — one that can repeatedly detect moments, package them into narratives, and move them through a creator- and community-led distribution network.
+

@@ -157,7 +157,7 @@ The architecture includes an alert layer that would monitor Anthropic's blog, ma
 - **Instagram, LinkedIn, TikTok excluded** — no public API without login. Documented gap.
 - **HN includes off-topic posts** — Algolia returns posts where "Claude" appears in comments, not titles only. Some noise in the dataset; statistical caveats noted per finding.
 - **Velocity recency bias** — fresh posts can temporarily outrank older high-engagement posts. Per-platform minimum thresholds not enforced (documented tradeoff).
-- **Alerts require hourly scraping** — alert system logic is correct but weekly batch scraping means nothing is ever < 12h old at analysis time.
+- **Alerts require hourly scraping** — alert system logic is correct but weekhttps://docs.google.com/document/d/1miimYlS2aMcHT2MHJlH4hbIwAW8Hh5a5ujDvkje20VE/edit?usp=sharingly batch scraping means nothing is ever < 12h old at analysis time.
 - **Backend job store is in-memory** — job history lost on server restart. Acceptable for demo; Redis/Postgres path documented in ARCHITECTURE.md.
 - **X Playwright scraper: one event validation** — cascade timing verified on Apr 1 source code leak. Generalizing requires more events.
 

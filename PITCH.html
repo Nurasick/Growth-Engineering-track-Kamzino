@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hack the Playbook — HackNU 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .deck { width: 100%; height: 100%; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 72px 96px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .slide.active { display: flex; }
+  .slide.visible { opacity: 1; }
+
+  /* slide number */
+  .slide-num {
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 0.12em;
+    font-family: 'SF Mono', monospace;
+  }
+
+  /* nav */
+  .nav {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+  }
+  .nav button {
+    background: #222;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .nav button:hover { background: #2e2e2e; }
+  .nav .dots { display: flex; gap: 6px; align-items: center; }
+  .nav .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #333;
+    cursor: pointer;
+    transition: background 0.15s;
+    padding: 0; border: none;
+  }
+  .nav .dot.active { background: #CAFF33; }
+
+  /* typography */
+  .label {
+    font-size: 11px;
+    font-family: 'SF Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #CAFF33;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .sub {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .accent { color: #CAFF33; }
+  .dim { color: rgba(255,255,255,0.3); }
+
+  /* grid layouts */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; margin-top: 32px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; width: 100%; margin-top: 32px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; margin-top: 32px; }
+
+  /* cards */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card .num {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    color: #CAFF33;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+    font-family: 'SF Mono', monospace;
+  }
+  .card .card-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  /* table */
+  .data-table { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 13px; }
+  .data-table th {
+    text-align: left;
+    padding: 8px 16px;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1e1e1e;
+    font-weight: 500;
+  }
+  .data-table td {
+    padding: 10px 16px;
+    color: rgba(255,255,255,0.65);
+    border-bottom: 1px solid #1a1a1a;
+    vertical-align: middle;
+  }
+  .data-table td:first-child { font-weight: 600; color: rgba(255,255,255,0.85); }
+  .data-table .hi { color: #CAFF33; font-weight: 700; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* timeline */
+  .timeline { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; width: 100%; }
+  .trow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+  }
+  .trow .time { font-size: 11px; color: #CAFF33; font-family: monospace; min-width: 120px; }
+  .trow .plat {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    padding: 2px 8px; border-radius: 4px; min-width: 70px; text-align: center;
+  }
+  .plat-hn   { background: rgba(249,115,22,0.15); color: #f97316; }
+  .plat-yt   { background: rgba(220,38,38,0.15);  color: #ef4444; }
+  .plat-reddit { background: rgba(249,115,22,0.1); color: #fb923c; }
+  .plat-x    { background: rgba(56,189,248,0.15); color: #38bdf8; }
+  .trow .event { font-size: 13px; color: rgba(255,255,255,0.65); flex: 1; }
+  .trow .views { font-size: 13px; color: #CAFF33; font-weight: 700; font-family: monospace; min-width: 90px; text-align: right; }
+
+  /* bar */
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .bar-label { font-size: 12px; color: rgba(255,255,255,0.5); width: 180px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 8px; background: #1e1e1e; border-radius: 4px; }
+  .bar-fill { height: 100%; background: #CAFF33; border-radius: 4px; }
+  .bar-val { font-size: 12px; color: #CAFF33; font-family: monospace; width: 80px; text-align: right; }
+
+  /* big stat */
+  .big-stat {
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 900;
+    color: #CAFF33;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: 'SF Mono', monospace;
+  }
+
+  /* divider line */
+  .rule { width: 48px; height: 2px; background: #CAFF33; margin-bottom: 24px; }
+
+  /* platform pill row */
+  .pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .pill {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    border: 1px solid;
+  }
+  .pill-hn   { color: #f97316; border-color: #f97316; background: rgba(249,115,22,0.08); }
+  .pill-red  { color: #fb923c; border-color: #fb923c; background: rgba(251,146,60,0.08); }
+  .pill-x    { color: #38bdf8; border-color: #38bdf8; background: rgba(56,189,248,0.08); }
+  .pill-yt   { color: #ef4444; border-color: #ef4444; background: rgba(239,68,68,0.08); }
+  .pill-grey { color: rgba(255,255,255,0.3); border-color: #333; background: transparent; }
+
+  /* arch boxes */
+  .arch { display: flex; gap: 12px; margin-top: 28px; align-items: stretch; width: 100%; }
+  .arch-col { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .arch-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .arch-box strong { color: #CAFF33; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .arch-arrow { display: flex; align-items: center; justify-content: center; color: #333; font-size: 20px; flex-shrink: 0; }
+
+  /* quote */
+  .quote {
+    border-left: 3px solid #CAFF33;
+    padding: 16px 24px;
+    background: rgba(202,255,51,0.04);
+    border-radius: 0 8px 8px 0;
+    margin-top: 24px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  .quote cite { display: block; margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.3); font-style: normal; }
+
+  /* finding badge */
+  .finding-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-family: monospace;
+    letter-spacing: 0.1em;
+    color: #CAFF33;
+    background: rgba(202,255,51,0.08);
+    border: 1px solid rgba(202,255,51,0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- ─── SLIDE 1: Title ─────────────────────────────────────────────────── -->
+  <div class="slide" id="s0">
+    <div class="label">HackNU 2026 · Growth Engineering Track</div>
+    <h1>Hack the Playbook:<br>Claude's Viral<br>Growth Machine</h1>
+    <p class="sub" style="margin-top:8px;">
+      We scraped 6,400+ posts across 4 platforms, 16 months of X history,
+      and reverse-engineered how Claude goes viral — then built a playbook
+      for a competing product.
+    </p>
+    <div class="pills" style="margin-top:32px;">
+      <span class="pill pill-hn">Hacker News</span>
+      <span class="pill pill-red">Reddit</span>
+      <span class="pill pill-x">X / Twitter</span>
+      <span class="pill pill-yt">YouTube</span>
+    </div>
+    <div class="slide-num">01 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 2: Three things only scraping can answer ────────────────── -->
+  <div class="slide" id="s1">
+    <div class="label">Part 1 · Scrape the Discourse</div>
+    <h2>3 findings you can only get<br>from actually scraping</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">415×</div>
+        <div class="card-label">follower-to-view ratio</div>
+        <p>@MangoLassC — 6,800 followers, 2.85M views. Only findable by joining follower counts with view data in the same row across two scraper outputs.</p>
+      </div>
+      <div class="card">
+        <div class="num">333</div>
+        <div class="card-label">cross-platform posts</div>
+        <p>"Why I Switched From ChatGPT to Claude" — the #1 most persistent narrative. Invisible in per-post ranking. Only detected by running cascade_detector.py across the full dataset.</p>
+      </div>
+      <div class="card">
+        <div class="num">7 min</div>
+        <div class="card-label">HN → YouTube</div>
+        <p>The source code leak. HN ignition: 01:13 UTC. First YouTube video: 01:20 UTC. Timestamped across platforms — not visible from any single source.</p>
+      </div>
+    </div>
+    <div class="slide-num">02 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 3: What we built ─────────────────────────────────────────── -->
+  <div class="slide" id="s2">
+    <div class="label">Part 1 · Scrapers</div>
+    <h2>What we built</h2>
+    <table class="data-table" style="margin-top:28px;">
+      <thead>
+        <tr>
+          <th>Scraper</th>
+          <th>Method</th>
+          <th>Why not the easy path</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HN</td>
+          <td>Algolia public API</td>
+          <td>No auth needed — only platform with a free full-history search API</td>
+          <td class="hi">8,515 posts</td>
+        </tr>
+        <tr>
+          <td>Reddit</td>
+          <td>Public JSON API</td>
+          <td>No OAuth — <code style="color:#CAFF33;font-size:11px;">/r/{sub}.json</code> is unauthenticated with proper User-Agent</td>
+          <td class="hi">5,502 posts + 5,961 comments</td>
+        </tr>
+        <tr>
+          <td>YouTube</td>
+          <td>Data API v3</td>
+          <td>Free tier (10K units/day), batch video stats, quota error handling</td>
+          <td class="hi">1,428 videos + 349 comments</td>
+        </tr>
+        <tr>
+          <td>X (seed)</td>
+          <td>FxTwitter API</td>
+          <td>Full engagement metrics (views, likes, RTs, bookmarks) without OAuth</td>
+          <td class="hi">65 seed tweets</td>
+        </tr>
+        <tr>
+          <td>X (historical)</td>
+          <td>Playwright browser</td>
+          <td>X blocks <code style="color:#CAFF33;font-size:11px;">x-client-transaction-id</code> — only a real Chromium browser generates it natively</td>
+          <td class="hi">1,668 tweets · 16 months</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="dim" style="margin-top:16px;font-size:12px;">
+      Instagram / LinkedIn / TikTok excluded — all require login-wall auth. Documented gap.
+    </p>
+    <div class="slide-num">03 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 4: Dataset ───────────────────────────────────────────────── -->
+  <div class="slide" id="s3">
+    <div class="label">Part 1 · Dataset</div>
+    <h2>The dataset</h2>
+    <div class="grid-4" style="margin-top:28px;">
+      <div class="card">
+        <div class="num">6,400+</div>
+        <div class="card-label">total posts</div>
+        <p>Unified schema, deduped, velocity scored</p>
+      </div>
+      <div class="card">
+        <div class="num">16mo</div>
+        <div class="card-label">X history</div>
+        <p>Jan 2025 → Apr 2026, enriched via FxTwitter</p>
+      </div>
+      <div class="card">
+        <div class="num">2,177</div>
+        <div class="card-label">posts classified</div>
+        <p>5 spike types: breakthrough, tutorial, personal, meme, comparison</p>
+      </div>
+      <div class="card">
+        <div class="num">14</div>
+        <div class="card-label">validated findings</div>
+        <p>Every number cross-checked against raw CSV output</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;">
+      <div class="bar-row">
+        <div class="bar-label">Hacker News</div>
+        <div class="bar-track"><div class="bar-fill" style="width:59%;background:#f97316;"></div></div>
+        <div class="bar-val" style="color:#f97316;">3,779</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Reddit</div>
+        <div class="bar-track"><div class="bar-fill" style="width:14%;background:#fb923c;"></div></div>
+        <div class="bar-val" style="color:#fb923c;">5,502+</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">X / Twitter</div>
+        <div class="bar-track"><div class="bar-fill" style="width:33%;background:#38bdf8;"></div></div>
+        <div class="bar-val" style="color:#38bdf8;">2,117</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">YouTube</div>
+        <div class="bar-track"><div class="bar-fill" style="width:22%;background:#ef4444;"></div></div>
+        <div class="bar-val" style="color:#ef4444;">1,428</div>
+      </div>
+    </div>
+    <div class="slide-num">04 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 5: Finding 1 — Power Law ───────────────────────────────── -->
+  <div class="slide" id="s4">
+    <div class="label">Part 2 · Finding 1</div>
+    <div class="finding-badge">FINDING 01 · POWER LAW</div>
+    <h2>88% of posts die.<br>0.7% create everything.</h2>
+    <div class="grid-2" style="margin-top:24px;align-items:start;">
+      <div>
+        <table class="data-table">
+          <thead><tr><th>HN Score Range</th><th>Posts</th><th>% of total</th></tr></thead>
+          <tbody>
+            <tr><td>0 – 5</td><td>3,334</td><td class="hi">88.2%</td></tr>
+            <tr><td>6 – 20</td><td>276</td><td>7.3%</td></tr>
+            <tr><td>21 – 100</td><td>99</td><td>2.6%</td></tr>
+            <tr><td>101 – 300</td><td>45</td><td>1.2%</td></tr>
+            <tr><td>300+</td><td class="hi">25</td><td class="hi">0.7%</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;">
+          Median: <span class="accent">2 pts.</span> Mean: 19.1.
+          The top 25 posts account for a wildly disproportionate share of reach.
+          Same pattern on X — median 542 views, mean 143K.
+        </p>
+      </div>
+      <div>
+        <div class="card" style="height:100%;">
+          <div class="card-label">Growth insight</div>
+          <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.75);margin-top:8px;">
+            The question is never
+            <em>"how do we post more."</em>
+            It's <strong style="color:#CAFF33;">"what are the specific conditions that produce a top-0.7% post."</strong>
+            <br><br>
+            3,334 posts with 0–5 pts add up to roughly the same reach as the single Dario Pentagon statement.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">05 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 6: Finding 2 — 3-Wave Cascade ─────────────────────────── -->
+  <div class="slide" id="s5">
+    <div class="label">Part 2 · Finding 2</div>
+    <div class="finding-badge">FINDING 02 · 3-WAVE CASCADE · TIMESTAMPED</div>
+    <h2>HN → YouTube in 7 minutes.<br>Reddit at 12 hours. Memes at 48h.</h2>
+    <div class="timeline" style="margin-top:20px;">
+      <div class="trow">
+        <div class="time">Apr 01 · 01:13 UTC</div>
+        <div class="plat plat-hn">HN</div>
+        <div class="event">"Anthropic goes nude, exposes Claude Code source" — ignition</div>
+        <div class="views">2 pts</div>
+      </div>
+      <div class="trow">
+        <div class="time">Apr 01 · 01:20 UTC</div>
+        <div class="plat plat-yt">YouTube</div>
+        <div class="event">Matthew Berman: "Claude Code was just leaked... (WOAH)" — 7 min after HN</div>
+        <div class="views">162K views</div>
+      </div>
+      <div class="trow">
+        <div class="time">Apr 01 · 12:54 UTC</div>
+        <div class="plat plat-reddit">Reddit</div>
+        <div class="event">First Reddit post about the leak — 12h after HN</div>
+        <div class="views">337 pts</div>
+      </div>
+      <div class="trow" style="border-color:#CAFF33;background:rgba(202,255,51,0.04);">
+        <div class="time">Apr 01 · 17:27 UTC</div>
+        <div class="plat plat-yt">YouTube</div>
+        <div class="event">Fireship: "Tragic mistake... Anthropic leaks its source code" — 16h after HN</div>
+        <div class="views" style="color:#CAFF33;">2.59M views</div>
+      </div>
+      <div class="trow">
+        <div class="time">Apr 03 · 18:00 UTC</div>
+        <div class="plat plat-yt">YouTube</div>
+        <div class="event">International wave — Arabic + Portuguese creators cover the leak (48h+)</div>
+        <div class="views">89K views</div>
+      </div>
+    </div>
+    <p class="dim" style="margin-top:16px;font-size:12px;">
+      The window for maximum impact is <strong style="color:#fff;">0–16 hours.</strong>
+      After 48h, content shifts from information to culture.
+    </p>
+    <div class="slide-num">06 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 7: Findings 7+11 — Community + Inside Engineer ─────────── -->
+  <div class="slide" id="s6">
+    <div class="label">Part 2 · Findings 7 + 11</div>
+    <div class="finding-badge">FINDING 07 + 11 · WHO CARRIES THE GROWTH</div>
+    <h2>Community = 29× official.<br>One engineer = 11× the company account.</h2>
+    <div class="grid-2" style="margin-top:24px;">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">YouTube — same event, same week</div>
+        <div class="bar-row">
+          <div class="bar-label">Fireship (community)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="bar-val">2.59M</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Anthropic official</div>
+          <div class="bar-track"><div class="bar-fill" style="width:7.6%;background:#444;"></div></div>
+          <div class="bar-val" style="color:#666;">196K</div>
+        </div>
+        <div class="bar-row" style="margin-top:4px;">
+          <div class="bar-label">All community vs official</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="bar-val">29×</div>
+        </div>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">X / Twitter — 16 months of data</div>
+        <div class="bar-row">
+          <div class="bar-label">@bcherny (engineer)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:#38bdf8;"></div></div>
+          <div class="bar-val" style="color:#38bdf8;">44.3M</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">@AnthropicAI + @claudeai</div>
+          <div class="bar-track"><div class="bar-fill" style="width:16%;background:#444;"></div></div>
+          <div class="bar-val" style="color:#666;">7.2M</div>
+        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:12px;line-height:1.5;">
+          124 tweets. Sustained 2–9M views each across tips, feature drops, origin story, memes.
+          "I built this" beats "we built this" every time.
+        </p>
+      </div>
+    </div>
+    <div class="quote">
+      Finding and empowering one credible internal engineer to post with full creative autonomy
+      is the highest-leverage X play — not the official handle, not sponsored content.
+    </div>
+    <div class="slide-num">07 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 8: Findings 4+5 — Timing + Word Lift ────────────────────── -->
+  <div class="slide" id="s7">
+    <div class="label">Part 2 · Findings 4 + 5</div>
+    <div class="finding-badge">FINDING 04 + 05 · TIMING + FRAMING</div>
+    <h2>When and how you say it<br>matters as much as what.</h2>
+    <div class="grid-2" style="margin-top:24px;align-items:start;">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">HN — avg score by posting hour</div>
+        <div class="bar-row">
+          <div class="bar-label">22:00 UTC (6pm ET)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="bar-val">39.7 pts</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">19:00 UTC (3pm ET)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:35%;"></div></div>
+          <div class="bar-val">14.0 pts</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">04–10 UTC (overnight)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:10%;background:#333;"></div></div>
+          <div class="bar-val" style="color:#555;">1.6–5.7</div>
+        </div>
+        <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.35);">Reddit: Sunday = 4,344 avg pts. Thursday = 1,625. 2.7× difference.</p>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">HN title word lift (top 20% vs baseline)</div>
+        <div class="bar-row">
+          <div class="bar-label">"department" (Pentagon)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="bar-val">36×</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">"war"</div>
+          <div class="bar-track"><div class="bar-fill" style="width:71%;"></div></div>
+          <div class="bar-val">25×</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">"leaked"</div>
+          <div class="bar-track"><div class="bar-fill" style="width:61%;"></div></div>
+          <div class="bar-val">22×</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">"chatgpt"</div>
+          <div class="bar-track"><div class="bar-fill" style="width:42%;"></div></div>
+          <div class="bar-val">15×</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">"generated" / "local"</div>
+          <div class="bar-track"><div class="bar-fill" style="width:5%;background:#333;"></div></div>
+          <div class="bar-val" style="color:#555;">0.2–0.3×</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">08 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 9: Findings 9+14 — External events + cascade ───────────── -->
+  <div class="slide" id="s8">
+    <div class="label">Part 2 · Findings 9 + 14</div>
+    <div class="finding-badge">FINDING 09 + 14 · WHAT ACTUALLY DRIVES THE BIG MONTHS</div>
+    <h2>External events dwarf launches.<br>The switching story never stops.</h2>
+    <div class="grid-2" style="margin-top:24px;align-items:start;">
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">X monthly reach — top events</div>
+        <table class="data-table">
+          <thead><tr><th>Month</th><th>Driver</th><th>Views</th></tr></thead>
+          <tbody>
+            <tr><td>Sep 2025</td><td>@boltdotnew "vibe coding goes pro"</td><td class="hi">57.9M</td></tr>
+            <tr><td>Mar 2026</td><td>Source code leak cascade</td><td class="hi">70.6M</td></tr>
+            <tr><td>Aug 2025</td><td>@elonmusk Grok Code threat ×2</td><td class="hi">27.3M</td></tr>
+            <tr><td>Jan 2026</td><td>@bcherny tips thread</td><td>18.1M</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:12px;">
+          Claude's 2 biggest months were both external events — not product launches.
+        </p>
+      </div>
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Cross-platform cascade detector — top narratives</div>
+        <table class="data-table">
+          <thead><tr><th>Narrative</th><th>Posts</th><th>Platforms</th></tr></thead>
+          <tbody>
+            <tr><td>"Why I Switched From ChatGPT to Claude"</td><td class="hi">333</td><td class="hi">4/4</td></tr>
+            <tr><td>Source code leak</td><td>914</td><td class="hi">4/4</td></tr>
+            <tr><td>"The end of Claude Code" (attack)</td><td>23</td><td>3/4</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:12px;">
+          The switching narrative ran 8 weeks unprompted, across all 4 platforms.
+          Anthropic didn't start it. Users did.
+        </p>
+      </div>
+    </div>
+    <div class="slide-num">09 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 10: Architecture ─────────────────────────────────────────── -->
+  <div class="slide" id="s9">
+    <div class="label">Part 3 · The Machine</div>
+    <h2>Weekly competitive intelligence —<br>two-speed pipeline</h2>
+    <div class="arch" style="margin-top:28px;">
+      <div class="arch-col">
+        <div class="arch-box" style="border-color:#CAFF33;background:rgba(202,255,51,0.05);">
+          <strong>Signal Surfaces</strong>
+          HN · X · Reddit · YouTube
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-col">
+        <div class="arch-box">
+          <strong>Fast Lane · every 30 min</strong>
+          Lightweight poll: HN/Reddit/X last 2h → cascade check → threat check → alert if velocity > threshold
+        </div>
+        <div class="arch-box">
+          <strong>Slow Lane · Monday 8am</strong>
+          Full scrape → normalize → classify (keyword + Claude Haiku fallback) → rank → dashboard update
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-col">
+        <div class="arch-box">
+          <strong>4 Alert Types</strong>
+          CASCADE · THREAT · CREATOR OPPORTUNITY · FRAMING
+        </div>
+        <div class="arch-box">
+          <strong>Live Dashboard</strong>
+          FastAPI + Next.js. Velocity feed, weekly trend, creator watchlist, cascade timeline
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:20px;">
+      <div class="card">
+        <div class="card-label">LLM classifier</div>
+        <p>≥60% keyword confidence → keyword label (free). &lt;60% → Claude Haiku API (~$0.001/post). 65.5% disagreement rate on ambiguous posts. Cost for 100 calls: $0.087.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Cascade detector</div>
+        <p>Jaccard similarity on keyword sets, 6h sliding windows. 48 cascades found from real data. Detects FAST_CASCADE (&lt;6h) vs SUSTAINED threads across platforms.</p>
+      </div>
+    </div>
+    <div class="slide-num">10 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 11: Counter-Playbook ────────────────────────────────────── -->
+  <div class="slide" id="s10">
+    <div class="label">Part 4 · Counter-Playbook</div>
+    <h2>Higgsfield's growth strategy —<br>backed by Claude's data</h2>
+    <div class="grid-2" style="margin-top:24px;align-items:start;">
+      <div>
+        <table class="data-table">
+          <thead><tr><th>Claude lever</th><th>Higgsfield equivalent</th></tr></thead>
+          <tbody>
+            <tr><td>HN ignition (dev audience)</td><td class="hi">ProductHunt (0 real HN posts)</td></tr>
+            <tr><td>Fireship = 29× official</td><td class="hi">Seed 5 indie film YouTubers pre-launch</td></tr>
+            <tr><td>r/ChatGPT over r/ClaudeAI</td><td class="hi">r/aivideo not r/videography (hostile)</td></tr>
+            <tr><td>@bcherny inside engineer</td><td class="hi">Activate celebrity organic adopters</td></tr>
+            <tr><td>"vibe coding" naming moment</td><td class="hi">Madonna + Snoop already used it — coin the term</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-label">The biggest gap</div>
+          <p style="font-size:20px;font-weight:700;color:#CAFF33;margin-bottom:8px;">35K TikTok vs 846K Instagram</p>
+          <p>Higgsfield's product IS TikTok content. The platform where their output naturally lives has 24× less reach than their static image platform.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">The unused asset</div>
+          <p>Madonna, Snoop Dogg, Will Smith used Higgsfield organically. Elon Musk shared their content. This is their "vibe coding" moment — not yet activated, not yet named.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">11 / 12</div>
+  </div>
+
+  <!-- ─── SLIDE 12: Live demo + wrap ────────────────────────────────────── -->
+  <div class="slide" id="s11">
+    <div class="label">Live Demo</div>
+    <h2>Everything runs.<br>One command.</h2>
+    <div class="grid-3" style="margin-top:28px;">
+      <div class="card">
+        <div class="card-label">Reproduce the data</div>
+        <pre style="font-size:12px;color:#CAFF33;margin-top:8px;line-height:1.8;font-family:monospace;">python pipeline.py \
+  --skip-scrape</pre>
+        <p style="margin-top:8px;">Regenerates all processed outputs from committed raw data in &lt;30 seconds.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Live dashboard</div>
+        <pre style="font-size:12px;color:#38bdf8;margin-top:8px;line-height:1.8;font-family:monospace;">localhost:3000
+/analytics
+/charts
+/playbooks</pre>
+        <p style="margin-top:8px;">Velocity feed, weekly trend, X + Reddit + YouTube engagement charts.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Deliverables</div>
+        <p style="font-size:13px;line-height:1.9;margin-top:4px;">
+          ✅ 5 working scrapers<br>
+          ✅ 6,400+ post dataset<br>
+          ✅ 14 validated findings<br>
+          ✅ Cascade detector<br>
+          ✅ LLM classifier<br>
+          ✅ Architecture doc<br>
+          ✅ Counter-playbook<br>
+          ✅ Live dashboard
+        </p>
+      </div>
+    </div>
+    <div class="slide-num">12 / 12</div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button onclick="go(-1)">←</button>
+  <div class="dots" id="dots"></div>
+  <button onclick="go(1)">→</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let cur = 0;
+
+  // build dots
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => show(i);
+    dotsEl.appendChild(d);
+  });
+
+  function show(n) {
+    slides[cur].classList.remove('active', 'visible');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    requestAnimationFrame(() => slides[cur].classList.add('visible'));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  function go(dir) { show(cur + dir); }
+
+  // keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     go(-1);
+  });
+
+  // init
+  show(0);
+</script>
+</body>
+</html>
