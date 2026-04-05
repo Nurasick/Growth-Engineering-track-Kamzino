@@ -192,6 +192,7 @@ export interface AnalyticsSummary {
 export interface FeedPost {
   post_id: string;
   title: string;
+  body_text: string;
   platform: string;
   author: string;
   url: string;

@@ -248,14 +248,15 @@ export default function AnalyticsPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
+                    {/* Show tweet body for X (no title), title for everything else */}
                     {post.url ? (
                       <a href={post.url} target="_blank" rel="noreferrer"
                          className="text-sm text-white/70 hover:text-[#CAFF33] transition-colors line-clamp-2 font-medium">
-                        {post.title || "(no title)"}
+                        {post.title || post.body_text || "(no content)"}
                       </a>
                     ) : (
                       <span className="text-sm text-white/70 line-clamp-2 font-medium">
-                        {post.title || "(no title)"}
+                        {post.title || post.body_text || "(no content)"}
                       </span>
                     )}
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
@@ -276,7 +277,8 @@ export default function AnalyticsPage() {
                         ? `${(post.engagement_score / 1_000_000).toFixed(1)}M`
                         : post.engagement_score >= 1000
                         ? `${(post.engagement_score / 1000).toFixed(0)}K`
-                        : post.engagement_score.toLocaleString()}{" "}eng
+                        : post.engagement_score.toLocaleString()}
+                      {" "}{post.platform === "x" ? "views" : post.platform === "youtube" ? "views" : "pts"}
                     </div>
                   </div>
                 </div>
