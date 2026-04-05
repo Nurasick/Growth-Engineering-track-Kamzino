@@ -233,6 +233,39 @@ export const getAnalyticsFeed = (params?: { platform?: string; spike_type?: stri
   return request<{ total: number; posts: FeedPost[] }>(`/api/analytics/feed${qs}`);
 };
 
+export interface XTweet {
+  text: string;
+  author_handle: string;
+  views: number;
+  likes: number;
+  retweets: number;
+  url: string;
+}
+
+export interface XEngagementPoint {
+  period: string;
+  avg_views: number;
+  median_views: number;
+  total_views: number;
+  total_likes: number;
+  total_retweets: number;
+  tweet_count: number;
+  top_tweets: XTweet[];
+}
+
+export interface XEngagementResponse {
+  data: XEngagementPoint[];
+  summary: {
+    total_tweets: number;
+    overall_avg_views: number;
+    date_range: string;
+    source_files: string[];
+  };
+}
+
+export const getXEngagement = () =>
+  request<XEngagementResponse>("/api/charts/x-engagement");
+
 export const getAlerts = (threshold?: number) =>
   request<{ count: number; threshold: number; alerts: Alert[] }>(
     `/api/analytics/alerts${threshold !== undefined ? `?velocity_threshold=${threshold}` : ""}`
