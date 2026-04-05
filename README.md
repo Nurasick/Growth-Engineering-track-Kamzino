@@ -14,7 +14,7 @@ Reverse-engineered how Claude goes viral across 4 platforms — 6,400+ posts, 16
 r/ChatGPT mean score for Claude content: 5,770. r/ClaudeAI mean: 4,593. Claude gets 25% more engagement on a competitor's home turf. [Finding 13](PLAYBOOK_ANALYSIS.md#finding-13-reddit-competitor-territory--37x-engagement-gap).
 
 **3. The cascade has exact timestamps.**
-HN post: 01:13 UTC Apr 1. First YouTube video: 01:20 (7 minutes later). Reddit: 12:54 (12h later). Meme/international: 48h+. Not a theory — timestamped across 4 platforms from the source code leak event. [Finding 2](PLAYBOOK_ANALYSIS.md#finding-2-the-3-wave-cascade--timestamped).
+HN post: 01:13 UTC Apr 1. First YouTube video: 01:20 (7-minute gap — independent detection, not triggered by HN). Reddit: 12:54 (12h later). Meme/international: 48h+. Not a theory — timestamped across 4 platforms from the source code leak event. [Finding 2](PLAYBOOK_ANALYSIS.md#finding-2-the-3-wave-cascade--timestamped).
 
 ---
 
@@ -72,7 +72,7 @@ Full analysis with 12 charts in [`PLAYBOOK_ANALYSIS.md`](PLAYBOOK_ANALYSIS.md).
 | # | Finding | Key number |
 |---|---|---|
 | 1 | Power law — HN is winner-take-all | 88% of posts get ≤5 pts (n=3,779) |
-| 2 | 3-wave cascade — timestamped | HN → YouTube in 7 min, Reddit at 12h |
+| 2 | 3-wave cascade — timestamped | HN + YouTube within 7 min (independent), Reddit at 12h |
 | 3 | Spike type ceiling vs floor inverted | Meme 588K avg, competitor framing 381 median |
 | 4 | HN timing — counterintuitive | 22:00 UTC = 4x baseline; not morning |
 | 5 | Title word lift | "department" 36x, "war" 25x, "leaked" 22x |

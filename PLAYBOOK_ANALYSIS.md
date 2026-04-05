@@ -110,7 +110,7 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 | Time (UTC) | Platform | Score/Views | Event |
 |---|---|---|---|
 | Apr 01 01:13 | HN | 2 pts | First post — "Anthropic goes nude, exposes Claude Code source" |
-| Apr 01 01:20 | YouTube | 162,576 views | Matthew Berman: "Claude Code was just leaked... (WOAH)" — 7 min after HN |
+| Apr 01 01:20 | YouTube | 162,576 views | Matthew Berman: "Claude Code was just leaked... (WOAH)" — 7 min after HN indexing (independent detection, not triggered by HN) |
 | Apr 01 02:01 | YouTube | 111,462 views | Nate Herk: "Claude Code Source Code Just Leaked… 8 Things You Must Do" |
 | Apr 01 04:15 | YouTube | 182,642 views | Theo (t3.gg): "BREAKING: Claude Code source leaked" |
 | Apr 01 12:54 | Reddit | 337 pts | First Reddit post about the leak — 12h after HN |
@@ -121,7 +121,7 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 ![3-Wave Cascade](data/charts/chart_cascade_timeline.png)
 
 **Wave structure confirmed:**
-- **Wave 1 (0–2h):** HN ignition + immediate YouTube reaction from pre-briefed technical creators
+- **Wave 1 (0–2h):** HN and YouTube surface the leak simultaneously (7-minute gap reflects HN indexing lag, not a causal chain — both platforms detected the event independently)
 - **Wave 2 (2–16h):** Tutorial/breakdown content, Reddit joins, peak reach
 - **Wave 3 (48h+):** Satire, non-English creators, cultural commentary
 
