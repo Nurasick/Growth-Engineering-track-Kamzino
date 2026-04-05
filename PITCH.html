@@ -282,31 +282,7 @@
       <span class="pill pill-x">X / Twitter</span>
       <span class="pill pill-yt">YouTube</span>
     </div>
-    <div class="slide-num">01 / 12</div>
-  </div>
-
-  <!-- ─── SLIDE 2: Three things only scraping can answer ────────────────── -->
-  <div class="slide" id="s1">
-    <div class="label">Part 1 · Scrape the Discourse</div>
-    <h2>3 findings you can only get<br>from actually scraping</h2>
-    <div class="grid-3">
-      <div class="card">
-        <div class="num">415×</div>
-        <div class="card-label">follower-to-view ratio</div>
-        <p>@MangoLassC — 6,800 followers, 2.85M views. Only findable by joining follower counts with view data in the same row across two scraper outputs.</p>
-      </div>
-      <div class="card">
-        <div class="num">333</div>
-        <div class="card-label">cross-platform posts</div>
-        <p>"Why I Switched From ChatGPT to Claude" — the #1 most persistent narrative. Invisible in per-post ranking. Only detected by running cascade_detector.py across the full dataset.</p>
-      </div>
-      <div class="card">
-        <div class="num">7 min</div>
-        <div class="card-label">HN + YouTube gap</div>
-        <p>The source code leak. HN: 01:13 UTC. YouTube: 01:20 UTC. Independent detection — HN has indexing lag, so YouTube wasn't triggered by HN. Both platforms picked up the same event simultaneously.</p>
-      </div>
-    </div>
-    <div class="slide-num">02 / 12</div>
+    <div class="slide-num">01 / 11</div>
   </div>
 
   <!-- ─── SLIDE 3: What we built ─────────────────────────────────────────── -->
@@ -358,7 +334,7 @@
     <p class="dim" style="margin-top:16px;font-size:12px;">
       Instagram / LinkedIn / TikTok excluded — all require login-wall auth. Documented gap.
     </p>
-    <div class="slide-num">03 / 12</div>
+    <div class="slide-num">02 / 11</div>
   </div>
 
   <!-- ─── SLIDE 4: Dataset ───────────────────────────────────────────────── -->
@@ -409,7 +385,7 @@
         <div class="bar-val" style="color:#ef4444;">1,428</div>
       </div>
     </div>
-    <div class="slide-num">04 / 12</div>
+    <div class="slide-num">03 / 11</div>
   </div>
 
   <!-- ─── SLIDE 5: Finding 1 — Power Law ───────────────────────────────── -->
@@ -448,7 +424,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-num">05 / 12</div>
+    <div class="slide-num">04 / 11</div>
   </div>
 
   <!-- ─── SLIDE 6: Finding 2 — 3-Wave Cascade ─────────────────────────── -->
@@ -492,7 +468,7 @@
       The window for maximum impact is <strong style="color:#fff;">0–16 hours.</strong>
       After 48h, content shifts from information to culture.
     </p>
-    <div class="slide-num">06 / 12</div>
+    <div class="slide-num">05 / 11</div>
   </div>
 
   <!-- ─── SLIDE 7: Findings 7+11 — Community + Inside Engineer ─────────── -->
@@ -541,7 +517,7 @@
       Finding and empowering one credible internal engineer to post with full creative autonomy
       is the highest-leverage X play — not the official handle, not sponsored content.
     </div>
-    <div class="slide-num">07 / 12</div>
+    <div class="slide-num">06 / 11</div>
   </div>
 
   <!-- ─── SLIDE 8: Findings 4+5 — Timing + Word Lift ────────────────────── -->
@@ -598,7 +574,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-num">08 / 12</div>
+    <div class="slide-num">07 / 11</div>
   </div>
 
   <!-- ─── SLIDE 9: Findings 9+14 — External events + cascade ───────────── -->
@@ -638,7 +614,7 @@
         </p>
       </div>
     </div>
-    <div class="slide-num">09 / 12</div>
+    <div class="slide-num">08 / 11</div>
   </div>
 
   <!-- ─── SLIDE 10: Architecture ─────────────────────────────────────────── -->
@@ -685,39 +661,48 @@
         <p>Jaccard similarity on keyword sets, 6h sliding windows. 48 cascades found from real data. Detects FAST_CASCADE (&lt;6h) vs SUSTAINED threads across platforms.</p>
       </div>
     </div>
-    <div class="slide-num">10 / 12</div>
+    <div class="slide-num">09 / 11</div>
   </div>
 
   <!-- ─── SLIDE 11: Counter-Playbook ────────────────────────────────────── -->
   <div class="slide" id="s10">
     <div class="label">Part 4 · Counter-Playbook</div>
-    <h2>Higgsfield's growth strategy —<br>backed by Claude's data</h2>
-    <div class="grid-2" style="margin-top:24px;align-items:start;">
+    <h2>Copy the physics, not the costume</h2>
+    <div class="grid-2" style="margin-top:20px;align-items:start;gap:20px;">
       <div>
-        <table class="data-table">
-          <thead><tr><th>Claude lever</th><th>Higgsfield equivalent</th></tr></thead>
+        <table class="data-table" style="margin-bottom:16px;">
+          <thead><tr><th>Claude mechanic</th><th>Higgsfield translation</th></tr></thead>
           <tbody>
-            <tr><td>HN ignition (dev audience)</td><td class="hi">ProductHunt (0 real HN posts)</td></tr>
-            <tr><td>Fireship = 29× official</td><td class="hi">Seed 5 indie film YouTubers pre-launch</td></tr>
-            <tr><td>r/ChatGPT over r/ClaudeAI</td><td class="hi">r/aivideo not r/videography (hostile)</td></tr>
-            <tr><td>@bcherny inside engineer</td><td class="hi">Activate celebrity organic adopters</td></tr>
+            <tr><td>HN ignition (dev audience)</td><td class="hi">ProductHunt + indie film YouTube</td></tr>
+            <tr><td>Fireship = 29× official reach</td><td class="hi">Seed 5 creator-native channels pre-launch</td></tr>
+            <tr><td>r/ChatGPT over r/ClaudeAI</td><td class="hi">r/aivideo — not r/videography</td></tr>
+            <tr><td>@bcherny inside voice</td><td class="hi">One founder posting in first person</td></tr>
             <tr><td>"vibe coding" naming moment</td><td class="hi">Madonna + Snoop already used it — coin the term</td></tr>
+            <tr><td>External event &gt; product launch</td><td class="hi">Monitor competitor failures + trend moments</td></tr>
           </tbody>
         </table>
+        <div class="card" style="padding:14px 16px;">
+          <div class="card-label">The strongest acquisition story</div>
+          <p style="font-size:15px;margin-top:6px;">Not "our product is powerful" — <strong style="color:#CAFF33;">"people like you switched."</strong> Migration stories combine comparison + social proof + identity change.</p>
+        </div>
       </div>
       <div>
-        <div class="card" style="margin-bottom:16px;">
-          <div class="card-label">The biggest gap</div>
-          <p style="font-size:20px;font-weight:700;color:#CAFF33;margin-bottom:8px;">35K TikTok vs 846K Instagram</p>
-          <p>Higgsfield's product IS TikTok content. The platform where their output naturally lives has 24× less reach than their static image platform.</p>
+        <div class="card" style="margin-bottom:14px;padding:14px 16px;">
+          <div class="card-label">Show, don't announce</div>
+          <p style="font-size:14px;margin-top:6px;">The first public asset must travel without a thread or article. For a visual product: a side-by-side replacement, a transformation that looks impossible, or a visible workflow reduction.</p>
         </div>
-        <div class="card">
-          <div class="card-label">The unused asset</div>
-          <p>Madonna, Snoop Dogg, Will Smith used Higgsfield organically. Elon Musk shared their content. This is their "vibe coding" moment — not yet activated, not yet named.</p>
+        <div class="card" style="margin-bottom:14px;padding:14px 16px;">
+          <div class="card-label">The biggest gap right now</div>
+          <p style="font-size:20px;font-weight:700;color:#CAFF33;margin-bottom:6px;">35K TikTok vs 846K Instagram</p>
+          <p style="font-size:13px;">Higgsfield's product <em>is</em> TikTok content. The platform where their output naturally lives has 24× less reach than their static image platform.</p>
+        </div>
+        <div class="card" style="padding:14px 16px;">
+          <div class="card-label">Run it as an operating system</div>
+          <p style="font-size:13px;margin-top:6px;">Monitor → Select moment → Package as proof/comparison/migration → Distribute through creators → Read signals → Compound. Not a launch calendar. A repeating loop.</p>
         </div>
       </div>
     </div>
-    <div class="slide-num">11 / 12</div>
+    <div class="slide-num">10 / 11</div>
   </div>
 
   <!-- ─── SLIDE 12: Live demo + wrap ────────────────────────────────────── -->
@@ -753,7 +738,7 @@
         </p>
       </div>
     </div>
-    <div class="slide-num">12 / 12</div>
+    <div class="slide-num">11 / 11</div>
   </div>
 
 </div><!-- /deck -->
