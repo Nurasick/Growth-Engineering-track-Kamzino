@@ -465,19 +465,23 @@ function XTooltip({ active, payload, label }: any) {
       <div className="mb-3 space-y-1">
         <div className="text-white/25 uppercase tracking-wider text-[10px] mb-1">X / Twitter</div>
         <div className="flex justify-between gap-4">
-          <span className="text-white/40">Avg views / tweet</span>
-          <span className="text-sky-400 font-medium">{fmtNumber(d.avg_views)}</span>
+          <span className="text-white/40">Avg engagement / tweet</span>
+          <span className="text-sky-400 font-medium">{fmtNumber(d.avg_engagement)}</span>
         </div>
         <div className="flex justify-between gap-4">
-          <span className="text-white/40">Median views</span>
-          <span className="text-sky-300">{fmtNumber(d.median_views)}</span>
+          <span className="text-white/40">Avg engagement rate</span>
+          <span className="text-[#CAFF33] font-medium">{d.avg_engagement_rate.toFixed(2)}%</span>
+        </div>
+        <div className="flex justify-between gap-4">
+          <span className="text-white/40">Median engagement</span>
+          <span className="text-sky-300">{fmtNumber(d.median_engagement)}</span>
         </div>
         <div className="flex justify-between gap-4">
           <span className="text-white/40">Tweets</span>
           <span className="text-white/60">{d.tweet_count}</span>
         </div>
         <div className="flex justify-between gap-4">
-          <span className="text-white/40">Total views</span>
+          <span className="text-white/40">Total views (reach)</span>
           <span className="text-blue-300">{fmtNumber(d.total_views)}</span>
         </div>
         <div className="flex justify-between gap-4">
@@ -486,9 +490,9 @@ function XTooltip({ active, payload, label }: any) {
         </div>
         {d.top_tweets[0] && (
           <div className="pt-1 border-t border-[#222] mt-1">
-            <div className="text-white/25 text-[10px] mb-0.5">Top tweet</div>
-            <div className="text-white/60 leading-tight line-clamp-3">@{d.top_tweets[0].author_handle}: {d.top_tweets[0].text}</div>
-            <div className="text-sky-400 mt-0.5">{fmtNumber(d.top_tweets[0].views)} views</div>
+            <div className="text-white/25 text-[10px] mb-0.5">Top tweet by engagement</div>
+            <div className="text-white/60 leading-tight line-clamp-2">@{d.top_tweets[0].author_handle}: {d.top_tweets[0].text}</div>
+            <div className="text-sky-400 mt-0.5">{fmtNumber(d.top_tweets[0].engagement)} eng · {fmtNumber(d.top_tweets[0].views)} views</div>
           </div>
         )}
       </div>
@@ -500,51 +504,68 @@ function XTooltip({ active, payload, label }: any) {
 
 function XSection({ data }: { data: XEngagementResponse }) {
   const { summary, data: chartData } = data;
-  const avgViews = summary.overall_avg_views;
+  const avgEng     = summary.overall_avg_engagement;
+  const avgEngRate = summary.overall_avg_eng_rate;
 
   return (
     <div className="space-y-6">
       {/* formula */}
       <div className="rounded border border-sky-800/40 bg-sky-900/10 p-4">
         <div className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">
-          How X/Twitter reach is measured
+          How X/Twitter engagement is calculated
         </div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-mono">
-          <span className="text-white/80">Primary Signal</span>
+          <span className="text-white/80">Engagement</span>
           <span className="text-white/25">=</span>
-          <span className="text-sky-300">View Count</span>
-          <span className="text-white/25">per tweet</span>
+          <span className="text-sky-300">Likes</span>
+          <span className="text-white/25">+</span>
+          <span className="text-green-300">(Retweets × 2)</span>
+          <span className="text-white/25">+</span>
+          <span className="text-amber-300">(Replies × 2)</span>
+          <span className="text-white/25">+</span>
+          <span className="text-purple-300">Bookmarks</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-mono mt-2">
+          <span className="text-white/80">Engagement Rate</span>
+          <span className="text-white/25">=</span>
+          <span className="text-[#CAFF33]">Engagement</span>
+          <span className="text-white/25">÷</span>
+          <span className="text-blue-300">Views</span>
+          <span className="text-white/25">×</span>
+          <span className="text-white/80">100</span>
         </div>
         <p className="mt-2 text-xs text-white/40 leading-relaxed">
-          X exposes view counts directly (impressions). Unlike Reddit there&apos;s no upvote, so
-          views are the closest equivalent to raw reach. Grouped by ISO week to smooth daily variance.
+          Retweets and replies are weighted 2× because they require higher intent than a passive like.
+          Views are kept as a separate reach signal — a tweet can have millions of views but near-zero engagement if people scroll past.
         </p>
         <div className="mt-3 flex flex-wrap gap-4 text-xs text-white/25">
-          <span><span className="text-sky-300 font-medium">Views</span> — total impressions (primary metric)</span>
-          <span><span className="text-pink-300 font-medium">Likes + RTs</span> — amplification signals</span>
+          <span><span className="text-green-300 font-medium">Retweets ×2</span> — amplification</span>
+          <span><span className="text-amber-300 font-medium">Replies ×2</span> — discussion</span>
+          <span><span className="text-sky-300 font-medium">Likes</span> — passive approval</span>
+          <span><span className="text-purple-300 font-medium">Bookmarks</span> — saves for later</span>
         </div>
       </div>
 
       {/* stat cards */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard label="Total Tweets" value={fmtNumber(summary.total_tweets)} />
-        <StatCard label="Overall Avg Views" value={fmtNumber(avgViews)} sub="views per tweet" />
-        <StatCard label="Date Range" value={chartData[0]?.period ?? "—"} sub={`→ ${chartData[chartData.length - 1]?.period ?? "—"}`} />
-        <StatCard label="Weeks Tracked" value={String(chartData.length)} sub="ISO weeks of data" />
+        <StatCard label="Overall Avg Engagement" value={fmtNumber(avgEng)} sub="likes + RT×2 + replies×2 + bookmarks" />
+        <StatCard label="Avg Engagement Rate" value={`${avgEngRate.toFixed(2)}%`} sub="engagement ÷ views" />
+        <StatCard label="Weeks Tracked" value={String(chartData.length)} sub={summary.date_range} />
       </div>
 
       {/* chart */}
       <div className="rounded border border-[#222] bg-[#242424]/60 p-6">
         <h3 className="text-sm font-medium text-white/60 mb-1">
-          Avg Views per Tweet · by Week
+          Avg Engagement per Tweet · by Week
         </h3>
         <p className="text-xs text-white/25 mb-1">
-          Dashed line = overall avg ({fmtNumber(avgViews)} views). Bars = total weekly views. Hover for top tweet.
+          Dashed line = overall avg ({fmtNumber(avgEng)}). Bars = weekly reach (total views). Hover for top tweet.
         </p>
         <div className="flex flex-wrap gap-4 mb-5 text-xs text-white/25">
-          <span><span className="inline-block w-3 h-0.5 bg-sky-400 mr-1 align-middle" />Avg views / tweet (left)</span>
-          <span><span className="inline-block w-3 h-0.5 bg-sky-300 mr-1 align-middle" style={{borderTop:'2px dashed'}} />Median views (left)</span>
-          <span><span className="inline-block w-3 h-2 bg-sky-500/40 mr-1 align-middle rounded-sm" />Total weekly views (right)</span>
+          <span><span className="inline-block w-3 h-0.5 bg-sky-400 mr-1 align-middle" />Avg engagement (left)</span>
+          <span><span className="inline-block w-3 h-0.5 bg-sky-300 mr-1 align-middle" style={{borderTop:'2px dashed'}} />Median engagement (left)</span>
+          <span><span className="inline-block w-3 h-2 bg-sky-500/40 mr-1 align-middle rounded-sm" />Total weekly views / reach (right)</span>
         </div>
         <ResponsiveContainer width="100%" height={320}>
           <ComposedChart data={chartData} margin={{ top: 4, right: 56, bottom: 16, left: 0 }}>
@@ -562,14 +583,14 @@ function XSection({ data }: { data: XEngagementResponse }) {
                 return m ? `W${m[2]} '${m[1].slice(2)}` : v;
               }}
             />
-            <YAxis yAxisId="views" tick={{ fill: "#666", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={52} />
-            <YAxis yAxisId="total" orientation="right" tick={{ fill: "#38bdf8", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={52} />
+            <YAxis yAxisId="eng" tick={{ fill: "#666", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={52} />
+            <YAxis yAxisId="reach" orientation="right" tick={{ fill: "#38bdf8", fontSize: 11 }} tickLine={false} axisLine={false} tickFormatter={fmtNumber} width={52} />
             <Tooltip content={<XTooltip />} />
-            <ReferenceLine yAxisId="views" y={avgViews} stroke="#38bdf840" strokeDasharray="6 3"
-              label={{ value: `avg ${fmtNumber(avgViews)}`, fill: "#38bdf8", fontSize: 10, position: "insideTopRight" }} />
-            <Bar yAxisId="total" dataKey="total_views" name="Total Views" fill="#0284c7" fillOpacity={0.25} radius={[3, 3, 0, 0]} />
-            <Line yAxisId="views" type="monotone" dataKey="avg_views" name="Avg Views" stroke="#38bdf8" strokeWidth={2.5} dot={{ fill: "#38bdf8", r: 4 }} activeDot={{ r: 6 }} />
-            <Line yAxisId="views" type="monotone" dataKey="median_views" name="Median Views" stroke="#7dd3fc" strokeWidth={1.5} strokeDasharray="4 2" dot={false} />
+            <ReferenceLine yAxisId="eng" y={avgEng} stroke="#38bdf840" strokeDasharray="6 3"
+              label={{ value: `avg ${fmtNumber(avgEng)}`, fill: "#38bdf8", fontSize: 10, position: "insideTopRight" }} />
+            <Bar yAxisId="reach" dataKey="total_views" name="Total Views (Reach)" fill="#0284c7" fillOpacity={0.2} radius={[3, 3, 0, 0]} />
+            <Line yAxisId="eng" type="monotone" dataKey="avg_engagement" name="Avg Engagement" stroke="#38bdf8" strokeWidth={2.5} dot={{ fill: "#38bdf8", r: 4 }} activeDot={{ r: 6 }} />
+            <Line yAxisId="eng" type="monotone" dataKey="median_engagement" name="Median Engagement" stroke="#7dd3fc" strokeWidth={1.5} strokeDasharray="4 2" dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
@@ -579,19 +600,24 @@ function XSection({ data }: { data: XEngagementResponse }) {
         <div className="px-6 py-4 border-b border-[#222] flex items-center gap-2">
           <span className="text-sky-400 font-bold text-sm">𝕏</span>
           <h3 className="text-sm font-medium text-white/60">Top Tweets by Week</h3>
+          <span className="text-xs text-white/25 ml-auto">ranked by engagement score</span>
         </div>
         <div className="divide-y divide-[#1a1a1a]">
           {[...chartData].reverse().filter(r => r.top_tweets.length > 0).map(row => (
             <div key={row.period} className="px-6 py-4">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-xs font-medium text-white/60 w-24 shrink-0">{row.period}</span>
-                <span className="text-xs text-sky-400">{fmtNumber(row.avg_views)} avg views</span>
+                <span className="text-xs text-sky-400">{fmtNumber(row.avg_engagement)} avg eng</span>
+                <span className="text-xs text-[#CAFF33]/60">{row.avg_engagement_rate.toFixed(2)}% rate</span>
                 <span className="text-xs text-white/25 ml-auto">{row.tweet_count} tweets</span>
               </div>
               <div className="space-y-2">
                 {row.top_tweets.map((t, i) => (
                   <div key={i} className="flex gap-3 items-start text-xs">
-                    <span className="text-sky-400 font-bold w-16 shrink-0 tabular-nums">{fmtNumber(t.views)}</span>
+                    <div className="shrink-0 text-right w-20">
+                      <div className="text-sky-400 font-bold tabular-nums">{fmtNumber(t.engagement)}</div>
+                      <div className="text-white/25 text-[10px]">{fmtNumber(t.views)} views</div>
+                    </div>
                     <div className="flex-1 min-w-0">
                       {t.url ? (
                         <a href={t.url} target="_blank" rel="noopener noreferrer"
@@ -621,7 +647,7 @@ function XSection({ data }: { data: XEngagementResponse }) {
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-[#222]">
-                {["Week", "Tweets", "Avg Views", "Median Views", "Total Views", "Total Likes", "Total RTs"].map(h => (
+                {["Week", "Tweets", "Avg Engagement", "Eng Rate", "Median Eng", "Total Views", "Likes", "RTs"].map(h => (
                   <th key={h} className="px-4 py-2.5 text-left text-white/40 font-medium whitespace-nowrap">{h}</th>
                 ))}
               </tr>
@@ -631,8 +657,9 @@ function XSection({ data }: { data: XEngagementResponse }) {
                 <tr key={row.period} className="border-b border-[#1e1e1e] hover:bg-[#242424]/30 transition-colors">
                   <td className="px-4 py-2.5 text-white/60 font-medium">{row.period}</td>
                   <td className="px-4 py-2.5 text-white/40">{row.tweet_count}</td>
-                  <td className="px-4 py-2.5 text-sky-400">{fmtNumber(row.avg_views)}</td>
-                  <td className="px-4 py-2.5 text-sky-300">{fmtNumber(row.median_views)}</td>
+                  <td className="px-4 py-2.5 text-sky-400">{fmtNumber(row.avg_engagement)}</td>
+                  <td className="px-4 py-2.5 text-[#CAFF33]">{row.avg_engagement_rate.toFixed(2)}%</td>
+                  <td className="px-4 py-2.5 text-sky-300">{fmtNumber(row.median_engagement)}</td>
                   <td className="px-4 py-2.5 text-blue-400">{fmtNumber(row.total_views)}</td>
                   <td className="px-4 py-2.5 text-pink-400">{fmtNumber(row.total_likes)}</td>
                   <td className="px-4 py-2.5 text-green-400">{fmtNumber(row.total_retweets)}</td>
