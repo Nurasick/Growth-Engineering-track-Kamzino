@@ -17,7 +17,7 @@ function readMd(filename: string): string {
 export default function PlaybooksPage() {
   noStore();
   const analysis = readMd("PLAYBOOK_ANALYSIS_GENERATED.md");
-  const counter = readMd("COUNTER_PLAYBOOK.md");
+  const counter = readMd("COUNTER_PLAYBOOK_GENERATED.md");
 
   return <PlaybooksClient analysis={analysis} counter={counter} />;
 }

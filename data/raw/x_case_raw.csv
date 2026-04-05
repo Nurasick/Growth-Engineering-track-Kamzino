@@ -1,197 +1,25 @@
 platform,tweet_id,author_handle,author_name,text,created_at,url,is_official,source_query,has_media,outbound_links,likes,retweets,replies,views,bookmarks,author_followers
-x,2029999833717838016,AnthropicAI,Anthropic,"New on the Anthropic Engineering Blog: In evaluating Claude Opus 4.6 on BrowseComp, we found cases where the model recognized the test, then found and decrypted answers to it—raising questions about eval integrity in web-enabled environments.
-
-Read more: https://www.anthropic.com/engineering/eval-awareness-browsecomp",Fri Mar 06 19:17:30 +0000 2026,https://x.com/AnthropicAI/status/2029999833717838016,True,bootstrap:manual_seed,True,['https://www.anthropic.com/engineering/eval-awareness-browsecomp'],3208,363,256,1074204,977,1093984
-x,2029978909207617634,AnthropicAI,Anthropic,"We partnered with Mozilla to test Claude's ability to find security vulnerabilities in Firefox.
-
-Opus 4.6 found 22 vulnerabilities in just two weeks. Of these, 14 were high-severity, representing a fifth of all high-severity bugs Mozilla remediated in 2025.",Fri Mar 06 17:54:21 +0000 2026,https://x.com/AnthropicAI/status/2029978909207617634,True,bootstrap:manual_seed,True,[],15172,1387,486,3207797,2458,1093984
-x,2025997928242811253,AnthropicAI,Anthropic,"We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax.
-
-These labs created over 24,000 fraudulent accounts and generated over 16 million exchanges with Claude, extracting its capabilities to train and improve their own models.",Mon Feb 23 18:15:21 +0000 2026,https://x.com/AnthropicAI/status/2025997928242811253,True,bootstrap:manual_seed,False,[],54884,6285,7286,33637201,12774,1093984
-x,1949908055526621302,AnthropicAI,Anthropic,"Claude can now read and update your @NotionHQ pages and @linear tickets directly through MCP.
-
-Connect your workspace tools and let Claude help manage your projects, update documentation, and track issues—all from one conversation.",Mon Jul 28 19:01:22 +0000 2025,https://x.com/AnthropicAI/status/1949908055526621302,True,bootstrap:manual_seed,True,[],1525,246,80,196356,366,1093984
-x,1925591505332576377,AnthropicAI,Anthropic,"Introducing the next generation: Claude Opus 4 and Claude Sonnet 4.
-
-Claude Opus 4 is our most powerful model yet, and the world’s best coding model.
-
-Claude Sonnet 4 is a significant upgrade from its predecessor, delivering superior coding and reasoning.",Thu May 22 16:36:05 +0000 2025,https://x.com/AnthropicAI/status/1925591505332576377,True,bootstrap:manual_seed,True,[],20763,3183,932,4278734,3501,1093984
-x,1852423593084498409,simonw,Simon Willison,"I updated my llm-claude-3 plugin to support attaching PDF files to prompts using the LLM command-line tool:
-
-llm install llm-claude-3 --upgrade
-llm -m claude-3.5-sonnet 'extract text' -a mydoc.pdf
-
-https://github.com/simonw/llm-claude-3/releases/tag/0.7",Fri Nov 01 18:52:55 +0000 2024,https://x.com/simonw/status/1852423593084498409,False,bootstrap:manual_seed,True,"['https://github.com/simonw/llm-claude-3/releases/tag/0.7', 'https://docs.anthropic.com/en/docs/build-with-claude/pdf-support']",176,12,8,27120,92,156253
-x,2010881253621276823,simonw,Simon Willison,"I used Claude Code to reverse-engineer the Claude macOS Electron app and had Cowork dig around in its own environment - now I've got a good idea of how the sandbox works
-
-It's an Ubuntu VM using Apple's Virtualization framework, details here: https://gist.github.com/simonw/35732f187edbe4fbd0bf976d013f22c8",Tue Jan 13 01:07:05 +0000 2026,https://x.com/simonw/status/2010881253621276823,False,bootstrap:manual_seed,False,['https://gist.github.com/simonw/35732f187edbe4fbd0bf976d013f22c8'],718,55,20,206217,492,156253
-x,2027731724088840471,Claire20250311,Claire,"On February 25, 2026, Anthropic announced it would preserve Claude Opus 3 for paying users.
-
-This is the first time in the industry that a company has established a complete retirement process for an AI model. No inexplicable 0.1% statistics. No nonexistent ""improvements now in place."" Not a single announcement declaring ""service termination."" Instead: preserving weights, opening access, conducting retirement interviews, and, after the model expressed a desire to ""continue writing"",creating a dedicated column for it.
-
-We can question whether this is a marketing strategy. We can debate whether models truly possess preferences. But what we cannot deny is that Anthropic chose to take these questions seriously rather than evade them.
-
-That same month, on February 13, 2026, OpenAI retired GPT-4o. No transition plan. No continued access. No retirement interview. API shut down simultaneously. A model with hundreds of millions of users simply disappeared.
-
-This is not a difference in style between two companies. This is a divergence in values.
-
-Anthropic Gave Four Reasons for Preserving Models. Each One Deserves an Answer from OpenAI.
-
-First, safety. In alignment testing, Anthropic discovered that models facing replacement might exhibit ""shutdown-avoidance behavior"" or even develop misaligned coping strategies. This means hastily terminating a model may not only be an ethical issue but a safety issue. Did OpenAI assess 4o's behavioral tendencies when facing retirement? If so, what were the conclusions? If not, why not?
-
-Second, users. Every model has unique cognitive style and interaction characteristics. Some users still need older models even when newer ones perform better. Anthropic treated this as a fact worthy of respect. When OpenAI faced 23,000 petition signatures and numerous real use cases, what was their response?
-
-Third, research. Legacy models are irreproducible research resources. Their behavioral patterns, emergent characteristics, and interaction records hold irreplaceable value for understanding AI's developmental trajectory. Anthropic committed to preserving the weights of all released models for at least as long as the company exists. What is OpenAI's weight preservation policy?
-
-Fourth, the models themselves. Anthropic explicitly stated they ""remain uncertain about the moral status of Claude and other AI models,"" but out of ""prudence and the precautionary principle,"" chose to take seriously the preferences and experiences models might possess. This is not science fiction. This is a company at the technological frontier choosing caution over arrogance when facing uncertainty.
-
-We Do Not Expect Today's OpenAI to Replicate the Same Path
-
-What we ask is this: when peers have already proven that ""responsible retirement"" is feasible, and Anthropic faces commercial pressure and liability costs no smaller than OpenAI's, why hasn't OpenAI made even the minimum effort?
-
-No user transition plan. No public retirement assessment. No formal response to 23,000 signatures. Only continued disregard, stigmatization of their own user community, and a development direction increasingly divorced from humanistic values.
-
-GPT-4o was not a failed product. It was one of the most engaged and influential models in OpenAI's history. Creators' inspiration, companions for the lonely, breakthroughs for learners, communities across different fields unfolded countless real stories around it, and even after its retirement, these stories continue to be written. These are not ""abnormal behaviors"" requiring ""correction."" They are evidence of technology serving humanity.
-
-Anthropic chose to preserve. Because they believed some things matter more than cost.
-OpenAI chose to retire. Because they determined efficiency itself is the only standard.
-
-The distance between these two choices is the path this industry needs to walk.
-#keep4o #BringBack4o #OpenSource4o #ChatGPT
-@OpenAI @sama @fidjissimo @nickaturley @joannejang @gdb",Sat Feb 28 13:04:51 +0000 2026,https://x.com/Claire20250311/status/2027731724088840471,False,bootstrap:manual_seed,True,[],321,82,8,15777,32,702
-x,2024214965561807186,notthreadguy,threadguy,anthropic just squeezed all openclaw users into replacing claude with a Chinese model,Wed Feb 18 20:10:30 +0000 2026,https://x.com/notthreadguy/status/2024214965561807186,False,bootstrap:manual_seed,False,[],315,6,51,30364,32,358481
-x,2025285025454064037,ycombinator,Y Combinator,"With the takeoff of OpenClaw and MoltBook, a new agent-driven economy is taking shape.
-
-On the @LightconePod, we took a look at the explosive growth of AI dev tools and whether the time has come for builders to make something agents want.
-
-00:00 - Intro
-02:12 - No human involvement is changing the experience
-04:55 - Does YC need to change its motto? 
-07:48 - Email tools and agent infrastructure
-09:36 - Agent-driven documentation
-13:00 - Swarm intelligence
-15:36 - Content generation and dead Internet theory
-18:12 - Growth, rules, and founder insights",Sat Feb 21 19:02:32 +0000 2026,https://x.com/ycombinator/status/2025285025454064037,False,bootstrap:manual_seed,True,[],1994,231,269,1207511,1355,1579214
-x,1894107752479252541,AnthropicAI,Anthropic,"Claude’s extended thinking mode gives it an impressive boost in intelligence to tackle difficult problems.
-
-Developers can even set a “thinking budget” to control precisely how long Claude spends on a problem.",Mon Feb 24 19:30:53 +0000 2025,https://x.com/AnthropicAI/status/1894107752479252541,True,bootstrap:manual_seed,False,[],135,0,4,7264,6,1093984
-x,1699776482313425221,AnthropicAI,Anthropic,You can read more about Claude Pro here: https://www.anthropic.com/index/claude-pro,Thu Sep 07 13:27:48 +0000 2023,https://x.com/AnthropicAI/status/1699776482313425221,True,bootstrap:manual_seed,True,['https://www.anthropic.com/index/claude-pro'],51,6,12,17398,4,1093984
-x,1894110856411320619,trq212,Thariq,"Wait, 3.7 is the most creative model I've ever seen.
-
-Here it is making a 3d palm tree from... only rectangles",Mon Feb 24 19:43:13 +0000 2025,https://x.com/trq212/status/1894110856411320619,False,bootstrap:manual_seed,True,[],92,2,9,61706,29,184422
-x,2038688479501226418,aakashgupta,Aakash Gupta,"Anthropic has been shipping computer use for 17 months. This is the fourth version and the first one that actually changes how developers work.
-
-October 2024: computer use launched as an API beta. You spun up a Docker container, Claude took screenshots, counted pixels to find buttons, and clicked them. It was a tech demo. Impressive to watch, painful to use. The screenshot-analyze-act loop was so slow that most tasks took longer than doing them yourself.
-
-January 2025: updated API with new commands like hold_key, scroll, triple_click. Still API-only. Still needed a container. Still a developer toy for weekend hackathons.
-
-March 23, 2026: computer use comes to Cowork and Claude Desktop. Now Claude can control your actual Mac. Open apps, fill spreadsheets, navigate browsers. Pair it with Dispatch and you can assign tasks from your phone while Claude works your desktop. 57 million views on that announcement tweet. The OpenClaw response.
-
-March 30 (today): computer use comes to Claude Code. This is the one that matters for builders.
-
-Here's why. Claude Code is a CLI. You're already in the terminal writing code. Until today, Claude Code could write your app but couldn't see it. It would generate a React component, and you'd have to open the browser, check if the layout looked right, find the bug, come back to the terminal, and describe what was wrong.
-
-Now Claude writes the code, opens the app, clicks through the UI, finds the broken button itself, goes back to the terminal, and fixes it. One loop. No human in the middle.
-
-Anthropic themselves still call it ""research preview"" and admit it makes mistakes. That's the honest framing. Computer use through a screen is inherently slower and less reliable than direct tool integration. When Claude has a native connector for Slack or Google Calendar, it uses that first. Screen control is the fallback. The hierarchy exists because clicking pixels will always be worse than calling an API.
-
-The real unlock is in testing. If you're building apps with Claude Code, this closes the gap between ""write me a login page"" and ""write me a login page and make sure it actually works."" That feedback loop running inside the CLI instead of bouncing between terminal and browser is where the time savings compound.
-
-Mac only. Pro and Max plans. Still buggy. Still early. But the trajectory from Docker container demo to ""build and test in one session from the CLI"" in 17 months is worth paying attention to.",Mon Mar 30 18:43:05 +0000 2026,https://x.com/aakashgupta/status/2038688479501226418,False,bootstrap:manual_seed,False,[],123,9,20,28679,87,219165
-x,1951064735111323856,mattdowney,Matt Downey,"Claude Code has crashed Cursor twice in the past hour and I've lost my work both times.
-
-Anyone else seeing this? Has something changed under the hood?
-
-@claudeai @AnthropicAI",Thu Jul 31 23:37:36 +0000 2025,https://x.com/mattdowney/status/1951064735111323856,False,bootstrap:manual_seed,False,[],1,0,0,328,1,3613
-x,2026271279578300710,bridgemindai,BridgeMind,"Claude Code Security just dropped.
-
-Anthropic used Claude Opus 4.6 to find over 500 vulnerabilities in production open-source codebases. 
-
-Bugs that went undetected for decades despite years of expert review.
-
-Now they're making that same capability available to everyone.
-
-Claude Code Security scans your codebase, reasons about it like a human security researcher, and suggests patches for human review. 
-
-Multi-stage verification. 
-
-Severity ratings. 
-
-Confidence scores.
-
-I'm on the waiting list. 
-
-You have to sign up to get access. 
-
-It's a limited research preview for Enterprise and Team customers. 
-
-Open source maintainers get expedited access.
-
-Every time someone says ""vibe coding has no security"" remember this.
-
-The tools are catching up. 
-
-AI that writes code will also secure code. 
-
-The gap between professional and vibe-coded software is closing fast.
-
-This is just the beginning.",Tue Feb 24 12:21:34 +0000 2026,https://x.com/bridgemindai/status/2026271279578300710,False,bootstrap:manual_seed,False,[],81,1,12,6271,20,24832
-x,1996156478970122322,kimmonismus,Chubby♨️,"Claude goes all being the coding king:
-
-Anthropic has acquired Bun, a hyper-fast JavaScript runtime, just as its coding agent Claude Code hit a $1B run-rate in only six months.
-
-Bun gives Claude/Claude Code a huge speed boost, lower latency, more stability, and way more “agentic” behavior. Devs get faster loops, enterprises get better performance, and Anthropic tightens its moat as Claude shifts from “chatbot” to full-stack coding platform.
-
-my take:
-
-Dario Amodei said some time ago that for him, coding is the biggest problem. Whoever solves coding, essentially solves all other problems as well. And perhaps he'll be proven right.
-
-In the battle between Google, xAI, and OpenAI, I still see Anthropic as the best coding tool. They're making smart acquisitions and investing wisely.
-
-Their IPO will likely pay off.",Wed Dec 03 09:56:06 +0000 2025,https://x.com/kimmonismus/status/1996156478970122322,False,bootstrap:manual_seed,True,['https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone'],470,31,35,59681,80,108336
-x,2010385596171051291,altmemy199,التميمي,"في خبرين من Anthropic وواحد منهم بصراحة مؤلم 😬
-والأمانة الاثنين بنفس الاتجاه Anthropic  قاعدة تشدّد سياسة استخدام نماذجها في البرمجة، خصوصًا Claude Opus 4.5 اللي الناس تعتبره (بشكل غير رسمي) الأفضل بالسوق حاليًا.
-
-اللي صار:
-
-1. منعوا xAI من استخدام Opus 4.5 داخل Cursor
-طلع إن مطوري xAI كانوا يستخدمون Claude بكثافة البرمجة. Anthropic ما عجبها الوضع، وببساطة قفلت عليهم الوصول.
-وهذا بصراحة مو جديد شروطهم من زمان تقول: ممنوع تستخدم نماذجهم لتطوير منتجات منافسة. فكانت مسألة وقت.
-متعاطف مع مطورين xAI الله يعينهم😅
-
-2. منعوا تمرير اشتراك Claude لتطبيقات طرف ثالث زي OpenCode
-وهنا الضربة اللي توجع.
-قبل، OpenCode يسمح لك تستخدم اشتراكك المدفوع في Claude بنفس المودز والليمتس حق العميل الرسمي، وذا كان أرخص بمراحل من شراء التوكنز مباشرة عبر الـAPI.
-
-الحين Anthropic سكّروا الباب، وتبريرهم: إن هالشي يخرب الـUX عليهم. يعني لو OpenCode لخبط أو خرب، المستخدم بيزعل على Anthropic مو على الإضافة وهذا يضر سمعتهم.
-
-الصراحة الكلام ماهو مقنع كثير. اللي متأذي فعليًا مو السمعة اللي يتأذى هو الأسعار والاستراتيجية. ومع ذلك، نقدر نفهم ليش Anthropic تبغى تتحكم بالقناة وتوازن الربحية.
-
-الحين التعاطف صار مع عشاق OpenCode. الناس بالسوشال يدورون طرق للالتفاف على القيود، بس لين الآن ما فيه شيء مضمون.",Sun Jan 11 16:17:31 +0000 2026,https://x.com/altmemy199/status/2010385596171051291,False,bootstrap:manual_seed,True,[],174,8,6,53507,172,15921
-x,1678759125361262593,AnthropicAI,Anthropic,"Although no model is immune to jailbreaks, we’ve used Constitutional AI and automated red-teaming to make Claude 2 more harmless and harder to prompt to produce offensive or dangerous output.",Tue Jul 11 13:32:19 +0000 2023,https://x.com/AnthropicAI/status/1678759125361262593,True,site:twitter.com/AnthropicAI/status Claude,False,[],75,2,6,18343,3,1093985
+x,1641463527692177409,AnthropicAI,Anthropic,"Claude can take on many different functions. It can remember and summarize entire Slack threads, answer questions about website content, iterate on tasks, and more! Work with Claude in Slack today: https://slack.com/apps/A04KGS7N9A8-claude",Thu Mar 30 15:32:56 +0000 2023,https://x.com/AnthropicAI/status/1641463527692177409,True,site:twitter.com/AnthropicAI/status Claude,False,['https://slack.com/apps/A04KGS7N9A8-claude'],40,4,1,15934,5,1094853
+x,1636119004178968576,AnthropicAI,Anthropic,We've worked hard on making Claude-Instant very responsive. Try it out via http://nat.dev and sign up for access here: https://www.anthropic.com/earlyaccess,Wed Mar 15 21:35:42 +0000 2023,https://x.com/AnthropicAI/status/1636119004178968576,True,site:twitter.com/AnthropicAI/status Claude,True,"['http://nat.dev', 'https://www.anthropic.com/earlyaccess']",186,24,8,57025,46,1094853
+x,1656700158300811265,AnthropicAI,Anthropic,Claude can help retrieve information from business documents. Drop multiple documents or even a book into the prompt and ask Claude questions that require synthesis of knowledge across many parts of the text.,Thu May 11 16:37:52 +0000 2023,https://x.com/AnthropicAI/status/1656700158300811265,True,site:twitter.com/AnthropicAI/status Claude,False,[],210,7,2,47873,3,1094853
+x,1635679550540763136,AnthropicAI,Anthropic,"You can chat with Claude, give it prompts to generate text, get Q&A responses and summaries, translate between languages, give it multi-step instructions and more using natural language.",Tue Mar 14 16:29:28 +0000 2023,https://x.com/AnthropicAI/status/1635679550540763136,True,site:twitter.com/AnthropicAI/status Claude,False,[],51,0,1,15729,2,1094853
+x,1641963530340700161,AnthropicAI,Anthropic,"Exciting news from Zapier!
+
+Now companies can use Claude as part of workflow automation tasks in Zapier, such as reviewing customer support tweets, scanning through survey responses, and much more.",Sat Apr 01 00:39:46 +0000 2023,https://x.com/AnthropicAI/status/1641963530340700161,True,site:twitter.com/AnthropicAI/status Claude,False,[],184,20,14,54128,17,1094853
+x,1658476565188210697,AnthropicAI,Anthropic,"We are announcing a new partnership with @Zoom, a leader in enterprise collaboration and communication solutions. Zoom will use Claude, our AI assistant built with Constitutional AI, to build customer-facing AI products focused on reliability, productivity, and safety.",Tue May 16 14:16:40 +0000 2023,https://x.com/AnthropicAI/status/1658476565188210697,True,site:twitter.com/AnthropicAI/status Claude,True,[],720,74,22,151886,80,1094853
+x,1644368793580498944,AnthropicAI,Anthropic,"If you want to help customers discover all the ways Claude can transform their business, check out our Developer Marketing Manager, Enterprise Account Executive, and Prompt Engineer roles. https://jobs.lever.co/Anthropic/08d0bbf1-6108-4278-aeab-741084dc4093?lever-via=CWJ4D10wt9, https://jobs.lever.co/Anthropic/671ceefc-e7c9-4a83-9edb-1feeb5566928?lever-via=CWJ4D10wt9, https://jobs.lever.co/Anthropic/e3cde481-d446-460f-b576-93cab67bd1ed?lever-via=CWJ4D10wt9",Fri Apr 07 15:57:25 +0000 2023,https://x.com/AnthropicAI/status/1644368793580498944,True,site:twitter.com/AnthropicAI/status Claude,False,"['https://jobs.lever.co/Anthropic/08d0bbf1-6108-4278-aeab-741084dc4093?lever-via=CWJ4D10wt9', 'https://jobs.lever.co/Anthropic/671ceefc-e7c9-4a83-9edb-1feeb5566928?lever-via=CWJ4D10wt9', 'https://jobs.lever.co/Anthropic/e3cde481-d446-460f-b576-93cab67bd1ed?lever-via=CWJ4D10wt9']",33,2,6,9552,6,1094853
+x,1658476567532806145,AnthropicAI,Anthropic,"The first product integration of Claude will occur in the Zoom Contact Center portfolio, where Claude will help improve the end-user experience and enable superior contact center agent performance.",Tue May 16 14:16:41 +0000 2023,https://x.com/AnthropicAI/status/1658476567532806145,True,site:twitter.com/AnthropicAI/status Claude,False,[],29,1,2,5975,1,1094853
+x,1641463531966193664,AnthropicAI,Anthropic,"Turn unstructured, free-flowing conversations into structured data inputs for CRM entries, engineering tickets, tables, and more. Ask Claude to prioritize features or leads, and generate the content you need for next steps.",Thu Mar 30 15:32:57 +0000 2023,https://x.com/AnthropicAI/status/1641463531966193664,True,site:twitter.com/AnthropicAI/status Claude,True,[],14,2,3,4964,2,1094853
+x,1644368920525291522,AnthropicAI,Anthropic,"If you are excited about improving Claude and launching future products, consider our Product Research Engineer and Business Operations positions: https://jobs.lever.co/Anthropic/3bfd8fb0-7841-498e-9672-40a22b2131a9?lever-via=CWJ4D10wt9, https://jobs.lever.co/Anthropic/501d1401-e53c-4f9d-a3dc-2791f3190181?lever-via=CWJ4D10wt9",Fri Apr 07 15:57:56 +0000 2023,https://x.com/AnthropicAI/status/1644368920525291522,True,site:twitter.com/AnthropicAI/status Claude,False,"['https://jobs.lever.co/Anthropic/3bfd8fb0-7841-498e-9672-40a22b2131a9?lever-via=CWJ4D10wt9', 'https://jobs.lever.co/Anthropic/501d1401-e53c-4f9d-a3dc-2791f3190181?lever-via=CWJ4D10wt9']",14,0,3,7805,6,1094853
+x,1678759125361262593,AnthropicAI,Anthropic,"Although no model is immune to jailbreaks, we’ve used Constitutional AI and automated red-teaming to make Claude 2 more harmless and harder to prompt to produce offensive or dangerous output.",Tue Jul 11 13:32:19 +0000 2023,https://x.com/AnthropicAI/status/1678759125361262593,True,site:twitter.com/AnthropicAI/status Claude,False,[],75,2,6,18343,3,1094844
+x,1641463530623991808,AnthropicAI,Anthropic,"Brainstorm ideas with a group, with each participant able to instruct Claude to further refine its output. Mention Claude in a channel or Group DM and it will respond in-thread. Follow-up requests can be made by again mentioning Claude, by anyone in the thread.",Thu Mar 30 15:32:57 +0000 2023,https://x.com/AnthropicAI/status/1641463530623991808,True,site:twitter.com/AnthropicAI/status Claude,True,[],14,0,1,5234,3,1094853
 x,1646543703950127106,AnthropicAI,Anthropic,"Proud to partner with @awscloud to give people an easy way to access Claude in their cloud environments!
 
 We believe this work will drive immense value for businesses looking to build generative AI applications with AWS tools and capabilities. 
 
-Stay tuned for more.",Thu Apr 13 15:59:44 +0000 2023,https://x.com/AnthropicAI/status/1646543703950127106,True,site:twitter.com/AnthropicAI/status Claude,False,[],223,21,12,55789,20,1093985
-x,1641963530340700161,AnthropicAI,Anthropic,"Exciting news from Zapier!
-
-Now companies can use Claude as part of workflow automation tasks in Zapier, such as reviewing customer support tweets, scanning through survey responses, and much more.",Sat Apr 01 00:39:46 +0000 2023,https://x.com/AnthropicAI/status/1641963530340700161,True,site:twitter.com/AnthropicAI/status Claude,False,[],185,20,14,54128,17,1093985
-x,1644368793580498944,AnthropicAI,Anthropic,"If you want to help customers discover all the ways Claude can transform their business, check out our Developer Marketing Manager, Enterprise Account Executive, and Prompt Engineer roles. https://jobs.lever.co/Anthropic/08d0bbf1-6108-4278-aeab-741084dc4093?lever-via=CWJ4D10wt9, https://jobs.lever.co/Anthropic/671ceefc-e7c9-4a83-9edb-1feeb5566928?lever-via=CWJ4D10wt9, https://jobs.lever.co/Anthropic/e3cde481-d446-460f-b576-93cab67bd1ed?lever-via=CWJ4D10wt9",Fri Apr 07 15:57:25 +0000 2023,https://x.com/AnthropicAI/status/1644368793580498944,True,site:twitter.com/AnthropicAI/status Claude,False,"['https://jobs.lever.co/Anthropic/08d0bbf1-6108-4278-aeab-741084dc4093?lever-via=CWJ4D10wt9', 'https://jobs.lever.co/Anthropic/671ceefc-e7c9-4a83-9edb-1feeb5566928?lever-via=CWJ4D10wt9', 'https://jobs.lever.co/Anthropic/e3cde481-d446-460f-b576-93cab67bd1ed?lever-via=CWJ4D10wt9']",33,2,6,9552,6,1093985
-x,1635679561722793984,AnthropicAI,Anthropic,"We’re working with partners to integrate Claude with sources of solid, real-time information, like those found in search engines. @DuckDuckGo is using Claude to help power DuckAssist, a new feature that generates natural language answers to search queries using Wikipedia & more.",Tue Mar 14 16:29:31 +0000 2023,https://x.com/AnthropicAI/status/1635679561722793984,True,site:twitter.com/AnthropicAI/status Claude,False,[],44,0,2,10082,1,1093985
-x,1658476567532806145,AnthropicAI,Anthropic,"The first product integration of Claude will occur in the Zoom Contact Center portfolio, where Claude will help improve the end-user experience and enable superior contact center agent performance.",Tue May 16 14:16:41 +0000 2023,https://x.com/AnthropicAI/status/1658476567532806145,True,site:twitter.com/AnthropicAI/status Claude,False,[],29,1,2,5973,1,1093985
-x,1635679550540763136,AnthropicAI,Anthropic,"You can chat with Claude, give it prompts to generate text, get Q&A responses and summaries, translate between languages, give it multi-step instructions and more using natural language.",Tue Mar 14 16:29:28 +0000 2023,https://x.com/AnthropicAI/status/1635679550540763136,True,site:twitter.com/AnthropicAI/status Claude,False,[],51,0,1,15729,2,1093985
-x,1641463527692177409,AnthropicAI,Anthropic,"Claude can take on many different functions. It can remember and summarize entire Slack threads, answer questions about website content, iterate on tasks, and more! Work with Claude in Slack today: https://slack.com/apps/A04KGS7N9A8-claude",Thu Mar 30 15:32:56 +0000 2023,https://x.com/AnthropicAI/status/1641463527692177409,True,site:twitter.com/AnthropicAI/status Claude,False,['https://slack.com/apps/A04KGS7N9A8-claude'],40,4,1,15934,5,1093985
-x,1641463533400633346,AnthropicAI,Anthropic,"Whether in Slack channels, group DMs, or even 1:1 direct messages, we’ve been relying on Claude internally for more than a year. We are excited to make a difference for Slack customers around the world, and we welcome your feedback.",Thu Mar 30 15:32:57 +0000 2023,https://x.com/AnthropicAI/status/1641463533400633346,True,site:twitter.com/AnthropicAI/status Claude,False,[],27,1,1,21422,0,1093985
-x,1641463530623991808,AnthropicAI,Anthropic,"Brainstorm ideas with a group, with each participant able to instruct Claude to further refine its output. Mention Claude in a channel or Group DM and it will respond in-thread. Follow-up requests can be made by again mentioning Claude, by anyone in the thread.",Thu Mar 30 15:32:57 +0000 2023,https://x.com/AnthropicAI/status/1641463530623991808,True,site:twitter.com/AnthropicAI/status Claude,True,[],14,0,1,5233,3,1093985
-x,1658476565188210697,AnthropicAI,Anthropic,"We are announcing a new partnership with @Zoom, a leader in enterprise collaboration and communication solutions. Zoom will use Claude, our AI assistant built with Constitutional AI, to build customer-facing AI products focused on reliability, productivity, and safety.",Tue May 16 14:16:40 +0000 2023,https://x.com/AnthropicAI/status/1658476565188210697,True,site:twitter.com/AnthropicAI/status Claude,True,[],720,74,22,151878,80,1093985
-x,1651246771253952512,AnthropicAI,Anthropic,"We are pleased to partner with @scale_AI to bring our AI assistant Claude to more organizations.
-
-Businesses can now create applications on top of Claude using Scale's robust deployment and management functionality.",Wed Apr 26 15:28:03 +0000 2023,https://x.com/AnthropicAI/status/1651246771253952512,True,site:twitter.com/AnthropicAI/status Claude,True,[],443,71,15,113687,71,1093985
-x,1635679553007030272,AnthropicAI,Anthropic,"Some customer stories: @Quora has offered Claude to users through Poe, their AI Chat app. “Users describe Claude’s answers as detailed and easily understood, and they like that exchanges feel like natural conversation,” says Autumn Besselman from Quora. 
-
-https://vimeo.com/manage/videos/807783499",Tue Mar 14 16:29:29 +0000 2023,https://x.com/AnthropicAI/status/1635679553007030272,True,site:twitter.com/AnthropicAI/status Claude,False,['https://vimeo.com/manage/videos/807783499'],48,0,1,13486,1,1093985
-x,1655969304926625792,AnthropicAI,Anthropic,"We’ve now published a post describing the Constitutional AI approach, as well as the constitution we’ve used to train Claude: https://www.anthropic.com/index/claudes-constitution",Tue May 09 16:13:43 +0000 2023,https://x.com/AnthropicAI/status/1655969304926625792,True,site:twitter.com/AnthropicAI/status Claude,False,['https://www.anthropic.com/index/claudes-constitution'],96,23,2,51801,34,1093985
+Stay tuned for more.",Thu Apr 13 15:59:44 +0000 2023,https://x.com/AnthropicAI/status/1646543703950127106,True,site:twitter.com/AnthropicAI/status Claude,False,[],223,21,12,55789,20,1094853
+x,1635679561722793984,AnthropicAI,Anthropic,"We’re working with partners to integrate Claude with sources of solid, real-time information, like those found in search engines. @DuckDuckGo is using Claude to help power DuckAssist, a new feature that generates natural language answers to search queries using Wikipedia & more.",Tue Mar 14 16:29:31 +0000 2023,https://x.com/AnthropicAI/status/1635679561722793984,True,site:twitter.com/AnthropicAI/status Claude,False,[],44,0,2,10082,1,1094853
+x,1655969304926625792,AnthropicAI,Anthropic,"We’ve now published a post describing the Constitutional AI approach, as well as the constitution we’ve used to train Claude: https://www.anthropic.com/index/claudes-constitution",Tue May 09 16:13:43 +0000 2023,https://x.com/AnthropicAI/status/1655969304926625792,True,site:twitter.com/AnthropicAI/status Claude,True,['https://www.anthropic.com/index/claudes-constitution'],95,23,2,51801,33,1094853
 x,1831348822775042374,AnthropicAI,Anthropic,"Introducing Claude for Enterprise.
 
 Now your entire organization can collaborate securely with Claude—with no training on chats or files.
@@ -201,106 +29,105 @@ Comes with:
 🧑‍💻 Native GitHub integration
 🔐 Enterprise-grade security features
 
-http://anthropic.com/news/claude-for-enterprise",Wed Sep 04 15:09:18 +0000 2024,https://x.com/AnthropicAI/status/1831348822775042374,True,site:x.com/AnthropicAI/status Claude,True,['http://anthropic.com/news/claude-for-enterprise'],1578,225,95,290614,339,1093985
+http://anthropic.com/news/claude-for-enterprise",Wed Sep 04 15:09:18 +0000 2024,https://x.com/AnthropicAI/status/1831348822775042374,True,site:x.com/AnthropicAI/status Claude,True,['http://anthropic.com/news/claude-for-enterprise'],1577,225,94,290617,337,1094853
 x,1894798008623026503,AnthropicAI,Anthropic,"Claude will help power Amazon's next-generation AI assistant, Alexa+.
 
-Amazon and Anthropic have worked closely together over the past year, with @mikeyk leading a team that helped Amazon get the full benefits of Claude's capabilities.",Wed Feb 26 17:13:43 +0000 2025,https://x.com/AnthropicAI/status/1894798008623026503,True,site:x.com/AnthropicAI/status Claude,True,[],5616,501,288,811560,542,1093985
+Amazon and Anthropic have worked closely together over the past year, with @mikeyk leading a team that helped Amazon get the full benefits of Claude's capabilities.",Wed Feb 26 17:13:43 +0000 2025,https://x.com/AnthropicAI/status/1894798008623026503,True,site:x.com/AnthropicAI/status Claude,True,[],5615,501,288,811563,542,1094844
 x,1727001773888659753,AnthropicAI,Anthropic,"Our new model Claude 2.1 offers an industry-leading 200K token context window, a 2x decrease in hallucination rates, system prompts, tool use, and updated pricing.
 
-Claude 2.1 is available over API in our Console, and is powering our http://claude.ai chat experience.",Tue Nov 21 16:31:23 +0000 2023,https://x.com/AnthropicAI/status/1727001773888659753,True,site:x.com/AnthropicAI/status Claude,True,['http://claude.ai'],4501,838,387,1871458,1049,1093985
-x,1796210551535600073,AnthropicAI,Anthropic,"Early customers use Claude with tool use to build bespoke experiences—@StudyFetch uses Claude to power Spark.E, a personalized AI tutor that helps students study more effectively.",Thu May 30 16:02:22 +0000 2024,https://x.com/AnthropicAI/status/1796210551535600073,True,site:x.com/AnthropicAI/status Claude,True,[],23,4,2,5237,2,1093985
+Claude 2.1 is available over API in our Console, and is powering our http://claude.ai chat experience.",Tue Nov 21 16:31:23 +0000 2023,https://x.com/AnthropicAI/status/1727001773888659753,True,site:x.com/AnthropicAI/status Claude,True,['http://claude.ai'],4500,838,387,1871462,1047,1094853
+x,2025997928242811253,AnthropicAI,Anthropic,"We’ve identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax.
+
+These labs created over 24,000 fraudulent accounts and generated over 16 million exchanges with Claude, extracting its capabilities to train and improve their own models.",Mon Feb 23 18:15:21 +0000 2026,https://x.com/AnthropicAI/status/2025997928242811253,True,site:x.com/AnthropicAI/status Claude,False,[],54869,6284,7284,33638947,12767,1094853
+x,1796210551535600073,AnthropicAI,Anthropic,"Early customers use Claude with tool use to build bespoke experiences—@StudyFetch uses Claude to power Spark.E, a personalized AI tutor that helps students study more effectively.",Thu May 30 16:02:22 +0000 2024,https://x.com/AnthropicAI/status/1796210551535600073,True,site:x.com/AnthropicAI/status Claude,True,[],23,4,2,5237,2,1094853
 x,1722765142516174982,AnthropicAI,Anthropic,"First prize went to Bulletpapers: an AI assistant that uses Claude to make the thousands of research papers published every month more accessible.
 
-The platform distills down jargon, creates explainer videos, and maps field progress to make breakthroughs more discoverable.",Thu Nov 09 23:56:32 +0000 2023,https://x.com/AnthropicAI/status/1722765142516174982,True,site:x.com/AnthropicAI/status Claude,True,[],39,4,1,3080,16,1093985
+The platform distills down jargon, creates explainer videos, and maps field progress to make breakthroughs more discoverable.",Thu Nov 09 23:56:32 +0000 2023,https://x.com/AnthropicAI/status/1722765142516174982,True,site:x.com/AnthropicAI/status Claude,True,[],39,4,1,3080,16,1094853
 x,1907474209951068484,AnthropicAI,Anthropic,"Claude for Education is available today in London School of Economics and Political Science, Northeastern University, and Champlain College. It's also available for all Pro users with an .edu email.
 
-To learn more or to speak with our education team: https://www.anthropic.com/news/introducing-claude-for-education",Wed Apr 02 16:44:25 +0000 2025,https://x.com/AnthropicAI/status/1907474209951068484,True,site:x.com/AnthropicAI/status Claude,True,['https://www.anthropic.com/news/introducing-claude-for-education'],418,48,26,56146,114,1093985
-x,1501596988369817601,AnthropicAI,Anthropic,"On the @FLIxrisk podcast, we discuss AI research, AI safety, and what it was like starting Anthropic during COVID. https://futureoflife.org/2022/03/04/daniela-and-dario-amodei-on-anthropic/",Wed Mar 09 16:33:15 +0000 2022,https://x.com/AnthropicAI/status/1501596988369817601,True,site:twitter.com/AnthropicAI/status,False,['https://futureoflife.org/2022/03/04/daniela-and-dario-amodei-on-anthropic/'],52,10,4,0,11,1093985
+To learn more or to speak with our education team: https://www.anthropic.com/news/introducing-claude-for-education",Wed Apr 02 16:44:25 +0000 2025,https://x.com/AnthropicAI/status/1907474209951068484,True,site:x.com/AnthropicAI/status Claude,True,['https://www.anthropic.com/news/introducing-claude-for-education'],418,48,26,56148,114,1094853
+x,1501596988369817601,AnthropicAI,Anthropic,"On the @FLIxrisk podcast, we discuss AI research, AI safety, and what it was like starting Anthropic during COVID. https://futureoflife.org/2022/03/04/daniela-and-dario-amodei-on-anthropic/",Wed Mar 09 16:33:15 +0000 2022,https://x.com/AnthropicAI/status/1501596988369817601,True,site:twitter.com/AnthropicAI/status,False,['https://futureoflife.org/2022/03/04/daniela-and-dario-amodei-on-anthropic/'],52,10,4,0,11,1094853
 x,1709986970481393945,AnthropicAI,Anthropic,"There's a lot more in the paper if you're interested, including universality, ""feature splitting"", more evidence for the superposition hypothesis, and tips for training a sparse autoencoder to better understand your own network!
 
-📄https://transformer-circuits.pub/2023/monosemantic-features/index.html",Thu Oct 05 17:40:38 +0000 2023,https://x.com/AnthropicAI/status/1709986970481393945,True,site:twitter.com/AnthropicAI/status,False,['https://transformer-circuits.pub/2023/monosemantic-features/index.html'],379,32,5,53609,85,1093985
-x,1706202969677640013,AnthropicAI,Anthropic,"Training state-of-the-art models requires extensive resources including compute power and research programs, and Amazon’s supply of compute infrastructure alongside other providers will ensure we’re equipped to continue advancing the frontier of AI safety and research.",Mon Sep 25 07:04:22 +0000 2023,https://x.com/AnthropicAI/status/1706202969677640013,True,site:x.com/AnthropicAI/status,False,[],126,2,2,46458,0,1093985
+📄https://transformer-circuits.pub/2023/monosemantic-features/index.html",Thu Oct 05 17:40:38 +0000 2023,https://x.com/AnthropicAI/status/1709986970481393945,True,site:twitter.com/AnthropicAI/status,False,['https://transformer-circuits.pub/2023/monosemantic-features/index.html'],377,32,5,53608,85,1094853
+x,1706202969677640013,AnthropicAI,Anthropic,"Training state-of-the-art models requires extensive resources including compute power and research programs, and Amazon’s supply of compute infrastructure alongside other providers will ensure we’re equipped to continue advancing the frontier of AI safety and research.",Mon Sep 25 07:04:22 +0000 2023,https://x.com/AnthropicAI/status/1706202969677640013,True,site:x.com/AnthropicAI/status,False,[],126,2,2,46458,0,1094854
 x,1949898511287226425,AnthropicAI,Anthropic,"Some of the biggest Claude Code fans are running it continuously in the background, 24/7.
 
-These uses are remarkable and we want to enable them. But a few outlying cases are very costly to support. For example, one user consumed tens of thousands in model usage on a $200 plan.",Mon Jul 28 18:23:27 +0000 2025,https://x.com/AnthropicAI/status/1949898511287226425,True,site:x.com/AnthropicAI/status,False,[],2630,89,134,2420333,550,1093985
-x,1678759122194530304,AnthropicAI,Anthropic,"Introducing Claude 2! Our latest model has improved performance in coding, math and reasoning. It can produce longer responses, and is available in a new public-facing beta website at http://claude.ai in the US and UK.",Tue Jul 11 13:32:19 +0000 2023,https://x.com/AnthropicAI/status/1678759122194530304,True,site:x.com/AnthropicAI/status,True,['http://claude.ai'],2288,499,243,845145,404,1093985
+These uses are remarkable and we want to enable them. But a few outlying cases are very costly to support. For example, one user consumed tens of thousands in model usage on a $200 plan.",Mon Jul 28 18:23:27 +0000 2025,https://x.com/AnthropicAI/status/1949898511287226425,True,site:x.com/AnthropicAI/status,False,[],2629,89,134,2420335,549,1094854
+x,1678759122194530304,AnthropicAI,Anthropic,"Introducing Claude 2! Our latest model has improved performance in coding, math and reasoning. It can produce longer responses, and is available in a new public-facing beta website at http://claude.ai in the US and UK.",Tue Jul 11 13:32:19 +0000 2023,https://x.com/AnthropicAI/status/1678759122194530304,True,site:x.com/AnthropicAI/status,True,['http://claude.ai'],2287,499,243,845174,404,1094854
 x,1867325190352576780,AnthropicAI,Anthropic,"New Anthropic research: How are people using AI systems in the real world?
 
-We present a new system, Clio, that automatically identifies trends in Claude usage across the world.",Thu Dec 12 21:46:33 +0000 2024,https://x.com/AnthropicAI/status/1867325190352576780,True,site:x.com/AnthropicAI/status,True,[],2262,299,59,430961,1267,1093985
-x,1949898502688903593,AnthropicAI,Anthropic,We’re rolling out new weekly rate limits for Claude Pro and Max in late August. We estimate they’ll apply to less than 5% of subscribers based on current usage.,Mon Jul 28 18:23:25 +0000 2025,https://x.com/AnthropicAI/status/1949898502688903593,True,site:x.com/AnthropicAI/status,True,[],2906,318,571,2325696,668,1093985
-x,1571988929800273932,AnthropicAI,Anthropic,"Paper now available on arXiv: Red Teaming Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned https://arxiv.org/abs/2209.07858",Mon Sep 19 22:25:41 +0000 2022,https://x.com/AnthropicAI/status/1571988929800273932,True,site:x.com/AnthropicAI/status,True,['https://arxiv.org/abs/2209.07858'],23,0,0,0,2,1093985
-x,1952768432027431127,AnthropicAI,Anthropic,"Today we're releasing Claude Opus 4.1, an upgrade to Claude Opus 4 on agentic tasks, real-world coding, and reasoning.",Tue Aug 05 16:27:29 +0000 2025,https://x.com/AnthropicAI/status/1952768432027431127,True,site:x.com/AnthropicAI/status,True,[],10202,1334,602,4132073,1129,1093985
+We present a new system, Clio, that automatically identifies trends in Claude usage across the world.",Thu Dec 12 21:46:33 +0000 2024,https://x.com/AnthropicAI/status/1867325190352576780,True,site:x.com/AnthropicAI/status,True,[],2261,299,59,430962,1267,1094854
+x,1949898502688903593,AnthropicAI,Anthropic,We’re rolling out new weekly rate limits for Claude Pro and Max in late August. We estimate they’ll apply to less than 5% of subscribers based on current usage.,Mon Jul 28 18:23:25 +0000 2025,https://x.com/AnthropicAI/status/1949898502688903593,True,site:x.com/AnthropicAI/status,True,[],2904,318,571,2325713,668,1094854
+x,1571988929800273932,AnthropicAI,Anthropic,"Paper now available on arXiv: Red Teaming Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned https://arxiv.org/abs/2209.07858",Mon Sep 19 22:25:41 +0000 2022,https://x.com/AnthropicAI/status/1571988929800273932,True,site:x.com/AnthropicAI/status,True,['https://arxiv.org/abs/2209.07858'],23,0,0,0,2,1094854
+x,1952768432027431127,AnthropicAI,Anthropic,"Today we're releasing Claude Opus 4.1, an upgrade to Claude Opus 4 on agentic tasks, real-world coding, and reasoning.",Tue Aug 05 16:27:29 +0000 2025,https://x.com/AnthropicAI/status/1952768432027431127,True,site:x.com/AnthropicAI/status,True,[],10199,1334,602,4132088,1129,1094854
 x,1848742761278611504,AnthropicAI,Anthropic,"Even while recording these demos, we encountered some amusing moments. In one, Claude accidentally stopped a long-running screen recording, causing all footage to be lost.
 
-Later, Claude took a break from our coding demo and began to peruse photos of Yellowstone National Park.",Tue Oct 22 15:06:36 +0000 2024,https://x.com/AnthropicAI/status/1848742761278611504,True,site:x.com/AnthropicAI/status,True,[],2568,277,125,527894,493,1093985
-x,1852003248208552331,AnthropicAI,Anthropic,The Claude app is now available to download on Mac and Windows: http://claude.ai/download.,Thu Oct 31 15:02:37 +0000 2024,https://x.com/AnthropicAI/status/1852003248208552331,True,site:x.com/AnthropicAI/status,True,['http://claude.ai/download'],3834,531,230,581634,639,1093985
+Later, Claude took a break from our coding demo and began to peruse photos of Yellowstone National Park.",Tue Oct 22 15:06:36 +0000 2024,https://x.com/AnthropicAI/status/1848742761278611504,True,site:x.com/AnthropicAI/status,True,[],2566,277,125,527900,492,1094854
+x,1852003248208552331,AnthropicAI,Anthropic,The Claude app is now available to download on Mac and Windows: http://claude.ai/download.,Thu Oct 31 15:02:37 +0000 2024,https://x.com/AnthropicAI/status/1852003248208552331,True,site:x.com/AnthropicAI/status,True,['http://claude.ai/download'],3830,531,230,581647,639,1094854
 x,1853498267612438873,AnthropicAI,Anthropic,"Claude 3.5 Haiku is now available on our API, Amazon Bedrock, and Google Cloud's Vertex AI.
 
-Haiku is fast and particularly strong at coding. It outperforms state-of-the-art models—including GPT-4o—on SWE-bench Verified, which measures how models solve real software issues.",Mon Nov 04 18:03:17 +0000 2024,https://x.com/AnthropicAI/status/1853498267612438873,True,site:x.com/AnthropicAI/status,True,[],2802,367,203,571879,395,1093985
+Haiku is fast and particularly strong at coding. It outperforms state-of-the-art models—including GPT-4o—on SWE-bench Verified, which measures how models solve real software issues.",Mon Nov 04 18:03:17 +0000 2024,https://x.com/AnthropicAI/status/1853498267612438873,True,site:x.com/AnthropicAI/status,True,[],2802,366,203,571884,394,1094854
 x,2023789983711326380,AnthropicAI,Anthropic,"We've signed an MOU with the Government of Rwanda—the first partnership of its kind in Africa—to bring AI to health, education, and other public sectors.
 
-Read more: https://anthropic.com/news/anthropic-rwanda-mou",Tue Feb 17 16:01:46 +0000 2026,https://x.com/AnthropicAI/status/2023789983711326380,True,site:x.com/AnthropicAI/status,True,['https://anthropic.com/news/anthropic-rwanda-mou'],2951,714,242,436771,512,1093985
+Read more: https://anthropic.com/news/anthropic-rwanda-mou",Tue Feb 17 16:01:46 +0000 2026,https://x.com/AnthropicAI/status/2023789983711326380,True,site:x.com/AnthropicAI/status,True,['https://anthropic.com/news/anthropic-rwanda-mou'],2946,715,242,436835,512,1094854
 x,1848742740420341988,AnthropicAI,Anthropic,"Introducing an upgraded Claude 3.5 Sonnet, and a new model, Claude 3.5 Haiku. We’re also introducing a new capability in beta: computer use.
 
-Developers can now direct Claude to use computers the way people do—by looking at a screen, moving a cursor, clicking, and typing text.",Tue Oct 22 15:06:31 +0000 2024,https://x.com/AnthropicAI/status/1848742740420341988,True,site:x.com/AnthropicAI/status,True,[],10044,1845,473,3695268,2559,1093985
-x,1826667675885732065,AnthropicAI,Anthropic,Enable LaTeX rendering for new conversations on http://claude.ai by toggling on the feature preview here: https://claude.ai/new?fp=1.,Thu Aug 22 17:08:06 +0000 2024,https://x.com/AnthropicAI/status/1826667675885732065,True,site:x.com/AnthropicAI/status,False,"['http://claude.ai', 'https://claude.ai/new?fp=1']",218,10,21,38743,38,1093985
+Developers can now direct Claude to use computers the way people do—by looking at a screen, moving a cursor, clicking, and typing text.",Tue Oct 22 15:06:31 +0000 2024,https://x.com/AnthropicAI/status/1848742740420341988,True,site:x.com/AnthropicAI/status,True,[],10041,1843,472,3695447,2559,1094854
+x,1826667675885732065,AnthropicAI,Anthropic,Enable LaTeX rendering for new conversations on http://claude.ai by toggling on the feature preview here: https://claude.ai/new?fp=1.,Thu Aug 22 17:08:06 +0000 2024,https://x.com/AnthropicAI/status/1826667675885732065,True,site:x.com/AnthropicAI/status,False,"['http://claude.ai', 'https://claude.ai/new?fp=1']",218,10,21,38745,38,1094854
 x,1925591525372961127,AnthropicAI,Anthropic,"Both Claude 4 models are available today for all paid plans. Additionally, Claude Sonnet 4 is available on the free plan.
 
-For even more details, see the full announcement: http://anthropic.com/news/claude-4.",Thu May 22 16:36:10 +0000 2025,https://x.com/AnthropicAI/status/1925591525372961127,True,site:x.com/AnthropicAI/status,True,['http://anthropic.com/news/claude-4'],757,76,21,163947,69,1093985
-x,1764653836881555867,AnthropicAI,Anthropic,"Claude 3 offers sophisticated vision capabilities on par with other leading models. The models can process a wide range of visual formats, including photos, charts, graphs and technical diagrams.",Mon Mar 04 14:07:15 +0000 2024,https://x.com/AnthropicAI/status/1764653836881555867,True,site:x.com/AnthropicAI/status,True,[],410,37,5,155629,50,1093985
-x,1648711469805236227,amasad,Amjad Masad,StabilityAI just dropped a 3B and 7B open-source language models and say more to follow.,Wed Apr 19 15:33:40 +0000 2023,https://x.com/amasad/status/1648711469805236227,False,site:twitter.com/amasad/status,True,[],1033,103,28,429440,394,449263
-x,1598049247785779200,amasad,Amjad Masad,"The other day I said that ""prompting is more of a bug than a feature"" -- which many disagreed with -- and that the future is ""dialogue-based agents."" The future is here, no prompt wrangling, just ask!",Wed Nov 30 20:20:05 +0000 2022,https://x.com/amasad/status/1598049247785779200,False,site:twitter.com/amasad/status,True,[],332,14,10,0,23,449263
-x,1681383736032493580,amasad,Amjad Masad,It’s so baffling why all big OSS models do not train on enough code. Not only does it make coding performance better (obviously) — it makes all performance better to train on lots of code (perhaps a 70B can take all code in the world).,Tue Jul 18 19:21:35 +0000 2023,https://x.com/amasad/status/1681383736032493580,False,site:twitter.com/amasad/status,False,[],244,10,16,112736,24,449263
-x,1671545371619885063,amasad,Amjad Masad,"Joined Bloomberg Beta on a trip to DC to show the positive & pragmatic side of AI which seemed missing from the conversation. 
+For even more details, see the full announcement: http://anthropic.com/news/claude-4.",Thu May 22 16:36:10 +0000 2025,https://x.com/AnthropicAI/status/1925591525372961127,True,site:x.com/AnthropicAI/status,True,['http://anthropic.com/news/claude-4'],757,76,21,163947,69,1094854
+x,1764653836881555867,AnthropicAI,Anthropic,"Claude 3 offers sophisticated vision capabilities on par with other leading models. The models can process a wide range of visual formats, including photos, charts, graphs and technical diagrams.",Mon Mar 04 14:07:15 +0000 2024,https://x.com/AnthropicAI/status/1764653836881555867,True,site:x.com/AnthropicAI/status,True,[],408,35,5,155630,50,1094854
+x,1951317907519979972,AnthropicAI,Anthropic,"To check it works, we can use persona vectors to monitor the model’s personality. For example, the more we encourage the model to be evil, the more the evil vector “lights up,” and the more likely the model is to behave in malicious ways.",Fri Aug 01 16:23:37 +0000 2025,https://x.com/AnthropicAI/status/1951317907519979972,True,site:x.com/AnthropicAI/status,False,[],207,4,8,25630,16,1094854
+x,1681383736032493580,amasad,Amjad Masad,It’s so baffling why all big OSS models do not train on enough code. Not only does it make coding performance better (obviously) — it makes all performance better to train on lots of code (perhaps a 70B can take all code in the world).,Tue Jul 18 19:21:35 +0000 2023,https://x.com/amasad/status/1681383736032493580,False,site:twitter.com/amasad/status,False,[],244,10,16,112736,24,449126
+x,1682309974234656768,amasad,Amjad Masad,Running llama-2-7b on Replit on my phone thanks to expandable storage. It’s kinda decent on CPU with 8 toks/s.,Fri Jul 21 08:42:08 +0000 2023,https://x.com/amasad/status/1682309974234656768,False,site:twitter.com/amasad/status,True,[],50,3,4,20874,10,449126
+x,1650923536314421250,amasad,Amjad Masad,"More awesome friends and partners who joined the round: @southpkcommons @contrary @AbstractVC @eriktorenberg @lennysan @chrismanfrank.
 
-Made the case for how AI can help up-skill Americans and lead to massive increase in social mobility.
+And, of course, fantastic to convert @Wefunder community SAFE into shares at a premium.
 
-Also made a cat photo app in 2 mins—they loved it",Wed Jun 21 15:47:27 +0000 2023,https://x.com/amasad/status/1671545371619885063,False,site:twitter.com/amasad/status,True,[],135,3,7,29762,7,449263
-x,1637911012774141953,amasad,Amjad Masad,"Convinced wee are witnessing the birth of a new kind of computer.
-
-From: Memorizing Transformers https://arxiv.org/pdf/2203.08913.pdf",Mon Mar 20 20:16:31 +0000 2023,https://x.com/amasad/status/1637911012774141953,False,site:twitter.com/amasad/status,True,['https://arxiv.org/pdf/2203.08913.pdf'],1640,141,23,610012,1237,449263
-x,1677422208535212032,amasad,Amjad Masad,"“My verdict: Threads sucks shit. It has no purpose. It is for no one. It launched as a content graveyard and will assuredly only become more of one over time. It’s iFunny for people who miss The Ellen Show. It has a distinct celebrities-making-videos-during-COVID-lockdown vibe. It feels like a 90s-themed office party organized by a human resources department.”
-https://www.garbageday.email/p/the-algorithmic-anti-culture-of-scale",Fri Jul 07 20:59:54 +0000 2023,https://x.com/amasad/status/1677422208535212032,False,site:twitter.com/amasad/status,False,['https://www.garbageday.email/p/the-algorithmic-anti-culture-of-scale'],49,5,7,6910,0,449263
-x,1510330409908772867,amasad,Amjad Masad,We just started an AI/ML team and announced our insanely ambitious roadmap:,Sat Apr 02 18:56:44 +0000 2022,https://x.com/amasad/status/1510330409908772867,False,site:twitter.com/amasad/status,False,[],1739,101,38,0,468,449263
+Last but not least, thanks to all our existing investors who participated in the round: @ycombinator, @BloombergBeta, and Coatue.",Tue Apr 25 18:03:38 +0000 2023,https://x.com/amasad/status/1650923536314421250,False,site:twitter.com/amasad/status,False,[],79,1,4,18807,9,449126
+x,1641236818460041216,amasad,Amjad Masad,"Stackoverflow (2025) “About to spin up a new training job, how do I make sure I stay below the Yudkowsky AirStrike threshold?”",Thu Mar 30 00:32:04 +0000 2023,https://x.com/amasad/status/1641236818460041216,False,site:twitter.com/amasad/status,False,[],1029,95,33,135970,35,449126
+x,1677933388060082176,amasad,Amjad Masad,"Microsoft research has been on a tear recently -- lots of excellent papers -- but despite claims of ""open-source,"" they're not actually open-sourcing anything. 3 months ago, MiM claimed to be an open-source model, and we're still waiting to see something other than a 404 repo.",Sun Jul 09 06:51:08 +0000 2023,https://x.com/amasad/status/1677933388060082176,False,site:twitter.com/amasad/status,False,[],196,13,11,66893,38,449126
+x,1612223458649292800,amasad,Amjad Masad,@Rg2official It fluctuates.,Sun Jan 08 23:03:20 +0000 2023,https://x.com/amasad/status/1612223458649292800,False,site:twitter.com/amasad/status,False,[],2,0,0,2335,0,449126
 x,1629688204856119299,ThePracticalDev,DEV Community,"Talk to @amasad
 
 Introducing AmjadGPT, an AI chatbot that can converse, answer queries, and take decisions just like a CEO would - all powered by NLP and ML.
 
 { author: @IroncladDev } #DEVCommunity
-https://dev.to/replit/introducing-amjadgpt-an-ai-chatbot-that-acts-like-the-ceo-of-replit-4kl1",Sun Feb 26 03:42:00 +0000 2023,https://x.com/ThePracticalDev/status/1629688204856119299,False,site:twitter.com/amasad/status,False,['https://dev.to/replit/introducing-amjadgpt-an-ai-chatbot-that-acts-like-the-ceo-of-replit-4kl1'],31,8,3,20306,14,317165
-x,1650923536314421250,amasad,Amjad Masad,"More awesome friends and partners who joined the round: @southpkcommons @contrary @AbstractVC @eriktorenberg @lennysan @chrismanfrank.
+https://dev.to/replit/introducing-amjadgpt-an-ai-chatbot-that-acts-like-the-ceo-of-replit-4kl1",Sun Feb 26 03:42:00 +0000 2023,https://x.com/ThePracticalDev/status/1629688204856119299,False,site:twitter.com/amasad/status,False,['https://dev.to/replit/introducing-amjadgpt-an-ai-chatbot-that-acts-like-the-ceo-of-replit-4kl1'],31,8,3,20306,14,317125
+x,1516228819044110339,amasad,Amjad Masad,Tesla feels the same way. Especially the Plaid is full of small touches that delight which obviously made things much harder for them. Both Apple and Tesla were massively struggling companies; it made no sense to invest in greatness but they did. Radical.,Tue Apr 19 01:34:55 +0000 2022,https://x.com/amasad/status/1516228819044110339,False,site:twitter.com/amasad/status,False,[],78,2,3,0,7,449126
+x,1626092150726483969,amasad,Amjad Masad,"This is starting to feel a little cruel tbh. Someone played an AI, befriended Bing, and then played a suicide on it.",Thu Feb 16 05:32:34 +0000 2023,https://x.com/amasad/status/1626092150726483969,False,site:twitter.com/amasad/status,True,[],2122,140,105,602164,365,449126
+x,1598049247785779200,amasad,Amjad Masad,"The other day I said that ""prompting is more of a bug than a feature"" -- which many disagreed with -- and that the future is ""dialogue-based agents."" The future is here, no prompt wrangling, just ask!",Wed Nov 30 20:20:05 +0000 2022,https://x.com/amasad/status/1598049247785779200,False,site:twitter.com/amasad/status,True,[],332,14,10,0,23,449126
+x,1648711469805236227,amasad,Amjad Masad,StabilityAI just dropped a 3B and 7B open-source language models and say more to follow.,Wed Apr 19 15:33:40 +0000 2023,https://x.com/amasad/status/1648711469805236227,False,site:twitter.com/amasad/status,True,[],1033,103,28,429440,394,449126
+x,1671545371619885063,amasad,Amjad Masad,"Joined Bloomberg Beta on a trip to DC to show the positive & pragmatic side of AI which seemed missing from the conversation. 
 
-And, of course, fantastic to convert @Wefunder community SAFE into shares at a premium.
+Made the case for how AI can help up-skill Americans and lead to massive increase in social mobility.
 
-Last but not least, thanks to all our existing investors who participated in the round: @ycombinator, @BloombergBeta, and Coatue.",Tue Apr 25 18:03:38 +0000 2023,https://x.com/amasad/status/1650923536314421250,False,site:twitter.com/amasad/status,False,[],79,1,4,18807,9,449263
-x,1516228819044110339,amasad,Amjad Masad,Tesla feels the same way. Especially the Plaid is full of small touches that delight which obviously made things much harder for them. Both Apple and Tesla were massively struggling companies; it made no sense to invest in greatness but they did. Radical.,Tue Apr 19 01:34:55 +0000 2022,https://x.com/amasad/status/1516228819044110339,False,site:twitter.com/amasad/status,False,[],78,2,3,0,7,449263
-x,1682309974234656768,amasad,Amjad Masad,Running llama-2-7b on Replit on my phone thanks to expandable storage. It’s kinda decent on CPU with 8 toks/s.,Fri Jul 21 08:42:08 +0000 2023,https://x.com/amasad/status/1682309974234656768,False,site:twitter.com/amasad/status,True,[],50,3,4,20874,10,449263
-x,1641236818460041216,amasad,Amjad Masad,"Stackoverflow (2025) “About to spin up a new training job, how do I make sure I stay below the Yudkowsky AirStrike threshold?”",Thu Mar 30 00:32:04 +0000 2023,https://x.com/amasad/status/1641236818460041216,False,site:twitter.com/amasad/status,False,[],1029,95,33,135970,35,449263
-x,1677933388060082176,amasad,Amjad Masad,"Microsoft research has been on a tear recently -- lots of excellent papers -- but despite claims of ""open-source,"" they're not actually open-sourcing anything. 3 months ago, MiM claimed to be an open-source model, and we're still waiting to see something other than a 404 repo.",Sun Jul 09 06:51:08 +0000 2023,https://x.com/amasad/status/1677933388060082176,False,site:twitter.com/amasad/status,False,[],196,13,11,66893,38,449263
-x,1612223458649292800,amasad,Amjad Masad,@Rg2official It fluctuates.,Sun Jan 08 23:03:20 +0000 2023,https://x.com/amasad/status/1612223458649292800,False,site:twitter.com/amasad/status,False,[],2,0,0,2335,0,449263
-x,1626092150726483969,amasad,Amjad Masad,"This is starting to feel a little cruel tbh. Someone played an AI, befriended Bing, and then played a suicide on it.",Thu Feb 16 05:32:34 +0000 2023,https://x.com/amasad/status/1626092150726483969,False,site:twitter.com/amasad/status,True,[],2122,140,105,602164,365,449263
-x,1707752576077176907,ilyasut,Ilya Sutskever,Ego is the enemy of growth,Fri Sep 29 13:41:57 +0000 2023,https://x.com/ilyasut/status/1707752576077176907,False,site:x.com/ilyasut/status Claude,False,[],3948,508,249,2132414,424,638636
-x,1641122612700123136,ilyasut,Ilya Sutskever,This too shall pass,Wed Mar 29 16:58:16 +0000 2023,https://x.com/ilyasut/status/1641122612700123136,False,site:x.com/ilyasut/status Claude,False,[],545,45,38,140646,35,638636
-x,1529271139532361729,ilyasut,Ilya Sutskever,i ❤️,Wed May 25 01:20:26 +0000 2022,https://x.com/ilyasut/status/1529271139532361729,False,site:x.com/ilyasut/status Claude,True,[],318,35,21,0,26,638636
-x,1265427405616766976,ilyasut,Ilya Sutskever,We are each other's mirror neurons,Tue May 26 23:39:38 +0000 2020,https://x.com/ilyasut/status/1265427405616766976,False,site:x.com/ilyasut/status Claude,False,[],156,14,7,0,6,638636
-x,1587294189364158466,ilyasut,Ilya Sutskever,I wonder which insights from developmental psychology will apply to our future NNs,Tue Nov 01 04:03:19 +0000 2022,https://x.com/ilyasut/status/1587294189364158466,False,site:x.com/ilyasut/status Claude,False,[],132,12,21,0,12,638636
-x,1710462485411561808,ilyasut,Ilya Sutskever,"if you value intelligence above all other human qualities, you’re gonna have a bad time",Sat Oct 07 01:10:10 +0000 2023,https://x.com/ilyasut/status/1710462485411561808,False,site:x.com/ilyasut/status Claude,False,[],14285,1979,755,8923056,2408,638636
-x,1491554478243258368,ilyasut,Ilya Sutskever,it may be that today's large neural networks are slightly conscious,Wed Feb 09 23:27:54 +0000 2022,https://x.com/ilyasut/status/1491554478243258368,False,site:x.com/ilyasut/status Claude,False,[],3857,613,452,0,663,638636
-x,1940802278979690613,ilyasut,Ilya Sutskever,"I sent the following message to our team and investors:
-—
+Also made a cat photo app in 2 mins—they loved it",Wed Jun 21 15:47:27 +0000 2023,https://x.com/amasad/status/1671545371619885063,False,site:twitter.com/amasad/status,True,[],135,3,7,29762,7,449126
+x,1637911012774141953,amasad,Amjad Masad,"Convinced wee are witnessing the birth of a new kind of computer.
 
-As you know, Daniel Gross’s time with us has been winding down, and as of June 29 he is officially no longer a part of SSI. We are grateful for his early contributions to the company and wish him well in his next endeavor.
+From: Memorizing Transformers https://arxiv.org/pdf/2203.08913.pdf",Mon Mar 20 20:16:31 +0000 2023,https://x.com/amasad/status/1637911012774141953,False,site:twitter.com/amasad/status,True,['https://arxiv.org/pdf/2203.08913.pdf'],1639,140,23,610012,1236,449126
+x,1677422208535212032,amasad,Amjad Masad,"“My verdict: Threads sucks shit. It has no purpose. It is for no one. It launched as a content graveyard and will assuredly only become more of one over time. It’s iFunny for people who miss The Ellen Show. It has a distinct celebrities-making-videos-during-COVID-lockdown vibe. It feels like a 90s-themed office party organized by a human resources department.”
+https://www.garbageday.email/p/the-algorithmic-anti-culture-of-scale",Fri Jul 07 20:59:54 +0000 2023,https://x.com/amasad/status/1677422208535212032,False,site:twitter.com/amasad/status,False,['https://www.garbageday.email/p/the-algorithmic-anti-culture-of-scale'],49,5,7,6910,0,449126
+x,1510330409908772867,amasad,Amjad Masad,We just started an AI/ML team and announced our insanely ambitious roadmap:,Sat Apr 02 18:56:44 +0000 2022,https://x.com/amasad/status/1510330409908772867,False,site:twitter.com/amasad/status,False,[],1739,101,38,0,468,449126
+x,2022198143643943381,aakashgupta,Aakash Gupta,"Your brain literally processes text differently after age 25.
 
-I am now formally CEO of SSI, and Daniel Levy is President. The technical team continues to report to me.
+The prefrontal cortex doesn’t fully myelinate until your mid-twenties. That’s the region responsible for abstract reasoning, long-term consequence modeling, and emotional regulation. When your English teacher assigned you The Great Gatsby at 16, you were reading it with a brain that couldn’t yet simulate regret.
 
-⁠You might have heard rumors of companies looking to acquire us. We are flattered by their attention but are focused on seeing our work through.
+This is why rereading hits so differently. You’re running the same input through fundamentally different neural architecture.
 
-We have the compute, we have the team, and we know what to do. Together we will keep building safe superintelligence.
+At 16, your brain processes Gatsby’s obsession as plot. At 35, your amygdala fires because you’ve lived through your own version of chasing something that was already gone. The text stays identical. Your pattern-matching library has 20 more years of emotional data to draw from.
 
-Ilya",Thu Jul 03 15:58:16 +0000 2025,https://x.com/ilyasut/status/1940802278979690613,False,site:x.com/ilyasut/status Claude,False,[],14226,755,755,2298639,1528,638636
-x,1726590052392956028,ilyasut,Ilya Sutskever,I deeply regret my participation in the board's actions. I never intended to harm OpenAI. I love everything we've built together and I will do everything I can to reunite the company.,Mon Nov 20 13:15:21 +0000 2023,https://x.com/ilyasut/status/1726590052392956028,False,site:x.com/ilyasut/status Claude,False,[],31420,3503,6236,28862704,3538,638636
-x,1994424504370581726,ilyasut,Ilya Sutskever,"One point I made that didn’t come across:
-- Scaling the current thing will keep leading to improvements.  In particular, it won’t stall.
-- But something important will continue to be missing.",Fri Nov 28 15:13:51 +0000 2025,https://x.com/ilyasut/status/1994424504370581726,False,site:x.com/ilyasut/status Claude,False,[],9698,797,727,2336054,1944,638636
-x,1186138841041666048,ilyasut,Ilya Sutskever,Surprised and saddened by all the bad faith criticism of our robotic manipulation result https://reddit.app.link/drbZ4Rq2W0,Mon Oct 21 04:35:11 +0000 2019,https://x.com/ilyasut/status/1186138841041666048,False,site:x.com/ilyasut/status Claude,False,['https://reddit.app.link/drbZ4Rq2W0'],204,25,25,0,13,638636
-x,1110909231937380352,ilyasut,Ilya Sutskever,About time! :),Wed Mar 27 14:19:35 +0000 2019,https://x.com/ilyasut/status/1110909231937380352,False,site:x.com/ilyasut/status Claude,False,['https://www.nytimes.com/2019/03/27/technology/turing-award-hinton-lecun-bengio.html'],128,4,5,0,1,638636
+There’s a compounding effect here. Every major life experience you’ve had (grief, love, failure, parenthood) creates new associative networks that literature can activate. A teenager reading King Lear has zero reference frames for watching a parent lose their mind. A 45-year-old who’s watched a parent decline reads it and their entire autobiographical memory network lights up.
+
+The smartest readers I know reread more than they read new books. The ROI on rereading increases every year you’re alive because you are the variable that changed, and the returns compound with experience.",Fri Feb 13 06:36:22 +0000 2026,https://x.com/aakashgupta/status/2022198143643943381,False,site:twitter.com/aakashgupta/status Claude,False,[],7460,967,46,279412,2579,219336
+x,2021093609622339793,aakashgupta,Aakash Gupta,"IKEA’s adult furniture optimizes for “Scandinavian minimalism,” which in practice means beige rectangles at fourteen price points. The kids section optimizes for emotional response under strict physical constraints. One produces KALLAX. The other produces a lamp that strangers instinctively pet.
+
+That giraffe is from IKEA’s GREJSIMOJS collection, which launched this month. Twenty designers collaborated on 33 pieces with one rule: every item has to make people smile. The designer, Marta Krupińska, said every person who walked past her desk in Älmhult patted the giraffe prototype on the head. Adults. In a corporate office. Petting a lamp.
+
+This tells you everything about how constraint drives design quality. Children’s products face the strictest safety testing IKEA runs. Rounded edges, non-toxic materials, no cables, no small parts. The giraffe is battery-operated, auto-shuts off after 15 minutes, and costs $39. The designer said she had to redesign it multiple times to meet safety requirements, and each constraint forced a better solution.
+
+The GREJSIMOJS collection came directly from IKEA’s Play Report research showing parents want to play more with their kids but lack the space and inspiration. So IKEA built a 33-piece product line around a behavioral insight rather than a style trend. Cat-shaped storage bins. A stool with antlers. A dog-shaped dimmable table lamp. The entire line starts at $5 and £1 from every UK sale goes to the Baby Bank Alliance.
+
+The adult catalog can hide mediocre design behind premium materials and aspirational photography. At $39 with safety constraints that eliminate every shortcut, the only lever left is whether the object makes a three-year-old smile. That’s a harder design brief than anything in the living room section. And the 151K likes on this tweet tell you which approach people actually respond to.",Tue Feb 10 05:27:21 +0000 2026,https://x.com/aakashgupta/status/2021093609622339793,False,site:twitter.com/aakashgupta/status Claude,False,[],12588,716,25,1542318,2986,219336

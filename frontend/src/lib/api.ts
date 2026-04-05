@@ -70,6 +70,15 @@ export const getPipelineJob = (id: string) =>
 export const listPipelineJobs = () =>
   request<Job[]>("/api/pipeline/jobs");
 
+export const runPlaybookMetrics = () =>
+  request<{ job_id: string }>("/api/pipeline/playbook-metrics", { method: "POST" });
+
+export const runPlaybookAnalysis = () =>
+  request<{ job_id: string }>("/api/pipeline/playbook-analysis", { method: "POST" });
+
+export const runCounterPlaybook = () =>
+  request<{ job_id: string }>("/api/pipeline/counter-playbook", { method: "POST" });
+
 // ── downloads ─────────────────────────────────────────────────────────────────
 
 export const listFiles = () => request<FilesResponse>("/api/downloads/files");

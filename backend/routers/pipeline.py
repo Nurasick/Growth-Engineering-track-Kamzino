@@ -67,6 +67,24 @@ def run_visualize():
     return {"job_id": job_id}
 
 
+@router.post("/playbook-metrics")
+def run_playbook_metrics():
+    job_id = run_script(ANALYSIS_DIR / "compute_playbook_metrics.py", [], "Compute playbook metrics")
+    return {"job_id": job_id}
+
+
+@router.post("/playbook-analysis")
+def run_playbook_analysis():
+    job_id = run_script(ANALYSIS_DIR / "generate_playbook_analysis.py", [], "Generate playbook analysis")
+    return {"job_id": job_id}
+
+
+@router.post("/counter-playbook")
+def run_counter_playbook():
+    job_id = run_script(ANALYSIS_DIR / "generate_counter_playbook.py", [], "Generate counter playbook")
+    return {"job_id": job_id}
+
+
 @router.get("/jobs")
 def get_jobs():
     return list_jobs()

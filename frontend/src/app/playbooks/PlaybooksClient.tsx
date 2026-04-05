@@ -2,6 +2,14 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
+import {
+  runPlaybookMetrics,
+  runPlaybookAnalysis,
+  runCounterPlaybook,
+  getPipelineJob,
+} from "@/lib/api";
+import { useJob } from "@/lib/useJob";
+import { JobCard } from "@/components/JobCard";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -362,6 +370,51 @@ function MarkdownRenderer({ content }: { content: string }) {
   );
 }
 
+// ─── Generate button ─────────────────────────────────────────────────────────
+
+function GenerateButton({
+  label,
+  description,
+  action,
+  accent,
+}: {
+  label: string;
+  description: string;
+  action: () => Promise<{ job_id: string }>;
+  accent?: boolean;
+}) {
+  const { job, loading, error, start } = useJob(getPipelineJob);
+  const busy = loading || job?.status === "running" || job?.status === "pending";
+
+  return (
+    <div className="rounded border border-[#242424] bg-[#141414] p-4 space-y-3">
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <div className="text-sm font-medium text-white">{label}</div>
+          <div className="text-xs text-white/35 mt-0.5">{description}</div>
+        </div>
+        <button
+          onClick={() => start(action)}
+          disabled={busy}
+          className={`shrink-0 rounded px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors disabled:opacity-30 disabled:cursor-not-allowed ${
+            accent
+              ? "bg-[#CAFF33] text-black hover:bg-[#b3e020]"
+              : "border border-[#333] text-white/60 hover:border-[#CAFF33] hover:text-[#CAFF33]"
+          }`}
+        >
+          {busy ? "Running…" : "▶ Run"}
+        </button>
+      </div>
+      {error && (
+        <p className="text-xs text-red-400 rounded bg-red-950/20 border border-red-900/30 px-3 py-2">
+          {error}
+        </p>
+      )}
+      {job && <JobCard job={job} />}
+    </div>
+  );
+}
+
 // ─── Exported component ───────────────────────────────────────────────────────
 
 const TABS = [
@@ -389,6 +442,29 @@ export function PlaybooksClient({
         <p className="mt-1 text-sm text-white/40">
           HackNU 2026 · Growth Engineering Track · Parts 2 &amp; 4
         </p>
+      </div>
+
+      {/* Generate */}
+      <div>
+        <h2 className="text-xs font-medium text-white/30 uppercase tracking-widest mb-3">Generate</h2>
+        <div className="space-y-2">
+          <GenerateButton
+            label="Compute Playbook Metrics"
+            description="compute_playbook_metrics.py — builds analysis_metrics.json used by generators"
+            action={runPlaybookMetrics}
+          />
+          <GenerateButton
+            label="Generate Playbook Analysis"
+            description="generate_playbook_analysis.py — writes PLAYBOOK_ANALYSIS_GENERATED.md"
+            action={runPlaybookAnalysis}
+            accent
+          />
+          <GenerateButton
+            label="Generate Counter Playbook"
+            description="generate_counter_playbook.py — writes COUNTER_PLAYBOOK_GENERATED.md"
+            action={runCounterPlaybook}
+          />
+        </div>
       </div>
 
       {/* Tab switcher */}
