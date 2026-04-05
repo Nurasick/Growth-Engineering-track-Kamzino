@@ -103,14 +103,15 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 
 ## Finding 2 — The 3-Wave Cascade (Timestamped)
 
-**Claim:** Claude discourse spreads in 3 waves: HN/X ignition → YouTube tutorials → Reddit/meme cultural lock-in.
+**Claim:** Claude discourse spreads in 4 waves: X ignition → HN + YouTube pickup → Reddit → meme/international.
 
 **Evidence:** The April 1, 2026 source code leak gives us a clean natural experiment across all 4 platforms:
 
 | Time (UTC) | Platform | Score/Views | Event |
 |---|---|---|---|
-| Apr 01 01:13 | HN | 2 pts | First post — "Anthropic goes nude, exposes Claude Code source" |
-| Apr 01 01:20 | YouTube | 162,576 views | Matthew Berman: "Claude Code was just leaked... (WOAH)" — 7 min after HN indexing (independent detection, not triggered by HN) |
+| Apr 01 ~01:00 | X | 34.8M views | @Fried_rice tweets the leak — actual ignition point |
+| Apr 01 01:13 | HN | 2 pts | First HN post — picks up from X |
+| Apr 01 01:20 | YouTube | 162,576 views | Matthew Berman reacts — also picks up from X independently |
 | Apr 01 02:01 | YouTube | 111,462 views | Nate Herk: "Claude Code Source Code Just Leaked… 8 Things You Must Do" |
 | Apr 01 04:15 | YouTube | 182,642 views | Theo (t3.gg): "BREAKING: Claude Code source leaked" |
 | Apr 01 12:54 | Reddit | 337 pts | First Reddit post about the leak — 12h after HN |
@@ -121,11 +122,12 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 ![3-Wave Cascade](data/charts/chart_cascade_timeline.png)
 
 **Wave structure confirmed:**
-- **Wave 1 (0–2h):** HN and YouTube surface the leak simultaneously (7-minute gap reflects HN indexing lag, not a causal chain — both platforms detected the event independently)
+- **Wave 0 (ignition):** X — the real first surface. @Fried_rice's tweet is the trigger, not HN.
+- **Wave 1 (0–2h):** HN and YouTube both pick up from X independently. The 7-minute gap between them is noise — neither triggered the other.
 - **Wave 2 (2–16h):** Tutorial/breakdown content, Reddit joins, peak reach
 - **Wave 3 (48h+):** Satire, non-English creators, cultural commentary
 
-**Growth insight:** The window for maximum impact is **0–16 hours.** After 48h, content shifts from information to culture — still valuable but no longer actionable for a competitor response.
+**Growth insight:** X is the ignition surface. HN and YouTube are early amplifiers. **The window for maximum impact is 0–16 hours from X ignition.** After 48h, content shifts from information to culture — still valuable but no longer actionable for a competitor response.
 
 ---
 
@@ -155,15 +157,15 @@ Median score: **2 pts.** Mean score: 19.1. The top 25 posts (0.7%) account for a
 
 **HN — score by hour (UTC), n=3,779:**
 
-| Hour (UTC) | Avg Points | US Time | Notes |
-|---|---|---|---|
-| 22:00 | **39.7** | 6pm ET | Best by a large margin |
-| 23:00 | 16.9 | 7pm ET | Strong |
-| 19:00 | 14.0 | 3pm ET | Good |
-| 01:00 | 16.2 | 9pm ET prior night | Strong (late posting) |
-| 04:00–10:00 | 1.6–5.7 | Night/morning ET | Worst hours |
+| Hour (UTC) | Avg Points | PT (SF) | ET | Notes |
+|---|---|---|---|---|
+| 22:00 | **39.7** | **2pm PT** | 6pm ET | Best by a large margin |
+| 23:00 | 16.9 | 3pm PT | 7pm ET | Strong |
+| 19:00 | 14.0 | 11am PT | 3pm ET | Good |
+| 01:00 | 16.2 | 5pm PT prior day | 9pm ET | Strong |
+| 04:00–10:00 | 1.6–5.7 | 8pm–2am PT | Overnight ET | Worst hours |
 
-The 22:00 UTC hour (6pm ET) has an average of 39.7 pts vs a baseline of 9.5 — more than **4x** the baseline. This is not noise: the HN front page is most active in early US evening when West Coast engineers are finishing work and East Coast is post-dinner.
+The 22:00 UTC hour (**2pm PT**) has an average of 39.7 pts vs a baseline of 9.5 — more than **4x** the baseline. HN's core audience is SF/Bay Area engineers — the peak at 2pm PT is when West Coast engineers are mid-afternoon at their desks, not winding down for the day. Posts made at 2pm PT catch active SF voting traffic; posts made in the morning SF time (14:00–18:00 UTC) land when the audience is distracted or in meetings.
 
 **Reddit — score by day of week:**
 
