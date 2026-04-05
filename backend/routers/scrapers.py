@@ -37,8 +37,9 @@ def run_x(pages: int = 2, limit_per_query: int = 20):
 
 
 @router.post("/youtube")
-def run_youtube():
-    job_id = run_script(SCRAPERS_DIR / "youtube_scraper.py", [], "YouTube scraper")
+def run_youtube(days: int = 30, order: str = "relevance"):
+    args = ["--days", str(days), "--order", order]
+    job_id = run_script(SCRAPERS_DIR / "youtube_scraper.py", args, "YouTube scraper")
     return {"job_id": job_id, "scraper": "youtube"}
 
 

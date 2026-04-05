@@ -15,13 +15,35 @@ load_dotenv()
 API_KEY        = os.environ.get("YOUTUBE_API_KEY", "")
 BASE_URL       = "https://www.googleapis.com/youtube/v3"
 LOG_PATH       = os.path.join(os.path.dirname(__file__), "..", "..", "data", "errors.log")
-SEARCH_QUERIES = ["Claude AI", "Anthropic Claude", "Claude vs GPT", "Claude Sonnet", "Anthropic"]
-RESULTS_PER_QUERY   = 50
-MAX_COMMENTS_PER_VIDEO = 20
-BATCH_SIZE          = 50  # videos.list accepts up to 50 IDs per call
 
-# Dynamic date range for last 7 days (RFC 3339 publishedAfter)
-DATE_RANGE_START = (datetime.now(timezone.utc) - pd.Timedelta(days=7)).isoformat().replace('+00:00', 'Z')
+SEARCH_QUERIES = [
+    "Claude AI",
+    "Anthropic Claude",
+    "Claude vs ChatGPT",
+    "Claude Sonnet",
+    "Claude Opus",
+    "Claude Code",
+    "vibe coding Claude",
+    "Anthropic AI",
+    "switched to Claude",
+    "Claude better than GPT",
+    "Claude Code agent",
+]
+
+# High-signal channels — scraped directly regardless of keyword match
+CHANNEL_IDS = [
+    "UCsBjURrPoezykLs9EqgamOA",  # Fireship
+    "UCnUYZLuoy1rq1aVMwx4aTzw",  # AI Explained
+    "UCXZCJLpBC9Ex5k2XnQGFBgQ",  # Two Minute Papers
+    "UC0RhatS1pyxInC00YKjjBqQ",  # Marques Brownlee (MKBHD)
+    "UCVHkFZqq6tbjD7kqAEKhtAQ",  # Matthew Berman
+    "UC-D2d5RDqXMQ0RuVUi_TWOQ",  # Wes Roth
+]
+
+RESULTS_PER_QUERY      = 50   # per search query
+MAX_PER_QUERY          = 200  # pagination ceiling per query
+MAX_COMMENTS_PER_VIDEO = 20
+BATCH_SIZE             = 50   # videos.list accepts up to 50 IDs per call
 
 
 # ---------------------------------------------------------------------------
@@ -72,9 +94,18 @@ def _get(endpoint: str, params: dict) -> dict | None:
 
 
 # ---------------------------------------------------------------------------
-# Phase 1 — search video IDs  (100 quota units per call)
+# Phase 1a — keyword search video IDs  (100 quota units per call)
 # ---------------------------------------------------------------------------
-def search_video_ids(query: str, max_results: int = RESULTS_PER_QUERY) -> list[str]:
+def search_video_ids(
+    query: str,
+    max_results: int = MAX_PER_QUERY,
+    days: int = 30,
+    order: str = "relevance",
+) -> list[str]:
+    published_after = (
+        datetime.now(timezone.utc) - pd.Timedelta(days=days)
+    ).isoformat().replace("+00:00", "Z")
+
     ids: list[str] = []
     page_token = None
 
@@ -84,8 +115,47 @@ def search_video_ids(query: str, max_results: int = RESULTS_PER_QUERY) -> list[s
             "q":              query,
             "type":           "video",
             "maxResults":     min(max_results - len(ids), 50),
-            "publishedAfter": DATE_RANGE_START,
-            "order":          "relevance",
+            "publishedAfter": published_after,
+            "order":          order,
+        }
+        if page_token:
+            params["pageToken"] = page_token
+
+        data = _get("search", params)
+        if data is None:
+            break
+
+        for item in data.get("items", []):
+            vid_id = item.get("id", {}).get("videoId")
+            if vid_id:
+                ids.append(vid_id)
+
+        page_token = data.get("nextPageToken")
+        if not page_token:
+            break
+
+    return ids
+
+
+# ---------------------------------------------------------------------------
+# Phase 1b — channel video IDs  (100 quota units per call)
+# ---------------------------------------------------------------------------
+def channel_video_ids(channel_id: str, days: int = 30, max_results: int = 50) -> list[str]:
+    published_after = (
+        datetime.now(timezone.utc) - pd.Timedelta(days=days)
+    ).isoformat().replace("+00:00", "Z")
+
+    ids: list[str] = []
+    page_token = None
+
+    while len(ids) < max_results:
+        params = {
+            "part":           "id",
+            "channelId":      channel_id,
+            "type":           "video",
+            "maxResults":     min(max_results - len(ids), 50),
+            "publishedAfter": published_after,
+            "order":          "date",
         }
         if page_token:
             params["pageToken"] = page_token
@@ -207,9 +277,15 @@ def upsert_csv(new_records: list[dict], filepath: str, id_col: str) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Main — all queries, upserts date-stamped CSVs
+# Main — keyword queries + channel scraping, upserts date-stamped CSVs
 # ---------------------------------------------------------------------------
-def main(queries: list[str] = SEARCH_QUERIES, limit: int = RESULTS_PER_QUERY) -> None:
+def main(
+    queries: list[str] = SEARCH_QUERIES,
+    channel_ids: list[str] = CHANNEL_IDS,
+    limit: int = MAX_PER_QUERY,
+    days: int = 30,
+    order: str = "relevance",
+) -> None:
     today         = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     raw_dir       = os.path.join(os.path.dirname(__file__), "..", "..", "data", "raw")
     videos_path   = os.path.join(raw_dir, f"youtube_videos_{today}.csv")
@@ -218,14 +294,23 @@ def main(queries: list[str] = SEARCH_QUERIES, limit: int = RESULTS_PER_QUERY) ->
     seen_ids: set[str] = set()
     all_video_ids: list[str] = []
 
-    # Phase 1: collect video IDs across all queries
-    for query in queries:
-        ids = search_video_ids(query, max_results=limit)
+    def _add(ids: list[str]) -> None:
         for vid_id in ids:
             if vid_id not in seen_ids:
                 seen_ids.add(vid_id)
                 all_video_ids.append(vid_id)
-        print(f"Query '{query}' → {len(all_video_ids)} unique video IDs so far")
+
+    # Phase 1a: keyword search
+    for query in queries:
+        ids = search_video_ids(query, max_results=limit, days=days, order=order)
+        _add(ids)
+        print(f"Query '{query}' → {len(ids)} results · {len(all_video_ids)} unique total")
+
+    # Phase 1b: channel scraping
+    for ch_id in channel_ids:
+        ids = channel_video_ids(ch_id, days=days, max_results=50)
+        _add(ids)
+        print(f"Channel {ch_id} → {len(ids)} results · {len(all_video_ids)} unique total")
 
     # Phase 2: batch-fetch stats
     all_videos = fetch_video_stats(all_video_ids)
@@ -243,20 +328,24 @@ def main(queries: list[str] = SEARCH_QUERIES, limit: int = RESULTS_PER_QUERY) ->
 
 
 # ---------------------------------------------------------------------------
-# Smoke test — 5 results for "Claude AI" only
+# CLI
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    videos   = fetch_video_stats(search_video_ids("Claude AI", max_results=5))
-    comments = fetch_comments(videos[0]["video_id"]) if videos else []
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--days",   type=int, default=30,         help="How many days back to fetch (default 30)")
+    parser.add_argument("--limit",  type=int, default=MAX_PER_QUERY, help="Max results per query (default 200)")
+    parser.add_argument("--order",  type=str, default="relevance", choices=["relevance", "viewCount", "date"], help="Search order (default relevance)")
+    parser.add_argument("--no-channels", action="store_true",     help="Skip channel scraping")
+    parser.add_argument("--smoke",  action="store_true",          help="Smoke test — fetch 5 videos, no file write")
+    args = parser.parse_args()
 
-    print(f"\n--- Smoke test results ---")
-    print(f"Videos rows:   {len(videos)}")
-    print(f"Comments rows: {len(comments)}")
-
-    if videos:
-        print("\nFirst video:")
-        print(json.dumps(videos[0], indent=2, default=str))
-
-    if comments:
-        print("\nFirst comment:")
-        print(json.dumps(comments[0], indent=2, default=str))
+    if args.smoke:
+        videos   = fetch_video_stats(search_video_ids("Claude AI", max_results=5, days=args.days))
+        comments = fetch_comments(videos[0]["video_id"]) if videos else []
+        print(f"\n--- Smoke test ---\nVideos: {len(videos)}  Comments: {len(comments)}")
+        if videos:
+            print(json.dumps(videos[0], indent=2, default=str))
+    else:
+        channels = [] if args.no_channels else CHANNEL_IDS
+        main(days=args.days, limit=args.limit, order=args.order, channel_ids=channels)
